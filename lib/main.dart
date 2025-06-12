@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/di/injectable_initializer.dart';
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/router/routes_generator.dart';
 import 'package:fitness_app/core/services/bloc_observer.dart';
 import 'package:fitness_app/core/services/easy_loading_service.dart';
@@ -51,7 +52,7 @@ class MainAppContent extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      home: MainView(),
+      initialRoute: PagesRoutes.splashScreen,
     );
   }
 }

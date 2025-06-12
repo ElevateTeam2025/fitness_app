@@ -1,8 +1,16 @@
+import 'package:fitness_app/core/router/pages_routes.dart';
+import 'package:fitness_app/feature/splash/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class RoutesGenerator {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case PagesRoutes.splashScreen:
+        return MaterialPageRoute(
+          builder: (context) => const SplashScreen(),
+          settings: settings,
+        );
+
       default:
         return unDefinedRoute();
     }
