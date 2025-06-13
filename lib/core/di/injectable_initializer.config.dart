@@ -18,12 +18,22 @@ import '../../features/auth/forget_password/data/data_source/forget_password_rem
     as _i951;
 import '../../features/auth/forget_password/data/data_source/forget_password_remote_data_source_imp.dart'
     as _i527;
+import '../../features/auth/forget_password/data/data_source/verify_reset_code_remote_data_source.dart'
+    as _i274;
+import '../../features/auth/forget_password/data/data_source/verify_reset_code_remote_data_source_imp.dart'
+    as _i370;
 import '../../features/auth/forget_password/data/repo_imp/forget_password_repo_imp.dart'
     as _i1004;
+import '../../features/auth/forget_password/data/repo_imp/verify_reset_code_repo_imp.dart'
+    as _i363;
 import '../../features/auth/forget_password/domain/repo/forget_password_repo.dart'
     as _i484;
-import '../../features/auth/forget_password/presentation/cubit/forget_password_cubit.dart'
-    as _i231;
+import '../../features/auth/forget_password/domain/repo/verify_reset_code_repo.dart'
+    as _i640;
+import '../../features/auth/forget_password/presentation/cubits/forget_password_cubit/forget_password_cubit.dart'
+    as _i218;
+import '../../features/auth/forget_password/presentation/cubits/verify_reset_code_cubit/verify_reset_code_cubit.dart'
+    as _i829;
 import '../api/api_client.dart' as _i277;
 import '../api/network_factory.dart' as _i1013;
 import '../services/gemini_service.dart' as _i846;
@@ -41,6 +51,22 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i528.PrettyDioLogger>(() => dioProvider.providePretty());
     gh.lazySingleton<_i1013.AuthInterceptor>(() => _i1013.AuthInterceptor());
     gh.singleton<_i277.ApiClient>(() => _i277.ApiClient(gh<_i361.Dio>()));
+    gh.factory<_i274.VerifyResetCodeRemoteDataSource>(
+      () => _i370.VerifyResetCodeRemoteDataSourceImp(
+        apiClient: gh<_i277.ApiClient>(),
+      ),
+    );
+    gh.factory<_i640.VerifyResetCodeRepo>(
+      () => _i363.VerifyResetCodeRepoImp(
+        verifyResetCodeRemoteDataSource:
+            gh<_i274.VerifyResetCodeRemoteDataSource>(),
+      ),
+    );
+    gh.factory<_i829.VerifyResetCodeCubit>(
+      () => _i829.VerifyResetCodeCubit(
+        verifyResetCodeRepo: gh<_i640.VerifyResetCodeRepo>(),
+      ),
+    );
     gh.factory<_i951.ForgetPasswordRemoteDataSource>(
       () => _i527.ForgetPasswordRemoteDataSourceImp(
         apiClient: gh<_i277.ApiClient>(),
@@ -52,8 +78,8 @@ extension GetItInjectableX on _i174.GetIt {
             gh<_i951.ForgetPasswordRemoteDataSource>(),
       ),
     );
-    gh.factory<_i231.ForgetPasswordCubit>(
-      () => _i231.ForgetPasswordCubit(gh<_i484.ForgetPasswordRepo>()),
+    gh.factory<_i218.ForgetPasswordCubit>(
+      () => _i218.ForgetPasswordCubit(gh<_i484.ForgetPasswordRepo>()),
     );
     return this;
   }

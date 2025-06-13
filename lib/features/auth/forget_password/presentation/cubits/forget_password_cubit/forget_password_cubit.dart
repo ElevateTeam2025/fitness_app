@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:fitness_app/core/common/result.dart';
 import 'package:fitness_app/features/auth/forget_password/data/models/forget_password_request.dart';
 import 'package:fitness_app/features/auth/forget_password/domain/repo/forget_password_repo.dart';
-import 'package:fitness_app/features/auth/forget_password/presentation/cubit/forget_password_states.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/cubits/forget_password_cubit/forget_password_states.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

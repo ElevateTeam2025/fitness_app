@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_app/features/auth/forget_password/data/models/forget_password_request.dart';
+import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
@@ -14,4 +15,7 @@ abstract class ApiClient {
   factory ApiClient(Dio dio) = _ApiClient;
   @POST('/auth/forgotPassword')
   Future<void> forgotPassword(@Body() ForgotPasswordRequest request);
+
+  @POST('/auth/verifyResetCode')
+  Future<void> verifyResetCode(@Body() VerifyResetCodeRequest request);
 }
