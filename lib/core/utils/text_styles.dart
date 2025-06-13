@@ -40,6 +40,12 @@ abstract class AppTextStyles {
     fontSize: 13.FontSizeResponsive,
   );
 
+  static TextStyle get BalooThambi2_400_18 => TextStyle(
+    fontFamily: 'BalooThambi2',
+    fontWeight: FontWeight.w400,
+    fontSize: 18.FontSizeResponsive,
+  );
+
   static TextStyle get BalooThambi2_500_16 => TextStyle(
     fontFamily: 'BalooThambi2',
     fontWeight: FontWeight.w500,
@@ -71,6 +77,16 @@ abstract class AppTextStyles {
     fontFamily: 'BalooThambi2',
     fontWeight: FontWeight.w700,
     fontSize: 20.FontSizeResponsive,
+  );
+  static TextStyle get BalooThambi2_800_20 => TextStyle(
+    fontFamily: 'BalooThambi2',
+    fontWeight: FontWeight.w800,
+    fontSize: 20.FontSizeResponsive,
+  );
+  static TextStyle get BalooThambi2_800_14 => TextStyle(
+    fontFamily: 'BalooThambi2',
+    fontWeight: FontWeight.w800,
+    fontSize: 14.FontSizeResponsive,
   );
   static TextStyle get BalooThambi2_500_18 => TextStyle(
     fontFamily: 'BalooThambi2',
