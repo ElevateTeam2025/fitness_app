@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:fitness_app/core/common/get_responsive_height_and_width.dart';
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class CustomContainerWidget extends StatelessWidget {
           filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
           child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(24),
+            padding: EdgeInsets.symmetric(horizontal: responsiveWidth(24),vertical: responsiveHeight(16)),
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.1),
               borderRadius: BorderRadius.circular(30),
