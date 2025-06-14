@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/router/pages_routes.dart';
+import 'package:fitness_app/feature/splash/presentation/onboarding_screen.dart';
 import 'package:fitness_app/feature/splash/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,11 @@ class RoutesGenerator {
       case PagesRoutes.splashScreen:
         return MaterialPageRoute(
           builder: (context) => const SplashScreen(),
+          settings: settings,
+        );
+      case PagesRoutes.onBoarding:
+        return MaterialPageRoute(
+          builder: (context) => const OnboardingScreen(),
           settings: settings,
         );
 
