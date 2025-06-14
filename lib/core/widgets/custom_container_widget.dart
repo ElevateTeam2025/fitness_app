@@ -4,7 +4,7 @@ import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainerWidget extends StatelessWidget {
-  const CustomContainerWidget({super.key, required this.body});
+  const CustomContainerWidget({super.key, required this.body, });
 
   final List<Widget> body;
 

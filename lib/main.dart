@@ -11,6 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+import 'layout/presentation/layout_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await dotenv.load();
@@ -51,7 +53,7 @@ class MainAppContent extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      home: MainView(),
+      home: LayoutScreen(),
     );
   }
 }

@@ -12,7 +12,12 @@ const String svgPath = "assets/svg";
 abstract class AnimationAssets {
   static const String onboardingAssets = "$animationPath/onboarding_animation.json";
 }
-
+abstract class IconAssets {
+  static const String homeIcon = "$iconPath/homeIcon.png";
+  static const String profileIcon = "$iconPath/profileIcon.png";
+  static const String chatIcon = "$iconPath/chatIcon.png";
+  static const String workoutIcon = "$iconPath/workout.png";
+}
 abstract class SvgImages {
   static const String successApply = '$svgPath/success_apply.svg';
   static const String decoration1 = '$svgPath/decoration1.svg';
