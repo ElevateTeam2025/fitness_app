@@ -1,9 +1,10 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/extensions.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/core/widgets/custom_container_widget.dart';
-import 'package:fitness_app/features/auth/forget_password/presentation/cubit/forget_password_cubit.dart';
-import 'package:fitness_app/features/auth/forget_password/presentation/cubit/forget_password_states.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/cubits/forget_password_cubit/forget_password_cubit.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/cubits/forget_password_cubit/forget_password_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -70,6 +71,7 @@ class _ForgetPasswordContentWidgetState
               EasyLoading.show();
             } else if (state is ForgetPasswordSuccess) {
               EasyLoading.dismiss();
+              Navigator.pushNamed(context, PagesRoutes.verifyResetCodeView);
             }
           },
           child: ElevatedButton(

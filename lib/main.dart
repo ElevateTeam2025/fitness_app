@@ -52,7 +52,7 @@ class MainAppContent extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      home:VerifyResetCodeView(),
+      home:ForgetPasswordView(),
     );
   }
 }
