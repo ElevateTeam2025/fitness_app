@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/extensions.dart';
