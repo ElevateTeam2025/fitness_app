@@ -37,7 +37,9 @@ class VerifyResetCodeViewBody extends StatelessWidget {
 
                   SizedBox(height: 80.HeightResponsive),
 
-                  VerifyResetCodeContentWidget(),
+                  VerifyResetCodeContentWidget(
+                    email: email,
+                  ),
                 ],
               ),
             ),

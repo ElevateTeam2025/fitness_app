@@ -12,8 +12,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class VerifyResetCodeContentWidget extends StatefulWidget {
-  const VerifyResetCodeContentWidget({super.key});
-
+  const VerifyResetCodeContentWidget({super.key, required this.email});
+  final String email;
   @override
   State<VerifyResetCodeContentWidget> createState() =>
       _VerifyResetCodeContentWidgetState();
@@ -60,7 +60,7 @@ class _VerifyResetCodeContentWidgetState
             ),
           ),
         ),
-        ResendWidget(),
+        ResendWidget(email: widget.email),
       ],
     );
   }
