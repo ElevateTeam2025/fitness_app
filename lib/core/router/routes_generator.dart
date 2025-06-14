@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/router/pages_routes.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/view/create_new_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/forget_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +8,21 @@ class RoutesGenerator {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case PagesRoutes.forgetPasswordView:
-        return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
+        return MaterialPageRoute(
+          builder: (_) => const ForgetPasswordView(),
+          settings: settings,
+        );
       case PagesRoutes.verifyResetCodeView:
-        return MaterialPageRoute(builder: (_) => const VerifyResetCodeView());
+        return MaterialPageRoute(
+          builder: (_) => const VerifyResetCodeView(),
+          settings: settings,
+        );
+
+      case PagesRoutes.createNewPasswordView:
+        return MaterialPageRoute(
+          builder: (_) => const CreateNewPasswordView(),
+          settings: settings,
+        );
       default:
         return unDefinedRoute();
     }

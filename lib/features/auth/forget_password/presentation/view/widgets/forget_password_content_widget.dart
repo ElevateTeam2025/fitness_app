@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/extensions.dart';
@@ -71,7 +72,12 @@ class _ForgetPasswordContentWidgetState
               EasyLoading.show();
             } else if (state is ForgetPasswordSuccess) {
               EasyLoading.dismiss();
-              Navigator.pushNamed(context, PagesRoutes.verifyResetCodeView);
+              final String email = widget.controller.text;
+              Navigator.pushNamed(
+                context,
+                PagesRoutes.verifyResetCodeView,
+                arguments: email,
+              );
             }
           },
           child: ElevatedButton(

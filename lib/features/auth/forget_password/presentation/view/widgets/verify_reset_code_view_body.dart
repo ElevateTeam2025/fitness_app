@@ -1,3 +1,7 @@
+
+
+import 'dart:developer';
+
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/cubits/forget_password_cubit/forget_password_cubit.dart';
@@ -9,11 +13,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class VerifyResetCodeViewBody extends StatelessWidget {
-  const VerifyResetCodeViewBody({super.key});
-
+  const VerifyResetCodeViewBody({super.key, required this.email});
+  final String email;
   @override
   Widget build(BuildContext context) {
+    context.read<ForgetPasswordCubit>().request.email = email;
     final VerifyResetCodeCubit viewModel = context.read<VerifyResetCodeCubit>();
+
     return Form(
       key: viewModel.formKey,
       autovalidateMode: viewModel.autovalidateMode,

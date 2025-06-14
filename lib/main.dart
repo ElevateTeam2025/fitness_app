@@ -5,6 +5,7 @@ import 'package:fitness_app/core/services/easy_loading_service.dart';
 import 'package:fitness_app/core/services/screen_size_service.dart';
 import 'package:fitness_app/core/services/shared_preference_services.dart';
 import 'package:fitness_app/core/utils/theming.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/view/create_new_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/forget_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
 import 'package:fitness_app/main_view.dart';
@@ -52,7 +53,7 @@ class MainAppContent extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      home:ForgetPasswordView(),
+      home: ForgetPasswordView(),
     );
   }
 }

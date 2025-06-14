@@ -14,6 +14,10 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 
+import '../../features/auth/forget_password/data/data_source/create_new_password_data_source.dart'
+    as _i674;
+import '../../features/auth/forget_password/data/data_source/create_new_password_data_source_imp.dart'
+    as _i1032;
 import '../../features/auth/forget_password/data/data_source/forget_password_remote_data_source.dart'
     as _i951;
 import '../../features/auth/forget_password/data/data_source/forget_password_remote_data_source_imp.dart'
@@ -22,14 +26,20 @@ import '../../features/auth/forget_password/data/data_source/verify_reset_code_r
     as _i274;
 import '../../features/auth/forget_password/data/data_source/verify_reset_code_remote_data_source_imp.dart'
     as _i370;
+import '../../features/auth/forget_password/data/repo_imp/create_new_password_repo_imp.dart'
+    as _i438;
 import '../../features/auth/forget_password/data/repo_imp/forget_password_repo_imp.dart'
     as _i1004;
 import '../../features/auth/forget_password/data/repo_imp/verify_reset_code_repo_imp.dart'
     as _i363;
+import '../../features/auth/forget_password/domain/repo/create_new_password_repo.dart'
+    as _i500;
 import '../../features/auth/forget_password/domain/repo/forget_password_repo.dart'
     as _i484;
 import '../../features/auth/forget_password/domain/repo/verify_reset_code_repo.dart'
     as _i640;
+import '../../features/auth/forget_password/presentation/cubits/create_new_password_cubit/create_new_password_cubit.dart'
+    as _i340;
 import '../../features/auth/forget_password/presentation/cubits/forget_password_cubit/forget_password_cubit.dart'
     as _i218;
 import '../../features/auth/forget_password/presentation/cubits/verify_reset_code_cubit/verify_reset_code_cubit.dart'
@@ -51,6 +61,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i528.PrettyDioLogger>(() => dioProvider.providePretty());
     gh.lazySingleton<_i1013.AuthInterceptor>(() => _i1013.AuthInterceptor());
     gh.singleton<_i277.ApiClient>(() => _i277.ApiClient(gh<_i361.Dio>()));
+    gh.factory<_i674.CreateNewPasswordDataSource>(
+      () => _i1032.CreateNewPasswordDataSourceImp(
+        apiClient: gh<_i277.ApiClient>(),
+      ),
+    );
     gh.factory<_i274.VerifyResetCodeRemoteDataSource>(
       () => _i370.VerifyResetCodeRemoteDataSourceImp(
         apiClient: gh<_i277.ApiClient>(),
@@ -67,9 +82,19 @@ extension GetItInjectableX on _i174.GetIt {
         verifyResetCodeRepo: gh<_i640.VerifyResetCodeRepo>(),
       ),
     );
+    gh.factory<_i500.CreateNewPasswordRepo>(
+      () => _i438.CreateNewPasswordRepoImp(
+        createNewPasswordDataSource: gh<_i674.CreateNewPasswordDataSource>(),
+      ),
+    );
     gh.factory<_i951.ForgetPasswordRemoteDataSource>(
       () => _i527.ForgetPasswordRemoteDataSourceImp(
         apiClient: gh<_i277.ApiClient>(),
+      ),
+    );
+    gh.factory<_i340.CreateNewPasswordCubit>(
+      () => _i340.CreateNewPasswordCubit(
+        createNewPasswordRepo: gh<_i500.CreateNewPasswordRepo>(),
       ),
     );
     gh.factory<_i484.ForgetPasswordRepo>(

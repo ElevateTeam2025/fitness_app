@@ -1,6 +1,8 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/core/widgets/custom_container_widget.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/cubits/forget_password_cubit/forget_password_cubit.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/cubits/verify_reset_code_cubit/verify_reset_code_cubit.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/cubits/verify_reset_code_cubit/verify_reset_code_states.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/widgets/pins_widget.dart';
@@ -24,7 +26,10 @@ class _VerifyResetCodeContentWidgetState
     final VerifyResetCodeCubit viewModel = context.read<VerifyResetCodeCubit>();
     return CustomContainerWidget(
       body: [
-      PinsWidget(autovalidateMode: viewModel.autovalidateMode, controller: viewModel.verifyResetCodeController),
+        PinsWidget(
+          autovalidateMode: viewModel.autovalidateMode,
+          controller: viewModel.verifyResetCodeController,
+        ),
         SizedBox(height: 24.HeightResponsive),
         BlocListener<VerifyResetCodeCubit, VerifyResetCodeStates>(
           listener: (context, state) {
@@ -34,6 +39,15 @@ class _VerifyResetCodeContentWidgetState
               EasyLoading.show();
             } else if (state is VerifyResetCodeSuccess) {
               EasyLoading.dismiss();
+              final String email = context
+                  .read<ForgetPasswordCubit>()
+                  .request
+                  .email;
+              Navigator.pushNamed(
+                context,
+                PagesRoutes.createNewPasswordView,
+                arguments: email,
+              );
             }
           },
           child: ElevatedButton(
@@ -51,7 +65,6 @@ class _VerifyResetCodeContentWidgetState
     );
   }
 
- 
   void sendOtpFun(BuildContext context) {
     final viewModel = context.read<VerifyResetCodeCubit>();
     if (viewModel.formKey.currentState!.validate()) {
