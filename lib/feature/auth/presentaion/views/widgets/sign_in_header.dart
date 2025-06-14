@@ -10,34 +10,38 @@ class SignInHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(24),
-          child: Center(
-            child: Image.asset(
-              ImageAssets.logo,
-              height: responsiveHeight(60),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: responsiveWidth(16)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: responsiveWidth(24),
+            vertical: responsiveHeight(24)),
+            child: Center(
+              child: Image.asset(
+                ImageAssets.logo,
+                height: responsiveHeight(60),
+              ),
             ),
           ),
-        ),
-        SizedBox(height: responsiveHeight(20)),
-        Text(
-          'Hey There',
-          style: AppTextStyles.BalooThambi2_400_16.copyWith(
-            fontSize: 18,
-            color: AppColors.whiteColor,
+          SizedBox(height: responsiveHeight(20)),
+          Text(
+            'Hey There',
+            style: AppTextStyles.BalooThambi2_400_16.copyWith(
+              fontSize: 18,
+              color: AppColors.whiteColor,
+            ),
           ),
-        ),
-        Text(
-          'WELCOME BACK',
-          style: AppTextStyles.BalooThambi2_700_20.copyWith(
-            fontWeight: FontWeight.w800,
-            color: AppColors.whiteColor,
+          Text(
+            'WELCOME BACK',
+            style: AppTextStyles.BalooThambi2_700_20.copyWith(
+              fontWeight: FontWeight.w800,
+              color: AppColors.whiteColor,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

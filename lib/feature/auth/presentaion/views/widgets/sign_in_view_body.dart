@@ -344,7 +344,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
         return SafeArea(
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(
-              horizontal: responsiveWidth(16),
+              // horizontal: responsiveWidth(16),
               vertical: responsiveHeight(32),
             ),
             child: Form(
