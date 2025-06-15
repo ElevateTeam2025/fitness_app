@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/widgets/custom_container_widget.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart';
@@ -34,7 +35,16 @@ class SignupSelectGender extends StatelessWidget {
 
                         },
                         icon: IconAssets.maleIcon,
-                        isSelected: viewModel.state.gender == "male",name: "male",)
+                        isSelected: viewModel.state.gender == "male",name: "male",),
+
+                      SizedBox(height: 24.HeightResponsive,),
+                      GenderWidget(onPress: () {
+                        viewModel.selectGender("female");
+
+                      },
+                        icon: IconAssets.maleIcon,
+                        isSelected: viewModel.state.gender == "female",name: "female",),
+
                     ],
 
                   );

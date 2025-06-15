@@ -21,12 +21,7 @@ class _GenderWidgetState extends State<GenderWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          widget.onPress();
-        });
-
-      },
+      onTap: widget.onPress,
       child: Container(
 
         width: 100.WidthResponsive,
@@ -42,7 +37,7 @@ class _GenderWidgetState extends State<GenderWidget> {
           children: [
 
             Image.asset(widget.icon),
-            Text("male",style: AppTextStyles.BalooThambi2_600_12.copyWith(color: AppColors.whiteColor),),
+            Text(widget.name,style: AppTextStyles.BalooThambi2_600_12.copyWith(color: AppColors.whiteColor),),
           ],
         ),
       ),
