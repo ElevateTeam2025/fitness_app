@@ -4,9 +4,9 @@ import 'package:fitness_app/core/widgets/custom_container_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/utils/text_styles.dart';
-import '../../cubit/signup_view_model_cubit.dart';
-import 'build_page_title.dart';
+import '../../../../../../../core/utils/text_styles.dart';
+import '../../../cubit/signup_view_model_cubit.dart';
+import '../build_page_title.dart';
 
 class SignupBasicInfo extends StatelessWidget {
   const SignupBasicInfo({super.key});
@@ -24,7 +24,7 @@ class SignupBasicInfo extends StatelessWidget {
           CustomContainerWidget(
             body: [
               Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.HeightResponsive),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

@@ -17,4 +17,6 @@ abstract class IconAssets{
   static const String personIcon = "$iconPath/user.png";
   static const String emailIcon = "$iconPath/mail.png";
   static const String lockIcon = "$iconPath/lock.png";
+  static const String maleIcon = "$iconPath/male.png";
+  static const String femaleIcon = "$iconPath/female.png";
 }
