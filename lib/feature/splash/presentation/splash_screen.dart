@@ -21,9 +21,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void _executeNavigation() {
     Future.delayed(Duration(seconds: 5), () {
       if (mounted) {
-        final bool onBoarding =
-            SharedPreferenceServices.getData('onBoarding') as bool;
-        if (onBoarding) {
+        final String? onBoarding =
+            SharedPreferenceServices.getData('onBoarding') as String?;
+        if (onBoarding != null) {
           Navigator.pushReplacementNamed(context, PagesRoutes.appSection);
         } else {
           Navigator.pushReplacementNamed(context, PagesRoutes.onBoarding);

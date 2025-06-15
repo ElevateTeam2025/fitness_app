@@ -40,7 +40,7 @@ class OnBoardingItemWidget extends StatelessWidget {
             alignment: Alignment.topRight,
             child: TextButton(
               onPressed: () {
-                SharedPreferenceServices.saveData('onBoarding', true);
+                SharedPreferenceServices.saveData('onBoarding', 'onBoarding');
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   PagesRoutes.appSection,
@@ -193,7 +193,7 @@ class OnBoardingItemWidget extends StatelessWidget {
                                       if (index == 2) {
                                         SharedPreferenceServices.saveData(
                                           'onBoarding',
-                                          true,
+                                          'onBoarding',
                                         );
                                         Navigator.pushNamedAndRemoveUntil(
                                           context,
