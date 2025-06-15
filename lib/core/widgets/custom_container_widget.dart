@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainerWidget extends StatelessWidget {
@@ -12,16 +13,16 @@ class CustomContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(30.RadiusResponsive),
+        borderRadius: BorderRadius.circular(50.RadiusResponsive),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(30),
-              border: Border.all(color: Colors.white.withOpacity(0.2)),
+              color: AppColors.whiteColor.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(50.RadiusResponsive),
+              border: Border.all(color: AppColors.whiteColor.withOpacity(0.2)),
             ),
             child: Column(mainAxisSize: MainAxisSize.min, children: body),
           ),

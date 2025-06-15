@@ -3,6 +3,7 @@ abstract class ImageAssets {
   static const String onBoradingImage_1 = "$imagePath/onboarding_image1.png";
   static const String onBoradingImage_2 = "$imagePath/onboarding_image2.png";
   static const String onBoradingImage_3 = "$imagePath/onboarding_image3.png";
+  static const String onboardingBg = "$imagePath/on_boarding_bg.png";
 }
 
 const String imagePath = "assets/images";

@@ -2,12 +2,14 @@ import 'package:bloc/bloc.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/feature/onboarding/domain/onboarding_entity.dart';
 import 'package:fitness_app/feature/onboarding/presentation/cubits/change_onboarding_state.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class ChangeOnboardingViewModel extends Cubit<ChangeOnboardingState> {
   ChangeOnboardingViewModel() : super(ChangePageOnBoardingInitialState());
 
-  bool _isLast = false;
-  final List<OnboardingEntity> _boarding = [
+  bool isLast = false;
+  final List<OnboardingEntity> boarding = [
     OnboardingEntity(
       image: ImageAssets.onBoradingImage_1,
       title: 'the price of excellence is discipline',
@@ -27,29 +29,20 @@ class ChangeOnboardingViewModel extends Cubit<ChangeOnboardingState> {
           'Lorem ipsum dolor sit amet consectetur. Eu urna ut gravida quis id pretium purus. Mauris massa ',
     ),
   ];
-  final int _index = 0;
+  int index = 0;
   void doIntent(ChangeOnboardingIntent intent) {
     switch (intent) {
       case ClickedChangeOnboardingIntent():
-        _changePage(_index);
-        break;
-      case GetIsLastPageIntent():
-        _isLastPage;
-        break;
-      case GetBoradingItemsIntent():
-        _boardingItems;
+        _changePage(index);
         break;
     }
   }
 
-  bool get _isLastPage => _isLast;
-  List<OnboardingEntity> get _boardingItems => _boarding;
-
   void _changePage(int index) {
-    if (index == _boarding.length - 1) {
-      _isLast = true;
+    if (index == boarding.length - 1) {
+      isLast = true;
     } else {
-      _isLast = false;
+      isLast = false;
     }
     emit(ChangePageOnBoardingState());
   }
@@ -58,7 +51,3 @@ class ChangeOnboardingViewModel extends Cubit<ChangeOnboardingState> {
 sealed class ChangeOnboardingIntent {}
 
 class ClickedChangeOnboardingIntent extends ChangeOnboardingIntent {}
-
-class GetIsLastPageIntent extends ChangeOnboardingIntent {}
-
-class GetBoradingItemsIntent extends ChangeOnboardingIntent {}

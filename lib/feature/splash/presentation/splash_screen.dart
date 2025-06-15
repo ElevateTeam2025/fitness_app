@@ -1,5 +1,6 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/router/pages_routes.dart';
+import 'package:fitness_app/core/services/shared_preference_services.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void _executeNavigation() {
     Future.delayed(Duration(seconds: 5), () {
       if (mounted) {
-        Navigator.pushReplacementNamed(context, PagesRoutes.onBoarding);
+        final bool onBoarding =
+            SharedPreferenceServices.getData('onBoarding') as bool;
+        if (onBoarding) {
+          Navigator.pushReplacementNamed(context, PagesRoutes.appSection);
+        } else {
+          Navigator.pushReplacementNamed(context, PagesRoutes.onBoarding);
+        }
       }
     });
   }
