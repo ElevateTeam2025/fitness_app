@@ -50,7 +50,7 @@ dependencies:
   location: ^8.0.0
   lottie: null
   mime: ^2.0.0
-  mockito: ^5.4.5
+  mockito: ^5.4.6
   pretty_dio_logger: ^1.4.0
   provider: ^6.1.5
   retrofit: ^4.4.2
@@ -71,7 +71,6 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   injectable_generator: null
   json_serializable: ^6.9.5
-  mockito: ^5.4.5
   retrofit_generator: ^9.1.9
   flutter_test:
     sdk: flutter
