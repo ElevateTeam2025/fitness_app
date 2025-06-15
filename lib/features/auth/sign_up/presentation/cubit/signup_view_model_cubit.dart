@@ -4,14 +4,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SignupCubit extends Cubit<SignupState> {
   SignupCubit() : super(SignupState());
 
-  void updateName(String name) {
-    emit(state.copyWith(name: name));
+  void updateFirstName(String firstName) {
+    emit(state.copyWith(firstName: firstName));
   }
-
+  void updateLastName(String lastName) {
+    emit(state.copyWith(lastName: lastName));
+  }
   void updateEmail(String email) {
     emit(state.copyWith(email: email));
   }
 
+  void updatePassword(String password){
+    emit(state.copyWith(password: password));
+  }
   void selectGender(String gender) {
     emit(state.copyWith(gender: gender));
   }
@@ -28,7 +33,7 @@ class SignupCubit extends Cubit<SignupState> {
     emit(state.copyWith(weight: weight));
   }
 
-  void selectOption(String goal) {
+  void selectGoal(String goal) {
     emit(state.copyWith(selectedGoal: goal));
   }
 
@@ -37,6 +42,9 @@ class SignupCubit extends Cubit<SignupState> {
   }
 
   void nextStep() {
+    print("All Data");
+    print(state.firstName);
+    print(state.lastName);
     if (state.currentStep < 6) {
       emit(state.copyWith(currentStep: state.currentStep + 1));
     }

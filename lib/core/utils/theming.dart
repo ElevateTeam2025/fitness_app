@@ -32,6 +32,11 @@ ThemeData theme() {
         ),
       ),
     ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: AppColors.primaryColor,          // <-- your cursor color
+      selectionColor: AppColors.primaryColor.withOpacity(0.3),
+      selectionHandleColor: AppColors.primaryColor,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       floatingLabelBehavior: FloatingLabelBehavior.always,
       hintStyle: AppTextStyles.BalooThambi2_400_12.copyWith(

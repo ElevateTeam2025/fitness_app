@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/utils/text_styles.dart';
 import '../../cubit/signup_view_model_cubit.dart';
+import 'build_page_title.dart';
 
 class SignupBasicInfo extends StatelessWidget {
   const SignupBasicInfo({super.key});
@@ -13,58 +14,118 @@ class SignupBasicInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<SignupCubit>();
-    return Column(
+    return SingleChildScrollView(
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom
+      ),
+      child: Column(
+        children: [
+          BuildPageTitle(title: "Hey There",subTitle: "CREATE AN ACCOUNT",),
+          CustomContainerWidget(
+            body: [
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextField(
+                      onChanged: (value) => cubit.updateFirstName(value),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.person_outline_sharp,
+                          color: AppColors.whiteColor,
+                        ),
+                        hintText: "First Name",
+                      ),
+                      style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
+                    SizedBox(height: 16.HeightResponsive),
+                    TextField(
+                      onChanged: (value) => cubit.updateLastName(value),
+                      decoration: InputDecoration(
+                        hintText: "last Name ",
+                        prefixIcon: Icon(
+                          Icons.person_outline_sharp,
+                          color: AppColors.whiteColor,
+                        ),
+                      ),
+                      style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
+                    SizedBox(height: 16.HeightResponsive),
+
+                    TextField(
+                      onChanged: (value) => cubit.updateEmail(value),
+                      decoration: InputDecoration(
+                        hintText: "Email ",
+                        prefixIcon: Icon(
+                          Icons.email_outlined,
+                          color: AppColors.whiteColor,
+                        ),
+                      ),
+                      style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
+                    SizedBox(height: 16.HeightResponsive),
+
+                    TextField(
+                      obscureText:true ,
+                      onChanged: (value) => cubit.updatePassword(value),
+                      decoration: InputDecoration(
+                        hintText: "password",
+                        prefixIcon: Icon(
+                          Icons.lock_outline,
+                          color: AppColors.whiteColor,
+                        ),
+                      ),
+                      style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
+                    SizedBox(height: 32.HeightResponsive),
+                    ElevatedButton(
+                      onPressed: () => cubit.nextStep(),
+                      child: Text(
+                        'Register',
+                        style: AppTextStyles.BalooThambi2_800_14.copyWith(
+                          color: AppColors.whiteColor,
+                        ),
+                      ),
+                    ),
+                    _aleadyHaveAccount()
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+
+
+  Widget _aleadyHaveAccount(){
+    return  Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Hey There',
-              style: AppTextStyles.BalooThambi2_400_18.copyWith(
-                color: Colors.white,
-              ),
+        Text("Already Have an account ?", style: AppTextStyles.BalooThambi2_400_14.copyWith(color: AppColors.whiteColor)),
+        TextButton(
+          onPressed: () {
+          },
+          child: Text(
+            "Login",
+            style: AppTextStyles.BalooThambi2_400_14.copyWith(
+              color: AppColors.primaryColor,
+              decoration: TextDecoration.underline,
+              decorationColor: AppColors.primaryColor,
+              decorationThickness: 1.5,
             ),
-
-            Text(
-              'CREATE AN ACCOUNT',
-              style: AppTextStyles.BalooThambi2_800_20.copyWith(
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
-        CustomContainerWidget(
-          body: [
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextField(
-                    onChanged: (value) => cubit.updateName(value),
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.person_outline_sharp,color: AppColors.whiteColor,),
-                      hintText: "First Name"
-                    ),
-                  ),
-                  SizedBox(height: 16.HeightResponsive),
-                  TextField(
-                    onChanged: (value) => cubit.updateEmail(value),
-                    decoration: InputDecoration(
-                      hintText: "last Name ",
-                      prefixIcon: Icon(Icons.person_outline_sharp,color: AppColors.whiteColor,),
-                    ),
-                  ),
-                  SizedBox(height: 32.HeightResponsive),
-                  ElevatedButton(
-
-                    onPressed: () => cubit.nextStep(),
-                    child: Text('Register',style: AppTextStyles.BalooThambi2_800_14.copyWith(color: AppColors.whiteColor),),
-                  ),
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
       ],
     );

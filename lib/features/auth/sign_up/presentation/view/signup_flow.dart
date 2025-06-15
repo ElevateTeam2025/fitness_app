@@ -32,6 +32,7 @@ class _SignupFlowState extends State<SignupFlow> {
             final viewModel = context.read<SignupCubit>();
 
             return Scaffold(
+              resizeToAvoidBottomInset: false,
               body: BlocListener<SignupCubit, SignupState>(
                 listener: (context, state) {
                   if (_pageController.page?.round() != state.currentStep) {
@@ -44,8 +45,12 @@ class _SignupFlowState extends State<SignupFlow> {
                 },
                 child: Stack(
                   children: [
-                    Image.asset(ImageAssets.mainBackground),
-
+                    Positioned.fill(
+                      child: Image.asset(
+                        ImageAssets.mainBackground,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     Padding(
                       padding: EdgeInsets.only(top: 46.HeightResponsive),
 
@@ -97,9 +102,9 @@ class _SignupFlowState extends State<SignupFlow> {
                             child: PageView(
                               controller: _pageController,
 
+                              physics: NeverScrollableScrollPhysics(),
                               children: [
-                                SignupBasicInfo(
-                                ),
+                                SignupBasicInfo(),
                                 SignupSelectGender(),
                                 SignupSelectAge(),
                                 SignupSelectHeight(),

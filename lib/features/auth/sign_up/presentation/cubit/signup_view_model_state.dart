@@ -1,6 +1,8 @@
 class SignupState {
-  final String name;
+  final String firstName;
+  final String lastName;
   final String email;
+  final String password;
   final String gender;
   final int age;
   final double height;
@@ -13,8 +15,10 @@ class SignupState {
   final String? error;
 
   SignupState({
-    this.name = '',
+    this.firstName = '',
+    this.lastName = '',
     this.email = '',
+    this.password = '',
     this.gender = '',
     this.age = 18,
     this.height = 150.0,
@@ -28,7 +32,9 @@ class SignupState {
   });
 
   SignupState copyWith({
-    String? name,
+    String? firstName,
+    String? lastName,
+    String? password,
     String? email,
     String? gender,
     int? age,
@@ -42,8 +48,10 @@ class SignupState {
     String? error,
   }) {
     return SignupState(
-      name: name ?? this.name,
+      firstName: firstName   ?? this.firstName,
+      lastName: lastName   ?? this.lastName,
       email: email ?? this.email,
+      password: password ?? this.password,
       gender: gender ?? this.gender,
       age: age ?? this.age,
       height: height ?? this.height,
