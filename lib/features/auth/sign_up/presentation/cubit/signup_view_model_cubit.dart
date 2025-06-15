@@ -45,6 +45,8 @@ class SignupCubit extends Cubit<SignupState> {
     print("All Data");
     print(state.firstName);
     print(state.lastName);
+    print(state.gender);
+
     if (state.currentStep < 6) {
       emit(state.copyWith(currentStep: state.currentStep + 1));
     }
