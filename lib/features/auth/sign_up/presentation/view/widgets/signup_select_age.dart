@@ -35,7 +35,6 @@ class SignupSelectAge extends StatelessWidget {
                   },
 
               ),
-              SizedBox(height:32.HeightResponsive),
               ElevatedButton(
                 onPressed:()=>viewModel.nextStep(),
 
