@@ -50,7 +50,7 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
 
           child: Text(
             widget.label,
-            style: AppTextStyles.BalooThambi2_400_12.copyWith(
+            style: AppTextStyles.BalooThambi2_400_14.copyWith(
               color: AppColors.primaryColor,
             ),
           ),
