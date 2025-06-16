@@ -4,6 +4,7 @@ import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/basic_info/signup_basic_info.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/progress_indicator.dart';
+import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_activity.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_age.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/gender/signup_select_gender.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_goal.dart';
@@ -107,12 +108,15 @@ class _SignupFlowState extends State<SignupFlow> {
                                   return SizedBox.shrink();
                                 }
                               return Center(
-                                child: CustomCircularProgressIndicator(
-                                  currentStep: state.currentStep,
-                                  totalSteps: 6,
-                                  size: 50.0,
-                                  strokeWidth: 8.0,
+                                child: Padding(
+                                  padding:  EdgeInsets.only(bottom:16.HeightResponsive),
+                                  child: CustomCircularProgressIndicator(
+                                    currentStep: state.currentStep,
+                                    totalSteps: 6,
+                                    size: 50.0,
+                                    strokeWidth: 8.0,
 
+                                  ),
                                 ),
                               );
                             },
@@ -129,7 +133,7 @@ class _SignupFlowState extends State<SignupFlow> {
                                 SignupSelectHeight(),
                                 SignupSelectWeight(),
                                 SignupSelectGoal(),
-                                SignupSelectGoal(),
+                                SignupSelectActivity(),
                               ],
                             ),
                           ),
