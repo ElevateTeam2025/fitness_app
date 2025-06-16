@@ -5,8 +5,8 @@ class SignupState {
   final String password;
   final String gender;
   int age;
-  double height;
-  double weight;
+  int height;
+  int weight;
   final String selectedGoal;
   final String selectedActivity;
   final int currentStep;
@@ -21,8 +21,8 @@ class SignupState {
     this.password = '',
     this.gender = '',
     this.age = 18,
-    this.height = 150.0,
-    this.weight = 50.0,
+    this.height = 150,
+    this.weight = 50,
     this.selectedGoal = '',
     this.selectedActivity = '',
     this.currentStep = 0,
@@ -38,8 +38,8 @@ class SignupState {
     String? email,
     String? gender,
     int? age,
-    double? height,
-    double? weight,
+    int? height,
+    int? weight,
     String? selectedGoal,
     String? selectedActivity,
     int? currentStep,

@@ -25,11 +25,11 @@ class SignupCubit extends Cubit<SignupState> {
     emit(state.copyWith(age: age));
   }
 
-  void selectHeight(double height) {
+  void selectHeight(int height) {
     emit(state.copyWith(height: height));
   }
 
-  void selectWeight(double weight) {
+  void selectWeight(int weight) {
     emit(state.copyWith(weight: weight));
   }
 
