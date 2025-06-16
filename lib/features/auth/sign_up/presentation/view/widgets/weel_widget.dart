@@ -43,11 +43,6 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          padding: EdgeInsets.symmetric(
-            vertical: 4.HeightResponsive,
-            horizontal: 16.WidthResponsive,
-          ),
-
           child: Text(
             widget.label,
             style: AppTextStyles.BalooThambi2_400_14.copyWith(
@@ -66,8 +61,8 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
                 initValue: currentIndex,
                 isInfinite: false,
                 squeeze: 1.2,
-                perspective: 0.005,
-                itemSize: 85,
+                perspective: 0.004,
+                itemSize: 90,
                 horizontal: true,
 
                 showPointer: false,

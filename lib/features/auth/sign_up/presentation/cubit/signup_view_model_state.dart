@@ -30,6 +30,13 @@ class SignupState {
     this.isSuccess = false,
     this.error,
   });
+  bool get isBasicInfoValid =>
+      firstName.trim().isNotEmpty &&
+          lastName.trim().isNotEmpty &&
+          email.contains(RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")) &&
+          password.length >= 6;
+
+
 
   SignupState copyWith({
     String? firstName,
@@ -46,6 +53,7 @@ class SignupState {
     bool? isLoading,
     bool? isSuccess,
     String? error,
+
   }) {
     return SignupState(
       firstName: firstName   ?? this.firstName,

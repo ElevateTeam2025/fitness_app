@@ -26,7 +26,7 @@ class SignupSelectHeight extends StatelessWidget {
               // add wheel here
               BlocBuilder<SignupCubit,SignupState>(
                 builder: (context, state) {
-                  return WheelWidget(minVal: 100, maxVal: 250, initVal: 120, onValueChange: (value) {
+                  return WheelWidget(minVal: 100, maxVal: 250, initVal: 151, onValueChange: (value) {
                     print(value);
                     viewModel.state.height=value;
                   }, label: "CM");

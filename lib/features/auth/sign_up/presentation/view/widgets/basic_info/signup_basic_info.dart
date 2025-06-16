@@ -1,6 +1,7 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/widgets/custom_container_widget.dart';
+import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,12 +14,15 @@ class SignupBasicInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<SignupCubit>();
+
     return SingleChildScrollView(
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom
       ),
-      child: Column(
+      child: BlocBuilder<SignupCubit, SignupState>(
+  builder: (context, state) {
+    final cubit = context.read<SignupCubit>();
+    return Column(
         children: [
           BuildPageTitle(title: "Hey There",subTitle: "CREATE AN ACCOUNT",),
           CustomContainerWidget(
@@ -88,7 +92,11 @@ class SignupBasicInfo extends StatelessWidget {
                     ),
                     SizedBox(height: 32.HeightResponsive),
                     ElevatedButton(
-                      onPressed: () => cubit.nextStep(),
+                      onPressed: state.isBasicInfoValid ? () => cubit.nextStep() : null,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primaryColor,
+                        disabledBackgroundColor: Colors.grey,
+                      ),
                       child: Text(
                         'Register',
                         style: AppTextStyles.BalooThambi2_800_14.copyWith(
@@ -103,7 +111,9 @@ class SignupBasicInfo extends StatelessWidget {
             ],
           ),
         ],
-      ),
+      );
+  },
+),
     );
   }
 
