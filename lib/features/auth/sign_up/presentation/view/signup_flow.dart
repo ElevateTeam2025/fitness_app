@@ -7,7 +7,7 @@ import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/prog
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_activity.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_age.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/gender/signup_select_gender.dart';
-import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_goal.dart';
+import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/goal_page/signup_select_goal.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_height.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_weight.dart';
 import 'package:flutter/material.dart';
