@@ -3,6 +3,7 @@ import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/basic_info/signup_basic_info.dart';
+import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/progress_indicator.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_age.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/gender/signup_select_gender.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_goal.dart';
@@ -96,9 +97,26 @@ class _SignupFlowState extends State<SignupFlow> {
                             },
                           ),
 
-                          // build here progress indecator
-                          SizedBox(height: 96.HeightResponsive),
 
+
+                          SizedBox(height: 96.HeightResponsive),
+                          BlocBuilder<SignupCubit, SignupState>(
+                            builder: (context, state) {
+                              if(state.currentStep == 0)
+                                {
+                                  return SizedBox.shrink();
+                                }
+                              return Center(
+                                child: CustomCircularProgressIndicator(
+                                  currentStep: state.currentStep,
+                                  totalSteps: 6,
+                                  size: 50.0,
+                                  strokeWidth: 8.0,
+
+                                ),
+                              );
+                            },
+                          ),
                           Expanded(
                             child: PageView(
                               controller: _pageController,
