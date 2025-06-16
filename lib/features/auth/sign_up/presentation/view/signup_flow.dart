@@ -100,7 +100,7 @@ class _SignupFlowState extends State<SignupFlow> {
 
 
 
-                          SizedBox(height: 96.HeightResponsive),
+                          SizedBox(height: 70.HeightResponsive),
                           BlocBuilder<SignupCubit, SignupState>(
                             builder: (context, state) {
                               if(state.currentStep == 0)
