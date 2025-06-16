@@ -4,9 +4,9 @@ class SignupState {
   final String email;
   final String password;
   final String gender;
-  final int age;
-  final double height;
-  final double weight;
+  int age;
+  double height;
+  double weight;
   final String selectedGoal;
   final String selectedActivity;
   final int currentStep;
