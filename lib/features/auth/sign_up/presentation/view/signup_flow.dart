@@ -69,6 +69,7 @@ class _SignupFlowState extends State<SignupFlow> {
                                           viewModel.previousStep();
                                         },
                                         child: Container(
+                                          margin: EdgeInsets.only(left: 16.WidthResponsive),
                                           width: 30.WidthResponsive,
                                           height: 30.WidthResponsive,
                                           decoration: BoxDecoration(

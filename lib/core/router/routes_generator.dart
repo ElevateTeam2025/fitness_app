@@ -4,7 +4,6 @@ import 'package:fitness_app/features/auth/forget_password/presentation/view/veri
 import 'package:fitness_app/features/auth/sign_up/presentation/view/signup_flow.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/auth/sign_up/presentation/view/signUpView.dart';
 
 class RoutesGenerator {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {

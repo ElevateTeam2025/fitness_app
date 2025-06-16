@@ -73,6 +73,8 @@ dev_dependencies:
   json_serializable: ^6.9.5
   mockito: ^5.4.5
   retrofit_generator: ^9.1.9
+  wheel_slider: ^1.2.2
+  percent_indicator: ^4.2.5
   flutter_test:
     sdk: flutter
 

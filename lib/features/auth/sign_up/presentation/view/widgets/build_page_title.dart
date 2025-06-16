@@ -11,26 +11,30 @@ class BuildPageTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 16.WidthResponsive),
+      padding: EdgeInsets.only(left: 8.WidthResponsive),
       child: Row(
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: AppTextStyles.BalooThambi2_800_20.copyWith(
-                  color: Colors.white,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: AppTextStyles.BalooThambi2_800_20.copyWith(
+                    color: Colors.white,
+                  ),
                 ),
-              ),
 
-              Text(
-                subTitle,
-                style: AppTextStyles.BalooThambi2_400_18.copyWith(
-                  color: Colors.white,
+                Text(
+                  subTitle,
+                  maxLines: 1,
+                  style: AppTextStyles.BalooThambi2_400_16.copyWith(
+                    color: Colors.white,
+
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
