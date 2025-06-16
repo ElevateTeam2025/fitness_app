@@ -1,52 +1,29 @@
-import 'package:equatable/equatable.dart';
+class UserEntity {
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String gender;
+  final int age;
+  final int weight;
+  final int height;
+  final String activityLevel;
+  final String goal;
+  final String photo;
+  final String id;
+  final DateTime createdAt;
 
-class SignupEntity extends Equatable{
-
-  final String? message;
-  final String? error;
-  final SignUpUser? user;
-  final String? token;
-
-  const SignupEntity({
-    this.message,
-    this.error,
-    this.user,
-    this.token,
+  const UserEntity({
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    required this.gender,
+    required this.age,
+    required this.weight,
+    required this.height,
+    required this.activityLevel,
+    required this.goal,
+    required this.photo,
+    required this.id,
+    required this.createdAt,
   });
-
-  @override
-  List<Object?> get props => [message, error, user, token];
-}
-
-class SignUpUser extends Equatable {
-  final String? firstName;
-  final String? lastName;
-  final String? email;
-  final String? gender;
-  final int? age;
-  final int? weight;
-  final int? height;
-  final String? activityLevel;
-  final String? goal;
-  final String? photo;
-  final String? id;
-  final String? createdAt;
-
-  const SignUpUser({
-    this.firstName,
-    this.lastName,
-    this.email,
-    this.gender,
-    this.age,
-    this.weight,
-    this.height,
-    this.activityLevel,
-    this.goal,
-    this.photo,
-    this.id,
-    this.createdAt,
-  });
-
-  @override
-  List<Object?> get props => [firstName, lastName, email, gender, age,weight,height,activityLevel,goal, photo, id, createdAt];
 }
