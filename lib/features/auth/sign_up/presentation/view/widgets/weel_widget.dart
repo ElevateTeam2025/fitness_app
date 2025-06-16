@@ -25,7 +25,7 @@ class WheelWidget extends StatefulWidget {
   State<WheelWidget> createState() => _WheelWidgetState();
 }
 
-class _WheelWidgetState extends State<WheelWidget> {
+class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClientMixin<WheelWidget> {
   late int currentIndex;
 
   @override
@@ -33,10 +33,12 @@ class _WheelWidgetState extends State<WheelWidget> {
     super.initState();
     currentIndex = widget.initVal - widget.minVal;
   }
-
+  @override
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     int totalCount = widget.maxVal - widget.minVal + 1;
+    super.build(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -65,7 +67,7 @@ class _WheelWidgetState extends State<WheelWidget> {
                 isInfinite: false,
                 squeeze: 1.2,
                 perspective: 0.005,
-                itemSize: 80,
+                itemSize: 85,
                 horizontal: true,
 
                 showPointer: false,
@@ -81,7 +83,8 @@ class _WheelWidgetState extends State<WheelWidget> {
                   int displayValue = widget.minVal + index;
                   return Container(
                     height: 80.HeightResponsive,
-                    width: 80,
+                    width: 100.WidthResponsive,
+
                     alignment: Alignment.center,
                     child: Text(
                       displayValue.toString(),
@@ -116,4 +119,6 @@ class _WheelWidgetState extends State<WheelWidget> {
       ],
     );
   }
+
+
 }
