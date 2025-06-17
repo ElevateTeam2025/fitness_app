@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/core/di/injectable_initializer.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart';
@@ -12,6 +13,7 @@ import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/sign
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_weight.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart';
 
 import '../../../../../core/utils/app_assets.dart';
 
@@ -28,7 +30,7 @@ class _SignupFlowState extends State<SignupFlow> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignupCubit(),
+      create: (context) => getIt.get<SignupCubit>(),
       child: Builder(
           builder: (context) {
             final viewModel = context.read<SignupCubit>();

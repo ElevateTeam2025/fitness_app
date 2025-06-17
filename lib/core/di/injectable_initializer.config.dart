@@ -34,6 +34,15 @@ import '../../features/auth/forget_password/presentation/cubits/forget_password_
     as _i218;
 import '../../features/auth/forget_password/presentation/cubits/verify_reset_code_cubit/verify_reset_code_cubit.dart'
     as _i829;
+import '../../features/auth/sign_up/data/data_source/signup_data_source.dart'
+    as _i809;
+import '../../features/auth/sign_up/data/repo_impl/signup_repo_impl.dart'
+    as _i268;
+import '../../features/auth/sign_up/domain/repo/signup_repo.dart' as _i751;
+import '../../features/auth/sign_up/domain/use_case/signup_use_case.dart'
+    as _i449;
+import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
+    as _i1067;
 import '../api/api_client.dart' as _i277;
 import '../api/network_factory.dart' as _i1013;
 import '../services/gemini_service.dart' as _i846;
@@ -56,6 +65,9 @@ extension GetItInjectableX on _i174.GetIt {
         apiClient: gh<_i277.ApiClient>(),
       ),
     );
+    gh.factory<_i809.SignupDataSource>(
+      () => _i809.SignupRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
     gh.factory<_i640.VerifyResetCodeRepo>(
       () => _i363.VerifyResetCodeRepoImp(
         verifyResetCodeRemoteDataSource:
@@ -71,6 +83,15 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i527.ForgetPasswordRemoteDataSourceImp(
         apiClient: gh<_i277.ApiClient>(),
       ),
+    );
+    gh.factory<_i751.SignupRepo>(
+      () => _i268.SignupRepoImp(remoteDataSource: gh<_i809.SignupDataSource>()),
+    );
+    gh.factory<_i449.SignupUseCase>(
+      () => _i449.SignupUseCase(gh<_i751.SignupRepo>()),
+    );
+    gh.factory<_i1067.SignupCubit>(
+      () => _i1067.SignupCubit(gh<_i449.SignupUseCase>()),
     );
     gh.factory<_i484.ForgetPasswordRepo>(
       () => _i1004.ForgetPasswordRepoImp(

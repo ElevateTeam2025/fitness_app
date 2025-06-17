@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/text_styles.dart';
@@ -10,15 +11,16 @@ import 'build_page_title.dart';
 import 'custom_list_tile.dart';
 
 class SignupSelectActivity extends StatelessWidget {
-   SignupSelectActivity({super.key});
+  SignupSelectActivity({super.key});
 
-  final List<String> activities = [
-    "Rookie",
-    "Beginner",
-    "Intermediate",
-    "Advance",
-    "True Beast",
-  ];
+  final Map<String,String> activities = {
+    "Rookie": "level1",
+    "Beginner": "level2",
+    "Intermediate": "level3",
+    "Advance": "level4",
+    "True Beast": "level5",
+  };
+
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<SignupCubit>();
@@ -39,26 +41,53 @@ class SignupSelectActivity extends StatelessWidget {
                 return Column(
                   children: [
 
-                    ...activities.map((activity) {
-                      return CustomListTile(title: activity,
-                        isSelected: state.selectedActivity == activity,
+                    // ...activities.map((activity) {
+                    //   return CustomListTile(title: activity,
+                    //     isSelected: state.selectedActivity == activity,
+                    //     onPress: () {
+                    //       viewModel.selectActivity(activity);
+                    //     },);
+                    // },),
+                    ...activities.entries.map((activity) {
+                      final name = activity.key;
+                      final level = activity.value;
+                      return CustomListTile(
+                        title: name,
+                        isSelected: state.selectedActivity == level,
                         onPress: () {
-                          viewModel.selectActivity(activity);
-                        },);
+                          viewModel.selectActivity(level);
+                        },
+                      );
                     },),
+                    BlocListener<SignupCubit ,SignupState>(
+                      listener: (context, state) {
+                        if(state.isSuccess){
+                          EasyLoading.showSuccess(state.success.toString());
+                          // go to login
+                        }
+                        else if(state.isLoading)
+                          {
+                            EasyLoading.show();
+                          }
+                        else if (state.error != null){
+                          EasyLoading.showError(state.error.toString());
+                        }
 
-                    // here call function that call the api to submit the user data to register
-                    ElevatedButton(
-                      onPressed: hasSelect ? () => viewModel.nextStep() : null,
+                      },
+                      child: ElevatedButton(
+                        onPressed: hasSelect
+                            ? () => viewModel.subimt()
+                            : null,
 
-                      child: Text(
-                        'Submit',
-                        style: AppTextStyles.BalooThambi2_800_14.copyWith(
-                          color: AppColors.whiteColor,
+                        child: Text(
+                          'Submit',
+                          style: AppTextStyles.BalooThambi2_800_14.copyWith(
+                            color: AppColors.whiteColor,
+                          ),
                         ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        disabledBackgroundColor: AppColors.greyColor,
+                        style: ElevatedButton.styleFrom(
+                          disabledBackgroundColor: AppColors.greyColor,
+                        ),
                       ),
                     ),
                   ],

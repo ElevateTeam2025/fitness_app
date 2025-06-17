@@ -63,6 +63,7 @@ class SignupBasicInfo extends StatelessWidget {
 
                     TextField(
                       onChanged: (value) => cubit.updateEmail(value),
+
                       decoration: InputDecoration(
                         hintText: "Email ",
                         prefixIcon: Icon(

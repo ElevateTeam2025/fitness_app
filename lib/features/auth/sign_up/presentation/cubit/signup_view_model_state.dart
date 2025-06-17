@@ -13,7 +13,9 @@ class SignupState {
   final bool isLoading;
   final bool isSuccess;
   final String? error;
-
+  final String? success;
+  final bool isPasswordValid;
+  final bool isEmailValid;
   SignupState({
     this.firstName = '',
     this.lastName = '',
@@ -29,14 +31,27 @@ class SignupState {
     this.isLoading = false,
     this.isSuccess = false,
     this.error,
+    this.success,
+    this.isEmailValid = false,
+    this.isPasswordValid = false,
   });
+
+
   bool get isBasicInfoValid =>
       firstName.trim().isNotEmpty &&
-          lastName.trim().isNotEmpty &&
-          email.contains(RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")) &&
-          password.length >= 6;
+          lastName.trim().isNotEmpty;
+  bool get isAllDataValid =>
+      isBasicInfoValid &&
+          gender.isNotEmpty &&
+          age >= 13 && age <= 100 &&
+          height >= 100 && height <= 250 &&
+          weight >= 30 && weight <= 300 &&
+          selectedGoal.isNotEmpty &&
+          selectedActivity.isNotEmpty;
 
-
+  bool get hasError => error != null;
+  bool get canProceed => !isLoading && !hasError;
+  bool get isIdle => !isLoading && !isSuccess && !hasError;
 
   SignupState copyWith({
     String? firstName,
@@ -53,13 +68,17 @@ class SignupState {
     bool? isLoading,
     bool? isSuccess,
     String? error,
-
+    String? success,
+    bool? isEmailValid,
+    bool? isPasswordValid,
   }) {
     return SignupState(
-      firstName: firstName   ?? this.firstName,
-      lastName: lastName   ?? this.lastName,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
       email: email ?? this.email,
+      isEmailValid: isEmailValid ?? this.isEmailValid,
       password: password ?? this.password,
+      isPasswordValid: isPasswordValid ?? this.isPasswordValid,
       gender: gender ?? this.gender,
       age: age ?? this.age,
       height: height ?? this.height,
@@ -69,7 +88,29 @@ class SignupState {
       currentStep: currentStep ?? this.currentStep,
       isLoading: isLoading ?? this.isLoading,
       isSuccess: isSuccess ?? this.isSuccess,
-      error: error ?? this.error,
+      error: error,
+      success: success,
     );
+  }
+
+  @override
+  String toString() {
+    return 'SignupState('
+        'currentStep: $currentStep, '
+        'isLoading: $isLoading, '
+        'isSuccess: $isSuccess, '
+        'error: $error, '
+        'firstName: $firstName, '
+        'lastName: $lastName, '
+        'email: $email, '
+        'gender: $gender, '
+        'age: $age, '
+        'height: $height, '
+        'weight: $weight, '
+        'selectedGoal: $selectedGoal, '
+        'selectedActivity: $selectedActivity'
+    'isEmailValid:$isEmailValid'
+    'isPassWordValid:$isPasswordValid'
+        ')';
   }
 }

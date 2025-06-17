@@ -5,6 +5,9 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 
+import '../../features/auth/sign_up/data/models/signup_request_model.dart';
+import '../../features/auth/sign_up/data/models/signup_response_model.dart';
+
 part 'api_client.g.dart';
 
 @RestApi(baseUrl: 'https://fitness.elevateegy.com/api/v1')
@@ -18,4 +21,7 @@ abstract class ApiClient {
 
   @POST('/auth/verifyResetCode')
   Future<void> verifyResetCode(@Body() VerifyResetCodeRequest request);
+
+  @POST('/auth/signup')
+  Future<SignupResponseModel> signup(@Body() SignupRequestModel body);
 }
