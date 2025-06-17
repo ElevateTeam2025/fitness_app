@@ -41,6 +41,7 @@ class SignInForm extends StatelessWidget {
         ),
         SizedBox(height: responsiveHeight(8)),
         TextFormField(
+          key: const Key('emailField'),
           autovalidateMode: validateMode,
           validator: AppValidate.validateEmail,
           onChanged: onChange,
@@ -56,6 +57,7 @@ class SignInForm extends StatelessWidget {
         ),
         SizedBox(height: responsiveHeight(16)),
         TextFormField(
+          key: const Key('passwordField'),
           autovalidateMode: validateMode,
           obscureText: !isPasswordVisible,
           obscuringCharacter: '*',
@@ -104,6 +106,7 @@ class SignInForm extends StatelessWidget {
         SizedBox(height: responsiveHeight(8)),
         Center(
           child: ElevatedButton(
+            key: Key('signInButton'),
             style: ElevatedButton.styleFrom(
               fixedSize: Size(responsiveWidth(283),responsiveHeight(50)),
               backgroundColor: validateMode == AutovalidateMode.disabled

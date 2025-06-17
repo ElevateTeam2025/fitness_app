@@ -1,4 +1,4 @@
-import 'package:fitness_app/feature/auth/presentaion/cubit/sign_in_cubit/sign_in_state.dart';
+import 'package:fitness_app/feature/auth/presentation/cubit/sign_in_cubit/sign_in_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
@@ -9,7 +9,7 @@ import '../../../domain/use_case/sign_in_use_case.dart';
 @injectable
 class SignInViewModel extends Cubit<SignInState> {
   final SignInUseCase _signInUseCase;
-  SignInViewModel(this._signInUseCase) : super(LoadingSignInState());
+  SignInViewModel(this._signInUseCase) : super(InitialSignInState());
 
   void doIntent(SignInIntent intent) {
     if (intent is SignInClickedIntent) {
