@@ -1,4 +1,3 @@
-import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/widgets/custom_container_widget.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart';
@@ -27,12 +26,12 @@ class SignupSelectAge extends StatelessWidget {
             body: [
               // add wheel here
               BlocBuilder<SignupCubit,SignupState>(
-                  builder: (context, state) {
-                    return WheelWidget(minVal: 12, maxVal: 95, initVal: 20, onValueChange: (value) {
-                      print(value);
-                      viewModel.state.age=value;
-                    }, label: "Age");
-                  },
+                builder: (context, state) {
+                  return WheelWidget(minVal: 12, maxVal: 95, initVal: 20, onValueChange: (value) {
+                    print(value);
+                    viewModel.state.age=value;
+                  }, label: "Age");
+                },
 
               ),
               ElevatedButton(
@@ -48,7 +47,7 @@ class SignupSelectAge extends StatelessWidget {
                   disabledBackgroundColor: AppColors.greyColor,
                 ),
               ),
-        ]
+            ]
 
         ),
 

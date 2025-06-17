@@ -22,53 +22,55 @@ class SignupSelectActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<SignupCubit>();
-    return Column(
-      children: [
-        BuildPageTitle(title: "YOUR REGULAR PHYSICAL ACTIVITY LEVEL",
-          subTitle: "",),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          BuildPageTitle(title: "YOUR REGULAR PHYSICAL ACTIVITY LEVEL",
+            subTitle: "",),
 
-        CustomContainerWidget(
-          body: [
+          CustomContainerWidget(
+            body: [
 
 
-            BlocBuilder<SignupCubit, SignupState>(
-              builder: (context, state) {
-                bool hasSelect = state.selectedActivity != null &&
-                    state.selectedActivity.isNotEmpty;
+              BlocBuilder<SignupCubit, SignupState>(
+                builder: (context, state) {
+                  bool hasSelect = state.selectedActivity != null &&
+                      state.selectedActivity.isNotEmpty;
 
-                return Column(
-                  children: [
+                  return Column(
+                    children: [
 
-                    ...activities.map((activity) {
-                      return CustomListTile(title: activity,
-                        isSelected: state.selectedActivity == activity,
-                        onPress: () {
-                          viewModel.selectActivity(activity);
-                        },);
-                    },),
+                      ...activities.map((activity) {
+                        return CustomListTile(title: activity,
+                          isSelected: state.selectedActivity == activity,
+                          onPress: () {
+                            viewModel.selectActivity(activity);
+                          },);
+                      },),
 
-                    // here call function that call the api to submit the user data to register
-                    ElevatedButton(
-                      onPressed: hasSelect ? () => viewModel.nextStep() : null,
+                      // here call function that call the api to submit the user data to register
+                      ElevatedButton(
+                        onPressed: hasSelect ? () => viewModel.nextStep() : null,
 
-                      child: Text(
-                        'Submit',
-                        style: AppTextStyles.BalooThambi2_800_14.copyWith(
-                          color: AppColors.whiteColor,
+                        child: Text(
+                          'Submit',
+                          style: AppTextStyles.BalooThambi2_800_14.copyWith(
+                            color: AppColors.whiteColor,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          disabledBackgroundColor: AppColors.greyColor,
                         ),
                       ),
-                      style: ElevatedButton.styleFrom(
-                        disabledBackgroundColor: AppColors.greyColor,
-                      ),
-                    ),
-                  ],
-                );
-              },
-            ),
-          ],
-        ),
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
 
-      ],
+        ],
+      ),
     );
   }
 }

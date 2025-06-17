@@ -31,14 +31,16 @@ class _GenderWidgetState extends State<GenderWidget> {
           borderRadius: BorderRadius.circular(95),
 
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
 
-            Image.asset(widget.icon),
-            Text(widget.name,style: AppTextStyles.BalooThambi2_600_12.copyWith(color: AppColors.whiteColor),),
-          ],
+              Image.asset(widget.icon),
+              Text(widget.name,style: AppTextStyles.BalooThambi2_600_12.copyWith(color: AppColors.whiteColor),),
+            ],
+          ),
         ),
       ),
     );

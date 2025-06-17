@@ -34,15 +34,15 @@ class SignupSelectWeight extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed:()=>viewModel.nextStep(),
+                style: ElevatedButton.styleFrom(
+                  disabledBackgroundColor: AppColors.greyColor,
+                ),
 
                 child: Text(
                   'Next',
                   style: AppTextStyles.BalooThambi2_800_14.copyWith(
                     color: AppColors.whiteColor,
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  disabledBackgroundColor: AppColors.greyColor,
                 ),
               ),
             ]

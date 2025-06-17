@@ -33,6 +33,7 @@ class SignupBasicInfo extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextField(
+                      key: const Key('firstNameField'),
                       onChanged: (value) => cubit.updateFirstName(value),
                       decoration: InputDecoration(
                         prefixIcon: Icon(
@@ -47,6 +48,7 @@ class SignupBasicInfo extends StatelessWidget {
                     ),
                     SizedBox(height: 16.HeightResponsive),
                     TextField(
+                      key: const Key('lastNameField'),
                       onChanged: (value) => cubit.updateLastName(value),
                       decoration: InputDecoration(
                         hintText: "last Name ",
@@ -62,6 +64,7 @@ class SignupBasicInfo extends StatelessWidget {
                     SizedBox(height: 16.HeightResponsive),
 
                     TextField(
+                      key: const Key('emailField'),
                       onChanged: (value) => cubit.updateEmail(value),
                       decoration: InputDecoration(
                         hintText: "Email ",
@@ -77,6 +80,7 @@ class SignupBasicInfo extends StatelessWidget {
                     SizedBox(height: 16.HeightResponsive),
 
                     TextField(
+                      key: const Key('passwordField'),
                       obscureText:true ,
                       onChanged: (value) => cubit.updatePassword(value),
                       decoration: InputDecoration(
@@ -92,6 +96,7 @@ class SignupBasicInfo extends StatelessWidget {
                     ),
                     SizedBox(height: 32.HeightResponsive),
                     ElevatedButton(
+                      key: const Key('registerButton'),
                       onPressed: state.isBasicInfoValid ? () => cubit.nextStep() : null,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primaryColor,
