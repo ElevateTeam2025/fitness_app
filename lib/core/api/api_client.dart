@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fitness_app/features/auth/forget_password/data/models/create_new_passwordrequset.dart';
 import 'package:fitness_app/features/auth/forget_password/data/models/forget_password_request.dart';
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart';
 import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart';
@@ -38,4 +39,7 @@ abstract class ApiClient {
 
   @POST(ApiEndPoints.signUp)
   Future<SignupResponseModel> signup(@Body() SignupRequestModel body);
+
+  @PUT(ApiEndPoints.resetPassword)
+  Future<void> createNewPassword(@Body() CreateNewPasswordrequset request);
 }

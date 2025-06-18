@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/router/pages_routes.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/view/create_new_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/forget_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/signup_flow.dart';
@@ -19,8 +20,21 @@ class RoutesGenerator {
         // return MaterialPageRoute(builder: (context) => LayoutScreen(), settings: settings,);
 
       case PagesRoutes.forgetPasswordView:
-        return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
+        return MaterialPageRoute(
+          builder: (_) => const ForgetPasswordView(),
+          settings: settings,
+        );
       case PagesRoutes.verifyResetCodeView:
+        return MaterialPageRoute(
+          builder: (_) => const VerifyResetCodeView(),
+          settings: settings,
+        );
+
+      case PagesRoutes.createNewPasswordView:
+        return MaterialPageRoute(
+          builder: (_) => const CreateNewPasswordView(),
+          settings: settings,
+        );
         return MaterialPageRoute(builder: (_) => const VerifyResetCodeView());
         case PagesRoutes.signUpFlowView:
         // Assuming you have a SignUpFlowView, uncomment the line below

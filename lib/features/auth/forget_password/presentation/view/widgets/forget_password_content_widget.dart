@@ -71,7 +71,12 @@ class _ForgetPasswordContentWidgetState
               EasyLoading.show();
             } else if (state is ForgetPasswordSuccess) {
               EasyLoading.dismiss();
-              Navigator.pushNamed(context, PagesRoutes.verifyResetCodeView);
+              final String email = widget.controller.text;
+              Navigator.pushNamed(
+                context,
+                PagesRoutes.verifyResetCodeView,
+                arguments: email,
+              );
             }
           },
           child: ElevatedButton(

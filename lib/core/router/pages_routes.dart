@@ -4,4 +4,5 @@ abstract class PagesRoutes {
  static const String verifyResetCodeView = 'verifyResetCodeView';
  static const String signUpFlowView = 'signUp';
  static const String layoutView = 'layoutView';
+ static const String createNewPasswordView = 'createNewPasswordView';
 }

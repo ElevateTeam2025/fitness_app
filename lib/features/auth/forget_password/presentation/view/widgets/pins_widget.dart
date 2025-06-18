@@ -17,8 +17,8 @@ class PinsWidget extends StatelessWidget {
       controller: controller,
       autovalidateMode: autovalidateMode,
       validator: (value) {
-        if (value == null || value.isEmpty || value.length < 4) {
-          return 'Please enter 4 digit code';
+        if (value == null || value.isEmpty || value.length < 6) {
+          return 'Please enter 6 digit code';
         }
         return null;
       },

@@ -1,5 +1,4 @@
 import 'package:fitness_app/core/utils/app_colors.dart';
-import 'package:fitness_app/core/utils/end_points.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/core/widgets/custom_container_widget.dart';
 import 'package:flutter/material.dart';
