@@ -845,6 +845,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
+  percent_indicator:
+    dependency: "direct dev"
+    description:
+      name: percent_indicator
+      sha256: "157d29133bbc6ecb11f923d36e7960a96a3f28837549a20b65e5135729f0f9fd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.5"
   petitparser:
     dependency: transitive
     description:
@@ -853,6 +861,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.0"
+  pin_code_fields:
+    dependency: "direct main"
+    description:
+      name: pin_code_fields
+      sha256: "4c0db7fbc889e622e7c71ea54b9ee624bb70c7365b532abea0271b17ea75b729"
+      url: "https://pub.dev"
+    source: hosted
+    version: "8.0.1"
   platform:
     dependency: transitive
     description:
@@ -1250,6 +1266,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
+  wheel_chooser:
+    dependency: transitive
+    description:
+      name: wheel_chooser
+      sha256: "3fee36f081f321c58a0b7b4afcdd92599f2ca520b3a1420084774e6b19cca1d8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
+  wheel_slider:
+    dependency: "direct dev"
+    description:
+      name: wheel_slider
+      sha256: "6e29d2be088591fdc8d63fff647fe7ec0bd87f872165eabf8b73e59168d9b733"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.2"
   xdg_directories:
     dependency: transitive
     description:

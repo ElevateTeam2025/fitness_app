@@ -13,15 +13,18 @@ class CustomContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(30.RadiusResponsive),
+        borderRadius: BorderRadius.circular(50.RadiusResponsive),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
           child: Container(
             width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: responsiveWidth(24),vertical: responsiveHeight(16)),
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.WidthResponsive,
+              vertical: 24.HeightResponsive,
+            ),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(30),
+              color: Colors.white.withOpacity(0.001),
+              borderRadius: BorderRadius.circular(30.RadiusResponsive),
               border: Border.all(color: Colors.white.withOpacity(0.2)),
             ),
             child: Column(mainAxisSize: MainAxisSize.min, children: body),
