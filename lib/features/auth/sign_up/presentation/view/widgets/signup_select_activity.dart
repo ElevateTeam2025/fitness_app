@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -64,7 +65,7 @@ class SignupSelectActivity extends StatelessWidget {
                         listener: (context, state) {
                           if(state.isSuccess){
                             EasyLoading.showSuccess(state.success.toString());
-                            // go to login
+                            Navigator.pushNamed(context, PagesRoutes.signIn);
                           }
                           else if(state.isLoading)
                             {

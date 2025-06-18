@@ -13,7 +13,6 @@ import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/sign
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_weight.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart';
 
 import '../../../../../core/utils/app_assets.dart';
 

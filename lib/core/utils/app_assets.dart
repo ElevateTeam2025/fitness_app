@@ -1,38 +1,35 @@
-abstract class ImageAssets {
-  static const String mainBackground = "$imagePath/main_back_ground.png";
-  static const String appIcon = "$imagePath/app_logo.png";
-
-}
-
 const String imagePath = "assets/images";
 const String iconPath = "assets/icons";
 const String animationPath = "assets/animations";
 const String svgPath = "assets/svg";
 
-abstract class AnimationAssets {}
+abstract class ImageAssets {
+  static const String mainBackground = "$imagePath/main_back_ground.png";
+  static const String appIcon = "$imagePath/app_logo.png";
 
-abstract class SvgImages {}
+  static const String logInBackground = "$imagePath/background.png";
+  static const String logo = "$imagePath/logo.png";
+}
 
-abstract class IconAssets{
+
+abstract class IconAssets {
   static const String personIcon = "$iconPath/user.png";
   static const String emailIcon = "$iconPath/mail.png";
   static const String lockIcon = "$iconPath/lock.png";
   static const String maleIcon = "$iconPath/male.png";
   static const String femaleIcon = "$iconPath/female.png";
-abstract class ImageAssets {
-  static const String logInBackground = "$imagePath/background.png";
-  static const String logo = "$imagePath/logo.png";
+
+  static const String homeIcon = "$iconPath/homeIcon.png";
+  static const String profileIcon = "$iconPath/profileIcon.png";
+  static const String chatIcon = "$iconPath/chatIcon.png";
+  static const String workoutIcon = "$iconPath/workout.png";
+
 }
 
 abstract class AnimationAssets {
   static const String onboardingAssets = "$animationPath/onboarding_animation.json";
 }
-abstract class IconAssets {
-  static const String homeIcon = "$iconPath/homeIcon.png";
-  static const String profileIcon = "$iconPath/profileIcon.png";
-  static const String chatIcon = "$iconPath/chatIcon.png";
-  static const String workoutIcon = "$iconPath/workout.png";
-}
+
 abstract class SvgImages {
   static const String logo = '$svgPath/logo.svg';
 
