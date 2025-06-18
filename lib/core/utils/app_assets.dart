@@ -1,12 +1,44 @@
-abstract class ImageAssets {
-  static const String mainBackground = "$imagePath/main_back_ground.png";
-}
-
 const String imagePath = "assets/images";
 const String iconPath = "assets/icons";
 const String animationPath = "assets/animations";
 const String svgPath = "assets/svg";
 
-abstract class AnimationAssets {}
+abstract class ImageAssets {
+  static const String mainBackground = "$imagePath/main_back_ground.png";
+  static const String appIcon = "$imagePath/app_logo.png";
 
-abstract class SvgImages {}
+  static const String logInBackground = "$imagePath/background.png";
+  static const String logo = "$imagePath/logo.png";
+}
+
+
+abstract class IconAssets {
+  static const String personIcon = "$iconPath/user.png";
+  static const String emailIcon = "$iconPath/mail.png";
+  static const String lockIcon = "$iconPath/lock.png";
+  static const String maleIcon = "$iconPath/male.png";
+  static const String femaleIcon = "$iconPath/female.png";
+
+  static const String homeIcon = "$iconPath/homeIcon.png";
+  static const String profileIcon = "$iconPath/profileIcon.png";
+  static const String chatIcon = "$iconPath/chatIcon.png";
+  static const String workoutIcon = "$iconPath/workout.png";
+
+}
+
+abstract class AnimationAssets {
+  static const String onboardingAssets = "$animationPath/onboarding_animation.json";
+}
+
+abstract class SvgImages {
+  static const String logo = '$svgPath/logo.svg';
+
+  static const String successApply = '$svgPath/success_apply.svg';
+  static const String decoration1 = '$svgPath/decoration1.svg';
+  static const String decoration2 = '$svgPath/decoration2.svg';
+  static const String locationIcon = '$svgPath/location.svg';
+  static const String whatsappIcon = '$svgPath/whats_app.svg';
+  static const String callIcon = '$svgPath/call.svg';
+  static const String errorIcon = '$svgPath/error.svg';
+  static const String flowerImg = '$svgPath/flowerImg.svg';
+}

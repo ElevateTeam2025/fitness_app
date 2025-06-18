@@ -1,13 +1,13 @@
 class AppValidate {
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter an email ';
+      return 'Please enter an email';
     }
     final regex = RegExp(
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
     );
     if (!regex.hasMatch(value)) {
-      return 'Please enter a valid email ';
+      return 'Please enter a valid email';
     }
     return null;
   }
@@ -39,7 +39,7 @@ class AppValidate {
       return 'Please enter a password ';
     }
     if (value.length < 8) {
-      return 'Password should be at least 8 characters long ';
+      return 'Password should be at least 8 characters long';
     }
     final regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])');
     if (!regex.hasMatch(value)) {
