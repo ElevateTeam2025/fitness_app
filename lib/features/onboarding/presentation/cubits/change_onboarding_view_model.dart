@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
-import 'package:fitness_app/feature/onboarding/domain/onboarding_entity.dart';
-import 'package:fitness_app/feature/onboarding/presentation/cubits/change_onboarding_state.dart';
+import 'package:fitness_app/features/onboarding/domain/onboarding_entity.dart';
+import 'package:fitness_app/features/onboarding/presentation/cubits/change_onboarding_state.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

@@ -4,20 +4,17 @@ abstract class ImageAssets {
   static const String onBoradingImage_2 = "$imagePath/onboarding_image2.png";
   static const String onBoradingImage_3 = "$imagePath/onboarding_image3.png";
   static const String onboardingBg = "$imagePath/on_boarding_bg.png";
-}
-
-const String imagePath = "assets/images";
-const String iconPath = "assets/icons";
-const String animationPath = "assets/animations";
-const String svgPath = "assets/svg";
-
-abstract class ImageAssets {
   static const String mainBackground = "$imagePath/main_back_ground.png";
   static const String appIcon = "$imagePath/app_logo.png";
 
   static const String logInBackground = "$imagePath/background.png";
   static const String logo = "$imagePath/logo.png";
 }
+
+const String imagePath = "assets/images";
+const String iconPath = "assets/icons";
+const String animationPath = "assets/animations";
+const String svgPath = "assets/svg";
 
 
 abstract class IconAssets {

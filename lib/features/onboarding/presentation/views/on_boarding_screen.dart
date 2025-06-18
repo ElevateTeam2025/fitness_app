@@ -1,8 +1,8 @@
 import 'package:fitness_app/core/di/injectable_initializer.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
-import 'package:fitness_app/feature/onboarding/presentation/cubits/change_onboarding_state.dart';
-import 'package:fitness_app/feature/onboarding/presentation/cubits/change_onboarding_view_model.dart';
-import 'package:fitness_app/feature/onboarding/presentation/views/widgets/onboarding_item_widget.dart';
+import 'package:fitness_app/features/onboarding/presentation/cubits/change_onboarding_state.dart';
+import 'package:fitness_app/features/onboarding/presentation/cubits/change_onboarding_view_model.dart';
+import 'package:fitness_app/features/onboarding/presentation/views/widgets/onboarding_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

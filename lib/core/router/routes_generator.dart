@@ -4,14 +4,11 @@ import 'package:fitness_app/features/auth/forget_password/presentation/view/forg
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/signup_flow.dart';
 import 'package:fitness_app/app_view.dart';
-import 'package:fitness_app/core/router/pages_routes.dart';
-import 'package:fitness_app/feature/onboarding/presentation/views/on_boarding_screen.dart';
-import 'package:fitness_app/feature/splash/presentation/splash_screen.dart';
+import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_screen.dart';
+import 'package:fitness_app/features/splash/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/auth/sign_in/presentation/views/sign_in/sign_in_screen.dart';
-
-// import 'layout/presentation/layout_screen.dart';
 
 
 
