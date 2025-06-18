@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+
+import '../../../../../core/common/get_responsive_height_and_width.dart';
+import '../../../../../core/utils/app_assets.dart';
+import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/text_styles.dart';
+
+class SignInHeader extends StatelessWidget {
+  const SignInHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: responsiveWidth(16)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: responsiveWidth(24),
+            vertical: responsiveHeight(24)),
+            child: Center(
+              child: Image.asset(
+                ImageAssets.logo,
+                height: responsiveHeight(60),
+              ),
+            ),
+          ),
+          SizedBox(height: responsiveHeight(20)),
+          Text(
+            'Hey There',
+            style: AppTextStyles.BalooThambi2_400_16.copyWith(
+              fontSize: 18,
+              color: AppColors.whiteColor,
+            ),
+          ),
+          Text(
+            'WELCOME BACK',
+            style: AppTextStyles.BalooThambi2_700_20.copyWith(
+              fontWeight: FontWeight.w800,
+              color: AppColors.whiteColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
