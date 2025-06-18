@@ -3,13 +3,15 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
-import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
-    as _i3;
-import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart'
+import 'package:fitness_app/features/auth/sign_up/domain/use_case/signup_use_case.dart'
     as _i2;
-import 'package:flutter_bloc/flutter_bloc.dart' as _i5;
+import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
+    as _i4;
+import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart'
+    as _i3;
+import 'package:flutter_bloc/flutter_bloc.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -26,34 +28,50 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeSignupState_0 extends _i1.SmartFake implements _i2.SignupState {
-  _FakeSignupState_0(Object parent, Invocation parentInvocation)
+class _FakeSignupUseCase_0 extends _i1.SmartFake implements _i2.SignupUseCase {
+  _FakeSignupUseCase_0(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeSignupState_1 extends _i1.SmartFake implements _i3.SignupState {
+  _FakeSignupState_1(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
 /// A class which mocks [SignupCubit].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSignupCubit extends _i1.Mock implements _i3.SignupCubit {
+class MockSignupCubit extends _i1.Mock implements _i4.SignupCubit {
   MockSignupCubit() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i2.SignupState get state =>
+  _i2.SignupUseCase get useCase =>
       (super.noSuchMethod(
-            Invocation.getter(#state),
-            returnValue: _FakeSignupState_0(this, Invocation.getter(#state)),
+            Invocation.getter(#useCase),
+            returnValue: _FakeSignupUseCase_0(
+              this,
+              Invocation.getter(#useCase),
+            ),
           )
-          as _i2.SignupState);
+          as _i2.SignupUseCase);
 
   @override
-  _i4.Stream<_i2.SignupState> get stream =>
+  _i3.SignupState get state =>
+      (super.noSuchMethod(
+            Invocation.getter(#state),
+            returnValue: _FakeSignupState_1(this, Invocation.getter(#state)),
+          )
+          as _i3.SignupState);
+
+  @override
+  _i5.Stream<_i3.SignupState> get stream =>
       (super.noSuchMethod(
             Invocation.getter(#stream),
-            returnValue: _i4.Stream<_i2.SignupState>.empty(),
+            returnValue: _i5.Stream<_i3.SignupState>.empty(),
           )
-          as _i4.Stream<_i2.SignupState>);
+          as _i5.Stream<_i3.SignupState>);
 
   @override
   bool get isClosed =>
@@ -133,22 +151,22 @@ class MockSignupCubit extends _i1.Mock implements _i3.SignupCubit {
   );
 
   @override
-  _i4.Future<void> submit() =>
+  _i5.Future<void> subimt() =>
       (super.noSuchMethod(
-            Invocation.method(#submit, []),
-            returnValue: _i4.Future<void>.value(),
-            returnValueForMissingStub: _i4.Future<void>.value(),
+            Invocation.method(#subimt, []),
+            returnValue: _i5.Future<void>.value(),
+            returnValueForMissingStub: _i5.Future<void>.value(),
           )
-          as _i4.Future<void>);
+          as _i5.Future<void>);
 
   @override
-  void emit(_i2.SignupState? state) => super.noSuchMethod(
+  void emit(_i3.SignupState? state) => super.noSuchMethod(
     Invocation.method(#emit, [state]),
     returnValueForMissingStub: null,
   );
 
   @override
-  void onChange(_i5.Change<_i2.SignupState>? change) => super.noSuchMethod(
+  void onChange(_i6.Change<_i3.SignupState>? change) => super.noSuchMethod(
     Invocation.method(#onChange, [change]),
     returnValueForMissingStub: null,
   );
@@ -166,11 +184,11 @@ class MockSignupCubit extends _i1.Mock implements _i3.SignupCubit {
   );
 
   @override
-  _i4.Future<void> close() =>
+  _i5.Future<void> close() =>
       (super.noSuchMethod(
             Invocation.method(#close, []),
-            returnValue: _i4.Future<void>.value(),
-            returnValueForMissingStub: _i4.Future<void>.value(),
+            returnValue: _i5.Future<void>.value(),
+            returnValueForMissingStub: _i5.Future<void>.value(),
           )
-          as _i4.Future<void>);
+          as _i5.Future<void>);
 }

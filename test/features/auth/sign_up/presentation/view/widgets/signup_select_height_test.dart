@@ -5,15 +5,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fitness_app/core/services/screen_size_service.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_height.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart';
+import 'package:fitness_app/features/auth/sign_up/domain/use_case/signup_use_case.dart';
+import 'package:mockito/annotations.dart';
+import 'signup_select_height_test.mocks.dart';
 
+@GenerateMocks([SignupUseCase])
 void main() {
   late SignupCubit signupCubit;
+  late MockSignupUseCase mockSignupUseCase;
 
   setUp(() {
     ScreenSizeService.width = 400;
     ScreenSizeService.height = 800;
 
-    signupCubit = SignupCubit();
+    mockSignupUseCase = MockSignupUseCase();
+    signupCubit = SignupCubit(mockSignupUseCase);
   });
 
   tearDown(() {

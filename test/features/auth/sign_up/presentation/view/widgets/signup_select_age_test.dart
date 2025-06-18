@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/services/screen_size_service.dart';
+import 'package:fitness_app/features/auth/sign_up/domain/use_case/signup_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,17 +7,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/signup_select_age.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart';
+import 'package:mockito/annotations.dart';
+import 'signup_select_age_test.mocks.dart';
 
+@GenerateMocks([SignupUseCase])
 void main() {
   group('SignupSelectAge Widget Test', () {
     late SignupCubit signupCubit;
+    late MockSignupUseCase mockSignupUseCase;
 
     setUp(() {
-      signupCubit = SignupCubit();
+      mockSignupUseCase = MockSignupUseCase();
+      signupCubit = SignupCubit(mockSignupUseCase);
 
       ScreenSizeService.width = 375;
       ScreenSizeService.height = 412;
-
     });
 
     tearDown(() {

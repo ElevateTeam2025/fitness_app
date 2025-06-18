@@ -24,80 +24,82 @@ class SignupSelectActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<SignupCubit>();
-    return Column(
-      children: [
-        BuildPageTitle(title: "YOUR REGULAR PHYSICAL ACTIVITY LEVEL",
-          subTitle: "",),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          BuildPageTitle(title: "YOUR REGULAR PHYSICAL ACTIVITY LEVEL",
+            subTitle: "",),
 
-        CustomContainerWidget(
-          body: [
+          CustomContainerWidget(
+            body: [
 
 
-            BlocBuilder<SignupCubit, SignupState>(
-              builder: (context, state) {
-                bool hasSelect = state.selectedActivity != null &&
-                    state.selectedActivity.isNotEmpty;
+              BlocBuilder<SignupCubit, SignupState>(
+                builder: (context, state) {
+                  bool hasSelect = state.selectedActivity != null &&
+                      state.selectedActivity.isNotEmpty;
 
-                return Column(
-                  children: [
+                  return Column(
+                    children: [
 
-                    // ...activities.map((activity) {
-                    //   return CustomListTile(title: activity,
-                    //     isSelected: state.selectedActivity == activity,
-                    //     onPress: () {
-                    //       viewModel.selectActivity(activity);
-                    //     },);
-                    // },),
-                    ...activities.entries.map((activity) {
-                      final name = activity.key;
-                      final level = activity.value;
-                      return CustomListTile(
-                        title: name,
-                        isSelected: state.selectedActivity == level,
-                        onPress: () {
-                          viewModel.selectActivity(level);
-                        },
-                      );
-                    },),
-                    BlocListener<SignupCubit ,SignupState>(
-                      listener: (context, state) {
-                        if(state.isSuccess){
-                          EasyLoading.showSuccess(state.success.toString());
-                          // go to login
-                        }
-                        else if(state.isLoading)
-                          {
-                            EasyLoading.show();
+                      // ...activities.map((activity) {
+                      //   return CustomListTile(title: activity,
+                      //     isSelected: state.selectedActivity == activity,
+                      //     onPress: () {
+                      //       viewModel.selectActivity(activity);
+                      //     },);
+                      // },),
+                      ...activities.entries.map((activity) {
+                        final name = activity.key;
+                        final level = activity.value;
+                        return CustomListTile(
+                          title: name,
+                          isSelected: state.selectedActivity == level,
+                          onPress: () {
+                            viewModel.selectActivity(level);
+                          },
+                        );
+                      },),
+                      BlocListener<SignupCubit ,SignupState>(
+                        listener: (context, state) {
+                          if(state.isSuccess){
+                            EasyLoading.showSuccess(state.success.toString());
+                            // go to login
                           }
-                        else if (state.error != null){
-                          EasyLoading.showError(state.error.toString());
-                        }
+                          else if(state.isLoading)
+                            {
+                              EasyLoading.show();
+                            }
+                          else if (state.error != null){
+                            EasyLoading.showError(state.error.toString());
+                          }
 
-                      },
-                      child: ElevatedButton(
-                        onPressed: hasSelect
-                            ? () => viewModel.subimt()
-                            : null,
+                        },
+                        child: ElevatedButton(
+                          onPressed: hasSelect
+                              ? () => viewModel.subimt()
+                              : null,
 
-                        child: Text(
-                          'Submit',
-                          style: AppTextStyles.BalooThambi2_800_14.copyWith(
-                            color: AppColors.whiteColor,
+                          child: Text(
+                            'Submit',
+                            style: AppTextStyles.BalooThambi2_800_14.copyWith(
+                              color: AppColors.whiteColor,
+                            ),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            disabledBackgroundColor: AppColors.greyColor,
                           ),
                         ),
-                        style: ElevatedButton.styleFrom(
-                          disabledBackgroundColor: AppColors.greyColor,
-                        ),
                       ),
-                    ),
-                  ],
-                );
-              },
-            ),
-          ],
-        ),
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
 
-      ],
+        ],
+      ),
     );
   }
 }
