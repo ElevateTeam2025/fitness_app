@@ -22,8 +22,8 @@ import '../../feature/auth/data/repository_imp/auth_repository_imp.dart'
     as _i384;
 import '../../feature/auth/domain/repository/auth_repository.dart' as _i884;
 import '../../feature/auth/domain/use_case/sign_in_use_case.dart' as _i189;
-import '../../feature/auth/presentaion/cubit/sign_in_cubit/sign_in_view_model.dart'
-    as _i514;
+import '../../feature/auth/presentation/cubit/sign_in_cubit/sign_in_view_model.dart'
+    as _i741;
 import '../api/api_client.dart' as _i277;
 import '../api/network_factory.dart' as _i1013;
 import '../services/gemini_service.dart' as _i846;
@@ -56,8 +56,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i189.SignInUseCase>(
       () => _i189.SignInUseCase(gh<_i884.AuthRepository>()),
     );
-    gh.factory<_i514.SignInViewModel>(
-      () => _i514.SignInViewModel(gh<_i189.SignInUseCase>()),
+    gh.factory<_i741.SignInViewModel>(
+      () => _i741.SignInViewModel(gh<_i189.SignInUseCase>()),
     );
     return this;
   }
