@@ -1,11 +1,12 @@
 import 'dart:ui';
 
 import 'package:fitness_app/core/common/height_width_extention.dart';
-import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:fitness_app/core/utils/app_colors.dart';
+
 
 class CustomContainerWidget extends StatelessWidget {
-  const CustomContainerWidget({super.key, required this.body});
+  const CustomContainerWidget({super.key, required this.body, });
 
   final List<Widget> body;
 
@@ -18,7 +19,10 @@ class CustomContainerWidget extends StatelessWidget {
           filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
           child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(24),
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.WidthResponsive,
+              vertical: 24.HeightResponsive,
+            ),
             decoration: BoxDecoration(
               color: AppColors.whiteColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(50.RadiusResponsive),

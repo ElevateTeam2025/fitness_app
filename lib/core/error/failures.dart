@@ -86,6 +86,8 @@ class ServerFailure extends Failure {
         }
         return ServerFailure(errorMessage: 'Something went wrong');
 
+      case 409:
+        return ServerFailure(errorMessage: "user already exists.");
       default:
         return ServerFailure(errorMessage: 'Something went wrong');
     }

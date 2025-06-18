@@ -1,5 +1,10 @@
-const String baseUrl = 'https://fitness.elevateegy.com/api/v1/';
+const String baseUrl = 'https://fitness.elevateegy.com/api/v1';
 
 class ApiEndPoints {
   ApiEndPoints._();
+  static const String signIn = "/auth/signin";
+  static const String forgotPassword = "/auth/forgotPassword";
+  static const String verifyResetCode = "/auth/verifyResetCode";
+  static const String signUp = "/auth/signup";
+  static const String resetPassword = "/auth/resetPassword";
 }
