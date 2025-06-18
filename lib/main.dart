@@ -13,6 +13,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'layout/presentation/layout_screen.dart';
 
+import 'core/router/pages_routes.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await dotenv.load();
@@ -53,7 +55,7 @@ class MainAppContent extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      home: LayoutScreen(),
+      initialRoute: PagesRoutes.signIn
     );
   }
 }
