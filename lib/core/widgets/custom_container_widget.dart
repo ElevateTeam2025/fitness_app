@@ -1,9 +1,8 @@
 import 'dart:ui';
 
+import 'package:fitness_app/core/common/get_responsive_height_and_width.dart';
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:flutter/material.dart';
-import 'package:fitness_app/core/utils/app_colors.dart';
-
 
 class CustomContainerWidget extends StatelessWidget {
   const CustomContainerWidget({super.key, required this.body, });
@@ -24,11 +23,11 @@ class CustomContainerWidget extends StatelessWidget {
               vertical: 24.HeightResponsive,
             ),
             decoration: BoxDecoration(
-              color: AppColors.whiteColor.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(50.RadiusResponsive),
-              border: Border.all(color: AppColors.whiteColor.withOpacity(0.2)),
+              color: Colors.white.withOpacity(0.001),
+              borderRadius: BorderRadius.circular(30.RadiusResponsive),
+              border: Border.all(color: Colors.white.withOpacity(0.2)),
             ),
-            child: Column(mainAxisSize: MainAxisSize.min, children: body),
+            child: SingleChildScrollView(child: Column(mainAxisSize: MainAxisSize.min, children: body)),
           ),
         ),
       ),

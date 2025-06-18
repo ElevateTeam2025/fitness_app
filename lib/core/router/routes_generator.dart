@@ -9,6 +9,7 @@ import 'package:fitness_app/features/splash/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/auth/sign_in/presentation/views/sign_in/sign_in_screen.dart';
+import '../../layout/presentation/layout_screen.dart';
 
 
 
@@ -17,8 +18,8 @@ class RoutesGenerator {
     switch (settings.name) {
       case PagesRoutes.signIn:
         return MaterialPageRoute(builder: (context) => SignInScreen(), settings: settings,);
-      // case PagesRoutes.layoutView:
-        // return MaterialPageRoute(builder: (context) => LayoutScreen(), settings: settings,);
+      case PagesRoutes.layoutView:
+        return MaterialPageRoute(builder: (context) => LayoutScreen(), settings: settings,);
 
       case PagesRoutes.forgetPasswordView:
         return MaterialPageRoute(

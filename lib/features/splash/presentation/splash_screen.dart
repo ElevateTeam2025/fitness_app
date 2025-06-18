@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
         final String? onBoarding =
             SharedPreferenceServices.getData('onBoarding') as String?;
         if (onBoarding != null) {
-          Navigator.pushReplacementNamed(context, PagesRoutes.appSection);
+          Navigator.pushReplacementNamed(context, PagesRoutes.signIn);
         } else {
           Navigator.pushReplacementNamed(context, PagesRoutes.onBoarding);
         }
