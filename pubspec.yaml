@@ -50,7 +50,7 @@ dependencies:
   location: ^8.0.0
   lottie: null
   mime: ^2.0.0
-  mockito: ^5.4.5
+  mockito: ^5.4.6
   pretty_dio_logger: ^1.4.0
   provider: ^6.1.5
   retrofit: ^4.4.2
@@ -58,6 +58,7 @@ dependencies:
   flutter_dotenv:
   bloc_test: ^10.0.0
   cupertino_icons: ^1.0.8
+  pin_code_fields: ^8.0.1
 
 
 
@@ -71,36 +72,32 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   injectable_generator: null
   json_serializable: ^6.9.5
-  mockito: ^5.4.5
   retrofit_generator: ^9.1.9
+  wheel_slider: ^1.2.2
+  percent_indicator: ^4.2.5
   flutter_test:
     sdk: flutter
 flutter_icons:
   android: true
   ios: true
   image_path: "assets/images/logo.png"
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
-  assets:
-    - assets/icons/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
+    - assets/svg/logo.svg
+    - assets/icons/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

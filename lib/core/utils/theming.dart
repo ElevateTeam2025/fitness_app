@@ -32,6 +32,11 @@ ThemeData theme() {
         ),
       ),
     ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: AppColors.primaryColor,          // <-- your cursor color
+      selectionColor: AppColors.primaryColor.withOpacity(0.3),
+      selectionHandleColor: AppColors.primaryColor,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       floatingLabelBehavior: FloatingLabelBehavior.always,
       hintStyle: AppTextStyles.BalooThambi2_400_12.copyWith(
@@ -46,8 +51,23 @@ ThemeData theme() {
         0,
         (4 / ScreenSizeService.baseHeight) * screenHeight,
       ),
-      focusedBorder: textFieldInputBorderFocus(),
-      enabledBorder: textFieldInputBorder(),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50),
+        borderSide: const BorderSide(color: Colors.white),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50),
+        borderSide: const BorderSide(color: Colors.red),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50),
+        borderSide: const BorderSide(color: Colors.red),
+      ),
+
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50),
+        borderSide: const BorderSide(color: Colors.white),
+      ),
       border: textFieldInputBorder(),
       filled: true,
       fillColor: Colors.transparent,
