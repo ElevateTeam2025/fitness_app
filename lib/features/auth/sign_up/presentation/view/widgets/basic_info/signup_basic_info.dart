@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/widgets/custom_container_widget.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart';
@@ -110,7 +111,7 @@ class SignupBasicInfo extends StatelessWidget {
                         ),
                       ),
                     ),
-                    _aleadyHaveAccount()
+                    _aleadyHaveAccount(context)
                   ],
                 ),
               ),
@@ -125,13 +126,17 @@ class SignupBasicInfo extends StatelessWidget {
 
 
 
-  Widget _aleadyHaveAccount(){
-    return  Row(
+  Widget _aleadyHaveAccount(BuildContext context) {
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Already Have an account ?", style: AppTextStyles.BalooThambi2_400_14.copyWith(color: AppColors.whiteColor)),
+        Text(
+          "Already Have an account ?",
+          style: AppTextStyles.BalooThambi2_400_14.copyWith(color: AppColors.whiteColor),
+        ),
         TextButton(
           onPressed: () {
+            Navigator.pushNamed(context, PagesRoutes.signIn);
           },
           child: Text(
             "Login",
@@ -146,4 +151,5 @@ class SignupBasicInfo extends StatelessWidget {
       ],
     );
   }
+
 }

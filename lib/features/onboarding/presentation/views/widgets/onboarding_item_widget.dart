@@ -42,7 +42,7 @@ class OnBoardingItemWidget extends StatelessWidget {
                 SharedPreferenceServices.saveData('onBoarding', 'onBoarding');
                 Navigator.pushNamedAndRemoveUntil(
                   context,
-                  PagesRoutes.appSection,
+                  PagesRoutes.signIn,
                   (route) => false,
                 );
               },
@@ -196,7 +196,7 @@ class OnBoardingItemWidget extends StatelessWidget {
                                         );
                                         Navigator.pushNamedAndRemoveUntil(
                                           context,
-                                          PagesRoutes.appSection,
+                                          PagesRoutes.signIn,
                                           (route) => false,
                                         );
                                       } else {

@@ -57,7 +57,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
         } else if (state is SuccessSignInState) {
           EasyLoading.dismiss();
           EasyLoading.showSuccess('success');
-          Navigator.pushReplacementNamed(context, PagesRoutes.signUpFlowView);
+          Navigator.pushReplacementNamed(context, PagesRoutes.layoutView);
         } else if (state is ErrorSignInState) {
           EasyLoading.dismiss();
           EasyLoading.showError(state.message);
