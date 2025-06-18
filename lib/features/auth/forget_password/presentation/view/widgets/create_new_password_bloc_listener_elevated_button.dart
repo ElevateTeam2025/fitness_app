@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/cubits/create_new_password_cubit/create_new_password_cubit.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/cubits/create_new_password_cubit/create_new_password_states.dart';
@@ -26,6 +27,7 @@ class CreateNewPasswordBlocListenerElevatedButton extends StatelessWidget {
           EasyLoading.show();
         } else if (state is CreateNewPasswordSuccess) {
           EasyLoading.dismiss();
+          Navigator.pushNamed(context, PagesRoutes.signIn);
         }
       },
       child: ElevatedButton(

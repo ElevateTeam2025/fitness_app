@@ -65,6 +65,8 @@ import '../../features/auth/sign_up/domain/use_case/signup_use_case.dart'
     as _i449;
 import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
     as _i1067;
+import '../../features/onboarding/presentation/cubits/change_onboarding_view_model.dart'
+    as _i656;
 import '../api/api_client.dart' as _i277;
 import '../api/network_factory.dart' as _i1013;
 import '../services/gemini_service.dart' as _i846;
@@ -78,6 +80,9 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final dioProvider = _$DioProvider();
     gh.factory<_i846.GeminiService>(() => _i846.GeminiService());
+    gh.factory<_i656.ChangeOnboardingViewModel>(
+      () => _i656.ChangeOnboardingViewModel(),
+    );
     gh.lazySingleton<_i361.Dio>(() => dioProvider.dioProvider());
     gh.lazySingleton<_i528.PrettyDioLogger>(() => dioProvider.providePretty());
     gh.lazySingleton<_i1013.AuthInterceptor>(() => _i1013.AuthInterceptor());
