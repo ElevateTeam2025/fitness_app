@@ -40,6 +40,6 @@ abstract class ApiClient {
   @POST(ApiEndPoints.signUp)
   Future<SignupResponseModel> signup(@Body() SignupRequestModel body);
 
-  @PUT('/auth/resetPassword')
+  @PUT(ApiEndPoints.resetPassword)
   Future<void> createNewPassword(@Body() CreateNewPasswordrequset request);
 }

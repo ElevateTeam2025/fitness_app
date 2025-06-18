@@ -3,15 +3,23 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i5;
 
-import 'package:fitness_app/core/api/api_client.dart' as _i2;
+import 'package:fitness_app/core/api/api_client.dart' as _i4;
 import 'package:fitness_app/features/auth/forget_password/data/models/create_new_passwordrequset.dart'
-    as _i6;
+    as _i10;
 import 'package:fitness_app/features/auth/forget_password/data/models/forget_password_request.dart'
-    as _i4;
+    as _i7;
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart'
-    as _i5;
+    as _i8;
+import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart'
+    as _i2;
+import 'package:fitness_app/features/auth/sign_in/domain/entity/sign_in_request.dart'
+    as _i6;
+import 'package:fitness_app/features/auth/sign_up/data/models/signup_request_model.dart'
+    as _i9;
+import 'package:fitness_app/features/auth/sign_up/data/models/signup_response_model.dart'
+    as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -28,38 +36,72 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeSignInDTO_0 extends _i1.SmartFake implements _i2.SignInDTO {
+  _FakeSignInDTO_0(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeSignupResponseModel_1 extends _i1.SmartFake
+    implements _i3.SignupResponseModel {
+  _FakeSignupResponseModel_1(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [ApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiClient extends _i1.Mock implements _i2.ApiClient {
+class MockApiClient extends _i1.Mock implements _i4.ApiClient {
   MockApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<void> forgotPassword(_i4.ForgotPasswordRequest? request) =>
+  _i5.Future<_i2.SignInDTO> signIn(_i6.SignInRequest? data) =>
+      (super.noSuchMethod(
+            Invocation.method(#signIn, [data]),
+            returnValue: _i5.Future<_i2.SignInDTO>.value(
+              _FakeSignInDTO_0(this, Invocation.method(#signIn, [data])),
+            ),
+          )
+          as _i5.Future<_i2.SignInDTO>);
+
+  @override
+  _i5.Future<void> forgotPassword(_i7.ForgotPasswordRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#forgotPassword, [request]),
-            returnValue: _i3.Future<void>.value(),
-            returnValueForMissingStub: _i3.Future<void>.value(),
+            returnValue: _i5.Future<void>.value(),
+            returnValueForMissingStub: _i5.Future<void>.value(),
           )
-          as _i3.Future<void>);
+          as _i5.Future<void>);
 
   @override
-  _i3.Future<void> verifyResetCode(_i5.VerifyResetCodeRequest? request) =>
+  _i5.Future<void> verifyResetCode(_i8.VerifyResetCodeRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#verifyResetCode, [request]),
-            returnValue: _i3.Future<void>.value(),
-            returnValueForMissingStub: _i3.Future<void>.value(),
+            returnValue: _i5.Future<void>.value(),
+            returnValueForMissingStub: _i5.Future<void>.value(),
           )
-          as _i3.Future<void>);
+          as _i5.Future<void>);
 
   @override
-  _i3.Future<void> createNewPassword(_i6.CreateNewPasswordrequset? request) =>
+  _i5.Future<_i3.SignupResponseModel> signup(_i9.SignupRequestModel? body) =>
+      (super.noSuchMethod(
+            Invocation.method(#signup, [body]),
+            returnValue: _i5.Future<_i3.SignupResponseModel>.value(
+              _FakeSignupResponseModel_1(
+                this,
+                Invocation.method(#signup, [body]),
+              ),
+            ),
+          )
+          as _i5.Future<_i3.SignupResponseModel>);
+
+  @override
+  _i5.Future<void> createNewPassword(_i10.CreateNewPasswordrequset? request) =>
       (super.noSuchMethod(
             Invocation.method(#createNewPassword, [request]),
-            returnValue: _i3.Future<void>.value(),
-            returnValueForMissingStub: _i3.Future<void>.value(),
+            returnValue: _i5.Future<void>.value(),
+            returnValueForMissingStub: _i5.Future<void>.value(),
           )
-          as _i3.Future<void>);
+          as _i5.Future<void>);
 }

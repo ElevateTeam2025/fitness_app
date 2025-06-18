@@ -6,6 +6,8 @@
 import 'dart:async' as _i5;
 
 import 'package:fitness_app/core/api/api_client.dart' as _i4;
+import 'package:fitness_app/features/auth/forget_password/data/models/create_new_passwordrequset.dart'
+    as _i10;
 import 'package:fitness_app/features/auth/forget_password/data/models/forget_password_request.dart'
     as _i7;
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart'
@@ -93,4 +95,13 @@ class MockApiClient extends _i1.Mock implements _i4.ApiClient {
             ),
           )
           as _i5.Future<_i3.SignupResponseModel>);
+
+  @override
+  _i5.Future<void> createNewPassword(_i10.CreateNewPasswordrequset? request) =>
+      (super.noSuchMethod(
+            Invocation.method(#createNewPassword, [request]),
+            returnValue: _i5.Future<void>.value(),
+            returnValueForMissingStub: _i5.Future<void>.value(),
+          )
+          as _i5.Future<void>);
 }
