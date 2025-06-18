@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class HomeTap extends StatelessWidget {
@@ -6,7 +7,7 @@ class HomeTap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black12,
+      color: AppColors.greyDarkColor,
     );
   }
 }
