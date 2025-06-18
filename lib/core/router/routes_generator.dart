@@ -3,11 +3,12 @@ import 'package:fitness_app/features/auth/forget_password/presentation/view/crea
 import 'package:fitness_app/features/auth/forget_password/presentation/view/forget_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/signup_flow.dart';
+import 'package:fitness_app/app_view.dart';
+import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_screen.dart';
+import 'package:fitness_app/features/splash/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/auth/sign_in/presentation/views/sign_in/sign_in_screen.dart';
-
-// import 'layout/presentation/layout_screen.dart';
 
 
 
@@ -39,6 +40,21 @@ class RoutesGenerator {
         case PagesRoutes.signUpFlowView:
         // Assuming you have a SignUpFlowView, uncomment the line below
          return MaterialPageRoute(builder: (_) =>  SignupFlow());
+      case PagesRoutes.splashScreen:
+        return MaterialPageRoute(
+          builder: (context) => const SplashScreen(),
+          settings: settings,
+        );
+      case PagesRoutes.onBoarding:
+        return MaterialPageRoute(
+          builder: (context) => const OnBoardingScreen(),
+          settings: settings,
+        );case PagesRoutes.appSection:
+        return MaterialPageRoute(
+          builder: (context) => const AppView(),
+          settings: settings,
+        );
+
       default:
         return unDefinedRoute();
     }
