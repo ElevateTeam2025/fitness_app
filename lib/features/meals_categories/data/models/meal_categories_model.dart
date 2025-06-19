@@ -12,7 +12,7 @@ class MealCategoriesModel extends MealsCategoriesEntity {
   });
 
   factory MealCategoriesModel.fromJson(Map<String, dynamic> json) =>
-      _$MealCategoriesModelFromJson(json['categories']);
+      _$MealCategoriesModelFromJson(json);
 
   MealsCategoriesEntity toEntity() => MealsCategoriesEntity(
     strCategory: strCategory,

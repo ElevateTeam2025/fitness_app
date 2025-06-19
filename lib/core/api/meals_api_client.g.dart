@@ -20,12 +20,12 @@ class _MealsApiClient implements MealsApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<MealCategoriesModel> getMealsCategories() async {
+  Future<MealCategoriesReponse> getMealsCategories() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<MealCategoriesModel>(
+    final _options = _setStreamType<MealCategoriesReponse>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -36,9 +36,9 @@ class _MealsApiClient implements MealsApiClient {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late MealCategoriesModel _value;
+    late MealCategoriesReponse _value;
     try {
-      _value = MealCategoriesModel.fromJson(_result.data!);
+      _value = MealCategoriesReponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

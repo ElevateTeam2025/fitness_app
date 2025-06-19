@@ -7,7 +7,7 @@ final class GetMealsCategoriesInitialState extends GetMealsCategoriesStates {}
 final class GetMealsCategoriesLoadingState extends GetMealsCategoriesStates {}
 
 final class GetMealsCategoriesSuccessState extends GetMealsCategoriesStates {
-  final MealsCategoriesEntity mealsCategoriesEntity;
+  final List<MealsCategoriesEntity> mealsCategoriesEntity;
   GetMealsCategoriesSuccessState(this.mealsCategoriesEntity);
 }
 

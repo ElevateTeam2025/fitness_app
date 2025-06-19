@@ -28,15 +28,15 @@ class GetMealsCategoriesCubit extends Cubit<GetMealsCategoriesStates> {
   Future<void> _getMealsCategories() async {
     emit(GetMealsCategoriesLoadingState());
 
-    final Result<MealsCategoriesEntity> result = await _getMealsCategoriesRepo
-        .getMealsCategories();
+    final Result<List<MealsCategoriesEntity>> result =
+        await _getMealsCategoriesRepo.getMealsCategories();
     switch (result) {
       case Success():
         log('success in the get meals categories cubit');
+
         emit(GetMealsCategoriesSuccessState(result.data!));
         break;
       case Error():
-        log('error in the get meals categories cubit'+result.exception.toString());
         emit(
           GetMealsCategoriesErrorState(message: result.exception.toString()),
         );
