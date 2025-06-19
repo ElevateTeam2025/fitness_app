@@ -4,6 +4,7 @@ import 'package:fitness_app/features/auth/forget_password/data/models/forget_pas
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart';
 import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart';
 import 'package:fitness_app/features/auth/sign_in/domain/entity/sign_in_request.dart';
+import 'package:fitness_app/features/meals_categories/data/models/meal_categories_model.dart';
 
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/error_logger.dart';
@@ -24,9 +25,9 @@ abstract class ApiClient {
   @factoryMethod
   factory ApiClient(Dio dio) = _ApiClient;
 
-// ///////////////////++++++++++++++++/////////////////
-// ///////////////////    Auth api    /////////////////
-// ///////////////////++++++++++++++++/////////////////
+  // ///////////////////++++++++++++++++/////////////////
+  // ///////////////////    Auth api    /////////////////
+  // ///////////////////++++++++++++++++/////////////////
 
   @POST(ApiEndPoints.signIn)
   Future<SignInDTO> signIn(@Body() SignInRequest data);
@@ -42,4 +43,7 @@ abstract class ApiClient {
 
   @PUT(ApiEndPoints.resetPassword)
   Future<void> createNewPassword(@Body() CreateNewPasswordrequset request);
+
+  @GET(ApiEndPoints.mealsCategories)
+  Future<MealCategoriesModel> getMealsCategories();
 }
