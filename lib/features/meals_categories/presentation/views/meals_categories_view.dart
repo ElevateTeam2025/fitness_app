@@ -14,7 +14,7 @@ class MealsCategoriesView extends StatelessWidget {
       create: (context) => GetMealsCategoriesCubit(
         getMealsCategoriesRepo: getIt.get<GetMealsCategoriesRepo>(),
       ),
-      child: MealsCategoriesViewsBody(),
+      child: Scaffold(body: MealsCategoriesViewsBody()),
     );
   }
 }

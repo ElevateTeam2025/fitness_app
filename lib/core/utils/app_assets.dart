@@ -6,7 +6,8 @@ abstract class ImageAssets {
   static const String onboardingBg = "$imagePath/on_boarding_bg.png";
   static const String mainBackground = "$imagePath/main_back_ground.png";
   static const String appIcon = "$imagePath/app_logo.png";
-
+  static const String mealsCategoriesBackgroundImage =
+      "$imagePath/food_back_ground_image.png";
   static const String logInBackground = "$imagePath/background.png";
   static const String logo = "$imagePath/logo.png";
 }
@@ -15,7 +16,6 @@ const String imagePath = "assets/images";
 const String iconPath = "assets/icons";
 const String animationPath = "assets/animations";
 const String svgPath = "assets/svg";
-
 
 abstract class IconAssets {
   static const String personIcon = "$iconPath/user.png";
@@ -28,7 +28,7 @@ abstract class IconAssets {
   static const String profileIcon = "$iconPath/profileIcon.png";
   static const String chatIcon = "$iconPath/chatIcon.png";
   static const String workoutIcon = "$iconPath/workout.png";
-
+  static const String backIcon = "$iconPath/back_icon.png";
 }
 
 abstract class AnimationAssets {

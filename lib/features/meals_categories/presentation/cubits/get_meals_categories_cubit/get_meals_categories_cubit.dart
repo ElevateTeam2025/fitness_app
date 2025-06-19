@@ -11,16 +11,31 @@ import 'package:injectable/injectable.dart';
 class GetMealsCategoriesCubit extends Cubit<GetMealsCategoriesStates> {
   final GetMealsCategoriesRepo _getMealsCategoriesRepo;
 
+  List<MealsCategoriesEntity> _categories = [];
+  int _selectedIndex = 0;
+
+  List<MealsCategoriesEntity> get categories => _categories;
+
+  set categories(List<MealsCategoriesEntity> newCategories) {
+    _categories = newCategories;
+  }
+
+  int get selectedIndex => _selectedIndex;
+
+  set selectedIndex(int index) {
+    _selectedIndex = index;
+  }
+
   GetMealsCategoriesCubit({
     required GetMealsCategoriesRepo getMealsCategoriesRepo,
   }) : _getMealsCategoriesRepo = getMealsCategoriesRepo,
 
        super(GetMealsCategoriesInitialState());
 
-  doIntents(GetMealsCategoriesIntent intent) {
+  doIntents(GetMealsCategoriesIntent intent) async {
     switch (intent) {
       case OnClickGetMealsCategories():
-        _getMealsCategories();
+        await _getMealsCategories();
         break;
     }
   }

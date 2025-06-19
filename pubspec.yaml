@@ -28,12 +28,17 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_text_kit: any
   bloc: ^9.0.0
+  bloc_test: ^10.0.0
+  cupertino_icons: ^1.0.8
   dio: ^5.8.0+1
   equatable: ^2.0.7
+  fake_async: ^1.3.3
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.0
+  flutter_dotenv: null
   flutter_easyloading: ^3.0.5
   flutter_localization: ^0.3.2
   flutter_svg: ^2.1.0
@@ -46,39 +51,30 @@ dependencies:
   internet_connection_checker: ^3.0.1
   intl: null
   json_annotation: ^4.9.0
-  animated_text_kit: any
   location: ^8.0.0
   lottie: null
   mime: ^2.0.0
   mockito: ^5.4.6
+  pin_code_fields: ^8.0.1
   pretty_dio_logger: ^1.4.0
   provider: ^6.1.5
   retrofit: ^4.4.2
   shared_preferences: ^2.5.3
-  flutter_dotenv:
-  bloc_test: ^10.0.0
-  cupertino_icons: ^1.0.8
-  pin_code_fields: ^8.0.1
+  shimmer_animation: ^2.2.2
   smooth_page_indicator: ^1.2.1
-  fake_async: ^1.3.3
-
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
 
 dev_dependencies:
-  flutter_launcher_icons: ^0.13.1
   build_runner: ^2.4.15
   coverage: ^1.13.0
+  flutter_launcher_icons: ^0.13.1
   flutter_lints: ^5.0.0
-  injectable_generator: null
-  json_serializable: ^6.9.5
-  retrofit_generator: ^9.1.9
-  wheel_slider: ^1.2.2
-  percent_indicator: ^4.2.5
   flutter_test:
     sdk: flutter
+  injectable_generator: null
+  json_serializable: ^6.9.5
+  percent_indicator: ^4.2.5
+  retrofit_generator: ^9.1.9
+  wheel_slider: ^1.2.2
 flutter_icons:
   android: true
   ios: true
@@ -86,7 +82,6 @@ flutter_icons:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -102,13 +97,10 @@ flutter:
 
   #   - images/a_dot_ham.jpeg
   # To add assets to your application, add an assets section, like this:
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
@@ -117,7 +109,7 @@ flutter:
   fonts:
     - family: BalooThambi2
       fonts:
-      - asset: assets/fonts/BalooThambi2-Regular.ttf
+        - asset: assets/fonts/BalooThambi2-Regular.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
