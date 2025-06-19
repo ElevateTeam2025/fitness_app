@@ -65,6 +65,10 @@ import '../../features/auth/sign_up/domain/use_case/signup_use_case.dart'
     as _i449;
 import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
     as _i1067;
+import '../../features/home/data/data_source/home_data_source.dart' as _i68;
+import '../../features/home/data/repo_imp/home_repository_impl.dart' as _i886;
+import '../../features/home/domain/repo/home_repo.dart' as _i280;
+import '../../features/home/domain/use_case/home_use_case.dart' as _i353;
 import '../../features/onboarding/presentation/cubits/change_onboarding_view_model.dart'
     as _i656;
 import '../api/api_client.dart' as _i277;
@@ -92,6 +96,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i277.ApiClient>(() => _i277.ApiClient(gh<_i361.Dio>()));
     gh.factory<_i931.AuthRemoteDataSource>(
       () => _i931.AuthRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
+    gh.factory<_i68.HomeDataSource>(
+      () => _i68.CategoryDataSourceImp(gh<_i277.ApiClient>()),
     );
     gh.factory<_i674.CreateNewPasswordDataSource>(
       () => _i1032.CreateNewPasswordDataSourceImp(
@@ -121,6 +128,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i438.CreateNewPasswordRepoImp(
         createNewPasswordDataSource: gh<_i674.CreateNewPasswordDataSource>(),
       ),
+    );
+    gh.factory<_i280.HomeRepo>(
+      () => _i886.HomeRepositoryImpl(gh<_i68.HomeDataSource>()),
     );
     gh.factory<_i951.ForgetPasswordRemoteDataSource>(
       () => _i527.ForgetPasswordRemoteDataSourceImp(
@@ -152,6 +162,9 @@ extension GetItInjectableX on _i174.GetIt {
         forgetPasswordRemoteDataSource:
             gh<_i951.ForgetPasswordRemoteDataSource>(),
       ),
+    );
+    gh.factory<_i353.HomeUseCase>(
+      () => _i353.HomeUseCase(gh<_i280.HomeRepo>()),
     );
     gh.factory<_i174.SignInUseCase>(
       () => _i174.SignInUseCase(gh<_i157.AuthRepository>()),

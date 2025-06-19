@@ -7,4 +7,5 @@ class ApiEndPoints {
   static const String verifyResetCode = "/auth/verifyResetCode";
   static const String signUp = "/auth/signup";
   static const String resetPassword = "/auth/resetPassword";
+  static const String exercises = "'/exercises'";
 }

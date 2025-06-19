@@ -12,6 +12,7 @@ import 'package:retrofit/http.dart';
 import '../../features/auth/sign_up/data/models/signup_request_model.dart';
 import '../../features/auth/sign_up/data/models/signup_response_model.dart';
 
+import '../../features/home/data/model/exercise_response_dto.dart';
 import '../utils/end_points.dart';
 
 part 'api_client.g.dart';
@@ -42,4 +43,9 @@ abstract class ApiClient {
 
   @PUT(ApiEndPoints.resetPassword)
   Future<void> createNewPassword(@Body() CreateNewPasswordrequset request);
+  @GET(ApiEndPoints.exercises)
+  Future<ExerciseResponseDTO> getExercises(
+
+      );
+
 }

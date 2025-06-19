@@ -1,3 +1,7 @@
+const String imagePath = "assets/images";
+const String iconPath = "assets/icons";
+const String animationPath = "assets/animations";
+const String svgPath = "assets/svg";
 abstract class ImageAssets {
   static const String bgImage = "$imagePath/bg_image.png";
   static const String onBoradingImage_1 = "$imagePath/onboarding_image1.png";
@@ -9,12 +13,16 @@ abstract class ImageAssets {
 
   static const String logInBackground = "$imagePath/background.png";
   static const String logo = "$imagePath/logo.png";
+  static const String aerobicsCat = "$imagePath/Aerobics_category_home.png";
+  static const String fitnessCat = "$imagePath/fitness_catecory_home.png";
+  static const String gymCat = "$imagePath/gym_Category_home.png";
+  static const String trainerCat = "$imagePath/Trainer_category_home.png";
+  static const String yogaCat = "$imagePath/yoga_catecory_home.png";
+
+
 }
 
-const String imagePath = "assets/images";
-const String iconPath = "assets/icons";
-const String animationPath = "assets/animations";
-const String svgPath = "assets/svg";
+
 
 
 abstract class IconAssets {

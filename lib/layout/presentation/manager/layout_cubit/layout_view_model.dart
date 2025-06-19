@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../tabs/home_tap.dart';
+import '../../../../features/home/presentation/home_tap.dart';
 import '../../tabs/profile_tab.dart';
 import 'layout_state.dart';
 
