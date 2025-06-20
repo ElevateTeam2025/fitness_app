@@ -65,7 +65,7 @@ class _MealsCategoriesViewsBodyState extends State<MealsCategoriesViewsBody> {
                             getMealsByCategoryViewModel,
                       ),
                     ),
-                    MealsByCategoryGridView(),
+                   MealsByCategoryGridView()
                   ],
                 ),
               ),
