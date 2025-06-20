@@ -14,6 +14,11 @@ class GetMealsCategoriesCubit extends Cubit<GetMealsCategoriesStates> {
   List<MealsCategoriesEntity> _categories = [];
   int _selectedIndex = 0;
 
+  bool _isLoaded = false;
+
+  bool get isLoaded => _isLoaded;
+  set isLoaded(bool value) => _isLoaded = value;
+
   List<MealsCategoriesEntity> get categories => _categories;
 
   set categories(List<MealsCategoriesEntity> newCategories) {
@@ -32,7 +37,7 @@ class GetMealsCategoriesCubit extends Cubit<GetMealsCategoriesStates> {
 
        super(GetMealsCategoriesInitialState());
 
-  doIntents(GetMealsCategoriesIntent intent) async {
+  Future<void> doIntents(GetMealsCategoriesIntent intent) async {
     switch (intent) {
       case OnClickGetMealsCategories():
         await _getMealsCategories();
@@ -48,7 +53,6 @@ class GetMealsCategoriesCubit extends Cubit<GetMealsCategoriesStates> {
     switch (result) {
       case Success():
         log('success in the get meals categories cubit');
-
         emit(GetMealsCategoriesSuccessState(result.data!));
         break;
       case Error():

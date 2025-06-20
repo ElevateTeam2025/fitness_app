@@ -14,7 +14,7 @@ class MealsCustomAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(width: 16.WidthResponsive),
+          // SizedBox(width: 16.WidthResponsive),
           GestureDetector(
             onTap: () => Navigator.pop(context),
             child: Container(

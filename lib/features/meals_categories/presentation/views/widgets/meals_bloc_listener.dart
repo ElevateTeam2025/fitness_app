@@ -1,3 +1,4 @@
+import 'package:fitness_app/features/meals_categories/presentation/cubits/get_meals_by_category_cubit/get_meals_by_category_cubit.dart';
 import 'package:fitness_app/features/meals_categories/presentation/cubits/get_meals_categories_cubit/get_meals_categories_cubit.dart';
 import 'package:fitness_app/features/meals_categories/presentation/cubits/get_meals_categories_cubit/get_meals_categories_states.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +9,11 @@ class MealsBlocListener extends StatelessWidget {
   const MealsBlocListener({
     super.key,
     required this.viewModel,
+    required this.getMealsByCategoryViewModel,
   });
 
   final GetMealsCategoriesCubit viewModel;
+  final GetMealsByCategoryCubit getMealsByCategoryViewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +24,11 @@ class MealsBlocListener extends StatelessWidget {
         } else if (state is GetMealsCategoriesSuccessState) {
           viewModel.categories = state.mealsCategoriesEntity;
           viewModel.selectedIndex = 0;
+          viewModel.isLoaded = true;
+          getMealsByCategoryViewModel.doIntents(
+            OnClickGetMealsByCategoryIntent(),
+            category: viewModel.categories[0].strCategory!,
+          );
         }
       },
       child: SizedBox(),

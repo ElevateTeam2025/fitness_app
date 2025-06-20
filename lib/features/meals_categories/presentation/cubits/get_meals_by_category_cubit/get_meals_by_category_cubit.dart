@@ -10,6 +10,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class GetMealsByCategoryCubit extends Cubit<GetMealsByCategoryStates> {
   final GetMealsByCategoryRepo _getMealsByCategoryRepo;
+  List<MealsByCategoryEntity> mealsByCategoryEntity = [];
+
   GetMealsByCategoryCubit(GetMealsByCategoryRepo getMealsByCategoryRepo)
     : _getMealsByCategoryRepo = getMealsByCategoryRepo,
       super(GetMealsByCategoryInitialState());
@@ -29,7 +31,6 @@ class GetMealsByCategoryCubit extends Cubit<GetMealsByCategoryStates> {
     switch (result) {
       case Success():
         log('success in the get meals by category cubit');
-        log(result.data!.length.toString() + "qqqqqqqqqqqqqqqqqqqqqqqqqqqq");
         emit(GetMealsByCategorySuccessState(result.data!));
         break;
       case Error():
