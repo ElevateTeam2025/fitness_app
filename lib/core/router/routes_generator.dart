@@ -66,6 +66,7 @@ class RoutesGenerator {
           builder: (context) => const AppView(),
           settings: settings,
         );
+     
 
       default:
         return unDefinedRoute();

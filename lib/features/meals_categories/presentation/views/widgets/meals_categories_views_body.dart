@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/features/meals_categories/presentation/cubits/get_meals_by_category_cubit/get_meals_by_category_cubit.dart';
 import 'package:fitness_app/features/meals_categories/presentation/cubits/get_meals_categories_cubit/get_meals_categories_cubit.dart';
 import 'package:fitness_app/features/meals_categories/presentation/views/widgets/custom_tab_bar_bloc_builder.dart';
 import 'package:fitness_app/features/meals_categories/presentation/views/widgets/meals_bloc_listener.dart';
@@ -19,11 +20,14 @@ class MealsCategoriesViewsBody extends StatefulWidget {
 class _MealsCategoriesViewsBodyState extends State<MealsCategoriesViewsBody> {
   @override
   void initState() {
-    Future.microtask(
-      () => context.read<GetMealsCategoriesCubit>().doIntents(
+    Future.microtask(() async {
+      if (mounted) {
+        await context.read<GetMealsCategoriesCubit>().doIntents(
         OnClickGetMealsCategories(),
-      ),
-    );
+      );
+      }
+    });
+
     super.initState();
   }
 
@@ -35,18 +39,22 @@ class _MealsCategoriesViewsBodyState extends State<MealsCategoriesViewsBody> {
     return Stack(
       children: [
         const MealsCategoriesBackGroundImage(),
-        SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const MealsCustomAppBar(),
+        CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const MealsCustomAppBar(),
 
-              MealsBlocListener(viewModel: viewModel),
+                  MealsBlocListener(viewModel: viewModel),
 
-              SizedBox(height: 24.HeightResponsive),
-              CustomTabBarBlocBuilder(viewModel: viewModel),
-            ],
-          ),
+                  SizedBox(height: 24.HeightResponsive),
+                  CustomTabBarBlocBuilder(viewModel: viewModel),
+                ],
+              ),
+            ),
+          ],
         ),
       ],
     );
