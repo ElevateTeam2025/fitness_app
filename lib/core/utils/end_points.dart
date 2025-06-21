@@ -10,4 +10,5 @@ class ApiEndPoints {
   static const String resetPassword = "/auth/resetPassword";
   static const String mealsCategories = "/1/categories.php";
   static const String mealsByCategory = "/1/filter.php";
+  static const String mealDetails = "/1/lookup.php";
 }
