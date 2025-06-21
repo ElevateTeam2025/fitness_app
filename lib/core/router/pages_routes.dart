@@ -8,4 +8,8 @@ abstract class PagesRoutes {
  static const String signUpFlowView = 'signUp';
  static const String layoutView = 'layoutView';
  static const String createNewPasswordView = 'createNewPasswordView';
+ //////////////
+  static const String exerciseScreen = 'exerciseScreen';
+  static const String exercisesWrapperScreen = 'ExercisesWrapperScreen';
+
 }

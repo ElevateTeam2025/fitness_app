@@ -65,6 +65,16 @@ import '../../features/auth/sign_up/domain/use_case/signup_use_case.dart'
     as _i449;
 import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
     as _i1067;
+import '../../features/Exercise/data/data_source/exercise_remote_data_source.dart'
+    as _i461;
+import '../../features/Exercise/data/repository_imp/exercise_repository_imp.dart'
+    as _i302;
+import '../../features/Exercise/domain/repository/exercise_repository.dart'
+    as _i828;
+import '../../features/Exercise/domain/use_case/exercise_use_case.dart'
+    as _i278;
+import '../../features/Exercise/presentation/cubit/sign_in_cubit/exercise_view_model.dart'
+    as _i960;
 import '../../features/onboarding/presentation/cubits/change_onboarding_view_model.dart'
     as _i656;
 import '../api/api_client.dart' as _i277;
@@ -127,11 +137,17 @@ extension GetItInjectableX on _i174.GetIt {
         apiClient: gh<_i277.ApiClient>(),
       ),
     );
+    gh.factory<_i461.ExerciseRemoteDataSource>(
+      () => _i461.ExerciseRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
     gh.factory<_i157.AuthRepository>(
       () => _i422.AuthRepositoryImpl(
         gh<_i931.AuthRemoteDataSource>(),
         gh<_i511.AuthLocalDataSource>(),
       ),
+    );
+    gh.factory<_i828.ExerciseRepository>(
+      () => _i302.ExerciseRepositoryImpl(gh<_i461.ExerciseRemoteDataSource>()),
     );
     gh.factory<_i340.CreateNewPasswordCubit>(
       () => _i340.CreateNewPasswordCubit(
@@ -156,11 +172,17 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i174.SignInUseCase>(
       () => _i174.SignInUseCase(gh<_i157.AuthRepository>()),
     );
+    gh.factory<_i278.ExercisesUseCase>(
+      () => _i278.ExercisesUseCase(gh<_i828.ExerciseRepository>()),
+    );
     gh.factory<_i1022.SignInViewModel>(
       () => _i1022.SignInViewModel(gh<_i174.SignInUseCase>()),
     );
     gh.factory<_i218.ForgetPasswordCubit>(
       () => _i218.ForgetPasswordCubit(gh<_i484.ForgetPasswordRepo>()),
+    );
+    gh.factory<_i960.ExerciseViewModel>(
+      () => _i960.ExerciseViewModel(gh<_i278.ExercisesUseCase>()),
     );
     return this;
   }
