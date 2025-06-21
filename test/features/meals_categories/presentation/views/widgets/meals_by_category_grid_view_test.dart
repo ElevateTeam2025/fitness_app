@@ -43,29 +43,33 @@ void main() {
   testWidgets('shows loading shimmer when state is loading', (tester) async {
     when(mockCubit.state).thenReturn(GetMealsByCategoryLoadingState());
 
-    await tester.pumpWidget(buildTestableWidget(const MealsByCategoryGridView()));
+    await tester.pumpWidget(
+      buildTestableWidget(const MealsByCategoryGridView()),
+    );
     expect(find.byType(GridView), findsOneWidget);
   });
 
   testWidgets('shows meals grid when success', (tester) async {
     final meals = [
       MealsByCategoryEntity(
-        id: '1',
         idMeal: '101',
         strMeal: 'Pizza',
-        strMealThumb: 'https://assets.surlatable.com/m/15a89c2d9c6c1345/72_dpi_webp-REC-283110_Pizza.jpg',
+        strMealThumb:
+            'https://assets.surlatable.com/m/15a89c2d9c6c1345/72_dpi_webp-REC-283110_Pizza.jpg',
       ),
       MealsByCategoryEntity(
-        id: '2',
         idMeal: '102',
         strMeal: 'Burger',
-        strMealThumb: 'https://assets.surlatable.com/m/15a89c2d9c6c1345/72_dpi_webp-REC-283110_Pizza.jpg',
+        strMealThumb:
+            'https://assets.surlatable.com/m/15a89c2d9c6c1345/72_dpi_webp-REC-283110_Pizza.jpg',
       ),
     ];
 
     when(mockCubit.state).thenReturn(GetMealsByCategorySuccessState(meals));
 
-    await tester.pumpWidget(buildTestableWidget(const MealsByCategoryGridView()));
+    await tester.pumpWidget(
+      buildTestableWidget(const MealsByCategoryGridView()),
+    );
     expect(find.byType(GridView), findsOneWidget);
   });
 }

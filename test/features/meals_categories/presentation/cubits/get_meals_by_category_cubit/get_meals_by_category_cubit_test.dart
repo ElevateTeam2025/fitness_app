@@ -17,13 +17,11 @@ void main() {
 
   final mealsList = [
     MealsByCategoryEntity(
-      id: '1',
       idMeal: '234',
       strMealThumb: 'url4',
       strMeal: 'gooode meal',
     ),
     MealsByCategoryEntity(
-      id: '2',
       idMeal: '567',
       strMealThumb: 'url5',
       strMeal: 'nice meal',
