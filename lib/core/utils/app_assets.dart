@@ -34,6 +34,10 @@ abstract class IconAssets {
   static const String chatIcon = "$iconPath/chatIcon.png";
   static const String workoutIcon = "$iconPath/workout.png";
 
+  static const String backIcon = "$iconPath/back_icon.png";
+
+
+
 }
 
 abstract class AnimationAssets {
