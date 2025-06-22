@@ -1,3 +1,4 @@
+import 'package:fitness_app/features/meal_details/domain/entites/meal_details_response_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'meal_details_reposonse_dto.g.dart';
@@ -12,6 +13,12 @@ class MealDetailsResponseDTO {
       _$MealDetailsResponseDTOFromJson(json);
 
   Map<String, dynamic> toJson() => _$MealDetailsResponseDTOToJson(this);
+
+  MealDetailsResponse toEntity() {
+    return MealDetailsResponse(
+      meals: meals?.map((meal) => meal.toEntity()).toList() ?? [],
+    );
+  }
 }
 
 @JsonSerializable()
@@ -130,4 +137,34 @@ class MealDetailsDTO {
       _$MealDetailsDTOFromJson(json);
 
   Map<String, dynamic> toJson() => _$MealDetailsDTOToJson(this);
+
+  List<Ingredient> convertIngrediants(Map<String, dynamic> json) {
+    final ingredients = List.filled(20, '');
+    final measures = List.filled(20, '');
+    for (int i = 0; i < ingredients.length; i++) {
+      ingredients[i] = json['strIngredient${i + 1}'];
+      measures[i] = json['strMeasure${i + 1}'];
+    }
+    return List.generate(20, (index) {
+      return Ingredient(name: ingredients[index], measure: measures[index]);
+    });
+  }
+
+  MealDetailsResponseEntity toEntity() {
+    return MealDetailsResponseEntity(
+      idMeal: idMeal,
+      strMeal: strMeal,
+      strMealAlternate: strMealAlternate,
+      strCategory: strCategory,
+      strArea: strArea,
+      strInstructions: strInstructions,
+      strMealThumb: strMealThumb,
+      strTags: strTags,
+      strYoutube: strYoutube,
+      strIngredients: convertIngrediants(toJson()),
+      strSource: strSource,
+      strImageSource: strImageSource,
+      dateModified: dateModified,
+    );
+  }
 }
