@@ -2,7 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:fitness_app/core/common/result.dart';
 import 'package:fitness_app/features/meal_details/domain/use_case/get_meal_details_use_case.dart';
 import 'package:fitness_app/features/meal_details/presentation/cubits/get_meal_details_cubit/get_meal_details_states.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class GetMealDetailsCubit extends Cubit<GetMealDetailsStates> {
   final GetMealDetailsUseCase _getMealDetailsUseCase;
   GetMealDetailsCubit(this._getMealDetailsUseCase)

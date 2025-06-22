@@ -1,7 +1,9 @@
 import 'package:fitness_app/core/common/result.dart';
 import 'package:fitness_app/features/meal_details/domain/entites/meal_details_response_entity.dart';
 import 'package:fitness_app/features/meal_details/domain/repo/get_meal_deatils_repo.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class GetMealDetailsUseCase {
   final GetMealDetailsRepo _mealDetailsRepository;
 

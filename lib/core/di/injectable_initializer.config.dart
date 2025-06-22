@@ -65,6 +65,18 @@ import '../../features/auth/sign_up/domain/use_case/signup_use_case.dart'
     as _i449;
 import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
     as _i1067;
+import '../../features/meal_details/data/data_source/meal_details_remote_data_source.dart'
+    as _i557;
+import '../../features/meal_details/data/data_source/meal_details_remote_data_source_impl.dart'
+    as _i90;
+import '../../features/meal_details/data/repo_impl/get_meal_details_repo_impl.dart'
+    as _i193;
+import '../../features/meal_details/domain/repo/get_meal_deatils_repo.dart'
+    as _i593;
+import '../../features/meal_details/domain/use_case/get_meal_details_use_case.dart'
+    as _i622;
+import '../../features/meal_details/presentation/cubits/get_meal_details_cubit/get_meal_details_cubit.dart'
+    as _i480;
 import '../../features/meals_categories/data/data_source/get_meals_by_category_data_source.dart'
     as _i1015;
 import '../../features/meals_categories/data/data_source/get_meals_by_category_data_source_imp.dart'
@@ -156,6 +168,9 @@ extension GetItInjectableX on _i174.GetIt {
         getMealsByCategoryDataSource: gh<_i1015.GetMealsByCategoryDataSource>(),
       ),
     );
+    gh.factory<_i557.MealDetailsRemoteDataSource>(
+      () => _i90.MealDetailsRemoteDataSourceImpl(gh<_i512.MealsApiClient>()),
+    );
     gh.factory<_i951.ForgetPasswordRemoteDataSource>(
       () => _i527.ForgetPasswordRemoteDataSourceImp(
         apiClient: gh<_i277.ApiClient>(),
@@ -163,6 +178,10 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i271.GetMealsByCategoryCubit>(
       () => _i271.GetMealsByCategoryCubit(gh<_i736.GetMealsByCategoryRepo>()),
+    );
+    gh.factory<_i593.GetMealDetailsRepo>(
+      () =>
+          _i193.GetMealDetailsRepoImpl(gh<_i557.MealDetailsRemoteDataSource>()),
     );
     gh.factory<_i472.GetMealsCategoriesDataSource>(
       () => _i81.GetMealsCategoriesDataSourceImp(
@@ -180,8 +199,14 @@ extension GetItInjectableX on _i174.GetIt {
         createNewPasswordRepo: gh<_i500.CreateNewPasswordRepo>(),
       ),
     );
+    gh.factory<_i622.GetMealDetailsUseCase>(
+      () => _i622.GetMealDetailsUseCase(gh<_i593.GetMealDetailsRepo>()),
+    );
     gh.factory<_i751.SignupRepo>(
       () => _i268.SignupRepoImp(remoteDataSource: gh<_i809.SignupDataSource>()),
+    );
+    gh.factory<_i480.GetMealDetailsCubit>(
+      () => _i480.GetMealDetailsCubit(gh<_i622.GetMealDetailsUseCase>()),
     );
     gh.factory<_i449.SignupUseCase>(
       () => _i449.SignupUseCase(gh<_i751.SignupRepo>()),
