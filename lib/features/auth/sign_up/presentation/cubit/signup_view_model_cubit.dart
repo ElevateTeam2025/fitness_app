@@ -59,15 +59,20 @@ class SignupCubit extends Cubit<SignupState> {
   }
 
   bool _validatePassword(String password) {
-    return password.isNotEmpty && password.length >= 6;
+    return password.isNotEmpty &&
+        password.length >= 8 &&
+        password.contains(RegExp(r'[A-Z]')) &&
+        password.contains(RegExp(r'[a-z]')) &&
+        password.contains(RegExp(r'[0-9]')) &&
+        password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
   }
 
   String? _getPasswordError(String password) {
     if (password.isEmpty) {
       return 'Password is required';
     }
-    if (password.length < 6) {
-      return 'Password must be at least 6 characters';
+    if (!_validatePassword(password)) {
+      return 'Password must be 8+ characters with uppercase, lowercase, number, and special character';
     }
     return null;
   }
