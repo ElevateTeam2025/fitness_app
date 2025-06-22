@@ -9,4 +9,5 @@ abstract class PagesRoutes {
   static const String layoutView = 'layoutView';
   static const String createNewPasswordView = 'createNewPasswordView';
   static const String mealsCategories = 'mealsCategories';
+  static const String mealDetails = 'mealDetails';
 }
