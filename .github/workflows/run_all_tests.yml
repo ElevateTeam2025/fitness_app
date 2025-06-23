@@ -8,26 +8,41 @@ on:
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 10  # Set reasonable timeout
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Cache pub dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ env.PUB_CACHE }}
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.32.4'
           channel: 'stable'
+          cache: true
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Run tests with coverage
-        run: flutter test --coverage
-        continue-on-error: true  # Don't fail workflow if tests fail
+        run: flutter test --coverage --reporter=compact
+        continue-on-error: true
+        timeout-minutes: 5  # Set timeout for tests
 
       - name: Show coverage percentage
         run: |
-          set +e  # Don't exit on error
+          set +e
           if [ -f coverage/lcov.info ]; then
             total=$(grep -c '^DA:' coverage/lcov.info || echo 0)
             covered=$(grep -E '^DA:[0-9]+,[1-9]' coverage/lcov.info | wc -l || echo 0)
@@ -38,12 +53,6 @@ jobs:
               echo "Coverage: ${percent}% (${covered}/${total} lines covered)"
             fi
           else
-            echo "Coverage: N/A (No coverage file generated - tests may have failed)"
+            echo "Coverage: N/A (No coverage file generated)"
           fi
-        continue-on-error: true  # Always show this step as successful
-
-      - name: Test Results Summary
-        run: |
-          echo "📊 Test execution completed"
-          echo "Check the logs above for detailed results and coverage information"
-        if: always()  # Always run this step
+        continue-on-error: true
