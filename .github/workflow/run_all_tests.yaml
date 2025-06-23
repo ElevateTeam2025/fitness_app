@@ -6,6 +6,9 @@ on:
     branches:
       - development
       - enhance_signup_flow
+  pull_request:
+    branches:
+      - development
 
 
 jobs:
