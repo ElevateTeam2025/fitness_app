@@ -1,4 +1,4 @@
-name: CI
+name: Run Test cases
 
 on:
 
