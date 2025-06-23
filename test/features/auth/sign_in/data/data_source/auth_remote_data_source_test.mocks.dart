@@ -3,23 +3,27 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
+import 'dart:async' as _i7;
 
-import 'package:fitness_app/core/api/api_client.dart' as _i4;
+import 'package:fitness_app/core/api/api_client.dart' as _i6;
 import 'package:fitness_app/features/auth/forget_password/data/models/create_new_passwordrequset.dart'
-    as _i10;
+    as _i12;
 import 'package:fitness_app/features/auth/forget_password/data/models/forget_password_request.dart'
-    as _i7;
+    as _i9;
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart'
-    as _i8;
+    as _i10;
 import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart'
     as _i2;
 import 'package:fitness_app/features/auth/sign_in/domain/entity/sign_in_request.dart'
-    as _i6;
+    as _i8;
 import 'package:fitness_app/features/auth/sign_up/data/models/signup_request_model.dart'
-    as _i9;
+    as _i11;
 import 'package:fitness_app/features/auth/sign_up/data/models/signup_response_model.dart'
     as _i3;
+import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart'
+    as _i5;
+import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart'
+    as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -47,61 +51,99 @@ class _FakeSignupResponseModel_1 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
+class _FakeMusclesTabResponseModel_2 extends _i1.SmartFake
+    implements _i4.MusclesTabResponseModel {
+  _FakeMusclesTabResponseModel_2(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeMusclesDataResponseModel_3 extends _i1.SmartFake
+    implements _i5.MusclesDataResponseModel {
+  _FakeMusclesDataResponseModel_3(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [ApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiClient extends _i1.Mock implements _i4.ApiClient {
+class MockApiClient extends _i1.Mock implements _i6.ApiClient {
   MockApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.Future<_i2.SignInDTO> signIn(_i6.SignInRequest? data) =>
+  _i7.Future<_i2.SignInDTO> signIn(_i8.SignInRequest? data) =>
       (super.noSuchMethod(
             Invocation.method(#signIn, [data]),
-            returnValue: _i5.Future<_i2.SignInDTO>.value(
+            returnValue: _i7.Future<_i2.SignInDTO>.value(
               _FakeSignInDTO_0(this, Invocation.method(#signIn, [data])),
             ),
           )
-          as _i5.Future<_i2.SignInDTO>);
+          as _i7.Future<_i2.SignInDTO>);
 
   @override
-  _i5.Future<void> forgotPassword(_i7.ForgotPasswordRequest? request) =>
+  _i7.Future<void> forgotPassword(_i9.ForgotPasswordRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#forgotPassword, [request]),
-            returnValue: _i5.Future<void>.value(),
-            returnValueForMissingStub: _i5.Future<void>.value(),
+            returnValue: _i7.Future<void>.value(),
+            returnValueForMissingStub: _i7.Future<void>.value(),
           )
-          as _i5.Future<void>);
+          as _i7.Future<void>);
 
   @override
-  _i5.Future<void> verifyResetCode(_i8.VerifyResetCodeRequest? request) =>
+  _i7.Future<void> verifyResetCode(_i10.VerifyResetCodeRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#verifyResetCode, [request]),
-            returnValue: _i5.Future<void>.value(),
-            returnValueForMissingStub: _i5.Future<void>.value(),
+            returnValue: _i7.Future<void>.value(),
+            returnValueForMissingStub: _i7.Future<void>.value(),
           )
-          as _i5.Future<void>);
+          as _i7.Future<void>);
 
   @override
-  _i5.Future<_i3.SignupResponseModel> signup(_i9.SignupRequestModel? body) =>
+  _i7.Future<_i3.SignupResponseModel> signup(_i11.SignupRequestModel? body) =>
       (super.noSuchMethod(
             Invocation.method(#signup, [body]),
-            returnValue: _i5.Future<_i3.SignupResponseModel>.value(
+            returnValue: _i7.Future<_i3.SignupResponseModel>.value(
               _FakeSignupResponseModel_1(
                 this,
                 Invocation.method(#signup, [body]),
               ),
             ),
           )
-          as _i5.Future<_i3.SignupResponseModel>);
+          as _i7.Future<_i3.SignupResponseModel>);
 
   @override
-  _i5.Future<void> createNewPassword(_i10.CreateNewPasswordrequset? request) =>
+  _i7.Future<void> createNewPassword(_i12.CreateNewPasswordrequset? request) =>
       (super.noSuchMethod(
             Invocation.method(#createNewPassword, [request]),
-            returnValue: _i5.Future<void>.value(),
-            returnValueForMissingStub: _i5.Future<void>.value(),
+            returnValue: _i7.Future<void>.value(),
+            returnValueForMissingStub: _i7.Future<void>.value(),
           )
-          as _i5.Future<void>);
+          as _i7.Future<void>);
+
+  @override
+  _i7.Future<_i4.MusclesTabResponseModel> getMusclesTabs() =>
+      (super.noSuchMethod(
+            Invocation.method(#getMusclesTabs, []),
+            returnValue: _i7.Future<_i4.MusclesTabResponseModel>.value(
+              _FakeMusclesTabResponseModel_2(
+                this,
+                Invocation.method(#getMusclesTabs, []),
+              ),
+            ),
+          )
+          as _i7.Future<_i4.MusclesTabResponseModel>);
+
+  @override
+  _i7.Future<_i5.MusclesDataResponseModel> getMusclesData(String? id) =>
+      (super.noSuchMethod(
+            Invocation.method(#getMusclesData, [id]),
+            returnValue: _i7.Future<_i5.MusclesDataResponseModel>.value(
+              _FakeMusclesDataResponseModel_3(
+                this,
+                Invocation.method(#getMusclesData, [id]),
+              ),
+            ),
+          )
+          as _i7.Future<_i5.MusclesDataResponseModel>);
 }
