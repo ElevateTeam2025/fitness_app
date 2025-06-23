@@ -1,12 +1,12 @@
 name: CI
 
-on: [
+on:
 
   push:
     branches:
       - development
       - enhance_signup_flow
-]
+
 
 jobs:
   unit-tests:
