@@ -3,9 +3,6 @@ name: Run Test cases
 on:
 
   push:
-    branches:
-      - development
-      - enhance_signup_flow
   pull_request:
     branches:
       - development
