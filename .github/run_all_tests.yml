@@ -1,0 +1,33 @@
+name: CI
+
+on: [ push ]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.2'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run tests with coverage
+        run: flutter test --coverage
+
+      - name: Show coverage percentage only
+        run: |
+          set -eu
+          total=$(grep -c '^DA:' coverage/lcov.info || echo 0)
+          covered=$(grep -E '^DA:[0-9]+,[1-9]' coverage/lcov.info | wc -l || echo 0)
+          if [ "$total" -eq 0 ]; then
+            echo "0"
+          else
+            percent=$(( covered * 100 / total ))
+            echo "${percent}"
+          fi
