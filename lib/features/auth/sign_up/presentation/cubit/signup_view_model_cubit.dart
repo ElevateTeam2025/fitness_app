@@ -13,22 +13,112 @@ class SignupCubit extends Cubit<SignupState> {
 
   final SignupUseCase useCase;
 
+  // Validation helper methods
+  bool _validateFirstName(String firstName) {
+    return firstName.trim().isNotEmpty && firstName.trim().length >= 2;
+  }
+
+  String? _getFirstNameError(String firstName) {
+    if (firstName.trim().isEmpty) {
+      return 'First name is required';
+    }
+    if (firstName.trim().length < 2) {
+      return 'First name must be at least 2 characters';
+    }
+    return null;
+  }
+
+  bool _validateLastName(String lastName) {
+    return lastName.trim().isNotEmpty && lastName.trim().length >= 2;
+  }
+
+  String? _getLastNameError(String lastName) {
+    if (lastName.trim().isEmpty) {
+      return 'Last name is required';
+    }
+    if (lastName.trim().length < 2) {
+      return 'Last name must be at least 2 characters';
+    }
+    return null;
+  }
+
+  bool _validateEmail(String email) {
+    if (email.trim().isEmpty) return false;
+    final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    return emailRegex.hasMatch(email.trim());
+  }
+
+  String? _getEmailError(String email) {
+    if (email.trim().isEmpty) {
+      return 'Email is required';
+    }
+    if (!_validateEmail(email)) {
+      return 'Please enter a valid email address';
+    }
+    return null;
+  }
+
+  bool _validatePassword(String password) {
+    return password.isNotEmpty &&
+        password.length >= 8 &&
+        password.contains(RegExp(r'[A-Z]')) &&
+        password.contains(RegExp(r'[a-z]')) &&
+        password.contains(RegExp(r'[0-9]')) &&
+        password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
+  }
+
+  String? _getPasswordError(String password) {
+    if (password.isEmpty) {
+      return 'Password is required';
+    }
+    if (!_validatePassword(password)) {
+      return 'Password must be 8+ characters with uppercase, lowercase, number, and special character';
+    }
+    return null;
+  }
 
   void updateFirstName(String firstName) {
-    emit(state.copyWith(firstName: firstName));
+    final isValid = _validateFirstName(firstName);
+    final error = _getFirstNameError(firstName);
+
+    emit(state.copyWith(
+      firstName: firstName,
+      isFirstNameValid: isValid,
+      firstNameError: error,
+    ));
   }
 
   void updateLastName(String lastName) {
-    emit(state.copyWith(lastName: lastName));
+    final isValid = _validateLastName(lastName);
+    final error = _getLastNameError(lastName);
+
+    emit(state.copyWith(
+      lastName: lastName,
+      isLastNameValid: isValid,
+      lastNameError: error,
+    ));
   }
 
   void updateEmail(String email) {
-    state.toString();
-    emit(state.copyWith(email: email));
+    final isValid = _validateEmail(email);
+    final error = _getEmailError(email);
+
+    emit(state.copyWith(
+      email: email,
+      isEmailValid: isValid,
+      emailError: error,
+    ));
   }
 
   void updatePassword(String password) {
-    emit(state.copyWith(password: password));
+    final isValid = _validatePassword(password);
+    final error = _getPasswordError(password);
+
+    emit(state.copyWith(
+      password: password,
+      isPasswordValid: isValid,
+      passwordError: error,
+    ));
   }
 
   void selectGender(String gender) {
@@ -54,8 +144,6 @@ class SignupCubit extends Cubit<SignupState> {
   void selectActivity(String activity) {
     emit(state.copyWith(selectedActivity: activity));
   }
-
-
 
   void nextStep() {
     print("All Data");
@@ -90,10 +178,6 @@ class SignupCubit extends Cubit<SignupState> {
         state.selectedActivity.isNotEmpty;
   }
 
-
-
-
-
   Future<void> subimt() async {
     if (!_isAllDataValid()) {
       emit(state.copyWith(error: 'Please complete all required fields'));
@@ -119,8 +203,7 @@ class SignupCubit extends Cubit<SignupState> {
     switch (result) {
       case Success():
         log("SignUp Complete Successfully ");
-
-        emit(state.copyWith(isLoading: false, isSuccess: true, error: null,success: "Success"));
+        emit(state.copyWith(isLoading: false, isSuccess: true, error: null, success: "Success"));
 
       case Error():
         emit(

@@ -18,7 +18,6 @@ class WheelWidget extends StatefulWidget {
   final int maxVal;
   final int initVal;
   final ValueChanged<int> onValueChange;
-
   final String label;
 
   @override
@@ -33,12 +32,15 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
     super.initState();
     currentIndex = widget.initVal - widget.minVal;
   }
+
   @override
   bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
     int totalCount = widget.maxVal - widget.minVal + 1;
     super.build(context);
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -50,13 +52,13 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
             ),
           ),
         ),
-
-        Stack(
-          children: [
-            SizedBox(
-              height: 250.HeightResponsive,
-              width: double.infinity,
-              child: WheelSlider.customWidget(
+        SizedBox(
+          height: 250.HeightResponsive,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              // Wheel Slider
+              WheelSlider.customWidget(
                 totalCount: totalCount,
                 initValue: currentIndex,
                 isInfinite: false,
@@ -64,7 +66,6 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
                 perspective: 0.004,
                 itemSize: 90,
                 horizontal: true,
-
                 showPointer: false,
                 onValueChanged: (index) {
                   setState(() {
@@ -72,48 +73,45 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
                   });
                   widget.onValueChange((widget.minVal + index).toInt());
                 },
-
                 children: List.generate(totalCount, (index) {
                   bool isSelected = index == currentIndex;
                   int displayValue = widget.minVal + index;
                   return Container(
                     height: 80.HeightResponsive,
                     width: 100.WidthResponsive,
-
                     alignment: Alignment.center,
                     child: Text(
                       displayValue.toString(),
                       style: isSelected
                           ? AppTextStyles.BalooThambi2_800_20.copyWith(
-                              color: AppColors.primaryColor,
-                              fontSize: 44,
-                            )
+                        color: AppColors.primaryColor,
+                        fontSize: 44,
+                      )
                           : AppTextStyles.BalooThambi2_400_16.copyWith(
-                              color: AppColors.whiteColor,
-                              fontSize: 33,
-                            ),
+                        color: AppColors.whiteColor,
+                        fontSize: 33,
+                      ),
                     ),
                   );
                 }),
               ),
-            ),
-            Positioned(
-              bottom: 50,
-              left: 150,
-              child: Align(
-                alignment: Alignment.center,
-                child: Icon(
-                  Icons.arrow_drop_up,
-                  color: AppColors.primaryColor,
-                  size: 32,
+              // Centered Arrow
+              Positioned(
+                bottom: 50,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Icon(
+                    Icons.arrow_drop_up,
+                    color: AppColors.primaryColor,
+                    size: 32,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
   }
-
-
 }
