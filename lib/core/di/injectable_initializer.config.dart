@@ -75,9 +75,40 @@ import '../../features/Exercise/domain/use_case/exercise_use_case.dart'
     as _i278;
 import '../../features/Exercise/presentation/cubit/sign_in_cubit/exercise_view_model.dart'
     as _i960;
+import '../../features/home/data/data_source/home_data_source.dart' as _i68;
+import '../../features/home/data/repo_imp/home_repository_impl.dart' as _i886;
+import '../../features/home/domain/repo/home_repo.dart' as _i280;
+import '../../features/home/domain/use_case/home_use_case.dart' as _i353;
+import '../../features/home/presentation/cubit/get_meals_categories_cubit/get_meals_categories_cubit.dart'
+    as _i463;
+import '../../features/home/presentation/cubit/recommendation_cubit/recommendation_cubit.dart'
+    as _i540;
+import '../../features/home/presentation/cubit/workout_cubit/workout_cubit.dart'
+    as _i846;
+import '../../features/meals_categories/data/data_source/get_meals_by_category_data_source.dart'
+    as _i1015;
+import '../../features/meals_categories/data/data_source/get_meals_by_category_data_source_imp.dart'
+    as _i575;
+import '../../features/meals_categories/data/data_source/get_meals_categories_data_source.dart'
+    as _i472;
+import '../../features/meals_categories/data/data_source/get_meals_categories_data_source_imp.dart'
+    as _i81;
+import '../../features/meals_categories/data/repo_imp/get_meals_by_category_repo_imp.dart'
+    as _i195;
+import '../../features/meals_categories/data/repo_imp/get_meals_categories_repo_imp.dart'
+    as _i396;
+import '../../features/meals_categories/domain/repo/get_meals_by_category_repo.dart'
+    as _i736;
+import '../../features/meals_categories/domain/repo/get_meals_categories_repo.dart'
+    as _i982;
+import '../../features/meals_categories/presentation/cubits/get_meals_by_category_cubit/get_meals_by_category_cubit.dart'
+    as _i271;
+import '../../features/meals_categories/presentation/cubits/get_meals_categories_cubit/get_meals_categories_cubit.dart'
+    as _i1032;
 import '../../features/onboarding/presentation/cubits/change_onboarding_view_model.dart'
     as _i656;
 import '../api/api_client.dart' as _i277;
+import '../api/meals_api_client.dart' as _i512;
 import '../api/network_factory.dart' as _i1013;
 import '../services/gemini_service.dart' as _i846;
 
@@ -100,6 +131,14 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i511.AuthLocalDataSourceImpl(),
     );
     gh.singleton<_i277.ApiClient>(() => _i277.ApiClient(gh<_i361.Dio>()));
+    gh.singleton<_i512.MealsApiClient>(
+      () => _i512.MealsApiClient(gh<_i361.Dio>()),
+    );
+    gh.factory<_i1015.GetMealsByCategoryDataSource>(
+      () => _i575.GetMealsByCategoryDataSourceImp(
+        mealsApiClient: gh<_i512.MealsApiClient>(),
+      ),
+    );
     gh.factory<_i931.AuthRemoteDataSource>(
       () => _i931.AuthRemoteDataSourceImpl(gh<_i277.ApiClient>()),
     );
@@ -132,13 +171,35 @@ extension GetItInjectableX on _i174.GetIt {
         createNewPasswordDataSource: gh<_i674.CreateNewPasswordDataSource>(),
       ),
     );
+    gh.factory<_i736.GetMealsByCategoryRepo>(
+      () => _i195.GetMealsByCategoryRepoImp(
+        getMealsByCategoryDataSource: gh<_i1015.GetMealsByCategoryDataSource>(),
+      ),
+    );
     gh.factory<_i951.ForgetPasswordRemoteDataSource>(
       () => _i527.ForgetPasswordRemoteDataSourceImp(
         apiClient: gh<_i277.ApiClient>(),
       ),
     );
+    gh.factory<_i271.GetMealsByCategoryCubit>(
+      () => _i271.GetMealsByCategoryCubit(gh<_i736.GetMealsByCategoryRepo>()),
+    );
+    gh.factory<_i68.HomeDataSource>(
+      () => _i68.HomeDataSourceImp(
+        gh<_i277.ApiClient>(),
+        gh<_i512.MealsApiClient>(),
+      ),
+    );
     gh.factory<_i461.ExerciseRemoteDataSource>(
       () => _i461.ExerciseRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
+    gh.factory<_i472.GetMealsCategoriesDataSource>(
+      () => _i81.GetMealsCategoriesDataSourceImp(
+        mealsApiClient: gh<_i512.MealsApiClient>(),
+      ),
+    );
+    gh.factory<_i280.HomeRepo>(
+      () => _i886.HomeRepoImpl(gh<_i68.HomeDataSource>()),
     );
     gh.factory<_i157.AuthRepository>(
       () => _i422.AuthRepositoryImpl(
@@ -160,6 +221,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i449.SignupUseCase>(
       () => _i449.SignupUseCase(gh<_i751.SignupRepo>()),
     );
+    gh.factory<_i982.GetMealsCategoriesRepo>(
+      () => _i396.GetMealsCategoriesRepoImp(
+        getMealsCategoriesDataSource: gh<_i472.GetMealsCategoriesDataSource>(),
+      ),
+    );
     gh.factory<_i1067.SignupCubit>(
       () => _i1067.SignupCubit(gh<_i449.SignupUseCase>()),
     );
@@ -168,6 +234,9 @@ extension GetItInjectableX on _i174.GetIt {
         forgetPasswordRemoteDataSource:
             gh<_i951.ForgetPasswordRemoteDataSource>(),
       ),
+    );
+    gh.factory<_i353.HomeUseCase>(
+      () => _i353.HomeUseCase(gh<_i280.HomeRepo>()),
     );
     gh.factory<_i174.SignInUseCase>(
       () => _i174.SignInUseCase(gh<_i157.AuthRepository>()),
@@ -178,11 +247,25 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1022.SignInViewModel>(
       () => _i1022.SignInViewModel(gh<_i174.SignInUseCase>()),
     );
+    gh.factory<_i463.GetHomeMealsCategoriesCubit>(
+      () => _i463.GetHomeMealsCategoriesCubit(gh<_i353.HomeUseCase>()),
+    );
+    gh.factory<_i1032.GetMealsCategoriesCubit>(
+      () => _i1032.GetMealsCategoriesCubit(
+        getMealsCategoriesRepo: gh<_i982.GetMealsCategoriesRepo>(),
+      ),
+    );
     gh.factory<_i218.ForgetPasswordCubit>(
       () => _i218.ForgetPasswordCubit(gh<_i484.ForgetPasswordRepo>()),
     );
     gh.factory<_i960.ExerciseViewModel>(
       () => _i960.ExerciseViewModel(gh<_i278.ExercisesUseCase>()),
+    );
+    gh.factory<_i846.WorkoutCubit>(
+      () => _i846.WorkoutCubit(gh<_i353.HomeUseCase>()),
+    );
+    gh.factory<_i540.RecommendationCubit>(
+      () => _i540.RecommendationCubit(gh<_i353.HomeUseCase>()),
     );
     return this;
   }

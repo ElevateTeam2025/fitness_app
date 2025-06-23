@@ -27,7 +27,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> with SingleTickerProv
   TabController? _tabController;
   final String muscleId = '67c8499726895f87ce0aa9bc'; // temp
   List<DifficultyLevelEntity> levels = [];
-  List<Exercises> exercises = [];
+   List<Exercises> exercises = [];
 
   bool isCollapsed = false;
 
