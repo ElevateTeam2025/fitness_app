@@ -3,9 +3,13 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubeVideoPlayer extends StatefulWidget {
   final String youtubeUrl;
+  final Widget? youtubePlayer; // FOR TESTING
 
-  const YoutubeVideoPlayer({Key? key, required this.youtubeUrl})
-      : super(key: key);
+  const YoutubeVideoPlayer({
+    Key? key,
+    required this.youtubeUrl,
+    this.youtubePlayer,
+  }) : super(key: key);
 
   @override
   State<YoutubeVideoPlayer> createState() => _YoutubeVideoPlayerState();
@@ -38,12 +42,13 @@ class _YoutubeVideoPlayerState extends State<YoutubeVideoPlayer> {
     return Center(
       child: AspectRatio(
         aspectRatio: 16 / 9,
-        child: YoutubePlayer(
-          controller: _controller,
-          showVideoProgressIndicator: true,
-        ),
+        child: widget.youtubePlayer ??
+            YoutubePlayer(
+              controller: _controller,
+              showVideoProgressIndicator: true,
+            ),
       ),
     );
   }
-
 }
+

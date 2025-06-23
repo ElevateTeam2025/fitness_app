@@ -8,8 +8,9 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoDraggableDialog extends StatefulWidget {
   final String youtubeUrl;
+  final Widget? youtubePlayer;//for testing
 
-  const VideoDraggableDialog({super.key, required this.youtubeUrl});
+  const VideoDraggableDialog({super.key, required this.youtubeUrl,this.youtubePlayer});
 
   @override
   State<VideoDraggableDialog> createState() => _VideoDraggableDialogState();
@@ -119,11 +120,14 @@ class _VideoDraggableDialogState extends State<VideoDraggableDialog> with Single
                             borderRadius: BorderRadius.circular(16.RadiusResponsive),
                             child: SizedBox(
                               height: responsiveHeight(235),
-                              child: YoutubePlayer(
-                                controller: _controller,
-                                showVideoProgressIndicator: true,
-                                width: screenWidth - 32,
-                              ),
+                              child:
+                              widget.youtubePlayer ??
+                                  YoutubePlayer(
+                                    controller: _controller,
+                                    showVideoProgressIndicator: true,
+                                    width: screenWidth - 32,
+                                  ),
+
                             ),
                           ),
                         ],

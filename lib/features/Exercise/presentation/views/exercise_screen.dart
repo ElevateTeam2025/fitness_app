@@ -15,7 +15,6 @@ import '../cubit/sign_in_cubit/exercise_view_model.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/text_styles.dart';
 
-
 class ExercisesScreen extends StatefulWidget {
   const ExercisesScreen({super.key});
 
@@ -31,9 +30,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> with SingleTickerProv
 
   bool isCollapsed = false;
 
-
   final ScrollController _scrollController = ScrollController();
-
   final double expandedHeight = 300;
 
   @override
@@ -42,7 +39,6 @@ class _ExercisesScreenState extends State<ExercisesScreen> with SingleTickerProv
     context.read<ExerciseViewModel>().doIntent(LoadLevelsIntent());
 
     _scrollController.addListener(() {
-
       if (_scrollController.hasClients) {
         if (_scrollController.offset > (expandedHeight - kToolbarHeight - MediaQuery.of(context).padding.top)) {
           if (!isCollapsed) {
@@ -98,20 +94,23 @@ class _ExercisesScreenState extends State<ExercisesScreen> with SingleTickerProv
             return Center(child: Text(state.message));
           } else if (state is SuccessLevelsState) {
             levels = state.levels;
-            _tabController = TabController(length: levels.length, vsync: this);
+            // تهيئة الـ TabController مرة واحدة فقط
+            if (_tabController == null) {
+              _tabController = TabController(length: levels.length, vsync: this);
 
-            _tabController!.addListener(() {
-              if (_tabController!.indexIsChanging) {
-                final selectedLevel = levels[_tabController!.index];
-                _loadExercises(selectedLevel.id);
-              }
-            });
+              _tabController!.addListener(() {
+                if (_tabController!.indexIsChanging) {
+                  final selectedLevel = levels[_tabController!.index];
+                  _loadExercises(selectedLevel.id);
+                }
+              });
 
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              if (levels.isNotEmpty) {
-                _loadExercises(levels[0].id);
-              }
-            });
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                if (levels.isNotEmpty) {
+                  _loadExercises(levels[0].id);
+                }
+              });
+            }
 
             return _buildUI(state is LoadingExerciseState);
           }
@@ -124,13 +123,18 @@ class _ExercisesScreenState extends State<ExercisesScreen> with SingleTickerProv
   Widget _buildUI(bool isLoading) {
     final tr = S.of(context);
 
+    if (_tabController == null) {
+      // لا نبني الواجهة التي تعتمد على الـ TabController إذا لم يتم تهيئتها بعد
+      return const Center(child: CircularProgressIndicator());
+    }
+
     return Stack(
       children: [
         CustomScrollView(
           controller: _scrollController,
           slivers: [
             ExerciseSliverHeader(
-              title: "Chest Exercise",// temp
+              title: "Chest Exercise", // مؤقت
               imageUrl: ImageAssets.logo,
               isCollapsed: isCollapsed,
             ),
@@ -191,5 +195,4 @@ class _ExercisesScreenState extends State<ExercisesScreen> with SingleTickerProv
       ],
     );
   }
-
 }

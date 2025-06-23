@@ -17,7 +17,7 @@ class ExercisesWrapperScreen extends StatelessWidget {
         body: Container(
           decoration:  BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(ImageAssets.exerciseBackground), // later chang it to data come from workout screen
+              image: AssetImage(ImageAssets.exerciseBackground),
               fit: BoxFit.cover,
             ),
           ),

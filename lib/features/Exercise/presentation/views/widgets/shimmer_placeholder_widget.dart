@@ -2,7 +2,6 @@ import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:fitness_app/core/common/get_responsive_height_and_width.dart';
 
 class ShimmerExerciseCardPlaceholder extends StatelessWidget {
   const ShimmerExerciseCardPlaceholder({super.key});
@@ -14,18 +13,18 @@ class ShimmerExerciseCardPlaceholder extends StatelessWidget {
       highlightColor: AppColors.whiteColor,
       period: const Duration(milliseconds: 1500),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: responsiveWidth(8), vertical: responsiveHeight(6)),
+        padding: EdgeInsets.symmetric(horizontal: 8.WidthResponsive, vertical: 6.HeightResponsive),
         child: Row(
           children: [
             Container(
-              width: responsiveWidth(60),
-              height: responsiveHeight(70),
+              width: 60.WidthResponsive,
+              height: 70.HeightResponsive,
               decoration: BoxDecoration(
                 color: Colors.grey.shade700,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(12.RadiusResponsive),
               ),
             ),
-            SizedBox(width: responsiveWidth(12)),
+            SizedBox(width:12.WidthResponsive),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,16 +34,16 @@ class ShimmerExerciseCardPlaceholder extends StatelessWidget {
                     width: double.infinity,
                     color: Colors.grey.shade700,
                   ),
-                  SizedBox(height: responsiveHeight(8)),
+                  SizedBox(height: 8.HeightResponsive),
                   Container(
                     height: 12.HeightResponsive,
-                    width: responsiveWidth(100),
+                    width: 100.WidthResponsive,
                     color: Colors.grey.shade700,
                   ),
-                  SizedBox(height: responsiveHeight(8)),
+                  SizedBox(height:8.HeightResponsive),
                   Container(
                     height: 12.HeightResponsive,
-                    width: responsiveWidth(80),
+                    width: 80.WidthResponsive,
                     color: Colors.grey.shade700,
                   ),
                 ],

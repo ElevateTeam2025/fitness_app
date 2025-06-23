@@ -9,11 +9,14 @@ import 'package:fitness_app/features/Exercise/presentation/views/widgets/shimmer
 class ExerciseList extends StatelessWidget {
   final List<Exercises> exercises;
   final bool isLoading;
+  // final void Function(Exercises exercise)? onTapOverride; // for test
+
 
   const ExerciseList({
     super.key,
     required this.exercises,
     required this.isLoading,
+    // this.onTapOverride
   });
 
   @override
@@ -35,7 +38,24 @@ class ExerciseList extends StatelessWidget {
           if (isLoading) {
             return const ShimmerExerciseCardPlaceholder();
           } else {
-            return ExerciseCard(exercise: exercises[index]);
+            return ExerciseCard(
+                exercise: exercises[index],
+              ///for testing
+              // onTapOverride: () {
+              //   if (onTapOverride != null) {
+              //     onTapOverride!(exercises[index]);
+              //   } else {
+              //
+              //     final videoLink = exercises[index].shortYoutubeDemonstrationLink;
+              //     if (videoLink == null || videoLink.isEmpty) return;
+              //     showDialog(
+              //       context: context,
+              //       barrierColor: Colors.black.withOpacity(0.8),
+              //       builder: (_) => VideoDraggableDialog(youtubeUrl: videoLink),
+              //     );
+              //   }
+              // },
+            );
           }
         },
       ),
