@@ -20,10 +20,10 @@ import 'package:fitness_app/features/auth/sign_up/data/models/signup_request_mod
     as _i11;
 import 'package:fitness_app/features/auth/sign_up/data/models/signup_response_model.dart'
     as _i3;
-import 'package:fitness_app/features/Exercise/data/model/exercise_dto.dart'
-    as _i4;
-import 'package:fitness_app/features/Exercise/data/model/levels_response_dto.dart'
+import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart'
     as _i5;
+import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart'
+    as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -51,15 +51,15 @@ class _FakeSignupResponseModel_1 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
-class _FakeExerciseResponseDTO_2 extends _i1.SmartFake
-    implements _i4.ExerciseResponseDTO {
-  _FakeExerciseResponseDTO_2(Object parent, Invocation parentInvocation)
+class _FakeMusclesTabResponseModel_2 extends _i1.SmartFake
+    implements _i4.MusclesTabResponseModel {
+  _FakeMusclesTabResponseModel_2(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeLevelsResponseDTO_3 extends _i1.SmartFake
-    implements _i5.LevelsResponseDTO {
-  _FakeLevelsResponseDTO_3(Object parent, Invocation parentInvocation)
+class _FakeMusclesDataResponseModel_3 extends _i1.SmartFake
+    implements _i5.MusclesDataResponseModel {
+  _FakeMusclesDataResponseModel_3(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
@@ -122,34 +122,28 @@ class MockApiClient extends _i1.Mock implements _i6.ApiClient {
           as _i7.Future<void>);
 
   @override
-  _i7.Future<_i4.ExerciseResponseDTO> getExercisesByMuscleAndDifficulty(
-    String? muscleId,
-    String? difficultyId,
-  ) =>
+  _i7.Future<_i4.MusclesTabResponseModel> getMusclesTabs() =>
       (super.noSuchMethod(
-            Invocation.method(#getExercisesByMuscleAndDifficulty, [
-              muscleId,
-              difficultyId,
-            ]),
-            returnValue: _i7.Future<_i4.ExerciseResponseDTO>.value(
-              _FakeExerciseResponseDTO_2(
+            Invocation.method(#getMusclesTabs, []),
+            returnValue: _i7.Future<_i4.MusclesTabResponseModel>.value(
+              _FakeMusclesTabResponseModel_2(
                 this,
-                Invocation.method(#getExercisesByMuscleAndDifficulty, [
-                  muscleId,
-                  difficultyId,
-                ]),
+                Invocation.method(#getMusclesTabs, []),
               ),
             ),
           )
-          as _i7.Future<_i4.ExerciseResponseDTO>);
+          as _i7.Future<_i4.MusclesTabResponseModel>);
 
   @override
-  _i7.Future<_i5.LevelsResponseDTO> getLevels() =>
+  _i7.Future<_i5.MusclesDataResponseModel> getMusclesData(String? id) =>
       (super.noSuchMethod(
-            Invocation.method(#getLevels, []),
-            returnValue: _i7.Future<_i5.LevelsResponseDTO>.value(
-              _FakeLevelsResponseDTO_3(this, Invocation.method(#getLevels, [])),
+            Invocation.method(#getMusclesData, [id]),
+            returnValue: _i7.Future<_i5.MusclesDataResponseModel>.value(
+              _FakeMusclesDataResponseModel_3(
+                this,
+                Invocation.method(#getMusclesData, [id]),
+              ),
             ),
           )
-          as _i7.Future<_i5.LevelsResponseDTO>);
+          as _i7.Future<_i5.MusclesDataResponseModel>);
 }
