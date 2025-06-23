@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fitness_app/core/common/get_responsive_height_and_width.dart';
-import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/common/height_width_extention.dart';
-
-import '../../../Exercise/presentation/views/widgets/shimmer_placeholder_widget.dart';
 import '../../domain/entity/exercise_entity.dart';
 import 'home_exercise_card.dart';
 

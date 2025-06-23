@@ -1,5 +1,4 @@
 import 'package:fitness_app/core/router/pages_routes.dart';
-import 'package:fitness_app/features/Exercise/presentation/views/exercise_screen.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/create_new_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/forget_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
@@ -9,7 +8,6 @@ import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_s
 import 'package:fitness_app/features/splash/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/Exercise/presentation/views/main_exercise_screen.dart';
 import '../../features/auth/sign_in/presentation/views/sign_in/sign_in_screen.dart';
 import '../../layout/presentation/layout_screen.dart';
 
@@ -58,14 +56,8 @@ class RoutesGenerator {
         );
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-      case PagesRoutes.exerciseScreen:
-        return MaterialPageRoute(builder: (context) => ExercisesScreen(), settings: settings,);
 
-      case PagesRoutes.exercisesWrapperScreen:
-        return MaterialPageRoute(builder: (context) => ExercisesWrapperScreen(), settings: settings,);
-
-
-      default:
+        default:
         return unDefinedRoute();
     }
   }

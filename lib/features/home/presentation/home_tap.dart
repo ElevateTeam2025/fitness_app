@@ -7,19 +7,12 @@ import 'package:fitness_app/features/home/presentation/widget/home_catagory/home
 import 'package:fitness_app/features/home/presentation/widget/home_catagory/home_sized_box.dart';
 import 'package:fitness_app/features/home/presentation/widget/home_meals_list.dart';
 import 'package:fitness_app/features/home/presentation/widget/home_screen_list.dart';
-import 'package:fitness_app/features/home/presentation/widget/home_tab_view_body.dart';
 import 'package:fitness_app/features/home/presentation/widget/row_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
 import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/text_styles.dart';
-
-import '../../../generated/l10n.dart';
-import '../../Exercise/presentation/views/widgets/exercise_sliver_header.dart';
-import '../../Exercise/presentation/views/widgets/tab_bar_sliver_delegate.dart';
-import '../domain/entity/exercise_entity.dart';
 import 'cubit/get_meals_categories_cubit/get_meals_categories_cubit.dart';
 import 'cubit/recommendation_cubit/recommendation_cubit.dart';
 import 'cubit/workout_cubit/workout_cubit.dart';
@@ -32,7 +25,7 @@ class HomeTap extends StatefulWidget {
 }
 
 class _HomeTapState extends State<HomeTap> {
-//  List<Exercises> exercises = [];
+
 
   @override
   Widget build(BuildContext context) {
