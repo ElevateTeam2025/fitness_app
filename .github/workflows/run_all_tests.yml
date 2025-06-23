@@ -1,12 +1,9 @@
 name: Run Test cases
 
 on:
-
   push:
   pull_request:
-    branches:
-      - development
-
+    branches: [development]
 
 jobs:
   unit-tests:
@@ -19,6 +16,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.32.4'
+          channel: 'stable'
 
       - name: Install dependencies
         run: flutter pub get
@@ -32,8 +30,8 @@ jobs:
           total=$(grep -c '^DA:' coverage/lcov.info || echo 0)
           covered=$(grep -E '^DA:[0-9]+,[1-9]' coverage/lcov.info | wc -l || echo 0)
           if [ "$total" -eq 0 ]; then
-            echo "0"
+            echo "Coverage: 0%"
           else
             percent=$(( covered * 100 / total ))
-            echo "${percent}"
+            echo "Coverage: ${percent}%"
           fi
