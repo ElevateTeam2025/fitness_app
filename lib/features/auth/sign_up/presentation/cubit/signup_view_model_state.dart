@@ -14,8 +14,19 @@ class SignupState {
   final bool isSuccess;
   final String? error;
   final String? success;
-  final bool isPasswordValid;
+
+  // Individual field validation flags
+  final bool isFirstNameValid;
+  final bool isLastNameValid;
   final bool isEmailValid;
+  final bool isPasswordValid;
+
+  // Error messages for each field
+  final String? firstNameError;
+  final String? lastNameError;
+  final String? emailError;
+  final String? passwordError;
+
   SignupState({
     this.firstName = '',
     this.lastName = '',
@@ -32,14 +43,23 @@ class SignupState {
     this.isSuccess = false,
     this.error,
     this.success,
+    this.isFirstNameValid = false,
+    this.isLastNameValid = false,
     this.isEmailValid = false,
     this.isPasswordValid = false,
+    this.firstNameError,
+    this.lastNameError,
+    this.emailError,
+    this.passwordError,
   });
 
-
+  // Individual field validation getters
   bool get isBasicInfoValid =>
-      firstName.trim().isNotEmpty &&
-          lastName.trim().isNotEmpty;
+      isFirstNameValid &&
+          isLastNameValid &&
+          isEmailValid &&
+          isPasswordValid;
+
   bool get isAllDataValid =>
       isBasicInfoValid &&
           gender.isNotEmpty &&
@@ -69,16 +89,20 @@ class SignupState {
     bool? isSuccess,
     String? error,
     String? success,
+    bool? isFirstNameValid,
+    bool? isLastNameValid,
     bool? isEmailValid,
     bool? isPasswordValid,
+    String? firstNameError,
+    String? lastNameError,
+    String? emailError,
+    String? passwordError,
   }) {
     return SignupState(
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
       email: email ?? this.email,
-      isEmailValid: isEmailValid ?? this.isEmailValid,
       password: password ?? this.password,
-      isPasswordValid: isPasswordValid ?? this.isPasswordValid,
       gender: gender ?? this.gender,
       age: age ?? this.age,
       height: height ?? this.height,
@@ -90,6 +114,14 @@ class SignupState {
       isSuccess: isSuccess ?? this.isSuccess,
       error: error,
       success: success,
+      isFirstNameValid: isFirstNameValid ?? this.isFirstNameValid,
+      isLastNameValid: isLastNameValid ?? this.isLastNameValid,
+      isEmailValid: isEmailValid ?? this.isEmailValid,
+      isPasswordValid: isPasswordValid ?? this.isPasswordValid,
+      firstNameError: firstNameError,
+      lastNameError: lastNameError,
+      emailError: emailError,
+      passwordError: passwordError,
     );
   }
 
@@ -108,9 +140,11 @@ class SignupState {
         'height: $height, '
         'weight: $weight, '
         'selectedGoal: $selectedGoal, '
-        'selectedActivity: $selectedActivity'
-    'isEmailValid:$isEmailValid'
-    'isPassWordValid:$isPasswordValid'
+        'selectedActivity: $selectedActivity, '
+        'isFirstNameValid: $isFirstNameValid, '
+        'isLastNameValid: $isLastNameValid, '
+        'isEmailValid: $isEmailValid, '
+        'isPasswordValid: $isPasswordValid'
         ')';
   }
 }
