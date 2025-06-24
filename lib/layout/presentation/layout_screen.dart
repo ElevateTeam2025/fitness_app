@@ -1,4 +1,6 @@
 
+import 'package:fitness_app/core/utils/app_colors.dart';
+import 'package:fitness_app/features/worksout/presentation/view/workout_screen.dart';
 import 'package:fitness_app/layout/presentation/widgets/tab_bar_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +25,8 @@ class LayoutScreen extends StatelessWidget {
           return Scaffold(
             extendBody: true,
             resizeToAvoidBottomInset: true,
-            body: viewModel.tabs[viewModel.currentIndex],
+            backgroundColor: AppColors.greyDark2,
+            body:WorkoutTab(),
 
 
             bottomNavigationBar: Container(
