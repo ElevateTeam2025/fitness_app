@@ -11,19 +11,19 @@ class ChangeOnboardingViewModel extends Cubit<ChangeOnboardingState> {
   bool isLast = false;
   final List<OnboardingEntity> boarding = [
     OnboardingEntity(
-      image: ImageAssets.onBoradingImage_1,
+      image: ImageAssets.onBoardingImage_1,
       title: 'the price of excellence is discipline',
       body:
           'Lorem ipsum dolor sit amet consectetur. Eu urna ut gravida quis id pretium purus. Mauris massa ',
     ),
     OnboardingEntity(
-      image: ImageAssets.onBoradingImage_2,
+      image: ImageAssets.onBoardingImage_2,
       title: 'Fitness has never been so much fun',
       body:
           'Lorem ipsum dolor sit amet consectetur. Eu urna ut gravida quis id pretium purus. Mauris massa ',
     ),
     OnboardingEntity(
-      image: ImageAssets.onBoradingImage_3,
+      image: ImageAssets.onBoardingImage_3,
       title: 'NO MORE EXCUSES Do It Now',
       body:
           'Lorem ipsum dolor sit amet consectetur. Eu urna ut gravida quis id pretium purus. Mauris massa ',

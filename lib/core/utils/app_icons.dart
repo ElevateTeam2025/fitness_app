@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 class AppIcons {
   static const IconData email = Icons.email_outlined;
   static const IconData password = Icons.lock_outline;
+  static const IconData play = Icons.play_arrow;
+  static const IconData imageError = Icons.broken_image;
+  static const IconData openYoutube = Icons.open_in_new;
+  static const IconData closeIcon = Icons.close;
 
   static const IconData back = Icons.arrow_back_ios;
   static const IconData edit = Icons.edit;

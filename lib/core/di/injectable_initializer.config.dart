@@ -65,9 +65,20 @@ import '../../features/auth/sign_up/domain/use_case/signup_use_case.dart'
     as _i449;
 import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
     as _i1067;
+import '../../features/home/data/data_source/home_data_source.dart' as _i68;
+import '../../features/home/data/repo_imp/home_repository_impl.dart' as _i886;
+import '../../features/home/domain/repo/home_repo.dart' as _i280;
+import '../../features/home/domain/use_case/home_use_case.dart' as _i353;
+import '../../features/home/presentation/cubit/get_meals_categories_cubit/get_meals_categories_cubit.dart'
+    as _i463;
+import '../../features/home/presentation/cubit/recommendation_cubit/recommendation_cubit.dart'
+    as _i540;
+import '../../features/home/presentation/cubit/workout_cubit/workout_cubit.dart'
+    as _i846;
 import '../../features/onboarding/presentation/cubits/change_onboarding_view_model.dart'
     as _i656;
 import '../api/api_client.dart' as _i277;
+import '../api/meals_api_client.dart' as _i512;
 import '../api/network_factory.dart' as _i1013;
 import '../services/gemini_service.dart' as _i846;
 
@@ -90,6 +101,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i511.AuthLocalDataSourceImpl(),
     );
     gh.singleton<_i277.ApiClient>(() => _i277.ApiClient(gh<_i361.Dio>()));
+    gh.singleton<_i512.MealsApiClient>(
+      () => _i512.MealsApiClient(gh<_i361.Dio>()),
+    );
     gh.factory<_i931.AuthRemoteDataSource>(
       () => _i931.AuthRemoteDataSourceImpl(gh<_i277.ApiClient>()),
     );
@@ -127,6 +141,15 @@ extension GetItInjectableX on _i174.GetIt {
         apiClient: gh<_i277.ApiClient>(),
       ),
     );
+    gh.factory<_i68.HomeDataSource>(
+      () => _i68.HomeDataSourceImp(
+        gh<_i277.ApiClient>(),
+        gh<_i512.MealsApiClient>(),
+      ),
+    );
+    gh.factory<_i280.HomeRepo>(
+      () => _i886.HomeRepoImpl(gh<_i68.HomeDataSource>()),
+    );
     gh.factory<_i157.AuthRepository>(
       () => _i422.AuthRepositoryImpl(
         gh<_i931.AuthRemoteDataSource>(),
@@ -153,14 +176,26 @@ extension GetItInjectableX on _i174.GetIt {
             gh<_i951.ForgetPasswordRemoteDataSource>(),
       ),
     );
+    gh.factory<_i353.HomeUseCase>(
+      () => _i353.HomeUseCase(gh<_i280.HomeRepo>()),
+    );
     gh.factory<_i174.SignInUseCase>(
       () => _i174.SignInUseCase(gh<_i157.AuthRepository>()),
     );
     gh.factory<_i1022.SignInViewModel>(
       () => _i1022.SignInViewModel(gh<_i174.SignInUseCase>()),
     );
+    gh.factory<_i463.GetHomeMealsCategoriesCubit>(
+      () => _i463.GetHomeMealsCategoriesCubit(gh<_i353.HomeUseCase>()),
+    );
     gh.factory<_i218.ForgetPasswordCubit>(
       () => _i218.ForgetPasswordCubit(gh<_i484.ForgetPasswordRepo>()),
+    );
+    gh.factory<_i846.WorkoutCubit>(
+      () => _i846.WorkoutCubit(gh<_i353.HomeUseCase>()),
+    );
+    gh.factory<_i540.RecommendationCubit>(
+      () => _i540.RecommendationCubit(gh<_i353.HomeUseCase>()),
     );
     return this;
   }

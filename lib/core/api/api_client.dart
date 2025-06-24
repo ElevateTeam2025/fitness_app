@@ -9,9 +9,11 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 
+
 import '../../features/auth/sign_up/data/models/signup_request_model.dart';
 import '../../features/auth/sign_up/data/models/signup_response_model.dart';
 
+import '../../features/home/data/model/exercise_response_dto.dart';
 import '../utils/end_points.dart';
 
 part 'api_client.g.dart';
@@ -42,4 +44,21 @@ abstract class ApiClient {
 
   @PUT(ApiEndPoints.resetPassword)
   Future<void> createNewPassword(@Body() CreateNewPasswordrequset request);
+// ///////////////////++++++++++++++++/////////////////
+// ///////////////////        /////////////////
+// ///////////////////++++++++++++++++/////////////////
+  @GET(ApiEndPoints.getAllExercise)
+  Future<ExercisesResponseDTO> getAllExercises(
+      // @Header('Accept-Language') String? language,
+      );
+
+  @GET(ApiEndPoints.getRecommendExercise)
+  Future<ExercisesResponseDTO> getRecommendExercises(
+      @Query("targetMuscleGroupId")  String targetMuscleGroupId,
+      @Query("difficultyLevelId")  String difficultyLevelId,
+      @Query("limit") int limit ,
+      );
+
+
+
 }

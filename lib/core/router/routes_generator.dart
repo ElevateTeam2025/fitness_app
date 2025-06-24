@@ -37,7 +37,6 @@ class RoutesGenerator {
           builder: (_) => const CreateNewPasswordView(),
           settings: settings,
         );
-        return MaterialPageRoute(builder: (_) => const VerifyResetCodeView());
         case PagesRoutes.signUpFlowView:
         // Assuming you have a SignUpFlowView, uncomment the line below
          return MaterialPageRoute(builder: (_) =>  SignupFlow());
@@ -55,8 +54,10 @@ class RoutesGenerator {
           builder: (context) => const AppView(),
           settings: settings,
         );
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
 
-      default:
+        default:
         return unDefinedRoute();
     }
   }
