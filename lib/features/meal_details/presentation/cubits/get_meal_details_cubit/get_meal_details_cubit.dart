@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:fitness_app/core/common/result.dart';
 import 'package:fitness_app/features/meal_details/domain/use_case/get_meal_details_use_case.dart';
@@ -19,14 +21,19 @@ class GetMealDetailsCubit extends Cubit<GetMealDetailsStates> {
   }
 
   Future<void> _getMealDetails(String id) async {
-    emit(GetMealDetailsInitialState());
+    log('loading');
+
+    emit(GetMealDetailsLoadingState());
     final result = await _getMealDetailsUseCase.execute(id);
     switch (result) {
       case Success():
         final data = result.data?.meals ?? [];
+        log('success');
+
         emit(GetMealDetailsSuccessState(data[0]));
         break;
       case Error():
+        log('error');
         emit(
           GetMealDetailsErrorState(
             message: result.exception ?? 'An error occurred',

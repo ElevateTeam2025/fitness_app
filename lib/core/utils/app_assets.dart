@@ -10,6 +10,7 @@ abstract class ImageAssets {
       "$imagePath/food_back_ground_image.png";
   static const String logInBackground = "$imagePath/background.png";
   static const String logo = "$imagePath/logo.png";
+  static const String mealDetailsBg = "$imagePath/meal_details_bg.png";
 }
 
 const String imagePath = "assets/images";

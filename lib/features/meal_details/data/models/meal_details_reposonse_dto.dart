@@ -138,16 +138,36 @@ class MealDetailsDTO {
 
   Map<String, dynamic> toJson() => _$MealDetailsDTOToJson(this);
 
+  // List<Ingredient> convertIngrediants(Map<String, dynamic> json) {
+  //   final ingredients = List.filled(20, '');
+  //   final measures = List.filled(20, '');
+  //   for (int i = 0; i < ingredients.length; i++) {
+  //     ingredients[i] = json['strIngredient${i + 1}'];
+  //     measures[i] = json['strMeasure${i + 1}'];
+  //   }
+  //   return List.generate(20, (index) {
+  //     return Ingredient(name: ingredients[index], measure: measures[index]);
+  //   });
+  // }
+
   List<Ingredient> convertIngrediants(Map<String, dynamic> json) {
-    final ingredients = List.filled(20, '');
-    final measures = List.filled(20, '');
-    for (int i = 0; i < ingredients.length; i++) {
-      ingredients[i] = json['strIngredient${i + 1}'];
-      measures[i] = json['strMeasure${i + 1}'];
+    final List<Ingredient> ingredients = [];
+
+    for (int i = 1; i <= 20; i++) {
+      final String? ingredient = json['strIngredient$i'] as String?;
+      final String? measure = json['strMeasure$i'] as String?;
+
+      if (ingredient != null && ingredient.trim().isNotEmpty) {
+        ingredients.add(
+          Ingredient(
+            name: ingredient,
+            measure: measure ?? '',
+          ),
+        );
+      }
     }
-    return List.generate(20, (index) {
-      return Ingredient(name: ingredients[index], measure: measures[index]);
-    });
+
+    return ingredients;
   }
 
   MealDetailsResponseEntity toEntity() {

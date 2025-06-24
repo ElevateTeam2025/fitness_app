@@ -44,7 +44,7 @@ class RoutesGenerator {
         );
       case PagesRoutes.mealDetails:
         return MaterialPageRoute(
-          builder: (_) => const MealDetailsView(),
+          builder: (_) =>  MealDetailsView(),
           settings: settings,
         );
 
