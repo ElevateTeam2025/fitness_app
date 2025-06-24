@@ -1,5 +1,5 @@
 const String baseUrl = 'https://fitness.elevateegy.com/api/v1';
-const String mealsBaseUrl = 'www.themealdb.com/api/json/v1/1';
+const String mealsBaseUrl = 'https://www.themealdb.com/api/json/v1';
 
 class ApiEndPoints {
   ApiEndPoints._();
