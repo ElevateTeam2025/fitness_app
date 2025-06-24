@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import '../../../../core/router/pages_routes.dart';
 import '../../domain/entity/exercise_entity.dart';
 import 'home_exercise_card.dart';
 
@@ -22,7 +23,15 @@ class HomeExerciseList extends StatelessWidget {
         itemCount:  exercises.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return HomeExerciseCard(exercise: exercises[index],isLarge: isLarge,);
+          return InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, PagesRoutes.exercisesWrapperScreen,
+                  arguments: {
+                    'id': exercises[index].id,
+                  },
+                );
+              },
+              child: HomeExerciseCard(exercise: exercises[index],isLarge: isLarge,));
         },
       ),
     );

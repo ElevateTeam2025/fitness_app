@@ -10,7 +10,7 @@ part of 'meals_api_client.dart';
 
 class _MealsApiClient implements MealsApiClient {
   _MealsApiClient(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://www.themealdb.com/api/json/v1';
+    baseUrl ??= 'www.themealdb.com/api/json/v1/1';
   }
 
   final Dio _dio;

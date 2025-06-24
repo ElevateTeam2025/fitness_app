@@ -69,11 +69,9 @@ abstract class ApiClient {
   @GET(ApiEndPoints.getExercise)
   Future<ExerciseResponseDTO> getExercisesByMuscleAndDifficulty(
       @Query('primeMoverMuscleId') String muscleId,
-      @Query('difficultyLevelId') String difficultyId,
-  @GET(ApiEndPoints.getAllExercise)
-  Future<ExercisesResponseDTO> getAllExercises(
-      // @Header('Accept-Language') String? language,
-      );
+      @Query('difficultyLevelId') String difficultyId,);
+
+
   @GET(ApiEndPoints.getRecommendExercise)
   Future<ExercisesResponseDTO> getRecommendExercises(
       @Query("targetMuscleGroupId")  String targetMuscleGroupId,
@@ -83,13 +81,8 @@ abstract class ApiClient {
   @GET(ApiEndPoints.getLevelsEndPoint)
   Future<LevelsResponseDTO> getLevels(
       // @Header('Accept-Language') String? language,
-
-  @GET(ApiEndPoints.getRecommendExercise)
-  Future<ExercisesResponseDTO> getRecommendExercises(
-      @Query("targetMuscleGroupId")  String targetMuscleGroupId,
-      @Query("difficultyLevelId")  String difficultyLevelId,
-      @Query("limit") int limit ,
       );
+
 
 
 

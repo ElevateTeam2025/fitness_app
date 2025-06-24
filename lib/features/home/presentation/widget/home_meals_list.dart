@@ -1,8 +1,9 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
+import '../../../../core/router/pages_routes.dart';
 import '../../domain/entity/meals_categories_entity.dart';
-import 'home_exercise_card.dart';
 import 'home_meals_card.dart';
 
 class HomeMealsList extends StatelessWidget {
@@ -22,7 +23,15 @@ class HomeMealsList extends StatelessWidget {
         itemCount:  meals.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return HomeMealsCard (meal: meals[index],isLarge: isLarge,);
+          return InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, PagesRoutes.mealsCategories,
+                  arguments: {
+                    'id': meals[index],
+                  },
+                );
+              },
+              child: HomeMealsCard (meal: meals[index],isLarge: isLarge,));
         },
       ),
     );
