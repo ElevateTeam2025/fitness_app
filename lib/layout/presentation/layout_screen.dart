@@ -26,7 +26,7 @@ class LayoutScreen extends StatelessWidget {
             extendBody: true,
             resizeToAvoidBottomInset: true,
             backgroundColor: AppColors.greyDark2,
-            body:viewModel.tabs[viewModel.currentIndex],
+            body:WorkoutTab(),
 
 
             bottomNavigationBar: Container(

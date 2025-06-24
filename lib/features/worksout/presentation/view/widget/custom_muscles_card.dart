@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/features/worksout/domain/entity/muscles_data_response_entity.dart';
 import 'package:flutter/widgets.dart';
@@ -18,7 +19,7 @@ class CustomMusclesCard extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(muscle.image ?? ""),
+          image:muscle.image == null ?AssetImage(ImageAssets.onboardingBg): NetworkImage(muscle.image ?? ""),
           fit: BoxFit.cover,
         ),
         borderRadius: BorderRadius.circular(20.RadiusResponsive),
