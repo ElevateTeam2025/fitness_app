@@ -59,43 +59,57 @@ class _FakeExercisesResponseDTO_2 extends _i1.SmartFake
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockApiClient extends _i1.Mock implements _i5.ApiClient {
+class MockApiClient extends _i1.Mock implements _i8.ApiClient {
   MockApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
   _i6.Future<_i2.SignInDTO> signIn(_i7.SignInRequest? data) =>
+  _i9.Future<_i2.SignInDTO> signIn(_i10.SignInRequest? data) =>
       (super.noSuchMethod(
             Invocation.method(#signIn, [data]),
             returnValue: _i6.Future<_i2.SignInDTO>.value(
+            returnValue: _i9.Future<_i2.SignInDTO>.value(
               _FakeSignInDTO_0(this, Invocation.method(#signIn, [data])),
             ),
           )
           as _i6.Future<_i2.SignInDTO>);
+          as _i9.Future<_i2.SignInDTO>);
 
   @override
   _i6.Future<void> forgotPassword(_i8.ForgotPasswordRequest? request) =>
+  _i9.Future<void> forgotPassword(_i11.ForgotPasswordRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#forgotPassword, [request]),
             returnValue: _i6.Future<void>.value(),
             returnValueForMissingStub: _i6.Future<void>.value(),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
           )
           as _i6.Future<void>);
+          as _i9.Future<void>);
 
   @override
   _i6.Future<void> verifyResetCode(_i9.VerifyResetCodeRequest? request) =>
+  _i9.Future<void> verifyResetCode(_i12.VerifyResetCodeRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#verifyResetCode, [request]),
             returnValue: _i6.Future<void>.value(),
             returnValueForMissingStub: _i6.Future<void>.value(),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
           )
           as _i6.Future<void>);
+          as _i9.Future<void>);
 
   @override
   _i6.Future<_i3.SignupResponseModel> signup(_i10.SignupRequestModel? body) =>
+  _i9.Future<_i3.SignupResponseModel> signup(_i13.SignupRequestModel? body) =>
       (super.noSuchMethod(
             Invocation.method(#signup, [body]),
             returnValue: _i6.Future<_i3.SignupResponseModel>.value(
+            returnValue: _i9.Future<_i3.SignupResponseModel>.value(
               _FakeSignupResponseModel_1(
                 this,
                 Invocation.method(#signup, [body]),
@@ -103,28 +117,70 @@ class MockApiClient extends _i1.Mock implements _i5.ApiClient {
             ),
           )
           as _i6.Future<_i3.SignupResponseModel>);
+          as _i9.Future<_i3.SignupResponseModel>);
 
   @override
   _i6.Future<void> createNewPassword(_i11.CreateNewPasswordrequset? request) =>
+  _i9.Future<void> createNewPassword(_i14.CreateNewPasswordrequset? request) =>
       (super.noSuchMethod(
             Invocation.method(#createNewPassword, [request]),
             returnValue: _i6.Future<void>.value(),
             returnValueForMissingStub: _i6.Future<void>.value(),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
+          )
+          as _i9.Future<void>);
+
+  @override
+  _i9.Future<_i4.MusclesTabResponseModel> getMusclesTabs() =>
+      (super.noSuchMethod(
+            Invocation.method(#getMusclesTabs, []),
+            returnValue: _i9.Future<_i4.MusclesTabResponseModel>.value(
+              _FakeMusclesTabResponseModel_2(
+                this,
+                Invocation.method(#getMusclesTabs, []),
+              ),
+            ),
           )
           as _i6.Future<void>);
+          as _i9.Future<_i4.MusclesTabResponseModel>);
+
+  @override
+  _i9.Future<_i5.MusclesDataResponseModel> getMusclesData(String? id) =>
+      (super.noSuchMethod(
+            Invocation.method(#getMusclesData, [id]),
+            returnValue: _i9.Future<_i5.MusclesDataResponseModel>.value(
+              _FakeMusclesDataResponseModel_3(
+                this,
+                Invocation.method(#getMusclesData, [id]),
+              ),
+            ),
+          )
+          as _i9.Future<_i5.MusclesDataResponseModel>);
 
   @override
   _i6.Future<_i4.ExercisesResponseDTO> getAllExercises() =>
+  _i9.Future<_i6.ExerciseResponseDTO> getExercisesByMuscleAndDifficulty(
+    String? muscleId,
+    String? difficultyId,
+  ) =>
       (super.noSuchMethod(
             Invocation.method(#getAllExercises, []),
             returnValue: _i6.Future<_i4.ExercisesResponseDTO>.value(
               _FakeExercisesResponseDTO_2(
+            Invocation.method(#getExercisesByMuscleAndDifficulty, [
+              muscleId,
+              difficultyId,
+            ]),
+            returnValue: _i9.Future<_i6.ExerciseResponseDTO>.value(
+              _FakeExerciseResponseDTO_4(
                 this,
                 Invocation.method(#getAllExercises, []),
               ),
             ),
           )
           as _i6.Future<_i4.ExercisesResponseDTO>);
+          as _i9.Future<_i6.ExerciseResponseDTO>);
 
   @override
   _i6.Future<_i4.ExercisesResponseDTO> getRecommendExercises(
@@ -132,6 +188,7 @@ class MockApiClient extends _i1.Mock implements _i5.ApiClient {
     String? difficultyLevelId,
     int? limit,
   ) =>
+  _i9.Future<_i7.LevelsResponseDTO> getLevels() =>
       (super.noSuchMethod(
             Invocation.method(#getRecommendExercises, [
               targetMuscleGroupId,
@@ -147,7 +204,11 @@ class MockApiClient extends _i1.Mock implements _i5.ApiClient {
                   limit,
                 ]),
               ),
+            Invocation.method(#getLevels, []),
+            returnValue: _i9.Future<_i7.LevelsResponseDTO>.value(
+              _FakeLevelsResponseDTO_5(this, Invocation.method(#getLevels, [])),
             ),
           )
           as _i6.Future<_i4.ExercisesResponseDTO>);
+          as _i9.Future<_i7.LevelsResponseDTO>);
 }

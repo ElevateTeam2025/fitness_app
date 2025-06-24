@@ -4,6 +4,8 @@ import 'package:fitness_app/features/auth/forget_password/data/models/forget_pas
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart';
 import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart';
 import 'package:fitness_app/features/auth/sign_in/domain/entity/sign_in_request.dart';
+import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart';
+import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart';
 
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/error_logger.dart';
@@ -44,6 +46,12 @@ abstract class ApiClient {
 
   @PUT(ApiEndPoints.resetPassword)
   Future<void> createNewPassword(@Body() CreateNewPasswordrequset request);
+
+  @GET(ApiEndPoints.workoutTabs)
+  Future<MusclesTabResponseModel> getMusclesTabs();
+
+  @GET("${ApiEndPoints.muscles}/{id}")
+  Future<MusclesDataResponseModel> getMusclesData(@Path('id') String id);
 // ///////////////////++++++++++++++++/////////////////
 // ///////////////////        /////////////////
 // ///////////////////++++++++++++++++/////////////////

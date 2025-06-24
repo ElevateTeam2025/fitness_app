@@ -57,6 +57,11 @@ class RoutesGenerator {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
+
+      case PagesRoutes.exercisesWrapperScreen:
+        return MaterialPageRoute(builder: (context) => ExercisesWrapperScreen(), settings: settings,);
+
+
         default:
         return unDefinedRoute();
     }

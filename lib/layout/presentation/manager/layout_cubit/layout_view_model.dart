@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/injectable_initializer.dart';
@@ -7,19 +6,23 @@ import '../../../../features/home/presentation/cubit/recommendation_cubit/recomm
 import '../../../../features/home/presentation/cubit/workout_cubit/workout_cubit.dart';
 import '../../../../features/home/presentation/home_tap.dart';
 
+import '../../../../features/worksout/presentation/view/workout_screen.dart';
+import '../../tabs/home_tap.dart';
 import '../../tabs/profile_tab.dart';
 import 'layout_state.dart';
 
-
-class LayoutViewModel extends Cubit <LayoutState> {
+class LayoutViewModel extends Cubit<LayoutState> {
   LayoutViewModel() : super(LayoutInitialState());
   int currentIndex = 0;
+
   void doIntent(LayoutIntent layoutIntent) {
-    switch(layoutIntent) {
+    switch (layoutIntent) {
       case LayoutChangeBottomNavIntent():
         _changeBottomNav(layoutIntent.index);
     }
   }
+
+  List<Widget> tabs = [HomeTap(), ProfileTab(), WorkoutTab(), ProfileTab()];
 List<Widget>tabs=[
   MultiBlocProvider(
     providers: [
@@ -41,13 +44,16 @@ List<Widget>tabs=[
 ];
 
   void _changeBottomNav(int index) {
-    emit( LayoutInitialState());
+    emit(LayoutInitialState());
     currentIndex = index;
     emit(LayoutChangeBottomNavState());
   }
 }
-sealed class LayoutIntent{}
-class LayoutChangeBottomNavIntent extends LayoutIntent{
+
+sealed class LayoutIntent {}
+
+class LayoutChangeBottomNavIntent extends LayoutIntent {
   int index;
-  LayoutChangeBottomNavIntent( this.index);
+
+  LayoutChangeBottomNavIntent(this.index);
 }
