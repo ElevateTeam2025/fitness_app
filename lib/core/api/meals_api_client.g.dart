@@ -47,6 +47,33 @@ class _MealsApiClient implements MealsApiClient {
   }
 
   @override
+  Future<HomeMealCategoriesReponse> getHomeMealsCategories() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<HomeMealCategoriesReponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/1/categories.php',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late HomeMealCategoriesReponse _value;
+    try {
+      _value = HomeMealCategoriesReponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<MealsByCategoryResponse> getMealsByCategory(String category) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'c': category};

@@ -6,25 +6,26 @@ import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/core/widgets/custom_validate.dart';
 import 'package:flutter/material.dart';
 
-
 class SignInForm extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
-  final AutovalidateMode validateMode;
   final bool isPasswordVisible;
   final VoidCallback onPasswordVisibilityToggle;
-  final Function(String) onChange;
   final VoidCallback onSubmit;
+  final FocusNode emailFocusNode;
+  final FocusNode passwordFocusNode;
+  final bool isFormValid;
 
   const SignInForm({
     super.key,
     required this.emailController,
     required this.passwordController,
-    required this.validateMode,
     required this.isPasswordVisible,
     required this.onPasswordVisibilityToggle,
-    required this.onChange,
     required this.onSubmit,
+    required this.emailFocusNode,
+    required this.passwordFocusNode,
+    required this.isFormValid,
   });
 
   @override
@@ -42,37 +43,35 @@ class SignInForm extends StatelessWidget {
         SizedBox(height: responsiveHeight(8)),
         TextFormField(
           key: const Key('emailField'),
-          autovalidateMode: validateMode,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: AppValidate.validateEmail,
-          onChanged: onChange,
+          focusNode: emailFocusNode,
           controller: emailController,
-          style: AppTextStyles.BalooThambi2_500_16.copyWith(color: AppColors.whiteColor),
+          style: AppTextStyles.BalooThambi2_500_16.copyWith(
+            color: AppColors.whiteColor,
+          ),
           decoration: InputDecoration(
             hintText: 'email',
-            prefixIcon: Icon(
-              AppIcons.email,
-              color: AppColors.whiteColor,
-            ),
+            prefixIcon: Icon(AppIcons.email, color: AppColors.whiteColor),
           ),
         ),
         SizedBox(height: responsiveHeight(16)),
         TextFormField(
           key: const Key('passwordField'),
-          autovalidateMode: validateMode,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           obscureText: !isPasswordVisible,
           obscuringCharacter: '*',
           enableSuggestions: false,
           autocorrect: false,
           validator: AppValidate.validatePassword,
-          onChanged: onChange,
+          focusNode: passwordFocusNode,
           controller: passwordController,
-          style: AppTextStyles.BalooThambi2_500_16.copyWith(color: AppColors.whiteColor),
+          style: AppTextStyles.BalooThambi2_500_16.copyWith(
+            color: AppColors.whiteColor,
+          ),
           decoration: InputDecoration(
             hintText: 'password',
-            prefixIcon: Icon(
-              AppIcons.password,
-              color: AppColors.whiteColor,
-            ),
+            prefixIcon: Icon(AppIcons.password, color: AppColors.whiteColor),
             suffixIcon: IconButton(
               icon: Icon(
                 isPasswordVisible
@@ -97,7 +96,6 @@ class SignInForm extends StatelessWidget {
                 style: AppTextStyles.BalooThambi2_400_12.copyWith(
                   color: AppColors.primaryColor,
                   decoration: TextDecoration.underline,
-                  decorationColor: AppColors.primaryColor,
                 ),
               ),
             ),
@@ -106,10 +104,10 @@ class SignInForm extends StatelessWidget {
         SizedBox(height: responsiveHeight(8)),
         Center(
           child: ElevatedButton(
-            key: Key('signInButton'),
+            key: const Key('signInButton'),
             style: ElevatedButton.styleFrom(
-              fixedSize: Size(responsiveWidth(283),responsiveHeight(50)),
-              backgroundColor: validateMode == AutovalidateMode.disabled
+              fixedSize: Size(responsiveWidth(283), responsiveHeight(50)),
+              backgroundColor: isFormValid
                   ? AppColors.primaryColor
                   : AppColors.greyColor,
             ),
@@ -117,7 +115,7 @@ class SignInForm extends StatelessWidget {
             child: Text(
               'Login',
               style: AppTextStyles.BalooThambi2_600_14.copyWith(
-                color: validateMode == AutovalidateMode.disabled
+                color: isFormValid
                     ? AppColors.whiteColor
                     : AppColors.greyDarkColor,
                 fontWeight: FontWeight.w800,
@@ -145,7 +143,6 @@ class SignInForm extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                   color: AppColors.primaryColor,
                   decoration: TextDecoration.underline,
-                  decorationColor: AppColors.primaryColor,
                 ),
               ),
             ),

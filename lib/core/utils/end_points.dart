@@ -11,4 +11,11 @@ class ApiEndPoints {
   static const String mealsCategories = "/1/categories.php";
   static const String mealsByCategory = "/1/filter.php";
   static const String mealDetails = "/1/lookup.php";
+  static const String getExercise = "/exercises/by-muscle-difficulty";
+  static const String getLevelsEndPoint = "/levels";
+  static const String workoutTabs="/muscles";
+  static const String muscles="/musclesGroup";
+  static const String getAllExercise = "/exercises";
+  static const String getRecommendExercise = "/exercises/random";
+
 }

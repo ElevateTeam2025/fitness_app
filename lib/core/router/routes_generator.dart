@@ -8,8 +8,10 @@ import 'package:fitness_app/features/meal_details/presentation/views/meal_detail
 import 'package:fitness_app/features/meals_categories/presentation/views/meals_categories_view.dart';
 import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_screen.dart';
 import 'package:fitness_app/features/splash/presentation/splash_screen.dart';
+import 'package:fitness_app/features/worksout/presentation/view/workout_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/Exercise/presentation/views/main_exercise_screen.dart';
 import '../../features/auth/sign_in/presentation/views/sign_in/sign_in_screen.dart';
 import '../../layout/presentation/layout_screen.dart';
 
@@ -40,6 +42,11 @@ class RoutesGenerator {
       case PagesRoutes.mealsCategories:
         return MaterialPageRoute(
           builder: (_) => const MealsCategoriesView(),
+          settings: settings,
+        );
+      case PagesRoutes.exerciseScreen:
+        return MaterialPageRoute(
+          builder: (_) => const WorkoutTab(),
           settings: settings,
         );
       case PagesRoutes.mealDetails:
@@ -73,7 +80,15 @@ class RoutesGenerator {
           settings: settings,
         );
 
-      default:
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+
+      case PagesRoutes.exercisesWrapperScreen:
+        return MaterialPageRoute(builder: (context) => ExercisesWrapperScreen(), settings: settings,);
+
+
+        default:
         return unDefinedRoute();
     }
   }

@@ -1,10 +1,9 @@
 import 'package:fitness_app/core/services/screen_size_service.dart';
 import 'package:fitness_app/features/auth/sign_in/presentation/views/widgets/sign_in_form.dart';
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:mocktail/mocktail.dart';
-
 
 // Mock NavigatorObserver for navigation verification
 class _MockNavigatorObserver extends Mock implements NavigatorObserver {}
@@ -27,6 +26,9 @@ void main() {
   testWidgets('SignInForm renders correctly and reacts to input', (tester) async {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
+    final emailFocusNode = FocusNode();
+    final passwordFocusNode = FocusNode();
+
     bool passwordVisible = false;
     bool submitCalled = false;
 
@@ -36,15 +38,16 @@ void main() {
           body: SignInForm(
             emailController: emailController,
             passwordController: passwordController,
-            validateMode: AutovalidateMode.disabled,
             isPasswordVisible: passwordVisible,
             onPasswordVisibilityToggle: () {
               passwordVisible = !passwordVisible;
             },
-            onChange: (_) {},
             onSubmit: () {
               submitCalled = true;
             },
+            emailFocusNode: emailFocusNode,
+            passwordFocusNode: passwordFocusNode,
+            isFormValid: true,
           ),
         ),
       ),
@@ -70,6 +73,9 @@ void main() {
   });
 
   testWidgets('Password visibility toggle changes icon and state', (tester) async {
+    final emailFocusNode = FocusNode();
+    final passwordFocusNode = FocusNode();
+
     bool passwordVisible = false;
 
     await tester.pumpWidget(
@@ -79,15 +85,16 @@ void main() {
             builder: (context, setState) => SignInForm(
               emailController: TextEditingController(),
               passwordController: TextEditingController(),
-              validateMode: AutovalidateMode.disabled,
               isPasswordVisible: passwordVisible,
               onPasswordVisibilityToggle: () {
                 setState(() {
                   passwordVisible = !passwordVisible;
                 });
               },
-              onChange: (_) {},
               onSubmit: () {},
+              emailFocusNode: emailFocusNode,
+              passwordFocusNode: passwordFocusNode,
+              isFormValid: true,
             ),
           ),
         ),
@@ -104,18 +111,24 @@ void main() {
     expect(find.byIcon(Icons.visibility), findsOneWidget);
   });
 
-  testWidgets('Shows validation errors on invalid input when validateMode is always', (tester) async {
+  testWidgets('Shows validation errors on invalid input when autovalidateMode is onUserInteraction', (tester) async {
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+    final emailFocusNode = FocusNode();
+    final passwordFocusNode = FocusNode();
+
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
           body: SignInForm(
-            emailController: TextEditingController(),
-            passwordController: TextEditingController(),
-            validateMode: AutovalidateMode.always,
+            emailController: emailController,
+            passwordController: passwordController,
             isPasswordVisible: false,
             onPasswordVisibilityToggle: () {},
-            onChange: (_) {},
             onSubmit: () {},
+            emailFocusNode: emailFocusNode,
+            passwordFocusNode: passwordFocusNode,
+            isFormValid: false,
           ),
         ),
       ),
@@ -139,7 +152,7 @@ void main() {
       MaterialApp(
         navigatorObservers: [mockObserver],
         routes: {
-          PagesRoutes.forgetPasswordView: (context) => Scaffold(
+          PagesRoutes.forgetPasswordView: (context) => const Scaffold(
             body: Center(child: Text('Forget Password Page')),
           ),
         },
@@ -147,11 +160,12 @@ void main() {
           body: SignInForm(
             emailController: TextEditingController(),
             passwordController: TextEditingController(),
-            validateMode: AutovalidateMode.disabled,
             isPasswordVisible: false,
             onPasswordVisibilityToggle: () {},
-            onChange: (_) {},
             onSubmit: () {},
+            emailFocusNode: FocusNode(),
+            passwordFocusNode: FocusNode(),
+            isFormValid: true,
           ),
         ),
       ),
@@ -159,8 +173,8 @@ void main() {
 
     await tester.tap(find.text('forgetPassword'));
     await tester.pumpAndSettle();
-    verify(() => mockObserver.didPush(any(), any())).called(greaterThanOrEqualTo(1));
 
+    verify(() => mockObserver.didPush(any(), any())).called(greaterThanOrEqualTo(1));
     expect(find.text('Forget Password Page'), findsOneWidget);
   });
 }

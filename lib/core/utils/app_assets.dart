@@ -1,8 +1,8 @@
 abstract class ImageAssets {
   static const String bgImage = "$imagePath/bg_image.png";
-  static const String onBoradingImage_1 = "$imagePath/onboarding_image1.png";
-  static const String onBoradingImage_2 = "$imagePath/onboarding_image2.png";
-  static const String onBoradingImage_3 = "$imagePath/onboarding_image3.png";
+  static const String onBoardingImage_1 = "$imagePath/onboarding_image1.png";
+  static const String onBoardingImage_2 = "$imagePath/onboarding_image2.png";
+  static const String onBoardingImage_3 = "$imagePath/onboarding_image3.png";
   static const String onboardingBg = "$imagePath/on_boarding_bg.png";
   static const String mainBackground = "$imagePath/main_back_ground.png";
   static const String appIcon = "$imagePath/app_logo.png";
@@ -10,6 +10,15 @@ abstract class ImageAssets {
       "$imagePath/food_back_ground_image.png";
   static const String logInBackground = "$imagePath/background.png";
   static const String logo = "$imagePath/logo.png";
+  static const String exerciseBackground = "$imagePath/exercise_background.png";
+  static const String loading = "$imagePath/loading.gif";
+  static const String exampleBackground = "$imagePath/example_app_background.png";
+  static const String aerobicsCat = "$imagePath/Aerobics_category_home.png";
+  static const String fitnessCat = "$imagePath/fitness_catecory_home.png";
+  static const String gymCat = "$imagePath/gym_Category_home.png";
+  static const String trainerCat = "$imagePath/Trainer_category_home.png";
+  static const String yogaCat = "$imagePath/yoga_catecory_home.png";
+
   static const String mealDetailsBg = "$imagePath/meal_details_bg.png";
 }
 
@@ -29,7 +38,12 @@ abstract class IconAssets {
   static const String profileIcon = "$iconPath/profileIcon.png";
   static const String chatIcon = "$iconPath/chatIcon.png";
   static const String workoutIcon = "$iconPath/workout.png";
+
   static const String backIcon = "$iconPath/back_icon.png";
+
+
+
+
 }
 
 abstract class AnimationAssets {

@@ -15,116 +15,261 @@ class SignupBasicInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
       padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom
+          bottom: MediaQuery.of(context).viewInsets.bottom
       ),
       child: BlocBuilder<SignupCubit, SignupState>(
-  builder: (context, state) {
-    final cubit = context.read<SignupCubit>();
-    return Column(
-        children: [
-          BuildPageTitle(title: "Hey There",subTitle: "CREATE AN ACCOUNT",),
-          CustomContainerWidget(
-            body: [
-              Padding(
-                padding: EdgeInsets.all(16.HeightResponsive),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextField(
-                      key: const Key('firstNameField'),
-                      onChanged: (value) => cubit.updateFirstName(value),
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.person_outline_sharp,
-                          color: AppColors.whiteColor,
+        builder: (context, state) {
+          final cubit = context.read<SignupCubit>();
+          return Column(
+            children: [
+              BuildPageTitle(title: "Hey There", subTitle: "CREATE AN ACCOUNT"),
+              CustomContainerWidget(
+                body: [
+                  Padding(
+                    padding: EdgeInsets.all(16.HeightResponsive),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // First Name TextField
+                        TextField(
+                          key: const Key('firstNameField'),
+                          onChanged: (value) => cubit.updateFirstName(value),
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.person_outline_sharp,
+                              color: AppColors.whiteColor,
+                            ),
+                            hintText: "First Name",
+                            errorText: state.firstNameError,
+                            errorStyle: TextStyle(
+                              color: Colors.red,
+                              fontSize: 12,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.firstNameError != null
+                                    ? Colors.red
+                                    : state.isFirstNameValid
+                                    ? Colors.green
+                                    : Colors.grey,
+                              ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.firstNameError != null
+                                    ? Colors.red
+                                    : state.isFirstNameValid
+                                    ? Colors.green
+                                    : Colors.grey,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.firstNameError != null
+                                    ? Colors.red
+                                    : state.isFirstNameValid
+                                    ? Colors.green
+                                    : AppColors.primaryColor,
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                          style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                            color: AppColors.whiteColor,
+                          ),
                         ),
-                        hintText: "First Name",
-                      ),
-                      style: AppTextStyles.BalooThambi2_400_14.copyWith(
-                        color: AppColors.whiteColor,
-                      ),
-                    ),
-                    SizedBox(height: 16.HeightResponsive),
-                    TextField(
-                      key: const Key('lastNameField'),
-                      onChanged: (value) => cubit.updateLastName(value),
-                      decoration: InputDecoration(
-                        hintText: "last Name ",
-                        prefixIcon: Icon(
-                          Icons.person_outline_sharp,
-                          color: AppColors.whiteColor,
-                        ),
-                      ),
-                      style: AppTextStyles.BalooThambi2_400_14.copyWith(
-                        color: AppColors.whiteColor,
-                      ),
-                    ),
-                    SizedBox(height: 16.HeightResponsive),
+                        SizedBox(height: 16.HeightResponsive),
 
-                    TextField(
-                      key: const Key('emailField'),
-                      onChanged: (value) => cubit.updateEmail(value),
+                        // Last Name TextField
+                        TextField(
+                          key: const Key('lastNameField'),
+                          onChanged: (value) => cubit.updateLastName(value),
+                          decoration: InputDecoration(
+                            hintText: "Last Name",
+                            prefixIcon: Icon(
+                              Icons.person_outline_sharp,
+                              color: AppColors.whiteColor,
+                            ),
+                            errorText: state.lastNameError,
+                            errorStyle: TextStyle(
+                              color: Colors.red,
+                              fontSize: 12,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.lastNameError != null
+                                    ? Colors.red
+                                    : state.isLastNameValid
+                                    ? Colors.green
+                                    : Colors.grey,
+                              ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.lastNameError != null
+                                    ? Colors.red
+                                    : state.isLastNameValid
+                                    ? Colors.green
+                                    : Colors.grey,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.lastNameError != null
+                                    ? Colors.red
+                                    : state.isLastNameValid
+                                    ? Colors.green
+                                    : AppColors.primaryColor,
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                          style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                            color: AppColors.whiteColor,
+                          ),
+                        ),
+                        SizedBox(height: 16.HeightResponsive),
 
-                      decoration: InputDecoration(
-                        hintText: "Email ",
-                        prefixIcon: Icon(
-                          Icons.email_outlined,
-                          color: AppColors.whiteColor,
+                        // Email TextField
+                        TextField(
+                          key: const Key('emailField'),
+                          onChanged: (value) => cubit.updateEmail(value),
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            hintText: "Email",
+                            prefixIcon: Icon(
+                              Icons.email_outlined,
+                              color: AppColors.whiteColor,
+                            ),
+                            errorText: state.emailError,
+                            errorStyle: TextStyle(
+                              color: Colors.red,
+                              fontSize: 12,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.emailError != null
+                                    ? Colors.red
+                                    : state.isEmailValid
+                                    ? Colors.green
+                                    : Colors.grey,
+                              ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.emailError != null
+                                    ? Colors.red
+                                    : state.isEmailValid
+                                    ? Colors.green
+                                    : Colors.grey,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.emailError != null
+                                    ? Colors.red
+                                    : state.isEmailValid
+                                    ? Colors.green
+                                    : AppColors.primaryColor,
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                          style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                            color: AppColors.whiteColor,
+                          ),
                         ),
-                      ),
-                      style: AppTextStyles.BalooThambi2_400_14.copyWith(
-                        color: AppColors.whiteColor,
-                      ),
-                    ),
-                    SizedBox(height: 16.HeightResponsive),
+                        SizedBox(height: 16.HeightResponsive),
 
-                    TextField(
-                      key: const Key('passwordField'),
-                      obscureText:true ,
-                      onChanged: (value) => cubit.updatePassword(value),
-                      decoration: InputDecoration(
-                        hintText: "password",
-                        prefixIcon: Icon(
-                          Icons.lock_outline,
-                          color: AppColors.whiteColor,
+                        // Password TextField
+                        TextField(
+                          key: const Key('passwordField'),
+                          obscureText: true,
+                          onChanged: (value) => cubit.updatePassword(value),
+                          decoration: InputDecoration(
+                            hintText: "Password",
+                            prefixIcon: Icon(
+                              Icons.lock_outline,
+                              color: AppColors.whiteColor,
+                            ),
+                            errorText: state.passwordError,
+                            errorStyle: TextStyle(
+                              color: Colors.red,
+                              fontSize: 12,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.passwordError != null
+                                    ? Colors.red
+                                    : state.isPasswordValid
+                                    ? Colors.green
+                                    : Colors.grey,
+                              ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.passwordError != null
+                                    ? Colors.red
+                                    : state.isPasswordValid
+                                    ? Colors.green
+                                    : Colors.grey,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: state.passwordError != null
+                                    ? Colors.red
+                                    : state.isPasswordValid
+                                    ? Colors.green
+                                    : AppColors.primaryColor,
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                          style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                            color: AppColors.whiteColor,
+                          ),
                         ),
-                      ),
-                      style: AppTextStyles.BalooThambi2_400_14.copyWith(
-                        color: AppColors.whiteColor,
-                      ),
-                    ),
-                    SizedBox(height: 32.HeightResponsive),
-                    ElevatedButton(
-                      key: const Key('registerButton'),
-                      onPressed: state.isBasicInfoValid ? () => cubit.nextStep() : null,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryColor,
-                        disabledBackgroundColor: Colors.grey,
-                      ),
-                      child: Text(
-                        'Register',
-                        style: AppTextStyles.BalooThambi2_800_14.copyWith(
-                          color: AppColors.whiteColor,
+                        SizedBox(height: 32.HeightResponsive),
+
+                        // Register Button
+                        ElevatedButton(
+                          key: const Key('registerButton'),
+                          onPressed: state.isBasicInfoValid ? () => cubit.nextStep() : null,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: state.isBasicInfoValid
+                                ? AppColors.primaryColor
+                                : Colors.grey,
+                            disabledBackgroundColor: Colors.grey.withOpacity(0.5),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 32,
+                              vertical: 16,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: Text(
+                            'Register',
+                            style: AppTextStyles.BalooThambi2_800_14.copyWith(
+                              color: AppColors.whiteColor,
+                            ),
+                          ),
                         ),
-                      ),
+                        _aleadyHaveAccount(context)
+                      ],
                     ),
-                    _aleadyHaveAccount(context)
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
-          ),
-        ],
-      );
-  },
-),
+          );
+        },
+      ),
     );
   }
-
-
 
   Widget _aleadyHaveAccount(BuildContext context) {
     return Row(
@@ -151,5 +296,4 @@ class SignupBasicInfo extends StatelessWidget {
       ],
     );
   }
-
 }

@@ -6,12 +6,12 @@
 import 'dart:async' as _i6;
 
 import 'package:fitness_app/core/api/meals_api_client.dart' as _i5;
-import 'package:fitness_app/features/meal_details/data/models/meal_details_reposonse_dto.dart'
-    as _i4;
+import 'package:fitness_app/features/home/data/model/meal_categories_reponse.dart'
+    as _i3;
 import 'package:fitness_app/features/meals_categories/data/models/meal_categories_reponse.dart'
     as _i2;
 import 'package:fitness_app/features/meals_categories/data/models/meals_by_category_response.dart'
-    as _i3;
+    as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -34,15 +34,15 @@ class _FakeMealCategoriesReponse_0 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
-class _FakeMealsByCategoryResponse_1 extends _i1.SmartFake
-    implements _i3.MealsByCategoryResponse {
-  _FakeMealsByCategoryResponse_1(Object parent, Invocation parentInvocation)
+class _FakeHomeMealCategoriesReponse_1 extends _i1.SmartFake
+    implements _i3.HomeMealCategoriesReponse {
+  _FakeHomeMealCategoriesReponse_1(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeMealDetailsResponseDTO_2 extends _i1.SmartFake
-    implements _i4.MealDetailsResponseDTO {
-  _FakeMealDetailsResponseDTO_2(Object parent, Invocation parentInvocation)
+class _FakeMealsByCategoryResponse_2 extends _i1.SmartFake
+    implements _i4.MealsByCategoryResponse {
+  _FakeMealsByCategoryResponse_2(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
@@ -68,30 +68,30 @@ class MockMealsApiClient extends _i1.Mock implements _i5.MealsApiClient {
           as _i6.Future<_i2.MealCategoriesReponse>);
 
   @override
-  _i6.Future<_i3.MealsByCategoryResponse> getMealsByCategory(
+  _i6.Future<_i3.HomeMealCategoriesReponse> getHomeMealsCategories() =>
+      (super.noSuchMethod(
+            Invocation.method(#getHomeMealsCategories, []),
+            returnValue: _i6.Future<_i3.HomeMealCategoriesReponse>.value(
+              _FakeHomeMealCategoriesReponse_1(
+                this,
+                Invocation.method(#getHomeMealsCategories, []),
+              ),
+            ),
+          )
+          as _i6.Future<_i3.HomeMealCategoriesReponse>);
+
+  @override
+  _i6.Future<_i4.MealsByCategoryResponse> getMealsByCategory(
     String? category,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#getMealsByCategory, [category]),
-            returnValue: _i6.Future<_i3.MealsByCategoryResponse>.value(
-              _FakeMealsByCategoryResponse_1(
+            returnValue: _i6.Future<_i4.MealsByCategoryResponse>.value(
+              _FakeMealsByCategoryResponse_2(
                 this,
                 Invocation.method(#getMealsByCategory, [category]),
               ),
             ),
           )
-          as _i6.Future<_i3.MealsByCategoryResponse>);
-
-  @override
-  _i6.Future<_i4.MealDetailsResponseDTO> getMealDetails(String? id) =>
-      (super.noSuchMethod(
-            Invocation.method(#getMealDetails, [id]),
-            returnValue: _i6.Future<_i4.MealDetailsResponseDTO>.value(
-              _FakeMealDetailsResponseDTO_2(
-                this,
-                Invocation.method(#getMealDetails, [id]),
-              ),
-            ),
-          )
-          as _i6.Future<_i4.MealDetailsResponseDTO>);
+          as _i6.Future<_i4.MealsByCategoryResponse>);
 }
