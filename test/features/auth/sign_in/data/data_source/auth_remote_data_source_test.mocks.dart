@@ -4,23 +4,39 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i6;
+import 'dart:async' as _i9;
 
 import 'package:fitness_app/core/api/api_client.dart' as _i5;
+import 'package:fitness_app/core/api/api_client.dart' as _i8;
 import 'package:fitness_app/features/auth/forget_password/data/models/create_new_passwordrequset.dart'
     as _i11;
+    as _i14;
 import 'package:fitness_app/features/auth/forget_password/data/models/forget_password_request.dart'
     as _i8;
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart'
     as _i9;
+    as _i11;
+import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart'
+    as _i12;
 import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart'
     as _i2;
 import 'package:fitness_app/features/auth/sign_in/domain/entity/sign_in_request.dart'
     as _i7;
+    as _i10;
 import 'package:fitness_app/features/auth/sign_up/data/models/signup_request_model.dart'
     as _i10;
+    as _i13;
 import 'package:fitness_app/features/auth/sign_up/data/models/signup_response_model.dart'
     as _i3;
 import 'package:fitness_app/features/meals_categories/data/models/meal_categories_model.dart'
+    as _i4;
+import 'package:fitness_app/features/Exercise/data/model/exercise_dto.dart'
+    as _i6;
+import 'package:fitness_app/features/Exercise/data/model/levels_response_dto.dart'
+    as _i7;
+import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart'
+    as _i5;
+import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart'
     as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -55,47 +71,85 @@ class _FakeMealCategoriesModel_2 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
+class _FakeMusclesTabResponseModel_2 extends _i1.SmartFake
+    implements _i4.MusclesTabResponseModel {
+  _FakeMusclesTabResponseModel_2(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeMusclesDataResponseModel_3 extends _i1.SmartFake
+    implements _i5.MusclesDataResponseModel {
+  _FakeMusclesDataResponseModel_3(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeExerciseResponseDTO_4 extends _i1.SmartFake
+    implements _i6.ExerciseResponseDTO {
+  _FakeExerciseResponseDTO_4(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeLevelsResponseDTO_5 extends _i1.SmartFake
+    implements _i7.LevelsResponseDTO {
+  _FakeLevelsResponseDTO_5(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [ApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockApiClient extends _i1.Mock implements _i5.ApiClient {
+class MockApiClient extends _i1.Mock implements _i8.ApiClient {
   MockApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
   _i6.Future<_i2.SignInDTO> signIn(_i7.SignInRequest? data) =>
+  _i9.Future<_i2.SignInDTO> signIn(_i10.SignInRequest? data) =>
       (super.noSuchMethod(
             Invocation.method(#signIn, [data]),
             returnValue: _i6.Future<_i2.SignInDTO>.value(
+            returnValue: _i9.Future<_i2.SignInDTO>.value(
               _FakeSignInDTO_0(this, Invocation.method(#signIn, [data])),
             ),
           )
           as _i6.Future<_i2.SignInDTO>);
+          as _i9.Future<_i2.SignInDTO>);
 
   @override
+  _i9.Future<void> forgotPassword(_i11.ForgotPasswordRequest? request) =>
   _i6.Future<void> forgotPassword(_i8.ForgotPasswordRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#forgotPassword, [request]),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
             returnValue: _i6.Future<void>.value(),
             returnValueForMissingStub: _i6.Future<void>.value(),
           )
           as _i6.Future<void>);
+          as _i9.Future<void>);
 
   @override
   _i6.Future<void> verifyResetCode(_i9.VerifyResetCodeRequest? request) =>
+  _i9.Future<void> verifyResetCode(_i12.VerifyResetCodeRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#verifyResetCode, [request]),
             returnValue: _i6.Future<void>.value(),
             returnValueForMissingStub: _i6.Future<void>.value(),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
           )
           as _i6.Future<void>);
+          as _i9.Future<void>);
 
   @override
   _i6.Future<_i3.SignupResponseModel> signup(_i10.SignupRequestModel? body) =>
+  _i9.Future<_i3.SignupResponseModel> signup(_i13.SignupRequestModel? body) =>
       (super.noSuchMethod(
             Invocation.method(#signup, [body]),
             returnValue: _i6.Future<_i3.SignupResponseModel>.value(
+            returnValue: _i9.Future<_i3.SignupResponseModel>.value(
               _FakeSignupResponseModel_1(
                 this,
                 Invocation.method(#signup, [body]),
@@ -103,11 +157,63 @@ class MockApiClient extends _i1.Mock implements _i5.ApiClient {
             ),
           )
           as _i6.Future<_i3.SignupResponseModel>);
+          as _i9.Future<_i3.SignupResponseModel>);
 
   @override
   _i6.Future<void> createNewPassword(_i11.CreateNewPasswordrequset? request) =>
+  _i9.Future<void> createNewPassword(_i14.CreateNewPasswordrequset? request) =>
       (super.noSuchMethod(
             Invocation.method(#createNewPassword, [request]),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
+          )
+          as _i9.Future<void>);
+
+  @override
+  _i9.Future<_i4.MusclesTabResponseModel> getMusclesTabs() =>
+      (super.noSuchMethod(
+            Invocation.method(#getMusclesTabs, []),
+            returnValue: _i9.Future<_i4.MusclesTabResponseModel>.value(
+              _FakeMusclesTabResponseModel_2(
+                this,
+                Invocation.method(#getMusclesTabs, []),
+              ),
+            ),
+          )
+          as _i9.Future<_i4.MusclesTabResponseModel>);
+
+  @override
+  _i9.Future<_i5.MusclesDataResponseModel> getMusclesData(String? id) =>
+      (super.noSuchMethod(
+            Invocation.method(#getMusclesData, [id]),
+            returnValue: _i9.Future<_i5.MusclesDataResponseModel>.value(
+              _FakeMusclesDataResponseModel_3(
+                this,
+                Invocation.method(#getMusclesData, [id]),
+              ),
+            ),
+          )
+          as _i9.Future<_i5.MusclesDataResponseModel>);
+
+  @override
+  _i9.Future<_i6.ExerciseResponseDTO> getExercisesByMuscleAndDifficulty(
+    String? muscleId,
+    String? difficultyId,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#getExercisesByMuscleAndDifficulty, [
+              muscleId,
+              difficultyId,
+            ]),
+            returnValue: _i9.Future<_i6.ExerciseResponseDTO>.value(
+              _FakeExerciseResponseDTO_4(
+                this,
+                Invocation.method(#getExercisesByMuscleAndDifficulty, [
+                  muscleId,
+                  difficultyId,
+                ]),
+              ),
+            ),
             returnValue: _i6.Future<void>.value(),
             returnValueForMissingStub: _i6.Future<void>.value(),
           )
@@ -125,4 +231,15 @@ class MockApiClient extends _i1.Mock implements _i5.ApiClient {
             ),
           )
           as _i6.Future<_i4.MealCategoriesModel>);
+          as _i9.Future<_i6.ExerciseResponseDTO>);
+
+  @override
+  _i9.Future<_i7.LevelsResponseDTO> getLevels() =>
+      (super.noSuchMethod(
+            Invocation.method(#getLevels, []),
+            returnValue: _i9.Future<_i7.LevelsResponseDTO>.value(
+              _FakeLevelsResponseDTO_5(this, Invocation.method(#getLevels, [])),
+            ),
+          )
+          as _i9.Future<_i7.LevelsResponseDTO>);
 }

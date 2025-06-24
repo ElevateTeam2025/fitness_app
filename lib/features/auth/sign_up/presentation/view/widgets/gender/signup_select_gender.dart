@@ -50,15 +50,14 @@ class SignupSelectGender extends StatelessWidget {
                       SizedBox(height:32.HeightResponsive),
                       ElevatedButton(
                         onPressed:hasSelected? () => viewModel.nextStep():null,
-
+                        style: ElevatedButton.styleFrom(
+                          disabledBackgroundColor: AppColors.greyColor,
+                        ),
                         child: Text(
                           'Next',
                           style: AppTextStyles.BalooThambi2_800_14.copyWith(
                             color: AppColors.whiteColor,
                           ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          disabledBackgroundColor: AppColors.greyColor,
                         ),
                       ),
                     ],

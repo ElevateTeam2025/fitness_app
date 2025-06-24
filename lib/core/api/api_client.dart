@@ -5,16 +5,16 @@ import 'package:fitness_app/features/auth/forget_password/data/models/verify_res
 import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart';
 import 'package:fitness_app/features/auth/sign_in/domain/entity/sign_in_request.dart';
 import 'package:fitness_app/features/meals_categories/data/models/meal_categories_model.dart';
-
+import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart';
+import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
-
+import '../../features/Exercise/data/model/exercise_dto.dart';
+import '../../features/Exercise/data/model/levels_response_dto.dart';
 import '../../features/auth/sign_up/data/models/signup_request_model.dart';
 import '../../features/auth/sign_up/data/models/signup_response_model.dart';
-
 import '../utils/end_points.dart';
-
 part 'api_client.g.dart';
 
 // @RestApi(baseUrl: 'https://fitness.elevateegy.com/api/v1')
@@ -46,4 +46,25 @@ abstract class ApiClient {
 
   @GET(ApiEndPoints.mealsCategories)
   Future<MealCategoriesModel> getMealsCategories();
+
+  @GET(ApiEndPoints.workoutTabs)
+  Future<MusclesTabResponseModel> getMusclesTabs();
+
+  @GET("${ApiEndPoints.muscles}/{id}")
+  Future<MusclesDataResponseModel> getMusclesData(@Path('id') String id);
+// ///////////////////++++++++++++++++/////////////////
+// ///////////////////        /////////////////
+// ///////////////////++++++++++++++++/////////////////
+  @GET(ApiEndPoints.getExercise)
+  Future<ExerciseResponseDTO> getExercisesByMuscleAndDifficulty(
+      @Query('primeMoverMuscleId') String muscleId,
+      @Query('difficultyLevelId') String difficultyId,
+      // @Header('Accept-Language') String? language,
+      );
+
+  @GET(ApiEndPoints.getLevelsEndPoint)
+  Future<LevelsResponseDTO> getLevels(
+      // @Header('Accept-Language') String? language,
+      );
+
 }
