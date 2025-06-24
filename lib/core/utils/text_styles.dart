@@ -1,8 +1,6 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:flutter/material.dart';
 
-
-
 abstract class AppTextStyles {
   static TextStyle get BalooThambi2_500_20 => TextStyle(
     fontFamily: 'BalooThambi2',
@@ -76,16 +74,33 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w600,
     fontSize: 18.FontSizeResponsive,
   );
+  static TextStyle get BalooThambi2_600_24 => TextStyle(
+    fontFamily: 'BalooThambi2',
+    fontWeight: FontWeight.w600,
+    fontSize: 24.FontSizeResponsive,
+  );
   static TextStyle get BalooThambi2_600_16 => TextStyle(
     fontFamily: 'BalooThambi2',
     fontWeight: FontWeight.w600,
+    fontSize: 16.FontSizeResponsive,
+  );
+  static TextStyle get BalooThambi2_700_16 => TextStyle(
+    fontFamily: 'BalooThambi2',
+    fontWeight: FontWeight.w700,
     fontSize: 16.FontSizeResponsive,
   );
   static TextStyle get BalooThambi2_700_20 => TextStyle(
     fontFamily: 'BalooThambi2',
     fontWeight: FontWeight.w700,
     fontSize: 20.FontSizeResponsive,
-  );static TextStyle get BalooThambi2_800_24 => TextStyle(
+  );
+
+  static TextStyle get BalooThambi2_700_12 => TextStyle(
+    fontFamily: 'BalooThambi2',
+    fontWeight: FontWeight.w700,
+    fontSize: 12.FontSizeResponsive,
+  );
+  static TextStyle get BalooThambi2_800_24 => TextStyle(
     fontFamily: 'BalooThambi2',
     fontWeight: FontWeight.w800,
     fontSize: 24.FontSizeResponsive,
