@@ -15,6 +15,5 @@ class ApiEndPoints {
   static const String muscles="/musclesGroup";
   static const String getAllExercise = "/exercises";
   static const String getRecommendExercise = "/exercises/random";
-  static const String mealsCategories = "/1/categories.php";
-  static const String mealsByCategory = "/1/filter.php";
+
 }

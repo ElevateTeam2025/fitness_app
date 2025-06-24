@@ -20,6 +20,7 @@ abstract class MealsApiClient {
 
   @GET(ApiEndPoints.mealsCategories)
   Future<MealCategoriesReponse> getMealsCategories();
+  @GET(ApiEndPoints.mealsCategories)
   Future<HomeMealCategoriesReponse> getHomeMealsCategories();
 
 

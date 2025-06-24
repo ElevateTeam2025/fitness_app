@@ -10,10 +10,11 @@ import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_mo
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
+
+
+
 import '../../features/Exercise/data/model/exercise_dto.dart';
 import '../../features/Exercise/data/model/levels_response_dto.dart';
-
-
 import '../../features/auth/sign_up/data/models/signup_request_model.dart';
 import '../../features/auth/sign_up/data/models/signup_response_model.dart';
 
@@ -63,14 +64,22 @@ abstract class ApiClient {
   Future<ExercisesResponseDTO> getAllExercises(
       // @Header('Accept-Language') String? language,
       );
-
+  @GET(ApiEndPoints.getExercise)
+  Future<ExerciseResponseDTO> getExercisesByMuscleAndDifficulty(
+      @Query('primeMoverMuscleId') String muscleId,
+      @Query('difficultyLevelId') String difficultyId,
+      // @Header('Accept-Language') String? language,
+      );
   @GET(ApiEndPoints.getRecommendExercise)
   Future<ExercisesResponseDTO> getRecommendExercises(
       @Query("targetMuscleGroupId")  String targetMuscleGroupId,
       @Query("difficultyLevelId")  String difficultyLevelId,
       @Query("limit") int limit ,
       );
-
+  @GET(ApiEndPoints.getLevelsEndPoint)
+  Future<LevelsResponseDTO> getLevels(
+      // @Header('Accept-Language') String? language,
+      );
 
 
 }

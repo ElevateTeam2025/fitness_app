@@ -20,13 +20,11 @@ class _MealsApiClient implements MealsApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HomeMealCategoriesReponse> getHomeMealsCategories() async {
   Future<MealCategoriesReponse> getMealsCategories() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<HomeMealCategoriesReponse>(
     final _options = _setStreamType<MealCategoriesReponse>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
@@ -39,9 +37,35 @@ class _MealsApiClient implements MealsApiClient {
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late MealCategoriesReponse _value;
-    late HomeMealCategoriesReponse _value;
     try {
       _value = MealCategoriesReponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<HomeMealCategoriesReponse> getHomeMealsCategories() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<HomeMealCategoriesReponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/1/categories.php',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late HomeMealCategoriesReponse _value;
+    try {
+      _value = HomeMealCategoriesReponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -69,7 +93,6 @@ class _MealsApiClient implements MealsApiClient {
     late MealsByCategoryResponse _value;
     try {
       _value = MealsByCategoryResponse.fromJson(_result.data!);
-      _value = HomeMealCategoriesReponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

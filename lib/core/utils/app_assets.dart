@@ -42,7 +42,7 @@ abstract class IconAssets {
 
 
 
-  static const String backIcon = "$iconPath/back_icon.png";
+
 }
 
 abstract class AnimationAssets {

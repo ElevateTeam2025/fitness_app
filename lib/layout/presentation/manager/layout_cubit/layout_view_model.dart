@@ -7,7 +7,6 @@ import '../../../../features/home/presentation/cubit/workout_cubit/workout_cubit
 import '../../../../features/home/presentation/home_tap.dart';
 
 import '../../../../features/worksout/presentation/view/workout_screen.dart';
-import '../../tabs/home_tap.dart';
 import '../../tabs/profile_tab.dart';
 import 'layout_state.dart';
 
@@ -22,7 +21,7 @@ class LayoutViewModel extends Cubit<LayoutState> {
     }
   }
 
-  List<Widget> tabs = [HomeTap(), ProfileTab(), WorkoutTab(), ProfileTab()];
+
 List<Widget>tabs=[
   MultiBlocProvider(
     providers: [
@@ -37,10 +36,7 @@ List<Widget>tabs=[
       ),
   ], child: HomeTap(),),
 
-  ProfileTab(),
-  ProfileTab(),
-
-  ProfileTab(),
+  ProfileTab(), WorkoutTab(), ProfileTab()
 ];
 
   void _changeBottomNav(int index) {
