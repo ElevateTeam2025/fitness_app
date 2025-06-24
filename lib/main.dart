@@ -71,7 +71,7 @@ class MainAppContent extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      initialRoute: PagesRoutes.exercisesWrapperScreen,
+      initialRoute: PagesRoutes.layoutView,
     );
   }
 }

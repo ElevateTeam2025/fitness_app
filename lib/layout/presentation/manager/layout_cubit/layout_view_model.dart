@@ -16,7 +16,7 @@ class LayoutViewModel extends Cubit<LayoutState> {
     }
   }
 
-  List<Widget> tabs = [HomeTap(), ProfileTab(), HomeTap(), ProfileTab()];
+  List<Widget> tabs = [HomeTap(), ProfileTab(), WorkoutTab(), ProfileTab()];
 
   void _changeBottomNav(int index) {
     emit(LayoutInitialState());

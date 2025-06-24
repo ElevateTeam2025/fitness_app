@@ -16,7 +16,8 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/text_styles.dart';
 
 class ExercisesScreen extends StatefulWidget {
-  const ExercisesScreen({super.key});
+  final String muscleId;
+  const ExercisesScreen({super.key,required this.muscleId});
 
   @override
   State<ExercisesScreen> createState() => _ExercisesScreenState();
@@ -24,7 +25,7 @@ class ExercisesScreen extends StatefulWidget {
 
 class _ExercisesScreenState extends State<ExercisesScreen> with SingleTickerProviderStateMixin {
   TabController? _tabController;
-  final String muscleId = '67c8499726895f87ce0aa9bc'; // temp
+  // final String muscleId = '67c8499726895f87ce0aa9bc'; // temp
   List<DifficultyLevelEntity> levels = [];
   List<Exercises> exercises = [];
 
@@ -59,7 +60,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> with SingleTickerProv
 
   void _loadExercises(String difficultyId) {
     context.read<ExerciseViewModel>().doIntent(
-      LoadExercisesIntent(muscleId, difficultyId),
+      LoadExercisesIntent(widget.muscleId, difficultyId),
     );
   }
 
