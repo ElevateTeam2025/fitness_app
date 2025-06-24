@@ -1,5 +1,5 @@
 const String baseUrl = 'https://fitness.elevateegy.com/api/v1';
-const String mealsBaseUrl = 'www.themealdb.com/api/json/v1/1';
+const String mealsBaseUrl = 'https://www.themealdb.com/api/json/v1';
 
 class ApiEndPoints {
   ApiEndPoints._();
@@ -10,6 +10,7 @@ class ApiEndPoints {
   static const String resetPassword = "/auth/resetPassword";
   static const String mealsCategories = "/1/categories.php";
   static const String mealsByCategory = "/1/filter.php";
+  static const String mealDetails = "/1/lookup.php";
   static const String getExercise = "/exercises/by-muscle-difficulty";
   static const String getLevelsEndPoint = "/levels";
   static const String workoutTabs="/muscles";

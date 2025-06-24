@@ -10,7 +10,7 @@ part of 'meals_api_client.dart';
 
 class _MealsApiClient implements MealsApiClient {
   _MealsApiClient(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'www.themealdb.com/api/json/v1/1';
+    baseUrl ??= 'https://www.themealdb.com/api/json/v1';
   }
 
   final Dio _dio;
@@ -93,6 +93,33 @@ class _MealsApiClient implements MealsApiClient {
     late MealsByCategoryResponse _value;
     try {
       _value = MealsByCategoryResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<MealDetailsResponseDTO> getMealDetails(String id) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'i': id};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<MealDetailsResponseDTO>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/1/lookup.php',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late MealDetailsResponseDTO _value;
+    try {
+      _value = MealDetailsResponseDTO.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

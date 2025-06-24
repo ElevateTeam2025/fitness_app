@@ -12,4 +12,5 @@ abstract class PagesRoutes {
   static const String exercisesWrapperScreen = 'ExercisesWrapperScreen';
 
   static const String mealsCategories = 'mealsCategories';
+  static const String mealDetails = 'mealDetails';
 }

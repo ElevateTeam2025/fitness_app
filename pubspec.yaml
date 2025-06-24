@@ -52,6 +52,7 @@ dependencies:
   skeletonizer: ^2.0.1
   cached_network_image: ^3.4.1
   flutter_dotenv: ^5.2.1
+  bloc_test: ^10.0.0
 
 
 
