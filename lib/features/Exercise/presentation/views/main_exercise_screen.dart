@@ -10,7 +10,11 @@ class ExercisesWrapperScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String muscleId = ModalRoute.of(context)?.settings.arguments as String;
+    final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    final String muscleId = args['id'];
+    final String? imageUrl = args['image'];
+    final String? name = args['name'];
+
     return BlocProvider<ExerciseViewModel>(
       create: (_) => getIt<ExerciseViewModel>(),
       child: Scaffold(
@@ -22,7 +26,11 @@ class ExercisesWrapperScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          child: ExercisesScreen(muscleId: muscleId),
+          child: ExercisesScreen(
+          muscleId: muscleId,
+          imageUrl: imageUrl,
+          muscleName: name ?? '',
+        ),
         ),
       ),
     );

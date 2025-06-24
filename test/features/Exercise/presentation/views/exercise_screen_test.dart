@@ -46,7 +46,7 @@ void main() {
       supportedLocales: S.delegate.supportedLocales,
       home: BlocProvider<ExerciseViewModel>.value(
         value: mockViewModel,
-        child:  ExercisesScreen(muscleId: 'test_muscle_id'),
+        child:  ExercisesScreen(muscleId: 'test_muscle_id', imageUrl: '', muscleName: '',),
       ),
     );
   }

@@ -40,21 +40,6 @@ class ExerciseList extends StatelessWidget {
           } else {
             return ExerciseCard(
                 exercise: exercises[index],
-              ///for testing
-              // onTapOverride: () {
-              //   if (onTapOverride != null) {
-              //     onTapOverride!(exercises[index]);
-              //   } else {
-              //
-              //     final videoLink = exercises[index].shortYoutubeDemonstrationLink;
-              //     if (videoLink == null || videoLink.isEmpty) return;
-              //     showDialog(
-              //       context: context,
-              //       barrierColor: Colors.black.withOpacity(0.8),
-              //       builder: (_) => VideoDraggableDialog(youtubeUrl: videoLink),
-              //     );
-              //   }
-              // },
             );
           }
         },

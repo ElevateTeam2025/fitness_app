@@ -17,7 +17,13 @@ class CustomMusclesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, PagesRoutes.exercisesWrapperScreen,arguments: muscle.id,);
+        Navigator.pushNamed(context, PagesRoutes.exercisesWrapperScreen,
+          arguments: {
+            'id': muscle.id,
+            'image': muscle.image,
+            'name': muscle.name,
+          },
+        );
       },
       child: Container(
         width: 163.WidthResponsive,
