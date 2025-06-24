@@ -28,6 +28,8 @@ import 'package:fitness_app/features/auth/sign_up/data/models/signup_request_mod
     as _i13;
 import 'package:fitness_app/features/auth/sign_up/data/models/signup_response_model.dart'
     as _i3;
+import 'package:fitness_app/features/meals_categories/data/models/meal_categories_model.dart'
+    as _i4;
 import 'package:fitness_app/features/home/data/model/exercise_response_dto.dart'
     as _i4;
 import 'package:fitness_app/features/Exercise/data/model/exercise_dto.dart'
@@ -62,6 +64,12 @@ class _FakeSignInDTO_0 extends _i1.SmartFake implements _i2.SignInDTO {
 class _FakeSignupResponseModel_1 extends _i1.SmartFake
     implements _i3.SignupResponseModel {
   _FakeSignupResponseModel_1(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeMealCategoriesModel_2 extends _i1.SmartFake
+    implements _i4.MealCategoriesModel {
+  _FakeMealCategoriesModel_2(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
@@ -102,6 +110,7 @@ class MockApiClient extends _i1.Mock implements _i8.ApiClient {
   }
 
   @override
+  _i6.Future<_i2.SignInDTO> signIn(_i7.SignInRequest? data) =>
   _i9.Future<_i2.SignInDTO> signIn(_i10.SignInRequest? data) =>
   _i6.Future<_i2.SignInDTO> signIn(_i7.SignInRequest? data) =>
       (super.noSuchMethod(
@@ -117,23 +126,13 @@ class MockApiClient extends _i1.Mock implements _i8.ApiClient {
   @override
   _i6.Future<void> forgotPassword(_i8.ForgotPasswordRequest? request) =>
   _i9.Future<void> forgotPassword(_i11.ForgotPasswordRequest? request) =>
+  _i6.Future<void> forgotPassword(_i8.ForgotPasswordRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#forgotPassword, [request]),
             returnValue: _i6.Future<void>.value(),
             returnValueForMissingStub: _i6.Future<void>.value(),
             returnValue: _i9.Future<void>.value(),
             returnValueForMissingStub: _i9.Future<void>.value(),
-          )
-          as _i9.Future<void>);
-          as _i6.Future<void>);
-
-  @override
-  _i9.Future<void> verifyResetCode(_i12.VerifyResetCodeRequest? request) =>
-  _i6.Future<void> verifyResetCode(_i9.VerifyResetCodeRequest? request) =>
-      (super.noSuchMethod(
-            Invocation.method(#verifyResetCode, [request]),
-            returnValue: _i9.Future<void>.value(),
-            returnValueForMissingStub: _i9.Future<void>.value(),
             returnValue: _i6.Future<void>.value(),
             returnValueForMissingStub: _i6.Future<void>.value(),
           )
@@ -141,10 +140,29 @@ class MockApiClient extends _i1.Mock implements _i8.ApiClient {
           as _i6.Future<void>);
 
   @override
+  _i6.Future<void> verifyResetCode(_i9.VerifyResetCodeRequest? request) =>
+  _i9.Future<void> verifyResetCode(_i12.VerifyResetCodeRequest? request) =>
+  _i6.Future<void> verifyResetCode(_i9.VerifyResetCodeRequest? request) =>
+      (super.noSuchMethod(
+            Invocation.method(#verifyResetCode, [request]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+            returnValue: _i9.Future<void>.value(),
+            returnValueForMissingStub: _i9.Future<void>.value(),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
+          as _i9.Future<void>);
+          as _i6.Future<void>);
+
+  @override
+  _i6.Future<_i3.SignupResponseModel> signup(_i10.SignupRequestModel? body) =>
   _i9.Future<_i3.SignupResponseModel> signup(_i13.SignupRequestModel? body) =>
   _i6.Future<_i3.SignupResponseModel> signup(_i10.SignupRequestModel? body) =>
       (super.noSuchMethod(
             Invocation.method(#signup, [body]),
+            returnValue: _i6.Future<_i3.SignupResponseModel>.value(
             returnValue: _i9.Future<_i3.SignupResponseModel>.value(
             returnValue: _i6.Future<_i3.SignupResponseModel>.value(
               _FakeSignupResponseModel_1(
@@ -155,10 +173,12 @@ class MockApiClient extends _i1.Mock implements _i8.ApiClient {
           )
           as _i6.Future<_i3.SignupResponseModel>);
           as _i9.Future<_i3.SignupResponseModel>);
+          as _i6.Future<_i3.SignupResponseModel>);
 
   @override
   _i6.Future<void> createNewPassword(_i11.CreateNewPasswordrequset? request) =>
   _i9.Future<void> createNewPassword(_i14.CreateNewPasswordrequset? request) =>
+  _i6.Future<void> createNewPassword(_i11.CreateNewPasswordrequset? request) =>
       (super.noSuchMethod(
             Invocation.method(#createNewPassword, [request]),
             returnValue: _i6.Future<void>.value(),
@@ -215,8 +235,24 @@ class MockApiClient extends _i1.Mock implements _i8.ApiClient {
                 Invocation.method(#getAllExercises, []),
               ),
             ),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
           )
           as _i6.Future<_i4.ExercisesResponseDTO>);
+          as _i6.Future<void>);
+
+  @override
+  _i6.Future<_i4.MealCategoriesModel> getMealsCategories() =>
+      (super.noSuchMethod(
+            Invocation.method(#getMealsCategories, []),
+            returnValue: _i6.Future<_i4.MealCategoriesModel>.value(
+              _FakeMealCategoriesModel_2(
+                this,
+                Invocation.method(#getMealsCategories, []),
+              ),
+            ),
+          )
+          as _i6.Future<_i4.MealCategoriesModel>);
           as _i9.Future<_i6.ExerciseResponseDTO>);
 
   @override

@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_app/core/utils/end_points.dart';
+import 'package:fitness_app/features/meals_categories/data/models/meal_categories_model.dart';
+import 'package:fitness_app/features/meals_categories/data/models/meal_categories_reponse.dart';
+import 'package:fitness_app/features/meals_categories/data/models/meals_by_category_response.dart';
 
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/error_logger.dart';
@@ -16,7 +19,12 @@ abstract class MealsApiClient {
   factory MealsApiClient(Dio dio) = _MealsApiClient;
 
   @GET(ApiEndPoints.mealsCategories)
+  Future<MealCategoriesReponse> getMealsCategories();
   Future<HomeMealCategoriesReponse> getHomeMealsCategories();
 
 
+  @GET(ApiEndPoints.mealsByCategory)
+  Future<MealsByCategoryResponse> getMealsByCategory(
+    @Query("c") String category,
+  );
 }

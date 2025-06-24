@@ -8,9 +8,11 @@ import 'dart:async' as _i9;
 
 import 'package:fitness_app/core/api/api_client.dart' as _i5;
 import 'package:fitness_app/core/api/api_client.dart' as _i8;
+import 'package:fitness_app/core/api/api_client.dart' as _i5;
 import 'package:fitness_app/features/auth/forget_password/data/models/create_new_passwordrequset.dart'
     as _i11;
     as _i14;
+    as _i11;
 import 'package:fitness_app/features/auth/forget_password/data/models/forget_password_request.dart'
     as _i8;
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart'
@@ -18,14 +20,19 @@ import 'package:fitness_app/features/auth/forget_password/data/models/verify_res
     as _i11;
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart'
     as _i12;
+    as _i8;
+import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart'
+    as _i9;
 import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart'
     as _i2;
 import 'package:fitness_app/features/auth/sign_in/domain/entity/sign_in_request.dart'
     as _i7;
     as _i10;
+    as _i7;
 import 'package:fitness_app/features/auth/sign_up/data/models/signup_request_model.dart'
     as _i10;
     as _i13;
+    as _i10;
 import 'package:fitness_app/features/auth/sign_up/data/models/signup_response_model.dart'
     as _i3;
 import 'package:fitness_app/features/home/data/model/exercise_response_dto.dart'
@@ -37,6 +44,8 @@ import 'package:fitness_app/features/Exercise/data/model/levels_response_dto.dar
 import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart'
     as _i5;
 import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart'
+    as _i4;
+import 'package:fitness_app/features/meals_categories/data/models/meal_categories_model.dart'
     as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -68,6 +77,12 @@ class _FakeSignupResponseModel_1 extends _i1.SmartFake
 class _FakeExercisesResponseDTO_2 extends _i1.SmartFake
     implements _i4.ExercisesResponseDTO {
   _FakeExercisesResponseDTO_2(Object parent, Invocation parentInvocation)
+class _FakeMealCategoriesModel_2 extends _i1.SmartFake
+    implements _i4.MealCategoriesModel {
+  _FakeMealCategoriesModel_2(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 class _FakeMusclesTabResponseModel_2 extends _i1.SmartFake
     implements _i4.MusclesTabResponseModel {
   _FakeMusclesTabResponseModel_2(Object parent, Invocation parentInvocation)
@@ -102,10 +117,12 @@ class MockApiClient extends _i1.Mock implements _i8.ApiClient {
   }
 
   @override
+  _i6.Future<_i2.SignInDTO> signIn(_i7.SignInRequest? data) =>
   _i9.Future<_i2.SignInDTO> signIn(_i10.SignInRequest? data) =>
   _i6.Future<_i2.SignInDTO> signIn(_i7.SignInRequest? data) =>
       (super.noSuchMethod(
             Invocation.method(#signIn, [data]),
+            returnValue: _i6.Future<_i2.SignInDTO>.value(
             returnValue: _i9.Future<_i2.SignInDTO>.value(
             returnValue: _i6.Future<_i2.SignInDTO>.value(
               _FakeSignInDTO_0(this, Invocation.method(#signIn, [data])),
@@ -124,19 +141,24 @@ class MockApiClient extends _i1.Mock implements _i8.ApiClient {
             returnValue: _i9.Future<void>.value(),
             returnValueForMissingStub: _i9.Future<void>.value(),
           )
+          as _i6.Future<void>);
           as _i9.Future<void>);
           as _i6.Future<void>);
 
   @override
+  _i6.Future<void> verifyResetCode(_i9.VerifyResetCodeRequest? request) =>
   _i9.Future<void> verifyResetCode(_i12.VerifyResetCodeRequest? request) =>
   _i6.Future<void> verifyResetCode(_i9.VerifyResetCodeRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#verifyResetCode, [request]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
             returnValue: _i9.Future<void>.value(),
             returnValueForMissingStub: _i9.Future<void>.value(),
             returnValue: _i6.Future<void>.value(),
             returnValueForMissingStub: _i6.Future<void>.value(),
           )
+          as _i6.Future<void>);
           as _i9.Future<void>);
           as _i6.Future<void>);
 
@@ -215,8 +237,24 @@ class MockApiClient extends _i1.Mock implements _i8.ApiClient {
                 Invocation.method(#getAllExercises, []),
               ),
             ),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
           )
           as _i6.Future<_i4.ExercisesResponseDTO>);
+          as _i6.Future<void>);
+
+  @override
+  _i6.Future<_i4.MealCategoriesModel> getMealsCategories() =>
+      (super.noSuchMethod(
+            Invocation.method(#getMealsCategories, []),
+            returnValue: _i6.Future<_i4.MealCategoriesModel>.value(
+              _FakeMealCategoriesModel_2(
+                this,
+                Invocation.method(#getMealsCategories, []),
+              ),
+            ),
+          )
+          as _i6.Future<_i4.MealCategoriesModel>);
           as _i9.Future<_i6.ExerciseResponseDTO>);
 
   @override
