@@ -42,6 +42,7 @@ class CustomMusclesCard extends StatelessWidget {
           style: AppTextStyles.BalooThambi2_600_16.copyWith(
             color: AppColors.whiteColor,
             fontWeight: FontWeight.bold,
+            decoration: TextDecoration.none,
           ),
         ),
       ),

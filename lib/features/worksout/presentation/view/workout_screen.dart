@@ -48,7 +48,8 @@ class WorkoutTab extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return Padding(
+          return Container(
+            color: AppColors.greyDark2,
             padding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -59,6 +60,7 @@ class WorkoutTab extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: AppTextStyles.BalooThambi2_800_24.copyWith(
                     color: Colors.white,
+                    decoration: TextDecoration.none,
                   ),
                 ),
                 SizedBox(height: 24.HeightResponsive),
@@ -73,7 +75,7 @@ class WorkoutTab extends StatelessWidget {
                           itemBuilder: (context, index) {
                             return Skeletonizer(
                               enabled: true,
-                              child: Text("ewfwfgqw"),
+                              child: Text("ewfw"),
                             );
                           },
                         ),
@@ -83,7 +85,10 @@ class WorkoutTab extends StatelessWidget {
                     : Text(
                         "Muscle not found",
                         textAlign: TextAlign.center,
-                        style: AppTextStyles.BalooThambi2_600_12,
+                        style: AppTextStyles.BalooThambi2_600_12.copyWith(
+                          decoration: TextDecoration.none,
+                        ),
+
                       ),
                 state is GetAllMusclesDataLoadingState
                     ? Expanded(
@@ -136,6 +141,7 @@ class WorkoutTab extends StatelessWidget {
                             "Muscle not found",
                             style: AppTextStyles.BalooThambi2_600_18.copyWith(
                               color: AppColors.whiteColor,
+                              decoration: TextDecoration.none,
                             ),
                           ),
                         ),
