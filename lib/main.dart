@@ -72,7 +72,7 @@ class MainAppContent extends StatelessWidget {
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
       initialRoute: PagesRoutes.layoutView,
-      initialRoute: PagesRoutes.mealsCategories,
+     // initialRoute: PagesRoutes.mealsCategories,
     );
   }
 }

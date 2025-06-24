@@ -1,4 +1,5 @@
 const String baseUrl = 'https://fitness.elevateegy.com/api/v1';
+const String mealsBaseUrl = 'www.themealdb.com/api/json/v1/1';
 
 class ApiEndPoints {
   ApiEndPoints._();
@@ -13,4 +14,7 @@ class ApiEndPoints {
   static const String getLevelsEndPoint = "/levels";
   static const String workoutTabs="/muscles";
   static const String muscles="/musclesGroup";
+  static const String getAllExercise = "/exercises";
+  static const String getRecommendExercise = "/exercises/random";
+
 }

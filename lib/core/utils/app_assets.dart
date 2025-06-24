@@ -13,7 +13,11 @@ abstract class ImageAssets {
   static const String exerciseBackground = "$imagePath/exercise_background.png";
   static const String loading = "$imagePath/loading.gif";
   static const String exampleBackground = "$imagePath/example_app_background.png";
-
+  static const String aerobicsCat = "$imagePath/Aerobics_category_home.png";
+  static const String fitnessCat = "$imagePath/fitness_catecory_home.png";
+  static const String gymCat = "$imagePath/gym_Category_home.png";
+  static const String trainerCat = "$imagePath/Trainer_category_home.png";
+  static const String yogaCat = "$imagePath/yoga_catecory_home.png";
 
 }
 
@@ -38,7 +42,7 @@ abstract class IconAssets {
 
 
 
-  static const String backIcon = "$iconPath/back_icon.png";
+
 }
 
 abstract class AnimationAssets {

@@ -51,6 +51,7 @@ dependencies:
   intl:
   skeletonizer: ^2.0.1
   cached_network_image: ^3.4.1
+  flutter_dotenv: ^5.2.1
 
 
 
