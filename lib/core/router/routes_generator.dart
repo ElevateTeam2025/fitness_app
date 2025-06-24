@@ -8,6 +8,7 @@ import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_s
 import 'package:fitness_app/features/splash/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/Exercise/presentation/views/main_exercise_screen.dart';
 import '../../features/auth/sign_in/presentation/views/sign_in/sign_in_screen.dart';
 import '../../layout/presentation/layout_screen.dart';
 
@@ -37,7 +38,6 @@ class RoutesGenerator {
           builder: (_) => const CreateNewPasswordView(),
           settings: settings,
         );
-        return MaterialPageRoute(builder: (_) => const VerifyResetCodeView());
         case PagesRoutes.signUpFlowView:
         // Assuming you have a SignUpFlowView, uncomment the line below
          return MaterialPageRoute(builder: (_) =>  SignupFlow());
@@ -55,6 +55,13 @@ class RoutesGenerator {
           builder: (context) => const AppView(),
           settings: settings,
         );
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+
+      case PagesRoutes.exercisesWrapperScreen:
+        return MaterialPageRoute(builder: (context) => ExercisesWrapperScreen(), settings: settings,);
+
 
       default:
         return unDefinedRoute();

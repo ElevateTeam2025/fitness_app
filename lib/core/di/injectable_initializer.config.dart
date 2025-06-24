@@ -65,8 +65,27 @@ import '../../features/auth/sign_up/domain/use_case/signup_use_case.dart'
     as _i449;
 import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
     as _i1067;
+import '../../features/Exercise/data/data_source/exercise_remote_data_source.dart'
+    as _i461;
+import '../../features/Exercise/data/repository_imp/exercise_repository_imp.dart'
+    as _i302;
+import '../../features/Exercise/domain/repository/exercise_repository.dart'
+    as _i828;
+import '../../features/Exercise/domain/use_case/exercise_use_case.dart'
+    as _i278;
+import '../../features/Exercise/presentation/cubit/sign_in_cubit/exercise_view_model.dart'
+    as _i960;
 import '../../features/onboarding/presentation/cubits/change_onboarding_view_model.dart'
     as _i656;
+import '../../features/worksout/data/data_source/workout_remote_data_source.dart'
+    as _i801;
+import '../../features/worksout/data/repository_impl/workout_repository_impl.dart'
+    as _i1016;
+import '../../features/worksout/domain/repository/workout_repository.dart'
+    as _i923;
+import '../../features/worksout/domain/use_case/workout_use_case.dart' as _i267;
+import '../../features/worksout/presentation/manager/workout_view_model.dart'
+    as _i514;
 import '../api/api_client.dart' as _i277;
 import '../api/network_factory.dart' as _i1013;
 import '../services/gemini_service.dart' as _i846;
@@ -103,6 +122,9 @@ extension GetItInjectableX on _i174.GetIt {
         apiClient: gh<_i277.ApiClient>(),
       ),
     );
+    gh.factory<_i801.WorkoutRemoteDataSource>(
+      () => _i801.WorkoutRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
     gh.factory<_i809.SignupDataSource>(
       () => _i809.SignupRemoteDataSourceImpl(gh<_i277.ApiClient>()),
     );
@@ -127,11 +149,20 @@ extension GetItInjectableX on _i174.GetIt {
         apiClient: gh<_i277.ApiClient>(),
       ),
     );
+    gh.factory<_i461.ExerciseRemoteDataSource>(
+      () => _i461.ExerciseRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
     gh.factory<_i157.AuthRepository>(
       () => _i422.AuthRepositoryImpl(
         gh<_i931.AuthRemoteDataSource>(),
         gh<_i511.AuthLocalDataSource>(),
       ),
+    );
+    gh.factory<_i828.ExerciseRepository>(
+      () => _i302.ExerciseRepositoryImpl(gh<_i461.ExerciseRemoteDataSource>()),
+    );
+    gh.factory<_i923.WorkoutRepository>(
+      () => _i1016.WorkoutRepositoryImpl(gh<_i801.WorkoutRemoteDataSource>()),
     );
     gh.factory<_i340.CreateNewPasswordCubit>(
       () => _i340.CreateNewPasswordCubit(
@@ -143,6 +174,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i449.SignupUseCase>(
       () => _i449.SignupUseCase(gh<_i751.SignupRepo>()),
+    );
+    gh.factory<_i267.WorkoutUseCase>(
+      () => _i267.WorkoutUseCase(gh<_i923.WorkoutRepository>()),
     );
     gh.factory<_i1067.SignupCubit>(
       () => _i1067.SignupCubit(gh<_i449.SignupUseCase>()),
@@ -156,11 +190,20 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i174.SignInUseCase>(
       () => _i174.SignInUseCase(gh<_i157.AuthRepository>()),
     );
+    gh.factory<_i278.ExercisesUseCase>(
+      () => _i278.ExercisesUseCase(gh<_i828.ExerciseRepository>()),
+    );
     gh.factory<_i1022.SignInViewModel>(
       () => _i1022.SignInViewModel(gh<_i174.SignInUseCase>()),
     );
+    gh.factory<_i514.WorkoutViewModel>(
+      () => _i514.WorkoutViewModel(gh<_i267.WorkoutUseCase>()),
+    );
     gh.factory<_i218.ForgetPasswordCubit>(
       () => _i218.ForgetPasswordCubit(gh<_i484.ForgetPasswordRepo>()),
+    );
+    gh.factory<_i960.ExerciseViewModel>(
+      () => _i960.ExerciseViewModel(gh<_i278.ExercisesUseCase>()),
     );
     return this;
   }

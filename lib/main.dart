@@ -9,6 +9,12 @@ import 'package:fitness_app/core/utils/theming.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
+
+import 'core/services/localization_service.dart';
+import 'generated/l10n.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +39,11 @@ class InitApp extends StatelessWidget {
         builder: (context) {
           ScreenSizeService.init(context);
 
-          return MainAppContent();
+          return MultiProvider(
+              providers: [
+                ChangeNotifierProvider(create: (_) => LocaleProvider()),
+              ],
+              child: MainAppContent());
         },
       ),
       builder: EasyLoading.init(),
@@ -46,11 +56,22 @@ class MainAppContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localeProvider = context.watch<LocaleProvider>();
+
     return MaterialApp(
+      locale: localeProvider.locale,
+      supportedLocales: S.delegate.supportedLocales,
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+
       debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      initialRoute: PagesRoutes.splashScreen,
+      initialRoute: PagesRoutes.layoutView,
     );
   }
 }
