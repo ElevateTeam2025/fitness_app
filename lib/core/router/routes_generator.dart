@@ -4,6 +4,7 @@ import 'package:fitness_app/features/auth/forget_password/presentation/view/forg
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/signup_flow.dart';
 import 'package:fitness_app/app_view.dart';
+import 'package:fitness_app/features/meal_details/presentation/views/meal_details_view.dart';
 import 'package:fitness_app/features/meals_categories/presentation/views/meals_categories_view.dart';
 import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_screen.dart';
 import 'package:fitness_app/features/splash/presentation/splash_screen.dart';
@@ -48,6 +49,12 @@ class RoutesGenerator {
           builder: (_) => const WorkoutTab(),
           settings: settings,
         );
+      case PagesRoutes.mealDetails:
+        return MaterialPageRoute(
+          builder: (_) =>  MealDetailsView(),
+          settings: settings,
+        );
+
       case PagesRoutes.createNewPasswordView:
         return MaterialPageRoute(
           builder: (_) => const CreateNewPasswordView(),
@@ -55,7 +62,6 @@ class RoutesGenerator {
         );
 
       case PagesRoutes.signUpFlowView:
-        case PagesRoutes.signUpFlowView:
         // Assuming you have a SignUpFlowView, uncomment the line below
         return MaterialPageRoute(builder: (_) => SignupFlow());
       case PagesRoutes.splashScreen:

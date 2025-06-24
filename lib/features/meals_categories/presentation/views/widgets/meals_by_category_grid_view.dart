@@ -38,7 +38,10 @@ class MealsByCategoryGridView extends StatelessWidget {
             ),
             itemBuilder: (context, index) {
               final meal = state.mealsByCategoryEntity[index];
-              return MealGridViewItem(meal: meal);
+              return MealGridViewItem(
+                meal: meal,
+                meals: state.mealsByCategoryEntity,
+              );
             },
           );
         }
@@ -47,4 +50,3 @@ class MealsByCategoryGridView extends StatelessWidget {
     );
   }
 }
-
