@@ -7,6 +7,7 @@ import 'package:fitness_app/app_view.dart';
 import 'package:fitness_app/features/meals_categories/presentation/views/meals_categories_view.dart';
 import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_screen.dart';
 import 'package:fitness_app/features/splash/presentation/splash_screen.dart';
+import 'package:fitness_app/features/worksout/presentation/view/workout_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/Exercise/presentation/views/main_exercise_screen.dart';
@@ -42,7 +43,11 @@ class RoutesGenerator {
           builder: (_) => const MealsCategoriesView(),
           settings: settings,
         );
-
+      case PagesRoutes.exerciseScreen:
+        return MaterialPageRoute(
+          builder: (_) => const WorkoutTab(),
+          settings: settings,
+        );
       case PagesRoutes.createNewPasswordView:
         return MaterialPageRoute(
           builder: (_) => const CreateNewPasswordView(),

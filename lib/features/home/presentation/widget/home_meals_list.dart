@@ -27,7 +27,7 @@ class HomeMealsList extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, PagesRoutes.mealsCategories,
                   arguments: {
-                    'id': meals[index],
+                    'id': index,
                   },
                 );
               },

@@ -11,6 +11,7 @@ import 'package:fitness_app/features/home/presentation/widget/row_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import '../../../core/router/pages_routes.dart';
 import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/text_styles.dart';
 import 'cubit/get_meals_categories_cubit/get_meals_categories_cubit.dart';
@@ -90,7 +91,10 @@ class _HomeTapState extends State<HomeTap> {
                   },
                 ),
                 HomeSizedBox(),
-                RowWidget(txt: 'Upcoming Workouts', leading_text: 'view all',onPressed: () {  },),
+                RowWidget(txt: 'Upcoming Workouts', leading_text: 'view all',
+                  onPressed: () { Navigator.pushNamed(context, PagesRoutes.exerciseScreen,
+
+                ); },),
                 BlocBuilder<WorkoutCubit, WorkoutState>(
                   builder: (context, state) {
                     if (state is WorkoutLoading) {
@@ -125,7 +129,10 @@ class _HomeTapState extends State<HomeTap> {
                   },
                 ),
                 HomeSizedBox(),
-                RowWidget(txt: 'Recommendation For You', leading_text: 'view all',onPressed: () {  },),
+                RowWidget(txt: 'Recommendation For You', leading_text: 'view all',onPressed:
+                    () { Navigator.pushNamed(context, PagesRoutes.mealsCategories,
+
+                ); },),
                 BlocBuilder<GetHomeMealsCategoriesCubit, GetHomeMealsCategoriesStates>(
                   builder: (context, state) {
                     if (state is GetHomeMealsCategoriesLoadingState) {

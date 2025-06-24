@@ -28,6 +28,8 @@ class HomeExerciseList extends StatelessWidget {
                 Navigator.pushNamed(context, PagesRoutes.exercisesWrapperScreen,
                   arguments: {
                     'id': exercises[index].id,
+                  //  'image': muscle.image,
+                   // 'name': exercises[index].exercise,
                   },
                 );
               },
