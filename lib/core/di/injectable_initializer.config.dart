@@ -75,6 +75,26 @@ import '../../features/Exercise/domain/use_case/exercise_use_case.dart'
     as _i278;
 import '../../features/Exercise/presentation/cubit/sign_in_cubit/exercise_view_model.dart'
     as _i960;
+import '../../features/meals_categories/data/data_source/get_meals_by_category_data_source.dart'
+    as _i1015;
+import '../../features/meals_categories/data/data_source/get_meals_by_category_data_source_imp.dart'
+    as _i575;
+import '../../features/meals_categories/data/data_source/get_meals_categories_data_source.dart'
+    as _i472;
+import '../../features/meals_categories/data/data_source/get_meals_categories_data_source_imp.dart'
+    as _i81;
+import '../../features/meals_categories/data/repo_imp/get_meals_by_category_repo_imp.dart'
+    as _i195;
+import '../../features/meals_categories/data/repo_imp/get_meals_categories_repo_imp.dart'
+    as _i396;
+import '../../features/meals_categories/domain/repo/get_meals_by_category_repo.dart'
+    as _i736;
+import '../../features/meals_categories/domain/repo/get_meals_categories_repo.dart'
+    as _i982;
+import '../../features/meals_categories/presentation/cubits/get_meals_by_category_cubit/get_meals_by_category_cubit.dart'
+    as _i271;
+import '../../features/meals_categories/presentation/cubits/get_meals_categories_cubit/get_meals_categories_cubit.dart'
+    as _i1032;
 import '../../features/onboarding/presentation/cubits/change_onboarding_view_model.dart'
     as _i656;
 import '../../features/worksout/data/data_source/workout_remote_data_source.dart'
@@ -87,6 +107,7 @@ import '../../features/worksout/domain/use_case/workout_use_case.dart' as _i267;
 import '../../features/worksout/presentation/manager/workout_view_model.dart'
     as _i514;
 import '../api/api_client.dart' as _i277;
+import '../api/meals_api_client.dart' as _i512;
 import '../api/network_factory.dart' as _i1013;
 import '../services/gemini_service.dart' as _i846;
 
@@ -109,6 +130,14 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i511.AuthLocalDataSourceImpl(),
     );
     gh.singleton<_i277.ApiClient>(() => _i277.ApiClient(gh<_i361.Dio>()));
+    gh.singleton<_i512.MealsApiClient>(
+      () => _i512.MealsApiClient(gh<_i361.Dio>()),
+    );
+    gh.factory<_i1015.GetMealsByCategoryDataSource>(
+      () => _i575.GetMealsByCategoryDataSourceImp(
+        mealsApiClient: gh<_i512.MealsApiClient>(),
+      ),
+    );
     gh.factory<_i931.AuthRemoteDataSource>(
       () => _i931.AuthRemoteDataSourceImpl(gh<_i277.ApiClient>()),
     );
@@ -144,6 +173,11 @@ extension GetItInjectableX on _i174.GetIt {
         createNewPasswordDataSource: gh<_i674.CreateNewPasswordDataSource>(),
       ),
     );
+    gh.factory<_i736.GetMealsByCategoryRepo>(
+      () => _i195.GetMealsByCategoryRepoImp(
+        getMealsByCategoryDataSource: gh<_i1015.GetMealsByCategoryDataSource>(),
+      ),
+    );
     gh.factory<_i951.ForgetPasswordRemoteDataSource>(
       () => _i527.ForgetPasswordRemoteDataSourceImp(
         apiClient: gh<_i277.ApiClient>(),
@@ -151,6 +185,14 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i461.ExerciseRemoteDataSource>(
       () => _i461.ExerciseRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
+    gh.factory<_i271.GetMealsByCategoryCubit>(
+      () => _i271.GetMealsByCategoryCubit(gh<_i736.GetMealsByCategoryRepo>()),
+    );
+    gh.factory<_i472.GetMealsCategoriesDataSource>(
+      () => _i81.GetMealsCategoriesDataSourceImp(
+        mealsApiClient: gh<_i512.MealsApiClient>(),
+      ),
     );
     gh.factory<_i157.AuthRepository>(
       () => _i422.AuthRepositoryImpl(
@@ -175,6 +217,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i449.SignupUseCase>(
       () => _i449.SignupUseCase(gh<_i751.SignupRepo>()),
     );
+    gh.factory<_i982.GetMealsCategoriesRepo>(
+      () => _i396.GetMealsCategoriesRepoImp(
+        getMealsCategoriesDataSource: gh<_i472.GetMealsCategoriesDataSource>(),
+      ),
+    );
     gh.factory<_i267.WorkoutUseCase>(
       () => _i267.WorkoutUseCase(gh<_i923.WorkoutRepository>()),
     );
@@ -198,6 +245,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i514.WorkoutViewModel>(
       () => _i514.WorkoutViewModel(gh<_i267.WorkoutUseCase>()),
+    );
+    gh.factory<_i1032.GetMealsCategoriesCubit>(
+      () => _i1032.GetMealsCategoriesCubit(
+        getMealsCategoriesRepo: gh<_i982.GetMealsCategoriesRepo>(),
+      ),
     );
     gh.factory<_i218.ForgetPasswordCubit>(
       () => _i218.ForgetPasswordCubit(gh<_i484.ForgetPasswordRepo>()),
