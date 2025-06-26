@@ -50,6 +50,8 @@ abstract class ApiClient {
 
   @PUT(ApiEndPoints.resetPassword)
   Future<void> createNewPassword(@Body() CreateNewPasswordrequset request);
+  @PUT(ApiEndPoints.resetPassword)
+  Future<void> changePassword(@Body() ResetPasswordrequset request);
 
   @GET(ApiEndPoints.mealsCategories)
   Future<MealCategoriesModel> getMealsCategories();

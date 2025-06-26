@@ -75,6 +75,10 @@ import '../../features/Exercise/domain/use_case/exercise_use_case.dart'
     as _i278;
 import '../../features/Exercise/presentation/cubit/sign_in_cubit/exercise_view_model.dart'
     as _i960;
+import '../../features/forgert_password/data/data_source/reset_new_password_data_source.dart'
+    as _i953;
+import '../../features/forgert_password/data/data_source/reset_new_password_data_source_imp.dart'
+    as _i826;
 import '../../features/home/data/data_source/home_data_source.dart' as _i68;
 import '../../features/home/data/repo_imp/home_repository_impl.dart' as _i886;
 import '../../features/home/domain/repo/home_repo.dart' as _i280;
@@ -194,6 +198,10 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i438.CreateNewPasswordRepoImp(
         createNewPasswordDataSource: gh<_i674.CreateNewPasswordDataSource>(),
       ),
+    );
+    gh.factory<_i953.ResetNewPasswordDataSource>(
+      () =>
+          _i826.ResetNewPasswordDataSourceImp(apiClient: gh<_i277.ApiClient>()),
     );
     gh.factory<_i736.GetMealsByCategoryRepo>(
       () => _i195.GetMealsByCategoryRepoImp(
