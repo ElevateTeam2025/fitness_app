@@ -15,7 +15,6 @@ import 'package:provider/provider.dart';
 import 'core/services/localization_service.dart';
 import 'generated/l10n.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await dotenv.load();
@@ -40,10 +39,11 @@ class InitApp extends StatelessWidget {
           ScreenSizeService.init(context);
 
           return MultiProvider(
-              providers: [
-                ChangeNotifierProvider(create: (_) => LocaleProvider()),
-              ],
-              child: MainAppContent());
+            providers: [
+              ChangeNotifierProvider(create: (_) => LocaleProvider()),
+            ],
+            child: MainAppContent(),
+          );
         },
       ),
       builder: EasyLoading.init(),
@@ -71,8 +71,8 @@ class MainAppContent extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      initialRoute: PagesRoutes.layoutView,
-     // initialRoute: PagesRoutes.mealsCategories,
+      initialRoute: PagesRoutes.editProfile,
+      // initialRoute: PagesRoutes.mealsCategories,
     );
   }
 }
