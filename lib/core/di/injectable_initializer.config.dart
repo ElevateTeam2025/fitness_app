@@ -10,6 +10,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
+import 'package:flutter_gemini/flutter_gemini.dart' as _i257;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
@@ -65,6 +66,15 @@ import '../../features/auth/sign_up/domain/use_case/signup_use_case.dart'
     as _i449;
 import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
     as _i1067;
+import '../../features/chatbot/data/data_source/chatbot_remote_data_source.dart'
+    as _i676;
+import '../../features/chatbot/data/repositoey_impl/chatbot_repository_impl.dart'
+    as _i110;
+import '../../features/chatbot/domain/repository/chatbot_repository.dart'
+    as _i1027;
+import '../../features/chatbot/domain/use_case/chatbot_use_case.dart' as _i324;
+import '../../features/chatbot/presentation/manager/chatbot_view_model.dart'
+    as _i882;
 import '../../features/Exercise/data/data_source/exercise_remote_data_source.dart'
     as _i461;
 import '../../features/Exercise/data/repository_imp/exercise_repository_imp.dart'
@@ -176,6 +186,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i801.WorkoutRemoteDataSource>(
       () => _i801.WorkoutRemoteDataSourceImpl(gh<_i277.ApiClient>()),
     );
+    gh.factory<_i676.ChatbotRemoteDataSource>(
+      () => _i676.ChatbotRemoteDataSourceImpl(gh<_i257.Gemini>()),
+    );
     gh.factory<_i809.SignupDataSource>(
       () => _i809.SignupRemoteDataSourceImpl(gh<_i277.ApiClient>()),
     );
@@ -210,6 +223,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i271.GetMealsByCategoryCubit>(
       () => _i271.GetMealsByCategoryCubit(gh<_i736.GetMealsByCategoryRepo>()),
+    );
+    gh.factory<_i1027.ChatbotRepository>(
+      () => _i110.ChatbotRepositoryImpl(gh<_i676.ChatbotRemoteDataSource>()),
     );
     gh.factory<_i68.HomeDataSource>(
       () => _i68.HomeDataSourceImp(
@@ -269,6 +285,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i267.WorkoutUseCase>(
       () => _i267.WorkoutUseCase(gh<_i923.WorkoutRepository>()),
     );
+    gh.factory<_i324.ChatbotUseCase>(
+      () => _i324.ChatbotUseCase(gh<_i1027.ChatbotRepository>()),
+    );
     gh.factory<_i1067.SignupCubit>(
       () => _i1067.SignupCubit(gh<_i449.SignupUseCase>()),
     );
@@ -277,6 +296,9 @@ extension GetItInjectableX on _i174.GetIt {
         forgetPasswordRemoteDataSource:
             gh<_i951.ForgetPasswordRemoteDataSource>(),
       ),
+    );
+    gh.factory<_i882.ChatbotViewModel>(
+      () => _i882.ChatbotViewModel(gh<_i324.ChatbotUseCase>()),
     );
     gh.factory<_i353.HomeUseCase>(
       () => _i353.HomeUseCase(gh<_i280.HomeRepo>()),

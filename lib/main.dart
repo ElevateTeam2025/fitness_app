@@ -5,21 +5,27 @@ import 'package:fitness_app/core/services/bloc_observer.dart';
 import 'package:fitness_app/core/services/easy_loading_service.dart';
 import 'package:fitness_app/core/services/screen_size_service.dart';
 import 'package:fitness_app/core/services/shared_preference_services.dart';
+import 'package:fitness_app/core/utils/end_points.dart';
 import 'package:fitness_app/core/utils/theming.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'core/services/localization_service.dart';
 import 'generated/l10n.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await dotenv.load();
+  Gemini.init(apiKey: ApiEndPoints.apiKey);
+  final gemini = Gemini.instance;
+  final response = await gemini.text(
+      "Please answer the following question **in the same language it's written**, and keep the response **only related to fitness and gym topics :ما هي افضل تمارين الرجل"
+  );
 
+  print("🎯 رد Gemini:\n${response?.output}");
   configureDependencies();
   Bloc.observer = MyBlocObserver();
   ConfigLoading().showLoading();
@@ -40,10 +46,11 @@ class InitApp extends StatelessWidget {
           ScreenSizeService.init(context);
 
           return MultiProvider(
-              providers: [
-                ChangeNotifierProvider(create: (_) => LocaleProvider()),
-              ],
-              child: MainAppContent());
+            providers: [
+              ChangeNotifierProvider(create: (_) => LocaleProvider()),
+            ],
+            child: MainAppContent(),
+          );
         },
       ),
       builder: EasyLoading.init(),
@@ -72,7 +79,7 @@ class MainAppContent extends StatelessWidget {
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
       initialRoute: PagesRoutes.layoutView,
-     // initialRoute: PagesRoutes.mealsCategories,
+      // initialRoute: PagesRoutes.mealsCategories,
     );
   }
 }
