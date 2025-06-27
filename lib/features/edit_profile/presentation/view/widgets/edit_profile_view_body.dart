@@ -1,13 +1,27 @@
+import 'dart:io';
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
+import 'package:fitness_app/features/edit_profile/presentation/cubits/upload_photo_cubit/upload_photo_cubit.dart';
+import 'package:fitness_app/features/edit_profile/presentation/cubits/upload_photo_cubit/upload_photo_states.dart';
 import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_label_text_widget.dart';
 import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_profile_back_ground_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:image_picker/image_picker.dart';
 
-class EditProfileViewBody extends StatelessWidget {
+class EditProfileViewBody extends StatefulWidget {
   const EditProfileViewBody({super.key});
+
+  @override
+  State<EditProfileViewBody> createState() => _EditProfileViewBodyState();
+}
+
+class _EditProfileViewBodyState extends State<EditProfileViewBody> {
+  File? _image;
+  File? imageFile;
 
   @override
   Widget build(BuildContext context) {
@@ -56,15 +70,44 @@ class EditProfileViewBody extends StatelessWidget {
                       children: [
                         CircleAvatar(
                           radius: 60.RadiusResponsive,
-                          backgroundImage: NetworkImage(
-                            'https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=',
-                          ),
+                          backgroundImage: _image != null
+                              ? FileImage(_image!)
+                              : NetworkImage(
+                                  'https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=',
+                                ),
                         ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: Image.asset(IconAssets.editIcon),
+                        BlocListener<UploadPhotoCubit, UploadPhotoStates>(
+                          listener: (context, state) {
+                            if (state is UploadPhotoSuccess) {
+                              EasyLoading.dismiss();
+                              setState(() {
+                                _image = imageFile;
+                              });
+                            } else if (state is UploadPhotoLoading) {
+                              EasyLoading.show();
+                            } else if (state is UploadPhotoError) {
+                              EasyLoading.showError(state.message);
+                            }
+                          },
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: IconButton(
+                              onPressed: () async {
+                                ImagePicker picker = ImagePicker();
+                                XFile? image = await picker.pickImage(
+                                  source: ImageSource.gallery,
+                                );
+
+                                if (image != null) {
+                                  imageFile = File(image.path);
+
+                              await    context.read<UploadPhotoCubit>().uploadPhoto(
+                                    imageFile!,
+                                  );
+                                }
+                              },
+                              icon: Image.asset(IconAssets.editIcon),
+                            ),
                           ),
                         ),
                       ],
