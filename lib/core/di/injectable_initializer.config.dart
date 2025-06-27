@@ -65,6 +65,16 @@ import '../../features/auth/sign_up/domain/use_case/signup_use_case.dart'
     as _i449;
 import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
     as _i1067;
+import '../../features/edit_profile/data/data_source/upload_photo_remote_data_source.dart'
+    as _i415;
+import '../../features/edit_profile/data/data_source/upload_photo_remote_data_source_imp.dart'
+    as _i870;
+import '../../features/edit_profile/data/repo_imp/upload_photo_repo_imp.dart'
+    as _i836;
+import '../../features/edit_profile/domain/repo/upload_photo_repo.dart'
+    as _i646;
+import '../../features/edit_profile/presentation/cubits/upload_photo_cubit/upload_photo_cubit.dart'
+    as _i1058;
 import '../../features/Exercise/data/data_source/exercise_remote_data_source.dart'
     as _i461;
 import '../../features/Exercise/data/repository_imp/exercise_repository_imp.dart'
@@ -163,6 +173,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i931.AuthRemoteDataSource>(
       () => _i931.AuthRemoteDataSourceImpl(gh<_i277.ApiClient>()),
     );
+    gh.factory<_i415.UploadPhotoRemoteDataSource>(
+      () => _i870.UploadPhotoRemoteDataSourceImp(
+        apiClient: gh<_i277.ApiClient>(),
+      ),
+    );
     gh.factory<_i674.CreateNewPasswordDataSource>(
       () => _i1032.CreateNewPasswordDataSourceImp(
         apiClient: gh<_i277.ApiClient>(),
@@ -229,6 +244,9 @@ extension GetItInjectableX on _i174.GetIt {
         mealsApiClient: gh<_i512.MealsApiClient>(),
       ),
     );
+    gh.factory<_i646.UploadPhotoRepo>(
+      () => _i836.UploadPhotoRepoImp(gh<_i415.UploadPhotoRemoteDataSource>()),
+    );
     gh.factory<_i280.HomeRepo>(
       () => _i886.HomeRepoImpl(gh<_i68.HomeDataSource>()),
     );
@@ -289,6 +307,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i1022.SignInViewModel>(
       () => _i1022.SignInViewModel(gh<_i174.SignInUseCase>()),
+    );
+    gh.factory<_i1058.UploadPhotoCubit>(
+      () => _i1058.UploadPhotoCubit(gh<_i646.UploadPhotoRepo>()),
     );
     gh.factory<_i463.GetHomeMealsCategoriesCubit>(
       () => _i463.GetHomeMealsCategoriesCubit(gh<_i353.HomeUseCase>()),
