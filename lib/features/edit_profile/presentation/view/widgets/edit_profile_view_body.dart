@@ -1,12 +1,13 @@
 import 'dart:io';
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
-import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/features/edit_profile/presentation/cubits/upload_photo_cubit/upload_photo_cubit.dart';
 import 'package:fitness_app/features/edit_profile/presentation/cubits/upload_photo_cubit/upload_photo_states.dart';
 import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_label_text_widget.dart';
 import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_profile_back_ground_image.dart';
+import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_profile_custom_app_bar.dart';
+import 'package:fitness_app/features/edit_profile/presentation/view/widgets/profile_photo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -35,32 +36,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 30.HeightResponsive),
-                Center(
-                  child: Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: Container(
-                          height: 25.HeightResponsive,
-                          decoration: BoxDecoration(
-                            color: AppColors.primaryColor,
-                            borderRadius: BorderRadius.circular(
-                              50.RadiusResponsive,
-                            ),
-                          ),
-                          child: Image(image: AssetImage(IconAssets.backIcon)),
-                        ),
-                      ),
-                      SizedBox(width: 88.WidthResponsive),
-                      Text(
-                        'Edit Profile',
-                        style: AppTextStyles.BalooThambi2_600_20.copyWith(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                EditProfileCustomAppBar(),
                 SizedBox(height: 30.HeightResponsive),
                 Center(
                   child: SizedBox(
@@ -68,14 +44,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                     width: 102.WidthResponsive,
                     child: Stack(
                       children: [
-                        CircleAvatar(
-                          radius: 60.RadiusResponsive,
-                          backgroundImage: _image != null
-                              ? FileImage(_image!)
-                              : NetworkImage(
-                                  'https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=',
-                                ),
-                        ),
+                        ProfilePhotoWidget(image: _image),
                         BlocListener<UploadPhotoCubit, UploadPhotoStates>(
                           listener: (context, state) {
                             if (state is UploadPhotoSuccess) {
@@ -101,9 +70,9 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                                 if (image != null) {
                                   imageFile = File(image.path);
 
-                              await    context.read<UploadPhotoCubit>().uploadPhoto(
-                                    imageFile!,
-                                  );
+                                  await context
+                                      .read<UploadPhotoCubit>()
+                                      .uploadPhoto(imageFile!);
                                 }
                               },
                               icon: Image.asset(IconAssets.editIcon),
