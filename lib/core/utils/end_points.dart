@@ -13,9 +13,9 @@ class ApiEndPoints {
   static const String mealDetails = "/1/lookup.php";
   static const String getExercise = "/exercises/by-muscle-difficulty";
   static const String getLevelsEndPoint = "/levels";
-  static const String workoutTabs="/muscles";
-  static const String muscles="/musclesGroup";
+  static const String workoutTabs = "/muscles";
+  static const String muscles = "/musclesGroup";
   static const String getAllExercise = "/exercises";
   static const String getRecommendExercise = "/exercises/random";
-
+  static const String uploadProfilePhoto = "/auth/upload-photo";
 }
