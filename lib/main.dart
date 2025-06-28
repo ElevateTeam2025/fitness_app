@@ -20,12 +20,6 @@ import 'generated/l10n.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Gemini.init(apiKey: ApiEndPoints.apiKey);
-  final gemini = Gemini.instance;
-  final response = await gemini.text(
-      "Please answer the following question **in the same language it's written**, and keep the response **only related to fitness and gym topics :ما هي افضل تمارين الرجل"
-  );
-
-  print("🎯 رد Gemini:\n${response?.output}");
   configureDependencies();
   Bloc.observer = MyBlocObserver();
   ConfigLoading().showLoading();

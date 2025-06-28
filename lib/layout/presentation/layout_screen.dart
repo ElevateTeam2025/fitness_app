@@ -1,12 +1,12 @@
 
 import 'package:fitness_app/core/utils/app_colors.dart';
+import 'package:fitness_app/features/chatbot/presentation/view/chatbot_tab.dart';
 import 'package:fitness_app/features/worksout/presentation/view/workout_screen.dart';
 import 'package:fitness_app/layout/presentation/widgets/tab_bar_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/utils/app_assets.dart';
-import '../../core/widgets/custom_container_widget.dart';
 import 'manager/layout_cubit/layout_state.dart';
 import 'manager/layout_cubit/layout_view_model.dart';
 
@@ -14,7 +14,6 @@ import 'manager/layout_cubit/layout_view_model.dart';
 
 class LayoutScreen extends StatelessWidget {
   const LayoutScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -29,7 +28,7 @@ class LayoutScreen extends StatelessWidget {
             body:viewModel.tabs[viewModel.currentIndex],
 
 
-            bottomNavigationBar: Container(
+            bottomNavigationBar:viewModel.currentIndex!=1? Container(
               margin: const EdgeInsets.all(16),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
@@ -57,7 +56,7 @@ class LayoutScreen extends StatelessWidget {
 
                 ],
               ),
-            ),
+            ):const SizedBox(),
 
 
           );
