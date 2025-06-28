@@ -18,4 +18,5 @@ class ApiEndPoints {
   static const String getAllExercise = "/exercises";
   static const String getRecommendExercise = "/exercises/random";
   static const String uploadProfilePhoto = "/auth/upload-photo";
+  static const String editProfile = "/auth/editProfile";
 }

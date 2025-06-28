@@ -4,6 +4,7 @@ import 'package:fitness_app/features/auth/forget_password/data/models/forget_pas
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart';
 import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart';
 import 'package:fitness_app/features/auth/sign_in/domain/entity/sign_in_request.dart';
+import 'package:fitness_app/features/edit_profile/data/model/edit_profile_response_dto.dart';
 import 'package:fitness_app/features/meals_categories/data/models/meal_categories_model.dart';
 import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart';
 import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart';
@@ -80,4 +81,7 @@ abstract class ApiClient {
   @PUT(ApiEndPoints.uploadProfilePhoto)
   @MultiPart()
   Future<void> uploadPhoto(@Body() FormData formData);
+
+  @PUT(ApiEndPoints.editProfile)
+  Future<EditProfileResponseDto> editProfile(@Body() Map<String, dynamic> data);
 }
