@@ -1,3 +1,4 @@
+import 'package:fitness_app/features/edit_profile/domain/entites/edit_profile_response_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'edit_profile_response_dto.g.dart';
@@ -13,6 +14,9 @@ class EditProfileResponseDto {
       _$EditProfileResponseDtoFromJson(json);
 
   Map<String, dynamic> toJson() => _$EditProfileResponseDtoToJson(this);
+  EditProfileResponseEntity toEntity() {
+    return EditProfileResponseEntity(message: message, user: user?.toEntity());
+  }
 }
 
 @JsonSerializable()
@@ -50,4 +54,20 @@ class UserDto {
       _$UserDtoFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserDtoToJson(this);
+  UserEntity toEntity() {
+    return UserEntity(
+      id: id,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      gender: gender,
+      createdAt: createdAt,
+      age: age,
+      weight: weight,
+      height: height,
+      activityLevel: activityLevel,
+      goal: goal,
+      photo: photo,
+    );
+  }
 }
