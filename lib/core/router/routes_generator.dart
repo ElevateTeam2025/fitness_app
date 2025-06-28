@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/Exercise/presentation/views/main_exercise_screen.dart';
 import '../../features/auth/sign_in/presentation/views/sign_in/sign_in_screen.dart';
+import '../../features/chatbot/presentation/view/chatbot_tab.dart';
 import '../../layout/presentation/layout_screen.dart';
 
 class RoutesGenerator {
@@ -88,6 +89,8 @@ class RoutesGenerator {
         return MaterialPageRoute(builder: (context) => ExercisesWrapperScreen(), settings: settings,);
 
 
+      case PagesRoutes.chatPage:
+        return MaterialPageRoute(builder: (_)=>ChatbotTab(),settings: settings);
         default:
         return unDefinedRoute();
     }

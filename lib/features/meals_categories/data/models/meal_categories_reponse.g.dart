@@ -7,13 +7,15 @@ part of 'meal_categories_reponse.dart';
 // **************************************************************************
 
 MealCategoriesReponse _$MealCategoriesReponseFromJson(
-  Map<String, dynamic> json,
-) => MealCategoriesReponse(
-  mealCategoriesModel: (json['categories'] as List<dynamic>)
-      .map((e) => MealCategoriesModel.fromJson(e as Map<String, dynamic>))
-      .toList(),
-);
+        Map<String, dynamic> json) =>
+    MealCategoriesReponse(
+      mealCategoriesModel: (json['categories'] as List<dynamic>)
+          .map((e) => MealCategoriesModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$MealCategoriesReponseToJson(
-  MealCategoriesReponse instance,
-) => <String, dynamic>{'categories': instance.mealCategoriesModel};
+        MealCategoriesReponse instance) =>
+    <String, dynamic>{
+      'categories': instance.mealCategoriesModel,
+    };

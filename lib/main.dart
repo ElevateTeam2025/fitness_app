@@ -3,6 +3,7 @@ import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/router/routes_generator.dart';
 import 'package:fitness_app/core/services/bloc_observer.dart';
 import 'package:fitness_app/core/services/easy_loading_service.dart';
+import 'package:fitness_app/core/services/hive_service.dart';
 import 'package:fitness_app/core/services/screen_size_service.dart';
 import 'package:fitness_app/core/services/shared_preference_services.dart';
 import 'package:fitness_app/core/utils/end_points.dart';
@@ -23,6 +24,7 @@ void main() async {
   configureDependencies();
   Bloc.observer = MyBlocObserver();
   ConfigLoading().showLoading();
+  HiveService().initializeHive();
   await SharedPreferenceServices.init();
 
   runApp(InitApp());

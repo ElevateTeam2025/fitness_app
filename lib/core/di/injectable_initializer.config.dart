@@ -1,4 +1,3 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -142,199 +141,140 @@ import '../api/api_client.dart' as _i277;
 import '../api/meals_api_client.dart' as _i512;
 import '../api/network_factory.dart' as _i1013;
 import '../services/gemini_service.dart' as _i846;
+import '../services/hive_service.dart' as _i1047;
 
 extension GetItInjectableX on _i174.GetIt {
-  // initializes the registration of main-scope dependencies inside of GetIt
+// initializes the registration of main-scope dependencies inside of GetIt
   _i174.GetIt init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
   }) {
-    final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    final gh = _i526.GetItHelper(
+      this,
+      environment,
+      environmentFilter,
+    );
     final dioProvider = _$DioProvider();
     gh.factory<_i846.GeminiService>(() => _i846.GeminiService());
     gh.factory<_i656.ChangeOnboardingViewModel>(
-      () => _i656.ChangeOnboardingViewModel(),
-    );
+        () => _i656.ChangeOnboardingViewModel());
+    gh.singleton<_i1047.HiveService>(() => _i1047.HiveService());
     gh.lazySingleton<_i361.Dio>(() => dioProvider.dioProvider());
     gh.lazySingleton<_i528.PrettyDioLogger>(() => dioProvider.providePretty());
     gh.lazySingleton<_i1013.AuthInterceptor>(() => _i1013.AuthInterceptor());
     gh.factory<_i511.AuthLocalDataSource>(
-      () => _i511.AuthLocalDataSourceImpl(),
-    );
+        () => _i511.AuthLocalDataSourceImpl());
     gh.singleton<_i277.ApiClient>(() => _i277.ApiClient(gh<_i361.Dio>()));
     gh.singleton<_i512.MealsApiClient>(
-      () => _i512.MealsApiClient(gh<_i361.Dio>()),
-    );
-    gh.factory<_i1015.GetMealsByCategoryDataSource>(
-      () => _i575.GetMealsByCategoryDataSourceImp(
-        mealsApiClient: gh<_i512.MealsApiClient>(),
-      ),
-    );
+        () => _i512.MealsApiClient(gh<_i361.Dio>()));
+    gh.factory<_i1015.GetMealsByCategoryDataSource>(() =>
+        _i575.GetMealsByCategoryDataSourceImp(
+            mealsApiClient: gh<_i512.MealsApiClient>()));
     gh.factory<_i931.AuthRemoteDataSource>(
-      () => _i931.AuthRemoteDataSourceImpl(gh<_i277.ApiClient>()),
-    );
-    gh.factory<_i674.CreateNewPasswordDataSource>(
-      () => _i1032.CreateNewPasswordDataSourceImp(
-        apiClient: gh<_i277.ApiClient>(),
-      ),
-    );
-    gh.factory<_i274.VerifyResetCodeRemoteDataSource>(
-      () => _i370.VerifyResetCodeRemoteDataSourceImp(
-        apiClient: gh<_i277.ApiClient>(),
-      ),
-    );
+        () => _i931.AuthRemoteDataSourceImpl(gh<_i277.ApiClient>()));
+    gh.factory<_i674.CreateNewPasswordDataSource>(() =>
+        _i1032.CreateNewPasswordDataSourceImp(
+            apiClient: gh<_i277.ApiClient>()));
+    gh.factory<_i274.VerifyResetCodeRemoteDataSource>(() =>
+        _i370.VerifyResetCodeRemoteDataSourceImp(
+            apiClient: gh<_i277.ApiClient>()));
     gh.factory<_i801.WorkoutRemoteDataSource>(
-      () => _i801.WorkoutRemoteDataSourceImpl(gh<_i277.ApiClient>()),
-    );
+        () => _i801.WorkoutRemoteDataSourceImpl(gh<_i277.ApiClient>()));
     gh.factory<_i676.ChatbotRemoteDataSource>(
-      () => _i676.ChatbotRemoteDataSourceImpl(gh<_i257.Gemini>()),
-    );
+        () => _i676.ChatbotRemoteDataSourceImpl(gh<_i257.Gemini>()));
     gh.factory<_i809.SignupDataSource>(
-      () => _i809.SignupRemoteDataSourceImpl(gh<_i277.ApiClient>()),
-    );
-    gh.factory<_i640.VerifyResetCodeRepo>(
-      () => _i363.VerifyResetCodeRepoImp(
+        () => _i809.SignupRemoteDataSourceImpl(gh<_i277.ApiClient>()));
+    gh.factory<_i640.VerifyResetCodeRepo>(() => _i363.VerifyResetCodeRepoImp(
         verifyResetCodeRemoteDataSource:
-            gh<_i274.VerifyResetCodeRemoteDataSource>(),
-      ),
-    );
-    gh.factory<_i829.VerifyResetCodeCubit>(
-      () => _i829.VerifyResetCodeCubit(
-        verifyResetCodeRepo: gh<_i640.VerifyResetCodeRepo>(),
-      ),
-    );
-    gh.factory<_i500.CreateNewPasswordRepo>(
-      () => _i438.CreateNewPasswordRepoImp(
-        createNewPasswordDataSource: gh<_i674.CreateNewPasswordDataSource>(),
-      ),
-    );
-    gh.factory<_i736.GetMealsByCategoryRepo>(
-      () => _i195.GetMealsByCategoryRepoImp(
-        getMealsByCategoryDataSource: gh<_i1015.GetMealsByCategoryDataSource>(),
-      ),
-    );
+            gh<_i274.VerifyResetCodeRemoteDataSource>()));
+    gh.factory<_i829.VerifyResetCodeCubit>(() => _i829.VerifyResetCodeCubit(
+        verifyResetCodeRepo: gh<_i640.VerifyResetCodeRepo>()));
+    gh.factory<_i500.CreateNewPasswordRepo>(() =>
+        _i438.CreateNewPasswordRepoImp(
+            createNewPasswordDataSource:
+                gh<_i674.CreateNewPasswordDataSource>()));
+    gh.factory<_i736.GetMealsByCategoryRepo>(() =>
+        _i195.GetMealsByCategoryRepoImp(
+            getMealsByCategoryDataSource:
+                gh<_i1015.GetMealsByCategoryDataSource>()));
     gh.factory<_i557.MealDetailsRemoteDataSource>(
-      () => _i90.MealDetailsRemoteDataSourceImpl(gh<_i512.MealsApiClient>()),
-    );
-    gh.factory<_i951.ForgetPasswordRemoteDataSource>(
-      () => _i527.ForgetPasswordRemoteDataSourceImp(
-        apiClient: gh<_i277.ApiClient>(),
-      ),
-    );
-    gh.factory<_i271.GetMealsByCategoryCubit>(
-      () => _i271.GetMealsByCategoryCubit(gh<_i736.GetMealsByCategoryRepo>()),
-    );
+        () => _i90.MealDetailsRemoteDataSourceImpl(gh<_i512.MealsApiClient>()));
+    gh.factory<_i951.ForgetPasswordRemoteDataSource>(() =>
+        _i527.ForgetPasswordRemoteDataSourceImp(
+            apiClient: gh<_i277.ApiClient>()));
+    gh.factory<_i271.GetMealsByCategoryCubit>(() =>
+        _i271.GetMealsByCategoryCubit(gh<_i736.GetMealsByCategoryRepo>()));
     gh.factory<_i1027.ChatbotRepository>(
-      () => _i110.ChatbotRepositoryImpl(gh<_i676.ChatbotRemoteDataSource>()),
-    );
-    gh.factory<_i68.HomeDataSource>(
-      () => _i68.HomeDataSourceImp(
-        gh<_i277.ApiClient>(),
-        gh<_i512.MealsApiClient>(),
-      ),
-    );
-    gh.factory<_i593.GetMealDetailsRepo>(
-      () =>
-          _i193.GetMealDetailsRepoImpl(gh<_i557.MealDetailsRemoteDataSource>()),
-    );
+        () => _i110.ChatbotRepositoryImpl(gh<_i676.ChatbotRemoteDataSource>()));
+    gh.factory<_i68.HomeDataSource>(() => _i68.HomeDataSourceImp(
+          gh<_i277.ApiClient>(),
+          gh<_i512.MealsApiClient>(),
+        ));
+    gh.factory<_i593.GetMealDetailsRepo>(() =>
+        _i193.GetMealDetailsRepoImpl(gh<_i557.MealDetailsRemoteDataSource>()));
     gh.factory<_i461.ExerciseRemoteDataSource>(
-      () => _i461.ExerciseRemoteDataSourceImpl(gh<_i277.ApiClient>()),
-    );
-    gh.factory<_i472.GetMealsCategoriesDataSource>(
-      () => _i81.GetMealsCategoriesDataSourceImp(
-        mealsApiClient: gh<_i512.MealsApiClient>(),
-      ),
-    );
+        () => _i461.ExerciseRemoteDataSourceImpl(gh<_i277.ApiClient>()));
+    gh.factory<_i472.GetMealsCategoriesDataSource>(() =>
+        _i81.GetMealsCategoriesDataSourceImp(
+            mealsApiClient: gh<_i512.MealsApiClient>()));
     gh.factory<_i280.HomeRepo>(
-      () => _i886.HomeRepoImpl(gh<_i68.HomeDataSource>()),
-    );
-    gh.factory<_i157.AuthRepository>(
-      () => _i422.AuthRepositoryImpl(
-        gh<_i931.AuthRemoteDataSource>(),
-        gh<_i511.AuthLocalDataSource>(),
-      ),
-    );
-    gh.factory<_i828.ExerciseRepository>(
-      () => _i302.ExerciseRepositoryImpl(gh<_i461.ExerciseRemoteDataSource>()),
-    );
-    gh.factory<_i923.WorkoutRepository>(
-      () => _i1016.WorkoutRepositoryImpl(gh<_i801.WorkoutRemoteDataSource>()),
-    );
-    gh.factory<_i340.CreateNewPasswordCubit>(
-      () => _i340.CreateNewPasswordCubit(
-        createNewPasswordRepo: gh<_i500.CreateNewPasswordRepo>(),
-      ),
-    );
+        () => _i886.HomeRepoImpl(gh<_i68.HomeDataSource>()));
+    gh.factory<_i157.AuthRepository>(() => _i422.AuthRepositoryImpl(
+          gh<_i931.AuthRemoteDataSource>(),
+          gh<_i511.AuthLocalDataSource>(),
+        ));
+    gh.factory<_i828.ExerciseRepository>(() =>
+        _i302.ExerciseRepositoryImpl(gh<_i461.ExerciseRemoteDataSource>()));
+    gh.factory<_i923.WorkoutRepository>(() =>
+        _i1016.WorkoutRepositoryImpl(gh<_i801.WorkoutRemoteDataSource>()));
+    gh.factory<_i340.CreateNewPasswordCubit>(() => _i340.CreateNewPasswordCubit(
+        createNewPasswordRepo: gh<_i500.CreateNewPasswordRepo>()));
     gh.factory<_i622.GetMealDetailsUseCase>(
-      () => _i622.GetMealDetailsUseCase(gh<_i593.GetMealDetailsRepo>()),
-    );
-    gh.factory<_i751.SignupRepo>(
-      () => _i268.SignupRepoImp(remoteDataSource: gh<_i809.SignupDataSource>()),
-    );
+        () => _i622.GetMealDetailsUseCase(gh<_i593.GetMealDetailsRepo>()));
+    gh.factory<_i751.SignupRepo>(() =>
+        _i268.SignupRepoImp(remoteDataSource: gh<_i809.SignupDataSource>()));
     gh.factory<_i480.GetMealDetailsCubit>(
-      () => _i480.GetMealDetailsCubit(gh<_i622.GetMealDetailsUseCase>()),
-    );
+        () => _i480.GetMealDetailsCubit(gh<_i622.GetMealDetailsUseCase>()));
     gh.factory<_i449.SignupUseCase>(
-      () => _i449.SignupUseCase(gh<_i751.SignupRepo>()),
-    );
-    gh.factory<_i982.GetMealsCategoriesRepo>(
-      () => _i396.GetMealsCategoriesRepoImp(
-        getMealsCategoriesDataSource: gh<_i472.GetMealsCategoriesDataSource>(),
-      ),
-    );
+        () => _i449.SignupUseCase(gh<_i751.SignupRepo>()));
+    gh.factory<_i982.GetMealsCategoriesRepo>(() =>
+        _i396.GetMealsCategoriesRepoImp(
+            getMealsCategoriesDataSource:
+                gh<_i472.GetMealsCategoriesDataSource>()));
     gh.factory<_i267.WorkoutUseCase>(
-      () => _i267.WorkoutUseCase(gh<_i923.WorkoutRepository>()),
-    );
+        () => _i267.WorkoutUseCase(gh<_i923.WorkoutRepository>()));
     gh.factory<_i324.ChatbotUseCase>(
-      () => _i324.ChatbotUseCase(gh<_i1027.ChatbotRepository>()),
-    );
+        () => _i324.ChatbotUseCase(gh<_i1027.ChatbotRepository>()));
     gh.factory<_i1067.SignupCubit>(
-      () => _i1067.SignupCubit(gh<_i449.SignupUseCase>()),
-    );
-    gh.factory<_i484.ForgetPasswordRepo>(
-      () => _i1004.ForgetPasswordRepoImp(
+        () => _i1067.SignupCubit(gh<_i449.SignupUseCase>()));
+    gh.factory<_i484.ForgetPasswordRepo>(() => _i1004.ForgetPasswordRepoImp(
         forgetPasswordRemoteDataSource:
-            gh<_i951.ForgetPasswordRemoteDataSource>(),
-      ),
-    );
+            gh<_i951.ForgetPasswordRemoteDataSource>()));
     gh.factory<_i882.ChatbotViewModel>(
-      () => _i882.ChatbotViewModel(gh<_i324.ChatbotUseCase>()),
-    );
+        () => _i882.ChatbotViewModel(gh<_i324.ChatbotUseCase>()));
     gh.factory<_i353.HomeUseCase>(
-      () => _i353.HomeUseCase(gh<_i280.HomeRepo>()),
-    );
+        () => _i353.HomeUseCase(gh<_i280.HomeRepo>()));
     gh.factory<_i174.SignInUseCase>(
-      () => _i174.SignInUseCase(gh<_i157.AuthRepository>()),
-    );
+        () => _i174.SignInUseCase(gh<_i157.AuthRepository>()));
     gh.factory<_i278.ExercisesUseCase>(
-      () => _i278.ExercisesUseCase(gh<_i828.ExerciseRepository>()),
-    );
+        () => _i278.ExercisesUseCase(gh<_i828.ExerciseRepository>()));
     gh.factory<_i1022.SignInViewModel>(
-      () => _i1022.SignInViewModel(gh<_i174.SignInUseCase>()),
-    );
+        () => _i1022.SignInViewModel(gh<_i174.SignInUseCase>()));
     gh.factory<_i463.GetHomeMealsCategoriesCubit>(
-      () => _i463.GetHomeMealsCategoriesCubit(gh<_i353.HomeUseCase>()),
-    );
-    gh.factory<_i1032.GetMealsCategoriesCubit>(
-      () => _i1032.GetMealsCategoriesCubit(
-        getMealsCategoriesRepo: gh<_i982.GetMealsCategoriesRepo>(),
-      ),
-    );
+        () => _i463.GetHomeMealsCategoriesCubit(gh<_i353.HomeUseCase>()));
+    gh.factory<_i1032.GetMealsCategoriesCubit>(() =>
+        _i1032.GetMealsCategoriesCubit(
+            getMealsCategoriesRepo: gh<_i982.GetMealsCategoriesRepo>()));
     gh.factory<_i514.WorkoutViewModel>(
-      () => _i514.WorkoutViewModel(gh<_i267.WorkoutUseCase>()),
-    );
+        () => _i514.WorkoutViewModel(gh<_i267.WorkoutUseCase>()));
     gh.factory<_i218.ForgetPasswordCubit>(
-      () => _i218.ForgetPasswordCubit(gh<_i484.ForgetPasswordRepo>()),
-    );
+        () => _i218.ForgetPasswordCubit(gh<_i484.ForgetPasswordRepo>()));
     gh.factory<_i960.ExerciseViewModel>(
-      () => _i960.ExerciseViewModel(gh<_i278.ExercisesUseCase>()),
-    );
+        () => _i960.ExerciseViewModel(gh<_i278.ExercisesUseCase>()));
     gh.factory<_i540.RecommendationCubit>(
-      () => _i540.RecommendationCubit(gh<_i353.HomeUseCase>()),
-    );
+        () => _i540.RecommendationCubit(gh<_i353.HomeUseCase>()));
     gh.factory<_i846.WorkoutCubit>(
-      () => _i846.WorkoutCubit(gh<_i353.HomeUseCase>()),
-    );
+        () => _i846.WorkoutCubit(gh<_i353.HomeUseCase>()));
     return this;
   }
 }

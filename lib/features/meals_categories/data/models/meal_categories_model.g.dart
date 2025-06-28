@@ -15,10 +15,10 @@ MealCategoriesModel _$MealCategoriesModelFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$MealCategoriesModelToJson(
-  MealCategoriesModel instance,
-) => <String, dynamic>{
-  'strCategory': instance.strCategory,
-  'strCategoryThumb': instance.strCategoryThumb,
-  'strCategoryDescription': instance.strCategoryDescription,
-  'idCategory': instance.idCategory,
-};
+        MealCategoriesModel instance) =>
+    <String, dynamic>{
+      'strCategory': instance.strCategory,
+      'strCategoryThumb': instance.strCategoryThumb,
+      'strCategoryDescription': instance.strCategoryDescription,
+      'idCategory': instance.idCategory,
+    };
