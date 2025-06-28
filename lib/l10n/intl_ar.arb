@@ -1,4 +1,19 @@
 {
   "signIn": "تسجيل الدخول",
-  "noExercisesAvailable": "لا توجد تمارين متاحة"
+  "noExercisesAvailable": "لا توجد تمارين متاحة",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "language": "اللغة",
+  "logout": "تسجيل الخروج",
+  "confirmLogout": "تأكيد تسجيل الخروج",
+  "login": "تسجيل الدخول",
+  "help": "مساعدة",
+  "privacyPolicy": "سياسة الخصوصية",
+  "security": "الأمان",
+  "changePassword": "تغيير كلمة المرور",
+  "editProfile": "تعديل الملف الشخصي",
+  "selectLanguage": "اختر اللغة",
+  "profile": "الملف الشخصي",
+  "noUserData": "No user Data",
+  "cancel": "إلغاء"
 }

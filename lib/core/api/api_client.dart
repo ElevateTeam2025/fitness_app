@@ -8,19 +8,18 @@ import 'package:fitness_app/features/meals_categories/data/models/meal_categorie
 import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart';
 import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart';
 import 'package:injectable/injectable.dart';
-import 'package:retrofit/error_logger.dart';
-import 'package:retrofit/http.dart';
-
-
+// import 'package:retrofit/error_logger.dart';
+// import 'package:retrofit/http.dart';
+import 'package:retrofit/retrofit.dart';
 
 import '../../features/Exercise/data/model/exercise_dto.dart';
 import '../../features/Exercise/data/model/levels_response_dto.dart';
-
 
 import '../../features/auth/sign_up/data/models/signup_request_model.dart';
 import '../../features/auth/sign_up/data/models/signup_response_model.dart';
 
 import '../../features/home/data/model/exercise_response_dto.dart';
+import '../../features/profile/data/model/profile_dto.dart';
 import '../utils/end_points.dart';
 part 'api_client.g.dart';
 
@@ -59,32 +58,37 @@ abstract class ApiClient {
 
   @GET("${ApiEndPoints.muscles}/{id}")
   Future<MusclesDataResponseModel> getMusclesData(@Path('id') String id);
-// ///////////////////++++++++++++++++/////////////////
-// ///////////////////        /////////////////
-// ///////////////////++++++++++++++++/////////////////
+  // ///////////////////++++++++++++++++/////////////////
+  // ///////////////////        /////////////////
+  // ///////////////////++++++++++++++++/////////////////
   @GET(ApiEndPoints.getAllExercise)
   Future<ExercisesResponseDTO> getAllExercises(
-      // @Header('Accept-Language') String? language,
-      );
+    // @Header('Accept-Language') String? language,
+  );
   @GET(ApiEndPoints.getExercise)
   Future<ExerciseResponseDTO> getExercisesByMuscleAndDifficulty(
-      @Query('primeMoverMuscleId') String muscleId,
-      @Query('difficultyLevelId') String difficultyId,);
-
+    @Query('primeMoverMuscleId') String muscleId,
+    @Query('difficultyLevelId') String difficultyId,
+  );
 
   @GET(ApiEndPoints.getRecommendExercise)
   Future<ExercisesResponseDTO> getRecommendExercises(
-      @Query("targetMuscleGroupId")  String targetMuscleGroupId,
-      @Query("difficultyLevelId")  String difficultyLevelId,
-      @Query("limit") int limit ,
-      );
+    @Query("targetMuscleGroupId") String targetMuscleGroupId,
+    @Query("difficultyLevelId") String difficultyLevelId,
+    @Query("limit") int limit,
+  );
   @GET(ApiEndPoints.getLevelsEndPoint)
   Future<LevelsResponseDTO> getLevels(
-      // @Header('Accept-Language') String? language,
-      );
+    // @Header('Accept-Language') String? language,
+  );
 
+  ///////////////////++++++++++++++++/////////////////
+  ///////////////////    Profile api    /////////////////
+  ///////////////////++++++++++++++++/////////////////
 
+  @GET(ApiEndPoints.getProfileData)
+  Future<ProfileDTO> getProfileData();
 
-
-
+  @GET(ApiEndPoints.logout)
+  Future<HttpResponse<void>> logout();
 }

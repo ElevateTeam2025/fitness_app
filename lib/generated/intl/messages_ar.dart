@@ -22,9 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+    "confirmLogout": MessageLookupByLibrary.simpleMessage("تأكيد تسجيل الخروج"),
+    "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+    "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+    "help": MessageLookupByLibrary.simpleMessage("مساعدة"),
+    "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "noExercisesAvailable": MessageLookupByLibrary.simpleMessage(
       "لا توجد تمارين متاحة",
     ),
+    "noUserData": MessageLookupByLibrary.simpleMessage("No user Data"),
+    "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
+    "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "security": MessageLookupByLibrary.simpleMessage("الأمان"),
+    "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
   };
 }

@@ -1,4 +1,19 @@
 {
   "signIn": "Sign In",
-  "noExercisesAvailable": "No exercises available"
+  "noExercisesAvailable": "No exercises available",
+  "english": "English",
+  "arabic": "Arabic",
+  "language": "Language",
+  "logout": "Logout",
+  "confirmLogout": "Confirm Logout",
+  "login": "Login",
+  "help": "Help",
+  "privacyPolicy": "Privacy Policy",
+  "security": "Security",
+  "changePassword": "Change Password",
+  "editProfile": "Edit Profile",
+  "selectLanguage": "Select Language",
+  "profile": "Profile",
+  "noUserData": "No user Data",
+  "cancel": "Cancel"
 }

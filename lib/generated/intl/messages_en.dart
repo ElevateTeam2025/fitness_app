@@ -22,9 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
+    "confirmLogout": MessageLookupByLibrary.simpleMessage("Confirm Logout"),
+    "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+    "english": MessageLookupByLibrary.simpleMessage("English"),
+    "help": MessageLookupByLibrary.simpleMessage("Help"),
+    "language": MessageLookupByLibrary.simpleMessage("Language"),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "logout": MessageLookupByLibrary.simpleMessage("Logout"),
     "noExercisesAvailable": MessageLookupByLibrary.simpleMessage(
       "No exercises available",
     ),
+    "noUserData": MessageLookupByLibrary.simpleMessage("No user Data"),
+    "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "security": MessageLookupByLibrary.simpleMessage("Security"),
+    "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
   };
 }

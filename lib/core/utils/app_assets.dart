@@ -40,6 +40,15 @@ abstract class IconAssets {
   static const String workoutIcon = "$iconPath/workout.png";
 
   static const String backIcon = "$iconPath/back_icon.png";
+  static const String back = "$iconPath/back.png";
+
+  static const String changePasswordIcon = "$iconPath/change_password.png";
+  static const String changeIcon = "$iconPath/changeIcon.png";
+  static const String helpIcon = "$iconPath/help.png";
+  static const String logoutIcon = "$iconPath/logout.png";
+  static const String profile = "$iconPath/profile.png";
+  static const String securityIcon = "$iconPath/security.png";
+  static const String privacyIcon = "$iconPath/privacy.png";
 
 
 
