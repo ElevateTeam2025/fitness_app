@@ -6,15 +6,13 @@ import 'package:injectable/injectable.dart';
 import '../../../../../core/common/result.dart';
 import '../../domain/use_case/profile_screen_use_case.dart';
 import '../cubit/profile_state.dart';
-import '../../data/data_source/profile_local_data_source.dart';
 
 @injectable
 class ProfileViewModel extends Cubit<ProfileState> {
-  ProfileViewModel(this._profileUseCase, this._localDataSource)
+  ProfileViewModel(this._profileUseCase,)
       : super(LoadingProfileState());
 
   final ProfileUseCase _profileUseCase;
-  final ProfileLocalDataSource _localDataSource;
 
   void doIntent(ProfileIntent profileIntent) {
     switch (profileIntent) {

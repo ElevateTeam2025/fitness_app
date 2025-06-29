@@ -1,13 +1,18 @@
-class ProfileEntity {
+import 'package:equatable/equatable.dart';
+
+class ProfileEntity extends Equatable{
   ProfileEntity({
       this.message, 
       this.user,});
 
   String? message;
   UserData? user;
+
+  @override
+  List<Object?> get props => [message, user];
 }
 
-class UserData {
+class UserData extends Equatable {
   UserData({
       this.id, 
       this.firstName, 
@@ -33,4 +38,19 @@ class UserData {
   String? activityLevel;
   String? goal;
   String? photo;
+
+  @override
+  List<Object?> get props => [
+    id,
+    firstName,
+    lastName,
+    email,
+    gender,
+    age,
+    weight,
+    height,
+    activityLevel,
+    goal,
+    photo,
+  ];
 }

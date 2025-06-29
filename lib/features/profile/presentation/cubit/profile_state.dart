@@ -1,4 +1,3 @@
-
 import 'package:fitness_app/features/profile/domain/entity/profile_entity.dart';
 
 sealed class ProfileState {}

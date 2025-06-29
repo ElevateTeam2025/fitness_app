@@ -297,12 +297,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i267.WorkoutUseCase>(
       () => _i267.WorkoutUseCase(gh<_i923.WorkoutRepository>()),
     );
-    gh.factory<_i516.ProfileViewModel>(
-      () => _i516.ProfileViewModel(
-        gh<_i1065.ProfileUseCase>(),
-        gh<_i693.ProfileLocalDataSource>(),
-      ),
-    );
     gh.factory<_i1067.SignupCubit>(
       () => _i1067.SignupCubit(gh<_i449.SignupUseCase>()),
     );
@@ -340,6 +334,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i960.ExerciseViewModel>(
       () => _i960.ExerciseViewModel(gh<_i278.ExercisesUseCase>()),
+    );
+    gh.factory<_i516.ProfileViewModel>(
+      () => _i516.ProfileViewModel(gh<_i1065.ProfileUseCase>()),
     );
     gh.factory<_i540.RecommendationCubit>(
       () => _i540.RecommendationCubit(gh<_i353.HomeUseCase>()),
