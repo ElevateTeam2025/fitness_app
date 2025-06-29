@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/features/edit_profile/presentation/cubits/upload_photo_cubit/upload_photo_cubit.dart';
@@ -125,17 +126,44 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                   ),
                 ),
                 SizedBox(height: 30.HeightResponsive),
-                EditLabelTextWidget(label: 'Your Weight', onTap: () {}),
+                EditLabelTextWidget(
+                  label: 'Your Weight',
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      PagesRoutes.editProfileFields,
+                      arguments: 0,
+                    );
+                  },
+                ),
                 SizedBox(height: 8.HeightResponsive),
                 TextFormField(decoration: InputDecoration(hintText: '90 kg')),
                 SizedBox(height: 16.HeightResponsive),
-                EditLabelTextWidget(label: 'Your Goal', onTap: () {}),
+                EditLabelTextWidget(
+                  label: 'Your Goal',
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      PagesRoutes.editProfileFields,
+                      arguments: 1,
+                    );
+                  },
+                ),
                 SizedBox(height: 8.HeightResponsive),
                 TextFormField(
                   decoration: InputDecoration(hintText: 'Gain Weight'),
                 ),
                 SizedBox(height: 16.HeightResponsive),
-                EditLabelTextWidget(label: 'Your activity level', onTap: () {}),
+                EditLabelTextWidget(
+                  label: 'Your activity level',
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      PagesRoutes.editProfileFields,
+                      arguments: 3,
+                    );
+                  },
+                ),
                 SizedBox(height: 8.HeightResponsive),
                 TextFormField(decoration: InputDecoration(hintText: 'Rookie')),
               ],

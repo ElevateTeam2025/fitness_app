@@ -5,6 +5,7 @@ import 'package:fitness_app/features/auth/forget_password/presentation/view/veri
 import 'package:fitness_app/features/auth/sign_up/presentation/view/signup_flow.dart';
 import 'package:fitness_app/app_view.dart';
 import 'package:fitness_app/features/edit_profile/presentation/view/edit_profile_view.dart';
+import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_profile_fields.dart';
 import 'package:fitness_app/features/meal_details/presentation/views/meal_details_view.dart';
 import 'package:fitness_app/features/meals_categories/presentation/views/meals_categories_view.dart';
 import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_screen.dart';
@@ -83,6 +84,11 @@ class RoutesGenerator {
       case PagesRoutes.editProfile:
         return MaterialPageRoute(
           builder: (context) => const EditProfileView(),
+          settings: settings,
+        );
+        case PagesRoutes.editProfileFields:
+        return MaterialPageRoute(
+          builder: (context) => const EditProfileFields(),
           settings: settings,
         );
       /////////////////////////////////////////////////
