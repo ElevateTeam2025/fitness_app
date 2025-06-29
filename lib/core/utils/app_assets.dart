@@ -20,6 +20,7 @@ abstract class ImageAssets {
   static const String yogaCat = "$imagePath/yoga_catecory_home.png";
   static const String chatbotImage="$imagePath/chatbot_image.png";
   static const String mealDetailsBg = "$imagePath/meal_details_bg.png";
+  static const String backgroundChatbot = "$imagePath/backgroundChatbot.png";
 }
 
 const String imagePath = "assets/images";

@@ -13,4 +13,5 @@ abstract class PagesRoutes {
 
   static const String mealsCategories = 'mealsCategories';
   static const String mealDetails = 'mealDetails';
+  static const String chatbot = 'chatbot';
 }

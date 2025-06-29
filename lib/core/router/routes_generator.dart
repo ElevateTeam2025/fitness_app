@@ -4,6 +4,7 @@ import 'package:fitness_app/features/auth/forget_password/presentation/view/forg
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/signup_flow.dart';
 import 'package:fitness_app/app_view.dart';
+import 'package:fitness_app/features/chatbot/presentation/view/chatbot_tab.dart';
 import 'package:fitness_app/features/meal_details/presentation/views/meal_details_view.dart';
 import 'package:fitness_app/features/meals_categories/presentation/views/meals_categories_view.dart';
 import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_screen.dart';
@@ -51,7 +52,7 @@ class RoutesGenerator {
         );
       case PagesRoutes.mealDetails:
         return MaterialPageRoute(
-          builder: (_) =>  MealDetailsView(),
+          builder: (_) => MealDetailsView(),
           settings: settings,
         );
 
@@ -80,15 +81,21 @@ class RoutesGenerator {
           settings: settings,
         );
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-
+      /////////////////////////////////////////////////
+      /////////////////////////////////////////////////
 
       case PagesRoutes.exercisesWrapperScreen:
-        return MaterialPageRoute(builder: (context) => ExercisesWrapperScreen(), settings: settings,);
+        return MaterialPageRoute(
+          builder: (context) => ExercisesWrapperScreen(),
+          settings: settings,
+        );
 
-
-        default:
+      case PagesRoutes.chatbot:
+        return MaterialPageRoute(
+          builder: (context) => const ChatbotTab(),
+          settings: settings,
+        );
+      default:
         return unDefinedRoute();
     }
   }
