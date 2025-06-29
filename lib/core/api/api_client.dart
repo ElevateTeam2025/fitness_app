@@ -17,8 +17,12 @@ import '../../features/Exercise/data/model/exercise_dto.dart';
 import '../../features/Exercise/data/model/levels_response_dto.dart';
 
 
+
+import '../../features/auth/change_password/date/model/change_password_model.dart';
+import '../../features/auth/change_password/date/model/change_password_request_model.dart';
 import '../../features/auth/sign_up/data/models/signup_request_model.dart';
 import '../../features/auth/sign_up/data/models/signup_response_model.dart';
+
 
 import '../../features/home/data/model/exercise_response_dto.dart';
 import '../utils/end_points.dart';
@@ -50,8 +54,11 @@ abstract class ApiClient {
 
   @PUT(ApiEndPoints.resetPassword)
   Future<void> createNewPassword(@Body() CreateNewPasswordrequset request);
-  @PUT(ApiEndPoints.resetPassword)
-  Future<void> changePassword(@Body() ResetPasswordrequset request);
+  @PUT(ApiEndPoints.changePassword)
+  Future<ChangePasswordModel> changePassword(
+      @Body() ChangePasswordRequestModel data,
+      @Header("Authorization") String token,
+      );
 
   @GET(ApiEndPoints.mealsCategories)
   Future<MealCategoriesModel> getMealsCategories();

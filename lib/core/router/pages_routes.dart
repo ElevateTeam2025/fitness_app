@@ -6,6 +6,7 @@ abstract class PagesRoutes {
  static const String forgetPasswordView = 'forgetPasswordView';
  static const String verifyResetCodeView = 'verifyResetCodeView';
  static const String signUpFlowView = 'signUp';
+ static const String changePassword = 'changePassword';
  static const String layoutView = 'layoutView';
  static const String createNewPasswordView = 'createNewPasswordView';
   static const String exerciseScreen = 'exerciseScreen';
@@ -13,4 +14,6 @@ abstract class PagesRoutes {
 
   static const String mealsCategories = 'mealsCategories';
   static const String mealDetails = 'mealDetails';
+
+
 }

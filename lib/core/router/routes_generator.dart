@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/router/pages_routes.dart';
+import 'package:fitness_app/features/auth/change_password/presentation/veiw/change_password_screen.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/create_new_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/forget_password_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
@@ -10,10 +11,13 @@ import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_s
 import 'package:fitness_app/features/splash/presentation/splash_screen.dart';
 import 'package:fitness_app/features/worksout/presentation/view/workout_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/Exercise/presentation/views/main_exercise_screen.dart';
+import '../../features/auth/change_password/presentation/cubit/change_password_cubit/change_password_view-model.dart';
 import '../../features/auth/sign_in/presentation/views/sign_in/sign_in_screen.dart';
 import '../../layout/presentation/layout_screen.dart';
+import '../di/injectable_initializer.dart';
 
 class RoutesGenerator {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -32,6 +36,15 @@ class RoutesGenerator {
       case PagesRoutes.forgetPasswordView:
         return MaterialPageRoute(
           builder: (_) => const ForgetPasswordView(),
+          settings: settings,
+        );
+      case PagesRoutes.changePassword:
+       return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+            create: (context) => getIt.get<ChangePasswordViewModel>(),
+            child: ChangePasswordScreen(),
+          ),
           settings: settings,
         );
       case PagesRoutes.verifyResetCodeView:

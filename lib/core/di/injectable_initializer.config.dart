@@ -14,6 +14,16 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 
+import '../../features/auth/change_password/date/data_sourse/change_pasword_data_source.dart'
+    as _i817;
+import '../../features/auth/change_password/date/repo_ipm/change_password_repositoy_impl.dart'
+    as _i281;
+import '../../features/auth/change_password/domin/repo/reset_password_repository.dart'
+    as _i225;
+import '../../features/auth/change_password/domin/use_case/change_password_use_case.dart'
+    as _i827;
+import '../../features/auth/change_password/presentation/cubit/change_password_cubit/change_password_view-model.dart'
+    as _i1060;
 import '../../features/auth/forget_password/data/data_source/create_new_password_data_source.dart'
     as _i674;
 import '../../features/auth/forget_password/data/data_source/create_new_password_data_source_imp.dart'
@@ -75,10 +85,6 @@ import '../../features/Exercise/domain/use_case/exercise_use_case.dart'
     as _i278;
 import '../../features/Exercise/presentation/cubit/sign_in_cubit/exercise_view_model.dart'
     as _i960;
-import '../../features/forgert_password/data/data_source/reset_new_password_data_source.dart'
-    as _i953;
-import '../../features/forgert_password/data/data_source/reset_new_password_data_source_imp.dart'
-    as _i826;
 import '../../features/home/data/data_source/home_data_source.dart' as _i68;
 import '../../features/home/data/repo_imp/home_repository_impl.dart' as _i886;
 import '../../features/home/domain/repo/home_repo.dart' as _i280;
@@ -199,10 +205,6 @@ extension GetItInjectableX on _i174.GetIt {
         createNewPasswordDataSource: gh<_i674.CreateNewPasswordDataSource>(),
       ),
     );
-    gh.factory<_i953.ResetNewPasswordDataSource>(
-      () =>
-          _i826.ResetNewPasswordDataSourceImp(apiClient: gh<_i277.ApiClient>()),
-    );
     gh.factory<_i736.GetMealsByCategoryRepo>(
       () => _i195.GetMealsByCategoryRepoImp(
         getMealsByCategoryDataSource: gh<_i1015.GetMealsByCategoryDataSource>(),
@@ -231,6 +233,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i461.ExerciseRemoteDataSource>(
       () => _i461.ExerciseRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
+    gh.factory<_i817.ChangePasswordDataSource>(
+      () => _i817.ChangePasswordDataSourceImp(gh<_i277.ApiClient>()),
     );
     gh.factory<_i472.GetMealsCategoriesDataSource>(
       () => _i81.GetMealsCategoriesDataSourceImp(
@@ -277,6 +282,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i267.WorkoutUseCase>(
       () => _i267.WorkoutUseCase(gh<_i923.WorkoutRepository>()),
     );
+    gh.factory<_i225.ChangePasswordRepository>(
+      () => _i281.ChangePasswordRepositoryImp(
+        gh<_i817.ChangePasswordDataSource>(),
+      ),
+    );
     gh.factory<_i1067.SignupCubit>(
       () => _i1067.SignupCubit(gh<_i449.SignupUseCase>()),
     );
@@ -292,8 +302,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i174.SignInUseCase>(
       () => _i174.SignInUseCase(gh<_i157.AuthRepository>()),
     );
+    gh.factory<_i827.ChangePasswordUseCase>(
+      () => _i827.ChangePasswordUseCase(gh<_i225.ChangePasswordRepository>()),
+    );
     gh.factory<_i278.ExercisesUseCase>(
       () => _i278.ExercisesUseCase(gh<_i828.ExerciseRepository>()),
+    );
+    gh.factory<_i1060.ChangePasswordViewModel>(
+      () => _i1060.ChangePasswordViewModel(gh<_i827.ChangePasswordUseCase>()),
     );
     gh.factory<_i1022.SignInViewModel>(
       () => _i1022.SignInViewModel(gh<_i174.SignInUseCase>()),
