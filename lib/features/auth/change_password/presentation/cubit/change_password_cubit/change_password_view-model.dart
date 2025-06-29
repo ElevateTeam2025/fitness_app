@@ -56,6 +56,7 @@ class ChangePasswordViewModel extends Cubit<ChangePasswordState> {
   }
 }
 
+
 sealed class ChangePasswordIntent {}
 
 class ClickedChangePasswordIntent extends ChangePasswordIntent {}
