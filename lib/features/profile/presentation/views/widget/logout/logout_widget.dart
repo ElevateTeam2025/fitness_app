@@ -1,30 +1,47 @@
-import 'package:fitness_app/core/common/get_responsive_height_and_width.dart';
+import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/core/utils/app_icons.dart';
 import 'package:flutter/material.dart';
-import '../../../../../../../core/utils/text_styles.dart';
-import '../../../../../../generated/l10n.dart';
-import 'logout_Dialog.dart';
+import 'package:fitness_app/core/utils/app_colors.dart';
+import 'package:fitness_app/core/utils/text_styles.dart';
 
-class LogoutWidget extends StatelessWidget {
-  const LogoutWidget({super.key});
+class CustomLogoutWidget extends StatelessWidget {
+  final Widget icon;
+  final String title;
+  final VoidCallback? onTap;
+  final Widget? trailing;
+
+  const CustomLogoutWidget({
+    super.key,
+    required this.icon,
+    required this.title,
+    this.onTap,
+    this.trailing,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: responsiveHeight(16),
-        horizontal: responsiveWidth(26),
-      ),
-      child: InkWell(
-        onTap: () {
-          showLogoutDialog(context);
-        },
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 4.HeightResponsive, horizontal: 4.WidthResponsive),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(Icons.logout, size: 16),
-            SizedBox(width: responsiveWidth(8)),
-            Text(S.of(context).logout, style: AppTextStyles.BalooThambi2_500_13),
-            Spacer(),
-            Icon(Icons.logout, size: 20),
+            icon,
+            SizedBox(width: 16.WidthResponsive),
+            Expanded(
+              child: Text(
+                title,
+                style: AppTextStyles.BalooThambi2_400_13.copyWith(color: AppColors.primaryColor),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            // SizedBox(width: 8),
+            SizedBox(
+              width: 20.WidthResponsive,
+              child: trailing ??
+                  Icon(AppIcons.arrowRight, color: AppColors.primaryColor, size: 14),
+            ),
           ],
         ),
       ),

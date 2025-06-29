@@ -8,68 +8,102 @@ import '../../../../../../generated/l10n.dart';
 import '../../../cubit/profile_view_model.dart';
 
 void showLogoutDialog(BuildContext parentContext) {
-  showDialog(
+  final logoutText = S.of(parentContext).logout;
+  final confirmLogoutText = S.of(parentContext).confirmLogout;
+  final cancelText = S.of(parentContext).cancel;
+
+  showGeneralDialog(
     context: parentContext,
-    builder: (BuildContext context) {
-      return Builder(
-        builder: (innerContext) {
-          return AlertDialog(
-            title: SizedBox(
-              height: responsiveHeight(50),
-              child: Center(child: Text(S.of(parentContext).logout)),
+    barrierDismissible: true,
+    barrierLabel: "Logout",
+    barrierColor: Colors.black.withOpacity(0.6),
+    transitionDuration: const Duration(milliseconds: 400),
+    pageBuilder: (context, animation, secondaryAnimation) {
+      return const SizedBox.shrink();
+    },
+    transitionBuilder: (context, animation, secondaryAnimation, child) {
+      final curvedAnimation = CurvedAnimation(
+        parent: animation,
+        curve: Curves.easeOutBack,
+        reverseCurve: Curves.easeIn,
+      );
+
+      return FadeTransition(
+        opacity: animation,
+        child: ScaleTransition(
+          scale: curvedAnimation,
+          child: AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
             ),
-            content: SizedBox(
-              height: responsiveHeight(40),
-              child: Center(child: Text(S.of(parentContext).confirmLogout)),
+            backgroundColor: AppColors.greyDark2,
+            titlePadding: EdgeInsets.only(top: responsiveHeight(24)),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: responsiveWidth(20),
+              vertical: responsiveHeight(8),
             ),
-            actions: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: responsiveHeight(50),
-                    child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.of(innerContext).pop();
-                      },
-                      child: Text(
-                        S.of(parentContext).cancel,
-                        style: AppTextStyles.BalooThambi2_500_13.copyWith(
-                          color: AppColors.blackColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: responsiveWidth(16)),
-                  SizedBox(
-                    height: responsiveHeight(50),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryColor,
-                        minimumSize: Size(
-                          responsiveWidth(100),
-                          responsiveHeight(40),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.of(innerContext).pop();
-                        BlocProvider.of<ProfileViewModel>(
-                          parentContext,
-                        ).doIntent(LogoutClickedIntent());
-                      },
-                      child: Text(
-                        S.of(parentContext).logout,
-                        style: AppTextStyles.BalooThambi2_500_14.copyWith(
-                          color: AppColors.whiteColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+            title: Center(
+              child: Text(
+                logoutText,
+                style: AppTextStyles.BalooThambi2_600_24.copyWith(color: AppColors.whiteColor),
               ),
-            ],
-          );
-        },
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  confirmLogoutText,
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.BalooThambi2_600_16.copyWith(color: AppColors.greyColor),
+                ),
+                SizedBox(height: responsiveHeight(24)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: AppColors.primaryColor),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          cancelText,
+                          style: AppTextStyles.BalooThambi2_500_13.copyWith(
+                            color: AppColors.primaryColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: responsiveWidth(16)),
+                    Expanded(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primaryColor,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          minimumSize: Size.fromHeight(responsiveHeight(48)),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                          BlocProvider.of<ProfileViewModel>(parentContext)
+                              .doIntent(LogoutClickedIntent());
+                        },
+                        child: Text(
+                          logoutText,
+                          style: AppTextStyles.BalooThambi2_500_14.copyWith(
+                            color: AppColors.whiteColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
       );
     },
   );

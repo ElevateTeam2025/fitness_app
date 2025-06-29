@@ -26,6 +26,7 @@ const String imagePath = "assets/images";
 const String iconPath = "assets/icons";
 const String animationPath = "assets/animations";
 const String svgPath = "assets/svg";
+const String jsonPath = "assets/json";
 
 abstract class IconAssets {
   static const String personIcon = "$iconPath/user.png";
@@ -58,6 +59,11 @@ abstract class IconAssets {
 abstract class AnimationAssets {
   static const String onboardingAssets =
       "$animationPath/onboarding_animation.json";
+}
+abstract class JsonAssets {
+  static const String securityPolicyJsonAssets = "$jsonPath/security_policy.json";
+  static const String privacyPolicyJsonAssets = "$jsonPath/privacy_policy.json";
+  static const String helpJsonAssets = "$jsonPath/help.json";
 }
 
 abstract class SvgImages {

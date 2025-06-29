@@ -5,8 +5,10 @@ import '../../../../../core/utils/app_assets.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../generated/l10n.dart';
 import 'custom_tile_widget.dart';
+import 'json_view/json_content_bottom_sheet.dart';
 import 'language/language_selector_tile.dart';
 import 'logout/logout_Dialog.dart';
+import 'logout/logout_widget.dart';
 
 class ProfileOptionsSection extends StatelessWidget {
   const ProfileOptionsSection({super.key});
@@ -55,24 +57,45 @@ class ProfileOptionsSection extends StatelessWidget {
                 CustomTileWidget(
                   icon: Image.asset(IconAssets.securityIcon),
                   title: S.of(context).security,
-                  onTap: () {},
+                  onTap: () {
+                    JsonContentBottomSheet.show(
+                      context,
+                      assetPath:
+                      JsonAssets.securityPolicyJsonAssets,
+                      rootKey: 'security_policy',
+                    );
+                  },
                 ),
               ),
               _buildTileWithDivider(
                 CustomTileWidget(
                   icon: Image.asset(IconAssets.privacyIcon),
                   title: S.of(context).privacyPolicy,
-                  onTap: () {},
+                  onTap: () {
+                    JsonContentBottomSheet.show(
+                      context,
+                      assetPath:
+                      JsonAssets.privacyPolicyJsonAssets,
+                      rootKey: 'privacy_policy',
+                    );
+                  },
                 ),
               ),
               _buildTileWithDivider(
                 CustomTileWidget(
                   icon: Image.asset(IconAssets.helpIcon),
                   title: S.of(context).help,
-                  onTap: () {},
+                  onTap: () {
+                    JsonContentBottomSheet.show(
+                      context,
+                      assetPath:
+                      JsonAssets.helpJsonAssets,
+                      rootKey: 'help',
+                    );
+                  },
                 ),
               ),
-              CustomTileWidget(
+              CustomLogoutWidget(
                 icon: Image.asset(IconAssets.logoutIcon),
                 title: S.of(context).logout,
                 onTap: () => showLogoutDialog(context),
