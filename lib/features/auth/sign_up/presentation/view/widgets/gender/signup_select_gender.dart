@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../core/utils/app_colors.dart';
+import '../../../../../../../generated/l10n.dart';
 import '../../../cubit/signup_view_model_cubit.dart';
 import '../build_page_title.dart';
 import 'gender_widget.dart';
@@ -17,12 +18,12 @@ class SignupSelectGender extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<SignupCubit>();
-
+    var tr = S.of(context);
     return Column(
 
       children: [
-        BuildPageTitle(title: "TELL US ABOUT YOURSELF",
-          subTitle: "We need to know your gender",),
+        BuildPageTitle(title: tr.tellAboutYourself,
+          subTitle: tr.needKnowYourGender,),
 
         CustomContainerWidget(
             body: [
@@ -38,7 +39,7 @@ class SignupSelectGender extends StatelessWidget {
                         viewModel.selectGender("male");
                         },
                         icon: IconAssets.maleIcon,
-                        isSelected: viewModel.state.gender == "male",name: "male",),
+                        isSelected: viewModel.state.gender == "male",name: tr.male,),
 
                       SizedBox(height: 24.HeightResponsive,),
                       GenderWidget(onPress: () {
@@ -46,7 +47,7 @@ class SignupSelectGender extends StatelessWidget {
 
                       },
                         icon: IconAssets.femaleIcon,
-                        isSelected: viewModel.state.gender == "female",name: "female",),
+                        isSelected: viewModel.state.gender == "female",name: tr.female,),
                       SizedBox(height:32.HeightResponsive),
                       ElevatedButton(
                         onPressed:hasSelected? () => viewModel.nextStep():null,
@@ -54,7 +55,7 @@ class SignupSelectGender extends StatelessWidget {
                           disabledBackgroundColor: AppColors.greyColor,
                         ),
                         child: Text(
-                          'Next',
+                          tr.next,
                           style: AppTextStyles.BalooThambi2_800_14.copyWith(
                             color: AppColors.whiteColor,
                           ),

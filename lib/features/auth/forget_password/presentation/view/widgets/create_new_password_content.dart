@@ -7,6 +7,8 @@ import 'package:fitness_app/features/auth/forget_password/presentation/view/widg
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 class CreateNewPasswordContent extends StatefulWidget {
   const CreateNewPasswordContent({
     super.key,
@@ -39,7 +41,7 @@ class _CreateNewPasswordContentState extends State<CreateNewPasswordContent> {
             _onChangeFun(viewModel);
           },
           controller: widget.passwordController,
-          hintText: 'Password',
+          hintText:  S.of(context).password,
           validator: passwordValidatorFun,
           isPasswordVisible: isPasswordVisible,
           onToggleVisibility: () {
@@ -57,7 +59,7 @@ class _CreateNewPasswordContentState extends State<CreateNewPasswordContent> {
             _onChangeFun(viewModel);
           },
           controller: widget.confirmPasswordController,
-          hintText: 'Confirm Password',
+          hintText: S.of(context).confirmPassword,
           validator: confirmPasswordValidatorFun,
           isPasswordVisible: isPasswordVisible,
           onToggleVisibility: () {

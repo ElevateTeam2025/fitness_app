@@ -18,20 +18,6 @@ class MealGridViewShimmerLoading extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.RadiusResponsive),
         child: Container(
           color: Colors.grey[400],
-          // child: Align(
-          //   alignment: Alignment.bottomCenter,
-          //   child: Padding(
-          //     padding: EdgeInsets.all(8.HeightResponsive),
-          //     child: Container(
-          //       height: 20
-          //           .HeightResponsive, // Approximate height for the text
-          //       width: 100
-          //           .WidthResponsive, // Approximate width for the text
-          //       color: Colors
-          //           .grey[300], // Placeholder color for the text
-          //     ),
-          //   ),
-          // ),
         ),
       ),
     );

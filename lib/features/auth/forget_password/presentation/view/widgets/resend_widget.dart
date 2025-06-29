@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 class ResendWidget extends StatelessWidget {
   const ResendWidget({super.key, required this.email});
   final String email;
@@ -16,7 +18,7 @@ class ResendWidget extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'didnt recieve verification code?',
+          S.of(context).didNotReceiveVerificationCode,
           style: AppTextStyles.BalooThambi2_400_16.copyWith(
             color: Colors.white,
           ),
@@ -28,7 +30,7 @@ class ResendWidget extends StatelessWidget {
             } else if (state is ForgetPasswordLoading) {
               EasyLoading.show();
             } else if (state is ForgetPasswordSuccess) {
-              EasyLoading.showSuccess('code sent successfully to your email');
+              EasyLoading.showSuccess(S.of(context).codeSentSuccessfullyToYourEmail);
               EasyLoading.dismiss();
             }
           },
@@ -45,7 +47,7 @@ class ResendWidget extends StatelessWidget {
               viewModel.doIntent(SendForgotPasswordIntent());
             },
             child: Text(
-              'ResendCode?',
+              S.of(context).resendCode,
               style: AppTextStyles.BalooThambi2_400_16,
             ),
           ),

@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/text_styles.dart';
+import '../../../../../../generated/l10n.dart';
 import 'build_page_title.dart';
 
 class SignupSelectAge extends StatelessWidget {
@@ -15,11 +16,12 @@ class SignupSelectAge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<SignupCubit>();
+    var tr = S.of(context);
     return Column(
 
       children: [
-        BuildPageTitle(title: "HOW OLD ARE YOU ?",
-          subTitle: "This Helps Us Create Your Personalized plan",),
+        BuildPageTitle(title: tr.howOldAreYou,
+          subTitle: tr.helpsCreatePersonalizedPlan),
 
         CustomContainerWidget(
 
@@ -28,23 +30,23 @@ class SignupSelectAge extends StatelessWidget {
               BlocBuilder<SignupCubit,SignupState>(
                 builder: (context, state) {
                   return WheelWidget(minVal: 12, maxVal: 95, initVal: 20, onValueChange: (value) {
-                    print(value);
                     viewModel.state.age=value;
-                  }, label: "Age");
+                  },
+                      label: tr.age);
                 },
 
               ),
               ElevatedButton(
                 onPressed:()=>viewModel.nextStep(),
+                style: ElevatedButton.styleFrom(
+                  disabledBackgroundColor: AppColors.greyColor,
+                ),
 
                 child: Text(
-                  'Next',
+                  tr.next,
                   style: AppTextStyles.BalooThambi2_800_14.copyWith(
                     color: AppColors.whiteColor,
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  disabledBackgroundColor: AppColors.greyColor,
                 ),
               ),
             ]

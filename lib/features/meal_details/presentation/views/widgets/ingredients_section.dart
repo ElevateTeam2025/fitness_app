@@ -5,6 +5,8 @@ import 'package:fitness_app/features/meal_details/domain/entites/meal_details_re
 import 'package:fitness_app/features/meal_details/presentation/views/widgets/ingredients_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class IngredientsSection extends StatelessWidget {
   const IngredientsSection({super.key, required this.data});
 
@@ -19,7 +21,7 @@ class IngredientsSection extends StatelessWidget {
         children: [
           SizedBox(height: 20.HeightResponsive),
           Text(
-            'Ingredients',
+            S.of(context).ingredients,
             style: AppTextStyles.BalooThambi2_700_20.copyWith(
               color: AppColors.whiteColor,
             ),

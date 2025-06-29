@@ -6,6 +6,7 @@ import '../../../../features/home/presentation/cubit/get_meals_categories_cubit/
 import '../../../../features/home/presentation/cubit/recommendation_cubit/recommendation_cubit.dart';
 import '../../../../features/home/presentation/cubit/workout_cubit/workout_cubit.dart';
 import '../../../../features/home/presentation/home_tap.dart';
+import '../../../../features/profile/presentation/cubit/profile_view_model.dart';
 import '../../../../features/worksout/presentation/view/workout_screen.dart';
 import 'layout_state.dart';
 
@@ -33,7 +34,11 @@ List<Widget>tabs=[
       BlocProvider(
         create: (context) => getIt.get<GetHomeMealsCategoriesCubit>()..getHomeMealsCategories(),
       ),
-  ], child: HomeTap(),),
+      BlocProvider(
+        create: (context) => getIt.get<ProfileViewModel>()..doIntent(ProfileClickedIntent()),
+      ),
+
+    ], child: HomeTap(),),
 
   WorkoutTab(), WorkoutTab(), ProfileTab()
 ];
