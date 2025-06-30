@@ -1,30 +1,30 @@
 
 
 
-import 'package:hive/hive.dart';
+import 'package:fitness_app/features/chatbot/data/model/local_db/chat_history_model.dart';
+import 'package:fitness_app/features/chatbot/data/model/local_db/message_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../features/chatbot/data/model/local/chat_message_model.dart';
-import '../../features/chatbot/data/model/local/chat_model.dart';
-
 @singleton
 class HiveService {
-  static const String chatBoxName = 'chats';
 
-  Future<void> initializeHive() async {
-    await Hive.initFlutter();
+  static const chatBoxName   = 'chats';
 
-    // Register adapters
-    Hive.registerAdapter(ChatMessageModelAdapter());
-    Hive.registerAdapter(ChatModelAdapter());
+  Future<void> initializeHive ()async{
 
-    // Open boxes
-    await Hive.openBox<ChatModel>(chatBoxName);
+    await  Hive.initFlutter();
+
+    Hive.registerAdapter(MessageModelAdapter());
+    Hive.registerAdapter(ChatHistoryModelAdapter());
+
+    await Hive.openBox<ChatHistoryModel>(chatBoxName);
+
   }
 
-  Future<void> closeHive() async {
+  Future<void> closeHive ()async{
+
     await Hive.close();
   }
-}
 
+}

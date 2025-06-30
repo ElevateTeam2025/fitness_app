@@ -67,11 +67,23 @@ import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.d
     as _i1067;
 import '../../features/chatbot/data/data_source/chatbot_remote_data_source.dart'
     as _i676;
+import '../../features/chatbot/data/data_source/local_data_source/local_data_source.dart'
+    as _i596;
+import '../../features/chatbot/data/data_source/remote_data_source/remote_data_source.dart'
+    as _i456;
 import '../../features/chatbot/data/repositoey_impl/chatbot_repository_impl.dart'
     as _i110;
+import '../../features/chatbot/data/repositoey_impl/repo/chat_repo_impl.dart'
+    as _i129;
 import '../../features/chatbot/domain/repository/chatbot_repository.dart'
     as _i1027;
+import '../../features/chatbot/domain/repository/repo/chat_repository.dart'
+    as _i227;
+import '../../features/chatbot/domain/use_case/chat_use_case/chat_use_case.dart'
+    as _i668;
 import '../../features/chatbot/domain/use_case/chatbot_use_case.dart' as _i324;
+import '../../features/chatbot/presentation/manager/bloc/chat_bloc.dart'
+    as _i634;
 import '../../features/chatbot/presentation/manager/chatbot_view_model.dart'
     as _i882;
 import '../../features/Exercise/data/data_source/exercise_remote_data_source.dart'
@@ -172,6 +184,7 @@ extension GetItInjectableX on _i174.GetIt {
             mealsApiClient: gh<_i512.MealsApiClient>()));
     gh.factory<_i931.AuthRemoteDataSource>(
         () => _i931.AuthRemoteDataSourceImpl(gh<_i277.ApiClient>()));
+    gh.factory<_i596.LocalDataDataSource>(() => _i596.LocalDataSourceImpl());
     gh.factory<_i674.CreateNewPasswordDataSource>(() =>
         _i1032.CreateNewPasswordDataSourceImp(
             apiClient: gh<_i277.ApiClient>()));
@@ -182,6 +195,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i801.WorkoutRemoteDataSourceImpl(gh<_i277.ApiClient>()));
     gh.factory<_i676.ChatbotRemoteDataSource>(
         () => _i676.ChatbotRemoteDataSourceImpl(gh<_i257.Gemini>()));
+    gh.factory<_i456.RemoteDataSource>(
+        () => _i456.RemoteDataSourceImpl(gh<_i846.GeminiService>()));
     gh.factory<_i809.SignupDataSource>(
         () => _i809.SignupRemoteDataSourceImpl(gh<_i277.ApiClient>()));
     gh.factory<_i640.VerifyResetCodeRepo>(() => _i363.VerifyResetCodeRepoImp(
@@ -212,6 +227,10 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i593.GetMealDetailsRepo>(() =>
         _i193.GetMealDetailsRepoImpl(gh<_i557.MealDetailsRemoteDataSource>()));
+    gh.factory<_i227.ChatRepository>(() => _i129.ChatRepositoryImpl(
+          localDataSource: gh<_i596.LocalDataDataSource>(),
+          remoteDataSource: gh<_i456.RemoteDataSource>(),
+        ));
     gh.factory<_i461.ExerciseRemoteDataSource>(
         () => _i461.ExerciseRemoteDataSourceImpl(gh<_i277.ApiClient>()));
     gh.factory<_i472.GetMealsCategoriesDataSource>(() =>
@@ -254,6 +273,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i882.ChatbotViewModel(gh<_i324.ChatbotUseCase>()));
     gh.factory<_i353.HomeUseCase>(
         () => _i353.HomeUseCase(gh<_i280.HomeRepo>()));
+    gh.factory<_i668.ChatUseCase>(
+        () => _i668.ChatUseCase(gh<_i227.ChatRepository>()));
     gh.factory<_i174.SignInUseCase>(
         () => _i174.SignInUseCase(gh<_i157.AuthRepository>()));
     gh.factory<_i278.ExercisesUseCase>(
@@ -275,6 +296,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i540.RecommendationCubit(gh<_i353.HomeUseCase>()));
     gh.factory<_i846.WorkoutCubit>(
         () => _i846.WorkoutCubit(gh<_i353.HomeUseCase>()));
+    gh.factory<_i634.ChatBloc>(
+        () => _i634.ChatBloc(useCase: gh<_i668.ChatUseCase>()));
     return this;
   }
 }
