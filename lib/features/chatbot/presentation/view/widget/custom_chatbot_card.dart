@@ -1,5 +1,7 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/features/chatbot/presentation/manager/chatbot_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/text_styles.dart';
@@ -33,7 +35,11 @@ class CustomChatbotCard extends StatelessWidget {
           ),
           SizedBox(height: 8.HeightResponsive),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              BlocProvider.of<ChatbotViewModel>(
+                context,
+              ).doIntent(GetStartedClickedIntent());
+            },
             child: Text(
               "Get Started",
               style: AppTextStyles.BalooThambi2_800_14.copyWith(

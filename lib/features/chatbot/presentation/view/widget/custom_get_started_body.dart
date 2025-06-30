@@ -9,13 +9,15 @@ class CustomGetStartedBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      children: [
-        Image.asset(ImageAssets.chatbotImage),
-        SizedBox(height: 40.HeightResponsive),
-        CustomChatbotCard(),
-        SizedBox(height: 40.HeightResponsive),
-      ],
+    return  SingleChildScrollView(
+      child: Column(
+        children: [
+          Image.asset(ImageAssets.chatbotImage),
+          SizedBox(height: 40.HeightResponsive),
+          CustomChatbotCard(),
+          SizedBox(height: 40.HeightResponsive),
+        ],
+      ),
     );
   }
 }

@@ -1,10 +1,11 @@
 sealed class ChatbotState {}
-class ChatbotLoadingState extends ChatbotState {}
-class ChatbotErrorState extends ChatbotState {
+class SendMessageLoadingState extends ChatbotState {}
+class SendMessageErrorState extends ChatbotState {
   final String message;
-  ChatbotErrorState(this.message);
+  SendMessageErrorState(this.message);
 }
-class ChatbotSuccessState extends ChatbotState {
-  final String message;
-  ChatbotSuccessState(this.message);
+class SendMessageSuccessState extends ChatbotState {
+  final List<String> message;
+  SendMessageSuccessState(this.message);
 }
+class ChangeScreenState extends ChatbotState {}

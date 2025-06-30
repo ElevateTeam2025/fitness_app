@@ -20,7 +20,7 @@ import 'generated/l10n.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Gemini.init(apiKey: ApiEndPoints.apiKey);
-  configureDependencies();
+ await configureDependencies();
   Bloc.observer = MyBlocObserver();
   ConfigLoading().showLoading();
   await SharedPreferenceServices.init();
