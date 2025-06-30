@@ -25,122 +25,130 @@ class ChangePasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var viewModel = BlocProvider.of<ChangePasswordViewModel>(context);
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: true,
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
 
-        body: Stack(
+      body: Stack(
 
-          children: [
-            ChangePasswordBackGroundImage(),
+        children: [
+          ChangePasswordBackGroundImage(),
 
 
-            Column(
+          SingleChildScrollView(
+            child: Column(
               children: [
                 ChangePasswordCustomAppBar(),
                 SizedBox(height :16.HeightResponsive),
-                CustomContainerWidget(body: [
+                Column(
+                  children: [
+                    CustomContainerWidget(body: [
 
-                  SingleChildScrollView(
-                    child: BlocConsumer<ChangePasswordViewModel, ChangePasswordState>(
-                      listener: (context, state) {
-                        if (state is ChangePasswordErrorState) {
-                          EasyLoading.dismiss();
-                          EasyLoading.showError(state.errorMessage);
-                        }
-                        if (state is ChangePasswordSuccessState) {
-                          EasyLoading.dismiss();
-                          EasyLoading.showSuccess("Password changed successfully");
-                          SharedPreferenceServices.deleteData(AppConstants.token);
-                          Navigator.pushNamedAndRemoveUntil(context, PagesRoutes.signIn,(route) => false,);
-                        }
-                        if (state is ChangePasswordLoadingState) {
-                          EasyLoading.show();
-                        }
-                      },
-                      builder: (context, state) {
-                        return Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
-                          child: Form(
-                            key: viewModel.formKey,
-                            child: Column(
-                              children: [
-                                SizedBox(height:30.HeightResponsive),
-                                TextFormField(
-                                  key: const Key('passwordField'),
-                                  validator: AppValidate.validatePassword,
-                                  obscuringCharacter: '*',
-                                  enableSuggestions: false,
-                                  autocorrect: false,
-                                  controller: viewModel.currentPasswordController,
-                                  style: AppTextStyles.BalooThambi2_500_16.copyWith(
-                                    color: AppColors.whiteColor,
-                                  ),
-                                  decoration:   InputDecoration(
-                                    hintText: "Current password",
+                      BlocConsumer<ChangePasswordViewModel, ChangePasswordState>(
+                        listener: (context, state) {
+                          if (state is ChangePasswordErrorState) {
+                            EasyLoading.dismiss();
+                            EasyLoading.showError(state.errorMessage);
+                          }
+                          if (state is ChangePasswordSuccessState) {
+                            EasyLoading.dismiss();
+                            EasyLoading.showSuccess("Password changed successfully");
+                            SharedPreferenceServices.deleteData(AppConstants.token);
+                            Navigator.pushNamedAndRemoveUntil(context, PagesRoutes.signIn,(route) => false,);
+                          }
+                          if (state is ChangePasswordLoadingState) {
+                            EasyLoading.show();
+                          }
+                        },
+                        builder: (context, state) {
+                          return Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
+                            child: Form(
+                              key: viewModel.formKey,
+                              child: Column(
+                                children: [
+                                  SizedBox(height:30.HeightResponsive),
+                                  TextFormField(
+                                    key: const Key('passwordField'),
+                                    validator: AppValidate.validatePassword,
+                                    obscuringCharacter: '*',
+                                    enableSuggestions: false,
+                                    autocorrect: false,
+                                    controller: viewModel.currentPasswordController,
+                                    style: AppTextStyles.BalooThambi2_500_16.copyWith(
+                                      color: AppColors.whiteColor,
+                                    ),
+                                    decoration:   InputDecoration(
+                                      hintText: "Current password",
 
-                                    prefixIcon: Icon(AppIcons.password, color: AppColors.whiteColor),
+                                      prefixIcon: Icon(AppIcons.password, color: AppColors.whiteColor),
 
-                                  ),
+                                    ),
 
-
-                                ),
-                                SizedBox(height: 24.HeightResponsive),
-                                TextFormField(
-                                  obscuringCharacter: "*",
-                                  obscureText: true,
-                                  controller: viewModel.newPasswordController,
-                                  validator: AppValidate.validatePassword,
-                                  decoration: InputDecoration(
-                                    hintText: "New password",
-                                  ),
-                                ),
-                                SizedBox(height:24.HeightResponsive),
-                                TextFormField(
-                                  obscuringCharacter: "*",
-                                  obscureText: true,
-                                  validator: viewModel.confirmPasswordValidator,
-                                  controller: viewModel.confirmPasswordController,
-                                  decoration: InputDecoration(
-                                    hintText: "Confirm password",
 
                                   ),
-                                ),
-                                SizedBox(height: 24.HeightResponsive),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColors.greyColor,
-                                    elevation: 0,
-                                  ),
-                                  onPressed: () {
-                                    if (BlocProvider.of<ChangePasswordViewModel>(
-                                      context,
-                                    ).formKey.currentState!.validate()) {
-                                      viewModel.doIntent(ClickedChangePasswordIntent());
-                                    }
-                                  },
-                                  child: Text(
-                                    "update",
-                                    style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                                  SizedBox(height: 24.HeightResponsive),
+                                  TextFormField(
+                                    obscuringCharacter: "*",
+                                    obscureText: true,
+                                    controller: viewModel.newPasswordController,
+                                    validator: AppValidate.validatePassword,
+                                    decoration: InputDecoration(
+                                      hintText: "New password",
+                                    ),
+                                    style: AppTextStyles.BalooThambi2_500_16.copyWith(
                                       color: AppColors.whiteColor,
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
+                                  SizedBox(height:24.HeightResponsive),
+                                  TextFormField(
+                                    obscuringCharacter: "*",
+                                    obscureText: true,
+                                    style: AppTextStyles.BalooThambi2_500_16.copyWith(
+                                      color: AppColors.whiteColor,
+                                    ),
+                                    validator: viewModel.confirmPasswordValidator,
+                                    controller: viewModel.confirmPasswordController,
+                                    decoration: InputDecoration(
+                                      hintText: "Confirm password",
 
+                                    ),
+                                  ),
+                                  SizedBox(height: 24.HeightResponsive),
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppColors.primaryColor,
+                                      elevation: 0,
+                                    ),
+                                    onPressed: () {
+                                      if (BlocProvider.of<ChangePasswordViewModel>(
+                                        context,
+                                      ).formKey.currentState!.validate()) {
+                                        viewModel.doIntent(ClickedChangePasswordIntent());
+                                      }
+                                    },
+                                    child: Text(
+                                      "update",
+                                      style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                                        color: AppColors.whiteColor,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
+    ) ;
   }
 }
