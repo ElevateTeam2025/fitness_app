@@ -1,0 +1,58 @@
+name: Run Test cases
+
+on:
+  push:
+  pull_request:
+    branches: [development]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10  # Set reasonable timeout
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Cache pub dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ env.PUB_CACHE }}
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.4'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run tests with coverage
+        run: flutter test --coverage --reporter=compact
+        continue-on-error: true
+        timeout-minutes: 5  # Set timeout for tests
+
+      - name: Show coverage percentage
+        run: |
+          set +e
+          if [ -f coverage/lcov.info ]; then
+            total=$(grep -c '^DA:' coverage/lcov.info || echo 0)
+            covered=$(grep -E '^DA:[0-9]+,[1-9]' coverage/lcov.info | wc -l || echo 0)
+            if [ "$total" -eq 0 ]; then
+              echo "Coverage: 0% (No executable lines found)"
+            else
+              percent=$(( covered * 100 / total ))
+              echo "Coverage: ${percent}% (${covered}/${total} lines covered)"
+            fi
+          else
+            echo "Coverage: N/A (No coverage file generated)"
+          fi
+        continue-on-error: true
