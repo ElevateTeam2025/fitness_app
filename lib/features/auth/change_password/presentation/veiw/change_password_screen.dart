@@ -69,7 +69,7 @@ class ChangePasswordScreen extends StatelessWidget {
                                   SizedBox(height:30.HeightResponsive),
                                   TextFormField(
                                     key: const Key('passwordField'),
-                                    validator: AppValidate.validatePassword,
+                                    validator: (value) => AppValidate.validatePassword(value, context),
                                     obscuringCharacter: '*',
                                     enableSuggestions: false,
                                     autocorrect: false,
@@ -91,7 +91,7 @@ class ChangePasswordScreen extends StatelessWidget {
                                     obscuringCharacter: "*",
                                     obscureText: true,
                                     controller: viewModel.newPasswordController,
-                                    validator: AppValidate.validatePassword,
+                                    validator: (value) => AppValidate.validatePassword(value, context),
                                     decoration: InputDecoration(
                                       hintText: "New password",
                                     ),
