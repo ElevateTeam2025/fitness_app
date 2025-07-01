@@ -6,6 +6,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/text_styles.dart';
 import '../../../../../../core/widgets/custom_container_widget.dart';
+import '../../../../../../generated/l10n.dart';
 import '../../cubit/signup_view_model_cubit.dart';
 import '../../cubit/signup_view_model_state.dart';
 import 'build_page_title.dart';
@@ -28,7 +29,7 @@ class SignupSelectActivity extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          BuildPageTitle(title: "YOUR REGULAR PHYSICAL ACTIVITY LEVEL",
+          BuildPageTitle(title: S.of(context).yourRegularPhysicalActivityLevel,
             subTitle: "",),
 
           CustomContainerWidget(
@@ -80,15 +81,15 @@ class SignupSelectActivity extends StatelessWidget {
                           onPressed: hasSelect
                               ? () => viewModel.subimt()
                               : null,
+                          style: ElevatedButton.styleFrom(
+                            disabledBackgroundColor: AppColors.greyColor,
+                          ),
 
                           child: Text(
-                            'Submit',
+                            S.of(context).submit,
                             style: AppTextStyles.BalooThambi2_800_14.copyWith(
                               color: AppColors.whiteColor,
                             ),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            disabledBackgroundColor: AppColors.greyColor,
                           ),
                         ),
                       ),

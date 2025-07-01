@@ -6,24 +6,29 @@ class LocaleProvider extends ChangeNotifier {
     loadLocale();
   }
 
-  Locale _locale = Locale(
-    'ar',
-  ); // Use a private field to encapsulate the state.
+  Locale _locale = const Locale('en');
 
-  Locale get locale => _locale; // Provide a getter for the locale.
+  Locale get locale => _locale;
 
   void changeLocale(Locale locale) async {
-    _locale = locale; // Update the class field here.
+    _locale = locale;
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('isArabic', locale.languageCode == 'ar');
+    await prefs.setString('languageCode', locale.languageCode);
+
     notifyListeners();
   }
 
-  loadLocale() async {
+  Future<void> loadLocale() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool isArabic = prefs.getBool('isArabic') ?? false;
-    _locale = isArabic ? Locale('ar') : Locale('en');
+    String? code = prefs.getString('languageCode');
+
+    if (code == null) {
+      _locale = const Locale('en');
+    } else {
+      _locale = Locale(code);
+    }
+
     notifyListeners();
   }
 }

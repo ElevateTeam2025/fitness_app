@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/di/injectable_initializer.dart';
 import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/features/auth/change_password/presentation/veiw/change_password_screen.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/create_new_password_view.dart';
@@ -5,6 +6,9 @@ import 'package:fitness_app/features/auth/forget_password/presentation/view/forg
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/signup_flow.dart';
 import 'package:fitness_app/app_view.dart';
+import 'package:fitness_app/features/edit_profile/presentation/cubits/edit_profile_cubit/edit_profile_view_model.dart';
+import 'package:fitness_app/features/edit_profile/presentation/view/edit_profile_view.dart';
+import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_profile_fields.dart';
 import 'package:fitness_app/features/meal_details/presentation/views/meal_details_view.dart';
 import 'package:fitness_app/features/meals_categories/presentation/views/meals_categories_view.dart';
 import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_screen.dart';
@@ -64,7 +68,7 @@ class RoutesGenerator {
         );
       case PagesRoutes.mealDetails:
         return MaterialPageRoute(
-          builder: (_) =>  MealDetailsView(),
+          builder: (_) => MealDetailsView(),
           settings: settings,
         );
 
@@ -92,16 +96,26 @@ class RoutesGenerator {
           builder: (context) => const AppView(),
           settings: settings,
         );
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-
+      case PagesRoutes.editProfile:
+        return MaterialPageRoute(
+          builder: (context) => EditProfileView(),
+          settings: settings,
+        );
+      // case PagesRoutes.editProfileFields:
+      //   return MaterialPageRoute(
+      //     // builder: (context) =>  EditProfileFields(),
+      //     settings: settings,
+      //   );
+      /////////////////////////////////////////////////
+      /////////////////////////////////////////////////
 
       case PagesRoutes.exercisesWrapperScreen:
-        return MaterialPageRoute(builder: (context) => ExercisesWrapperScreen(), settings: settings,);
+        return MaterialPageRoute(
+          builder: (context) => ExercisesWrapperScreen(),
+          settings: settings,
+        );
 
-
-        default:
+      default:
         return unDefinedRoute();
     }
   }

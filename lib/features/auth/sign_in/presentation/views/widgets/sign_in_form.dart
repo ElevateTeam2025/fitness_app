@@ -6,6 +6,8 @@ import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/core/widgets/custom_validate.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 class SignInForm extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
@@ -30,10 +32,11 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var tr = S.of(context);
     return Column(
       children: [
         Text(
-          'Login',
+          tr.login,
           style: AppTextStyles.BalooThambi2_700_20.copyWith(
             fontSize: 24,
             fontWeight: FontWeight.w800,
@@ -44,14 +47,14 @@ class SignInForm extends StatelessWidget {
         TextFormField(
           key: const Key('emailField'),
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          validator: AppValidate.validateEmail,
+          validator: (value) => AppValidate.validateEmail(value, context),
           focusNode: emailFocusNode,
           controller: emailController,
           style: AppTextStyles.BalooThambi2_500_16.copyWith(
             color: AppColors.whiteColor,
           ),
           decoration: InputDecoration(
-            hintText: 'email',
+            hintText: tr.email,
             prefixIcon: Icon(AppIcons.email, color: AppColors.whiteColor),
           ),
         ),
@@ -63,14 +66,14 @@ class SignInForm extends StatelessWidget {
           obscuringCharacter: '*',
           enableSuggestions: false,
           autocorrect: false,
-          validator: AppValidate.validatePassword,
+          validator: (value) => AppValidate.validatePassword(value, context),
           focusNode: passwordFocusNode,
           controller: passwordController,
           style: AppTextStyles.BalooThambi2_500_16.copyWith(
             color: AppColors.whiteColor,
           ),
           decoration: InputDecoration(
-            hintText: 'password',
+            hintText: tr.password,
             prefixIcon: Icon(AppIcons.password, color: AppColors.whiteColor),
             suffixIcon: IconButton(
               icon: Icon(
@@ -92,7 +95,7 @@ class SignInForm extends StatelessWidget {
                 Navigator.pushNamed(context, PagesRoutes.forgetPasswordView);
               },
               child: Text(
-                'forgetPassword',
+                tr.forgetPassword,
                 style: AppTextStyles.BalooThambi2_400_12.copyWith(
                   color: AppColors.primaryColor,
                   decoration: TextDecoration.underline,
@@ -113,7 +116,7 @@ class SignInForm extends StatelessWidget {
             ),
             onPressed: onSubmit,
             child: Text(
-              'Login',
+              tr.login,
               style: AppTextStyles.BalooThambi2_600_14.copyWith(
                 color: isFormValid
                     ? AppColors.whiteColor
@@ -128,7 +131,7 @@ class SignInForm extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Don't have an account yet ? ",
+              tr.DoNotHaveAccountYet,
               style: AppTextStyles.BalooThambi2_400_14.copyWith(
                 color: AppColors.whiteColor,
               ),
@@ -138,7 +141,7 @@ class SignInForm extends StatelessWidget {
                 Navigator.pushNamed(context, PagesRoutes.signUpFlowView);
               },
               child: Text(
-                " Register",
+                tr.register,
                 style: AppTextStyles.BalooThambi2_400_14.copyWith(
                   fontWeight: FontWeight.w800,
                   color: AppColors.primaryColor,

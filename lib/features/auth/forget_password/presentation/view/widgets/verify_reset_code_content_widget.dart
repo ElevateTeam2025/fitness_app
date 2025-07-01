@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 class VerifyResetCodeContentWidget extends StatefulWidget {
   const VerifyResetCodeContentWidget({super.key, required this.email});
   final String email;
@@ -53,7 +55,7 @@ class _VerifyResetCodeContentWidgetState
           child: ElevatedButton(
             onPressed: () => sendOtpFun(context),
             child: Text(
-              'Confirm',
+              S.of(context).confirm,
               style: AppTextStyles.BalooThambi2_800_14.copyWith(
                 color: Colors.white,
               ),

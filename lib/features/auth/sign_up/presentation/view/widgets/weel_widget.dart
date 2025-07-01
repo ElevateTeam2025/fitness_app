@@ -53,7 +53,8 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
           ),
         ),
         SizedBox(
-          height: 250.HeightResponsive,
+          // height: 250.HeightResponsive,
+          height: 150.HeightResponsive,
           width: double.infinity,
           child: Stack(
             children: [

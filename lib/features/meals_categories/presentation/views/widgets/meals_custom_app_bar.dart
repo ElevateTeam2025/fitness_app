@@ -4,6 +4,8 @@ import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class MealsCustomAppBar extends StatelessWidget {
   const MealsCustomAppBar({super.key});
 
@@ -31,7 +33,7 @@ class MealsCustomAppBar extends StatelessWidget {
           ),
           SizedBox(width: 24.WidthResponsive),
           Text(
-            'Food Recommendation',
+            S.of(context).foodRecommendation,
             style: AppTextStyles.BalooThambi2_600_24.copyWith(
               color: Colors.white,
             ),

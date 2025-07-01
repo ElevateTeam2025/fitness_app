@@ -1,5 +1,5 @@
 abstract class PagesRoutes {
-  static const String splashScreen = "splash_screen";
+  static const String splashScreen = "/";
   static const String onBoarding = "on_boarding";
   static const String appSection = "app_section";
  static const String signIn = 'signIn';
@@ -11,9 +11,10 @@ abstract class PagesRoutes {
  static const String createNewPasswordView = 'createNewPasswordView';
   static const String exerciseScreen = 'exerciseScreen';
   static const String exercisesWrapperScreen = 'ExercisesWrapperScreen';
-
   static const String mealsCategories = 'mealsCategories';
   static const String mealDetails = 'mealDetails';
+  static const String editProfile = 'editProfile';
+  static const String editProfileFields = 'editProfileFields';
 
 
 }

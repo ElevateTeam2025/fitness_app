@@ -3,7 +3,12 @@ import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomListTile extends StatefulWidget {
-  const CustomListTile({super.key, required this.title, required this.isSelected, required this.onPress});
+  const CustomListTile({
+    super.key,
+    required this.title,
+    required this.isSelected,
+    required this.onPress,
+  });
 
   final String title;
   final bool isSelected;
@@ -20,7 +25,6 @@ class _CustomListTileState extends State<CustomListTile> {
       color: Colors.transparent, // cuz of inkWell
 
       child: Container(
-
         height: 60.0,
         child: InkWell(
           onTap: () => widget.onPress(),
@@ -29,7 +33,9 @@ class _CustomListTileState extends State<CustomListTile> {
             decoration: BoxDecoration(
               color: Colors.transparent,
               border: Border.all(
-                color: widget.isSelected ? AppColors.primaryColor : Colors.transparent,
+                color: widget.isSelected
+                    ? AppColors.primaryColor
+                    : Colors.white,
                 width: 2.0,
               ),
               borderRadius: BorderRadius.circular(25.0),
@@ -40,7 +46,9 @@ class _CustomListTileState extends State<CustomListTile> {
               children: [
                 Text(
                   widget.title,
-                  style: AppTextStyles.BalooThambi2_800_14.copyWith(color: AppColors.whiteColor)
+                  style: AppTextStyles.BalooThambi2_800_14.copyWith(
+                    color: AppColors.whiteColor,
+                  ),
                 ),
                 Container(
                   width: 24,
@@ -48,22 +56,26 @@ class _CustomListTileState extends State<CustomListTile> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: widget.isSelected ?  AppColors.primaryColor : Colors.transparent,
+                      color: widget.isSelected
+                          ? AppColors.primaryColor
+                          : AppColors.whiteColor,
                       width: 2.0,
                     ),
                   ),
-                  child: widget.isSelected
-                      ? Center(
+                  child: Center(
                     child: Container(
                       width: 12,
                       height: 12,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColors.primaryColor,
-                      ),
+                      decoration: widget.isSelected
+                          ? BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.primaryColor,
+                            )
+                          : BoxDecoration(
+                        color: Colors.transparent,
+                            ),
                     ),
-                  )
-                      : null,
+                  ),
                 ),
               ],
             ),
