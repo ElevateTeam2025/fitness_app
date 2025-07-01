@@ -9,13 +9,20 @@ import 'package:fitness_app/features/meals_categories/data/models/meal_categorie
 import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart';
 import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart';
 import 'package:injectable/injectable.dart';
+// import 'package:retrofit/error_logger.dart';
+// import 'package:retrofit/http.dart';
+import 'package:retrofit/retrofit.dart';
+
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 import '../../features/Exercise/data/model/exercise_dto.dart';
 import '../../features/Exercise/data/model/levels_response_dto.dart';
+
 import '../../features/auth/sign_up/data/models/signup_request_model.dart';
 import '../../features/auth/sign_up/data/models/signup_response_model.dart';
+
 import '../../features/home/data/model/exercise_response_dto.dart';
+import '../../features/profile/data/model/profile_dto.dart';
 import '../utils/end_points.dart';
 part 'api_client.g.dart';
 
@@ -78,10 +85,18 @@ abstract class ApiClient {
     // @Header('Accept-Language') String? language,
   );
 
+  ///////////////////++++++++++++++++/////////////////
+  ///////////////////    Profile api    /////////////////
+  ///////////////////++++++++++++++++/////////////////
   @PUT(ApiEndPoints.uploadProfilePhoto)
   @MultiPart()
   Future<void> uploadPhoto(@Body() FormData formData);
 
+  @GET(ApiEndPoints.getProfileData)
+  Future<ProfileDTO> getProfileData();
+
+  @GET(ApiEndPoints.logout)
+  Future<HttpResponse<void>> logout();
   @PUT(ApiEndPoints.editProfile)
   Future<EditProfileResponseDto> editProfile(@Body() Map<String, dynamic> data);
 }

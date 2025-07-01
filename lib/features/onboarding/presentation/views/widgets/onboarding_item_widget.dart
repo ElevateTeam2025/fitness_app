@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class OnBoardingItemWidget extends StatelessWidget {
   const OnBoardingItemWidget({
     super.key,
@@ -26,6 +28,7 @@ class OnBoardingItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var tr = S.of(context);
     return Padding(
       padding: EdgeInsets.only(
         top: 30.HeightResponsive,
@@ -47,7 +50,7 @@ class OnBoardingItemWidget extends StatelessWidget {
                 );
               },
               child: Text(
-                'Skip',
+                tr.skip,
                 style: AppTextStyles.BalooThambi2_400_14.copyWith(
                   color: AppColors.whiteColor,
                 ),
@@ -171,7 +174,7 @@ class OnBoardingItemWidget extends StatelessWidget {
                                           );
                                     },
                                     child: Text(
-                                      'Back',
+                                      tr.back,
                                       style:
                                           AppTextStyles
                                               .BalooThambi2_800_24.copyWith(
@@ -220,7 +223,7 @@ class OnBoardingItemWidget extends StatelessWidget {
                                       }
                                     },
                                     child: Text(
-                                      'Next',
+                                      tr.next,
                                       style:
                                           AppTextStyles
                                               .BalooThambi2_800_24.copyWith(

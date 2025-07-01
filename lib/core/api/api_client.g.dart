@@ -339,55 +339,51 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<void> uploadPhoto(FormData formData) async {
+  Future<ProfileDTO> getProfileData() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = formData;
-    final _options = _setStreamType<void>(
-      Options(
-            method: 'PUT',
-            headers: _headers,
-            extra: _extra,
-            contentType: 'multipart/form-data',
-          )
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<ProfileDTO>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/auth/upload-photo',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
-    await _dio.fetch<void>(_options);
-  }
-
-  @override
-  Future<EditProfileResponseDto> editProfile(Map<String, dynamic> data) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(data);
-    final _options = _setStreamType<EditProfileResponseDto>(
-      Options(method: 'PUT', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/auth/editProfile',
+            '/auth/profile-data',
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late EditProfileResponseDto _value;
+    late ProfileDTO _value;
     try {
-      _value = EditProfileResponseDto.fromJson(_result.data!);
+      _value = ProfileDTO.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
     }
     return _value;
+  }
+
+  @override
+  Future<HttpResponse<void>> logout() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<HttpResponse<void>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/auth/logout',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<void>(_options);
+    final httpResponse = HttpResponse(null, _result);
+    return httpResponse;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

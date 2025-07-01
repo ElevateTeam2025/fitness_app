@@ -16,6 +16,7 @@ import 'package:provider/provider.dart';
 import 'core/services/localization_service.dart';
 import 'generated/l10n.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await dotenv.load();
@@ -71,6 +72,11 @@ class MainAppContent extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
 
+      debugShowCheckedModeBanner: false,
+      theme: theme(),
+      onGenerateRoute: RoutesGenerator.onGenerateRoute,
+      initialRoute: PagesRoutes.signIn,
+     // initialRoute: PagesRoutes.mealsCategories,
         debugShowCheckedModeBanner: false,
         theme: theme(),
         onGenerateRoute: RoutesGenerator.onGenerateRoute,
@@ -80,42 +86,3 @@ class MainAppContent extends StatelessWidget {
     );
   }
 }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-//
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       theme: theme(),
-//       home: MaterialApp(
-//         home: Scaffold(
-//           body: Column(
-//             children: [
-//               ElevatedButton(onPressed: null, child: const Text('Button 1')),
-//               ElevatedButton(onPressed: null, child: const Text('Button 2')),
-//               TextFormField(
-//                 decoration: InputDecoration(
-//                   labelText: 'Enter text',
-//                   hintText: 'Hint text',
-//                   border: OutlineInputBorder(),
-//                 ),
-//               ),
-//             ],
-//           ),
-//           bottomNavigationBar: BottomNavigationBar(
-//             items: const [
-//               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-//               BottomNavigationBarItem(
-//                 icon: Icon(Icons.search),
-//                 label: 'Search',
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

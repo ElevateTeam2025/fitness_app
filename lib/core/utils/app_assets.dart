@@ -6,8 +6,7 @@ abstract class ImageAssets {
   static const String onboardingBg = "$imagePath/on_boarding_bg.png";
   static const String mainBackground = "$imagePath/main_back_ground.png";
   static const String appIcon = "$imagePath/app_logo.png";
-  static const String mealsCategoriesBackgroundImage =
-      "$imagePath/food_back_ground_image.png";
+  static const String mealsCategoriesBackgroundImage = "$imagePath/food_back_ground_image.png";
   static const String logInBackground = "$imagePath/background.png";
   static const String logo = "$imagePath/logo.png";
   static const String exerciseBackground = "$imagePath/exercise_background.png";
@@ -27,6 +26,7 @@ const String imagePath = "assets/images";
 const String iconPath = "assets/icons";
 const String animationPath = "assets/animations";
 const String svgPath = "assets/svg";
+const String jsonPath = "assets/json";
 
 abstract class IconAssets {
   static const String personIcon = "$iconPath/user.png";
@@ -40,11 +40,29 @@ abstract class IconAssets {
   static const String workoutIcon = "$iconPath/workout.png";
   static const String backIcon = "$iconPath/back_icon.png";
   static const String editIcon = "$iconPath/edit_icon.png";
+  static const String back = "$iconPath/back.png";
+
+  static const String changePasswordIcon = "$iconPath/change_password.png";
+  static const String changeIcon = "$iconPath/changeIcon.png";
+  static const String helpIcon = "$iconPath/help.png";
+  static const String logoutIcon = "$iconPath/logout.png";
+  static const String profile = "$iconPath/profile.png";
+  static const String securityIcon = "$iconPath/security.png";
+  static const String privacyIcon = "$iconPath/privacy.png";
+
+
+
+
 }
 
 abstract class AnimationAssets {
   static const String onboardingAssets =
       "$animationPath/onboarding_animation.json";
+}
+abstract class JsonAssets {
+  static const String securityPolicyJsonAssets = "$jsonPath/security_policy.json";
+  static const String privacyPolicyJsonAssets = "$jsonPath/privacy_policy.json";
+  static const String helpJsonAssets = "$jsonPath/help.json";
 }
 
 abstract class SvgImages {
