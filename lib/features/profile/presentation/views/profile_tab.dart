@@ -63,7 +63,7 @@ class ProfileTab extends StatelessWidget {
                     UserInformationWidget(userData: user),
                     SizedBox(height: 24.HeightResponsive),
                     //
-                    const ProfileOptionsSection(),
+                     ProfileOptionsSection(user: user,),
                   ],
                 ),
               ),

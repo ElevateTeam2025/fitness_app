@@ -1,4 +1,6 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/core/router/pages_routes.dart';
+import 'package:fitness_app/features/profile/domain/entity/profile_entity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_assets.dart';
@@ -11,8 +13,8 @@ import 'logout/logout_Dialog.dart';
 import 'logout/logout_widget.dart';
 
 class ProfileOptionsSection extends StatelessWidget {
-  const ProfileOptionsSection({super.key});
-
+  const ProfileOptionsSection({super.key,required this.user});
+ final UserData user;
   Widget _buildTileWithDivider(Widget tile) {
     return Column(
       children: [
@@ -42,14 +44,18 @@ class ProfileOptionsSection extends StatelessWidget {
                 CustomTileWidget(
                   icon: Image.asset(IconAssets.profile,width: 20.WidthResponsive,),
                   title: S.of(context).editProfile,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, PagesRoutes.editProfile,arguments: user);
+                  },
                 ),
               ),
               _buildTileWithDivider(
                 CustomTileWidget(
                   icon: Image.asset(IconAssets.changePasswordIcon),
                   title: S.of(context).changePassword,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, PagesRoutes.changePassword);
+                  },
                 ),
               ),
               _buildTileWithDivider(const LanguageSelectorTile()),

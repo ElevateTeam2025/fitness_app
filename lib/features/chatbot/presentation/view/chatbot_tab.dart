@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/constant_manager.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
@@ -87,7 +88,7 @@ class _ChatbotTabState extends State<ChatbotTab> {
           ),
           leading: InkWell(
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context,PagesRoutes.layoutView);
               },
               child: Image.asset(
                 IconAssets.backIcon, color: AppColors.primaryColor,)),

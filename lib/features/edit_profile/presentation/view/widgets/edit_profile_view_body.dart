@@ -14,13 +14,15 @@ import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit
 import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_profile_custom_app_bar.dart';
 import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_profile_fields.dart';
 import 'package:fitness_app/features/edit_profile/presentation/view/widgets/profile_photo_widget.dart';
+import 'package:fitness_app/features/profile/domain/entity/profile_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:image_picker/image_picker.dart';
 
 class EditProfileViewBody extends StatefulWidget {
-  const EditProfileViewBody({super.key});
+  const EditProfileViewBody({super.key, required this.userData});
+  final UserData userData;
 
   @override
   State<EditProfileViewBody> createState() => _EditProfileViewBodyState();
@@ -30,20 +32,20 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
   File? _image;
   File? imageFile;
   late final TextEditingController _firstNameController = TextEditingController(
-    text: 'ahemed',
+    text: widget.userData.firstName,
   );
   late final TextEditingController _lastNameController = TextEditingController(
-    text: 'moahmed',
+    text: widget.userData.lastName,
   );
   late final TextEditingController _emailController = TextEditingController(
-    text: 'hassan@gmail.com',
+    text: widget.userData.email,
   );
 
   @override
   void initState() {
-    context.read<EditProfileViewModel>().weight = 80;
-    context.read<EditProfileViewModel>().selectedActivity = 'level1';
-    context.read<EditProfileViewModel>().selectedGoal = 'Gain weight';
+    context.read<EditProfileViewModel>().weight = widget.userData.weight!;
+    context.read<EditProfileViewModel>().selectedActivity = widget.userData.activityLevel!;
+    context.read<EditProfileViewModel>().selectedGoal = widget.userData.goal!;
     // // context.read<EditProfileViewModel>().selectedGoal =
     // final viewModel = context.read<EditProfileViewModel>();
     // viewModel.weight ??= 75; // Only sets if null
@@ -88,7 +90,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                         width: 102.WidthResponsive,
                         child: Stack(
                           children: [
-                            ProfilePhotoWidget(image: _image),
+                            ProfilePhotoWidget(image: _image, userData: widget.userData,),
                             BlocListener<UploadPhotoCubit, UploadPhotoStates>(
                               listener: (context, state) {
                                 if (state is UploadPhotoSuccess) {
@@ -130,7 +132,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                     SizedBox(height: 8.HeightResponsive),
                     Center(
                       child: Text(
-                        'Ahmed Moahmed',
+                       '${widget.userData.firstName} ${widget.userData.lastName}',
                         style: AppTextStyles.BalooThambi2_600_20.copyWith(
                           color: Colors.white,
                         ),

@@ -33,7 +33,7 @@ class UserData extends Equatable {
   String? email;
   String? gender;
   num? age;
-  num? weight;
+  int? weight;
   num? height;
   String? activityLevel;
   String? goal;
