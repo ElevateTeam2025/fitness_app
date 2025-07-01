@@ -69,8 +69,9 @@ class BuildDrawerWidget extends StatelessWidget {
             ),
 
             ListTile(
-              leading: const Icon(Icons.delete_forever),
-              title: const Text('Clear All History'),
+
+              leading: const Icon(Icons.delete_forever,color: Colors.red,),
+              title:  Text('Clear All History',style: AppTextStyles.BalooThambi2_400_13.copyWith(color: AppColors.whiteColor),),
               onTap: () {
                 context.read<ChatBloc>().add(ClearAllChatsEvent());
                 Navigator.pop(context);

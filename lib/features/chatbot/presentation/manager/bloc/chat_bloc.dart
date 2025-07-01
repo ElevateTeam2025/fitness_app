@@ -130,7 +130,13 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       ClearAllChatsEvent event, Emitter<ChatState> emit) async {
     try {
       await useCase.clearChats();
-      add(NewChatEvent());
+      final newChat = ChatHistoryEntity.create();
+      emit(state.copyWith(
+        chatHistory: [],
+        currentChat: newChat,
+        status: ChatStatus.loaded,
+        errorMessage: null
+      ));
     } catch (e) {
       emit(state.copyWith(
         errorMessage: 'Failed to clear chat history: $e',
