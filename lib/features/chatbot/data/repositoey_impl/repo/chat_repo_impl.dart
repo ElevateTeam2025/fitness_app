@@ -95,10 +95,6 @@ class ChatRepositoryImpl implements ChatRepository {
         chat.title = '$truncatedMessage - $formattedDate';
       }
 
-      chat.messages.add(geminiMessageEntity);
-
-      await updateChatHistory(chat);
-
       return geminiMessageEntity;
     } catch (e) {
       throw Exception('Failed to send message: $e');

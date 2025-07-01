@@ -29,7 +29,6 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     emit(state.copyWith(isSendingMessage: true, errorMessage: null));
 
     try {
-      // Create user message
       final userMessage = MessageEntity(
         id: const Uuid().v4(),
         content: event.message.trim(),
@@ -37,7 +36,6 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
         timestamp: DateTime.now(),
       );
 
-      // Update current chat with user message
       final updatedChat = ChatHistoryEntity(
         id: event.currentChat.id,
         title: event.currentChat.title,
@@ -45,17 +43,23 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
         createdAt: event.currentChat.createdAt,
       );
 
+      if(event.currentChat.messages.isEmpty){
+        await useCase.saveChat(updatedChat);
+      }
       emit(state.copyWith(currentChat: updatedChat));
 
       final geminiResponse = await useCase.sendMessage(updatedChat, event.message.trim());
 
 
+      // add gemini response to chat
       final finalChat = ChatHistoryEntity(
         id: updatedChat.id,
         title: updatedChat.title,
         messages: List.from(updatedChat.messages)..add(geminiResponse),
         createdAt: updatedChat.createdAt,
       );
+
+      await useCase.saveChat(finalChat);
 
       emit(state.copyWith(
         currentChat: finalChat,
@@ -110,13 +114,11 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   Future<void> _onNewChat(NewChatEvent event, Emitter<ChatState> emit) async {
     try {
       final newChat = ChatHistoryEntity.create();
-      await useCase.saveChat(newChat);
       emit(state.copyWith(
         currentChat: newChat,
         status: ChatStatus.loaded,
         errorMessage: null,
       ));
-      add(LoadAllChatsEvent());
     } catch (e) {
       emit(state.copyWith(
         errorMessage: 'Failed to create new chat: ${e.toString()}',

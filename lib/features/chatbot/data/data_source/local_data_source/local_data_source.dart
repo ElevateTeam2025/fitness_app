@@ -36,7 +36,7 @@ class LocalDataSourceImpl implements LocalDataDataSource {
 
       return chat;
     } catch (e) {
-      print('LocalDataSource error: $e'); // Debug
+      print('LocalDataSource error: $e');
       throw Exception('Failed to get chat by id: $e');
     }
   }

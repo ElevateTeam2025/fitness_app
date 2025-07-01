@@ -150,7 +150,7 @@ class _ChatbotTabState extends State<ChatbotTab> {
                               ),
                       ),
                       if (state.isSendingMessage)
-                        const Padding(
+                         Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -163,7 +163,7 @@ class _ChatbotTabState extends State<ChatbotTab> {
                                 ),
                               ),
                               SizedBox(width: 10),
-                              Text('Gemini is typing...'),
+                              Text('Gemini is typing...',style: AppTextStyles.BalooThambi2_400_13.copyWith(color: AppColors.whiteColor),),
                             ],
                           ),
                         ),
