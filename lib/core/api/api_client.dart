@@ -15,11 +15,19 @@ import 'package:retrofit/retrofit.dart';
 
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
+
+
+
 import '../../features/Exercise/data/model/exercise_dto.dart';
 import '../../features/Exercise/data/model/levels_response_dto.dart';
 
+
+
+import '../../features/auth/change_password/date/model/change_password_model.dart';
+import '../../features/auth/change_password/date/model/change_password_request_model.dart';
 import '../../features/auth/sign_up/data/models/signup_request_model.dart';
 import '../../features/auth/sign_up/data/models/signup_response_model.dart';
+
 
 import '../../features/home/data/model/exercise_response_dto.dart';
 import '../../features/profile/data/model/profile_dto.dart';
@@ -52,6 +60,11 @@ abstract class ApiClient {
 
   @PUT(ApiEndPoints.resetPassword)
   Future<void> createNewPassword(@Body() CreateNewPasswordrequset request);
+  @PUT(ApiEndPoints.changePassword)
+  Future<ChangePasswordModel> changePassword(
+      @Body() ChangePasswordRequestModel data,
+      @Header("Authorization") String token,
+      );
 
   @GET(ApiEndPoints.mealsCategories)
   Future<MealCategoriesModel> getMealsCategories();
@@ -61,7 +74,9 @@ abstract class ApiClient {
 
   @GET("${ApiEndPoints.muscles}/{id}")
   Future<MusclesDataResponseModel> getMusclesData(@Path('id') String id);
-
+// ///////////////////++++++++++++++++/////////////////
+// ///////////////////        /////////////////
+// ///////////////////++++++++++++++++/////////////////
   @GET(ApiEndPoints.getAllExercise)
   Future<ExercisesResponseDTO> getAllExercises(
     // @Header('Accept-Language') String? language,
@@ -80,8 +95,8 @@ abstract class ApiClient {
   );
   @GET(ApiEndPoints.getLevelsEndPoint)
   Future<LevelsResponseDTO> getLevels(
-    // @Header('Accept-Language') String? language,
-  );
+      // @Header('Accept-Language') String? language,
+      );
 
   ///////////////////++++++++++++++++/////////////////
   ///////////////////    Profile api    /////////////////

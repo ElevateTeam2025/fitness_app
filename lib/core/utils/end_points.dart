@@ -8,6 +8,7 @@ class ApiEndPoints {
   static const String verifyResetCode = "/auth/verifyResetCode";
   static const String signUp = "/auth/signup";
   static const String resetPassword = "/auth/resetPassword";
+  static const String changePassword = "/auth/change-password";
   static const String mealsCategories = "/1/categories.php";
   static const String mealsByCategory = "/1/filter.php";
   static const String mealDetails = "/1/lookup.php";
