@@ -75,12 +75,8 @@ class MainAppContent extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      initialRoute: PagesRoutes.signIn,
+      initialRoute: PagesRoutes.splashScreen,
      // initialRoute: PagesRoutes.mealsCategories,
-        debugShowCheckedModeBanner: false,
-        theme: theme(),
-        onGenerateRoute: RoutesGenerator.onGenerateRoute,
-        initialRoute: PagesRoutes.splashScreen,
         // initialRoute: PagesRoutes.mealsCategories,
       ),
     );

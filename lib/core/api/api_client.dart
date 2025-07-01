@@ -61,9 +61,7 @@ abstract class ApiClient {
 
   @GET("${ApiEndPoints.muscles}/{id}")
   Future<MusclesDataResponseModel> getMusclesData(@Path('id') String id);
-  // ///////////////////++++++++++++++++/////////////////
-  // ///////////////////        /////////////////
-  // ///////////////////++++++++++++++++/////////////////
+
   @GET(ApiEndPoints.getAllExercise)
   Future<ExercisesResponseDTO> getAllExercises(
     // @Header('Accept-Language') String? language,

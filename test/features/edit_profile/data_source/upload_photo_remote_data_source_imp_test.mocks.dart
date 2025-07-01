@@ -3,24 +3,26 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i11;
+import 'dart:async' as _i14;
 
-import 'package:dio/dio.dart' as _i17;
-import 'package:fitness_app/core/api/api_client.dart' as _i10;
+import 'package:dio/dio.dart' as _i20;
+import 'package:fitness_app/core/api/api_client.dart' as _i13;
 import 'package:fitness_app/features/auth/forget_password/data/models/create_new_passwordrequset.dart'
-    as _i16;
+    as _i19;
 import 'package:fitness_app/features/auth/forget_password/data/models/forget_password_request.dart'
-    as _i13;
+    as _i16;
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart'
-    as _i14;
+    as _i17;
 import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart'
     as _i2;
 import 'package:fitness_app/features/auth/sign_in/domain/entity/sign_in_request.dart'
-    as _i12;
-import 'package:fitness_app/features/auth/sign_up/data/models/signup_request_model.dart'
     as _i15;
+import 'package:fitness_app/features/auth/sign_up/data/models/signup_request_model.dart'
+    as _i18;
 import 'package:fitness_app/features/auth/sign_up/data/models/signup_response_model.dart'
     as _i3;
+import 'package:fitness_app/features/edit_profile/data/model/edit_profile_response_dto.dart'
+    as _i12;
 import 'package:fitness_app/features/Exercise/data/model/exercise_dto.dart'
     as _i8;
 import 'package:fitness_app/features/Exercise/data/model/levels_response_dto.dart'
@@ -29,11 +31,14 @@ import 'package:fitness_app/features/home/data/model/exercise_response_dto.dart'
     as _i7;
 import 'package:fitness_app/features/meals_categories/data/models/meal_categories_model.dart'
     as _i4;
+import 'package:fitness_app/features/profile/data/model/profile_dto.dart'
+    as _i10;
 import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart'
     as _i6;
 import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart'
     as _i5;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:retrofit/retrofit.dart' as _i11;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -96,118 +101,135 @@ class _FakeLevelsResponseDTO_7 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
+class _FakeProfileDTO_8 extends _i1.SmartFake implements _i10.ProfileDTO {
+  _FakeProfileDTO_8(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeHttpResponse_9<T> extends _i1.SmartFake
+    implements _i11.HttpResponse<T> {
+  _FakeHttpResponse_9(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeEditProfileResponseDto_10 extends _i1.SmartFake
+    implements _i12.EditProfileResponseDto {
+  _FakeEditProfileResponseDto_10(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [ApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiClient extends _i1.Mock implements _i10.ApiClient {
+class MockApiClient extends _i1.Mock implements _i13.ApiClient {
   MockApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i11.Future<_i2.SignInDTO> signIn(_i12.SignInRequest? data) =>
+  _i14.Future<_i2.SignInDTO> signIn(_i15.SignInRequest? data) =>
       (super.noSuchMethod(
             Invocation.method(#signIn, [data]),
-            returnValue: _i11.Future<_i2.SignInDTO>.value(
+            returnValue: _i14.Future<_i2.SignInDTO>.value(
               _FakeSignInDTO_0(this, Invocation.method(#signIn, [data])),
             ),
           )
-          as _i11.Future<_i2.SignInDTO>);
+          as _i14.Future<_i2.SignInDTO>);
 
   @override
-  _i11.Future<void> forgotPassword(_i13.ForgotPasswordRequest? request) =>
+  _i14.Future<void> forgotPassword(_i16.ForgotPasswordRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#forgotPassword, [request]),
-            returnValue: _i11.Future<void>.value(),
-            returnValueForMissingStub: _i11.Future<void>.value(),
+            returnValue: _i14.Future<void>.value(),
+            returnValueForMissingStub: _i14.Future<void>.value(),
           )
-          as _i11.Future<void>);
+          as _i14.Future<void>);
 
   @override
-  _i11.Future<void> verifyResetCode(_i14.VerifyResetCodeRequest? request) =>
+  _i14.Future<void> verifyResetCode(_i17.VerifyResetCodeRequest? request) =>
       (super.noSuchMethod(
             Invocation.method(#verifyResetCode, [request]),
-            returnValue: _i11.Future<void>.value(),
-            returnValueForMissingStub: _i11.Future<void>.value(),
+            returnValue: _i14.Future<void>.value(),
+            returnValueForMissingStub: _i14.Future<void>.value(),
           )
-          as _i11.Future<void>);
+          as _i14.Future<void>);
 
   @override
-  _i11.Future<_i3.SignupResponseModel> signup(_i15.SignupRequestModel? body) =>
+  _i14.Future<_i3.SignupResponseModel> signup(_i18.SignupRequestModel? body) =>
       (super.noSuchMethod(
             Invocation.method(#signup, [body]),
-            returnValue: _i11.Future<_i3.SignupResponseModel>.value(
+            returnValue: _i14.Future<_i3.SignupResponseModel>.value(
               _FakeSignupResponseModel_1(
                 this,
                 Invocation.method(#signup, [body]),
               ),
             ),
           )
-          as _i11.Future<_i3.SignupResponseModel>);
+          as _i14.Future<_i3.SignupResponseModel>);
 
   @override
-  _i11.Future<void> createNewPassword(_i16.CreateNewPasswordrequset? request) =>
+  _i14.Future<void> createNewPassword(_i19.CreateNewPasswordrequset? request) =>
       (super.noSuchMethod(
             Invocation.method(#createNewPassword, [request]),
-            returnValue: _i11.Future<void>.value(),
-            returnValueForMissingStub: _i11.Future<void>.value(),
+            returnValue: _i14.Future<void>.value(),
+            returnValueForMissingStub: _i14.Future<void>.value(),
           )
-          as _i11.Future<void>);
+          as _i14.Future<void>);
 
   @override
-  _i11.Future<_i4.MealCategoriesModel> getMealsCategories() =>
+  _i14.Future<_i4.MealCategoriesModel> getMealsCategories() =>
       (super.noSuchMethod(
             Invocation.method(#getMealsCategories, []),
-            returnValue: _i11.Future<_i4.MealCategoriesModel>.value(
+            returnValue: _i14.Future<_i4.MealCategoriesModel>.value(
               _FakeMealCategoriesModel_2(
                 this,
                 Invocation.method(#getMealsCategories, []),
               ),
             ),
           )
-          as _i11.Future<_i4.MealCategoriesModel>);
+          as _i14.Future<_i4.MealCategoriesModel>);
 
   @override
-  _i11.Future<_i5.MusclesTabResponseModel> getMusclesTabs() =>
+  _i14.Future<_i5.MusclesTabResponseModel> getMusclesTabs() =>
       (super.noSuchMethod(
             Invocation.method(#getMusclesTabs, []),
-            returnValue: _i11.Future<_i5.MusclesTabResponseModel>.value(
+            returnValue: _i14.Future<_i5.MusclesTabResponseModel>.value(
               _FakeMusclesTabResponseModel_3(
                 this,
                 Invocation.method(#getMusclesTabs, []),
               ),
             ),
           )
-          as _i11.Future<_i5.MusclesTabResponseModel>);
+          as _i14.Future<_i5.MusclesTabResponseModel>);
 
   @override
-  _i11.Future<_i6.MusclesDataResponseModel> getMusclesData(String? id) =>
+  _i14.Future<_i6.MusclesDataResponseModel> getMusclesData(String? id) =>
       (super.noSuchMethod(
             Invocation.method(#getMusclesData, [id]),
-            returnValue: _i11.Future<_i6.MusclesDataResponseModel>.value(
+            returnValue: _i14.Future<_i6.MusclesDataResponseModel>.value(
               _FakeMusclesDataResponseModel_4(
                 this,
                 Invocation.method(#getMusclesData, [id]),
               ),
             ),
           )
-          as _i11.Future<_i6.MusclesDataResponseModel>);
+          as _i14.Future<_i6.MusclesDataResponseModel>);
 
   @override
-  _i11.Future<_i7.ExercisesResponseDTO> getAllExercises() =>
+  _i14.Future<_i7.ExercisesResponseDTO> getAllExercises() =>
       (super.noSuchMethod(
             Invocation.method(#getAllExercises, []),
-            returnValue: _i11.Future<_i7.ExercisesResponseDTO>.value(
+            returnValue: _i14.Future<_i7.ExercisesResponseDTO>.value(
               _FakeExercisesResponseDTO_5(
                 this,
                 Invocation.method(#getAllExercises, []),
               ),
             ),
           )
-          as _i11.Future<_i7.ExercisesResponseDTO>);
+          as _i14.Future<_i7.ExercisesResponseDTO>);
 
   @override
-  _i11.Future<_i8.ExerciseResponseDTO> getExercisesByMuscleAndDifficulty(
+  _i14.Future<_i8.ExerciseResponseDTO> getExercisesByMuscleAndDifficulty(
     String? muscleId,
     String? difficultyId,
   ) =>
@@ -216,7 +238,7 @@ class MockApiClient extends _i1.Mock implements _i10.ApiClient {
               muscleId,
               difficultyId,
             ]),
-            returnValue: _i11.Future<_i8.ExerciseResponseDTO>.value(
+            returnValue: _i14.Future<_i8.ExerciseResponseDTO>.value(
               _FakeExerciseResponseDTO_6(
                 this,
                 Invocation.method(#getExercisesByMuscleAndDifficulty, [
@@ -226,10 +248,10 @@ class MockApiClient extends _i1.Mock implements _i10.ApiClient {
               ),
             ),
           )
-          as _i11.Future<_i8.ExerciseResponseDTO>);
+          as _i14.Future<_i8.ExerciseResponseDTO>);
 
   @override
-  _i11.Future<_i7.ExercisesResponseDTO> getRecommendExercises(
+  _i14.Future<_i7.ExercisesResponseDTO> getRecommendExercises(
     String? targetMuscleGroupId,
     String? difficultyLevelId,
     int? limit,
@@ -240,7 +262,7 @@ class MockApiClient extends _i1.Mock implements _i10.ApiClient {
               difficultyLevelId,
               limit,
             ]),
-            returnValue: _i11.Future<_i7.ExercisesResponseDTO>.value(
+            returnValue: _i14.Future<_i7.ExercisesResponseDTO>.value(
               _FakeExercisesResponseDTO_5(
                 this,
                 Invocation.method(#getRecommendExercises, [
@@ -251,24 +273,59 @@ class MockApiClient extends _i1.Mock implements _i10.ApiClient {
               ),
             ),
           )
-          as _i11.Future<_i7.ExercisesResponseDTO>);
+          as _i14.Future<_i7.ExercisesResponseDTO>);
 
   @override
-  _i11.Future<_i9.LevelsResponseDTO> getLevels() =>
+  _i14.Future<_i9.LevelsResponseDTO> getLevels() =>
       (super.noSuchMethod(
             Invocation.method(#getLevels, []),
-            returnValue: _i11.Future<_i9.LevelsResponseDTO>.value(
+            returnValue: _i14.Future<_i9.LevelsResponseDTO>.value(
               _FakeLevelsResponseDTO_7(this, Invocation.method(#getLevels, [])),
             ),
           )
-          as _i11.Future<_i9.LevelsResponseDTO>);
+          as _i14.Future<_i9.LevelsResponseDTO>);
 
   @override
-  _i11.Future<void> uploadPhoto(_i17.FormData? formData) =>
+  _i14.Future<void> uploadPhoto(_i20.FormData? formData) =>
       (super.noSuchMethod(
             Invocation.method(#uploadPhoto, [formData]),
-            returnValue: _i11.Future<void>.value(),
-            returnValueForMissingStub: _i11.Future<void>.value(),
+            returnValue: _i14.Future<void>.value(),
+            returnValueForMissingStub: _i14.Future<void>.value(),
           )
-          as _i11.Future<void>);
+          as _i14.Future<void>);
+
+  @override
+  _i14.Future<_i10.ProfileDTO> getProfileData() =>
+      (super.noSuchMethod(
+            Invocation.method(#getProfileData, []),
+            returnValue: _i14.Future<_i10.ProfileDTO>.value(
+              _FakeProfileDTO_8(this, Invocation.method(#getProfileData, [])),
+            ),
+          )
+          as _i14.Future<_i10.ProfileDTO>);
+
+  @override
+  _i14.Future<_i11.HttpResponse<void>> logout() =>
+      (super.noSuchMethod(
+            Invocation.method(#logout, []),
+            returnValue: _i14.Future<_i11.HttpResponse<void>>.value(
+              _FakeHttpResponse_9<void>(this, Invocation.method(#logout, [])),
+            ),
+          )
+          as _i14.Future<_i11.HttpResponse<void>>);
+
+  @override
+  _i14.Future<_i12.EditProfileResponseDto> editProfile(
+    Map<String, dynamic>? data,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#editProfile, [data]),
+            returnValue: _i14.Future<_i12.EditProfileResponseDto>.value(
+              _FakeEditProfileResponseDto_10(
+                this,
+                Invocation.method(#editProfile, [data]),
+              ),
+            ),
+          )
+          as _i14.Future<_i12.EditProfileResponseDto>);
 }
