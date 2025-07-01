@@ -17,7 +17,9 @@ class BuildChatPage extends StatelessWidget {
     required this.textController,
     required this.scrollController,
     required this.onSendMessage,
-  }); void _scrollToBottom() {
+  });
+
+  void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (scrollController.hasClients) {
         scrollController.animateTo(
@@ -33,12 +35,11 @@ class BuildChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: BlocConsumer<ChatBloc, ChatState>(
-        
         listener: (context, state) {
-          if(state.status == ChatStatus.loaded && state.currentChat != null){
-            Future.delayed(Duration(milliseconds: 100),() {
+          if (state.status == ChatStatus.loaded && state.currentChat != null) {
+            Future.delayed(Duration(milliseconds: 100), () {
               _scrollToBottom();
-            },);
+            });
           }
           if (state.errorMessage != null) {
             print(state.errorMessage);
@@ -49,7 +50,7 @@ class BuildChatPage extends StatelessWidget {
               ),
             );
           }
-      },
+        },
         builder: (context, state) {
           if (state.status == ChatStatus.loading) {
             return const Center(child: CircularProgressIndicator());
@@ -61,18 +62,18 @@ class BuildChatPage extends StatelessWidget {
                 child: messages.isEmpty
                     ? const SizedBox.shrink()
                     : ListView.builder(
-                  controller: scrollController,
-                  padding: const EdgeInsets.all(16.0),
-                  itemCount: messages.length,
-                  itemBuilder: (context, index) {
-                    final message = messages[index];
-      
-                    return MessageBubble(
-                      text: message.content,
-                      isUser: message.role == 'user',
-                    );
-                  },
-                ),
+                        controller: scrollController,
+                        padding: const EdgeInsets.all(16.0),
+                        itemCount: messages.length,
+                        itemBuilder: (context, index) {
+                          final message = messages[index];
+
+                          return MessageBubble(
+                            text: message.content,
+                            isUser: message.role == 'user',
+                          );
+                        },
+                      ),
               ),
               if (state.isSendingMessage)
                 Padding(
@@ -83,9 +84,7 @@ class BuildChatPage extends StatelessWidget {
                       const SizedBox(
                         width: 20,
                         height: 20,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                        ),
+                        child: CircularProgressIndicator(strokeWidth: 2),
                       ),
                       const SizedBox(width: 10),
                       Text(
@@ -100,7 +99,6 @@ class BuildChatPage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
-                  color: Colors.white,
                   boxShadow: [
                     BoxShadow(
                       offset: const Offset(0, -2),
@@ -113,7 +111,7 @@ class BuildChatPage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: TextFormField(
-                        controller:textController ,
+                        controller: textController,
                         decoration: InputDecoration(
                           hintText: 'Type a message...',
                           border: OutlineInputBorder(
@@ -132,11 +130,11 @@ class BuildChatPage extends StatelessWidget {
                     ),
                     const SizedBox(width: 8.0),
                     IconButton(
-                      icon: Icon(
-                        Icons.send,
-                        color: AppColors.primaryColor,
-                      ),
-                      onPressed: state.isSendingMessage ? null : onSendMessage,
+                      icon: Icon(Icons.send, color:  AppColors.primaryColor),
+                      onPressed:
+                          state.isSendingMessage
+                          ? null
+                          : onSendMessage,
                     ),
                   ],
                 ),
