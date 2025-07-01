@@ -1,5 +1,5 @@
 abstract class PagesRoutes {
-  static const String splashScreen = "splash_screen";
+  static const String splashScreen = "/";
   static const String onBoarding = "on_boarding";
   static const String appSection = "app_section";
  static const String signIn = 'signIn';
