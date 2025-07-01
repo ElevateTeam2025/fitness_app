@@ -1,103 +1,91 @@
+import 'package:flutter/material.dart';
+import 'package:fitness_app/generated/l10n.dart';
+
 class AppValidate {
-  static String? validateEmail(String? value) {
+  static String? validateEmail(String? value, BuildContext context) {
+    final tr = S.of(context);
     if (value == null || value.isEmpty) {
-      return 'Please enter an email';
+      return tr.enterEmail;
     }
     final regex = RegExp(
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
     );
     if (!regex.hasMatch(value)) {
-      return 'Please enter a valid email';
+      return tr.invalidEmail;
     }
     return null;
   }
 
-  static String? validateFirstName(String? value) {
+  static String? validateFirstName(String? value, BuildContext context) {
+    final tr = S.of(context);
     if (value == null || value.isEmpty) {
-      return 'Please enter your first name ';
+      return tr.enterFirstName;
     }
     final regex = RegExp(r'^[A-Za-z\s]+$');
     if (!regex.hasMatch(value)) {
-      return 'Please enter a valid first name ';
+      return tr.invalidFirstName;
     }
     return null;
   }
 
-  static String? validateLastName(String? value) {
+  static String? validateLastName(String? value, BuildContext context) {
+    final tr = S.of(context);
     if (value == null || value.isEmpty) {
-      return 'Please enter your last name ';
+      return tr.enterLastName;
     }
     final regex = RegExp(r'^[A-Za-z\s]+$');
     if (!regex.hasMatch(value)) {
-      return 'Please enter a valid last name ';
+      return tr.invalidLastName;
     }
     return null;
   }
 
-  static String? validatePassword(String? value) {
+  static String? validatePassword(String? value, BuildContext context) {
+    final tr = S.of(context);
     if (value == null || value.isEmpty) {
-      return 'Please enter a password ';
+      return tr.enterPassword;
     }
     if (value.length < 8) {
-      return 'Password should be at least 8 characters long';
+      return tr.invalidPasswordLength;
     }
     final regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])');
     if (!regex.hasMatch(value)) {
-      return 'Password should contain at least one uppercase letter, one lowercase letter, one number, and one special character ';
+      return tr.invalidPasswordPattern;
     }
     return null;
   }
 
-  // static String? validateConfirmPassword(String? value) {
-  //   if (value == null || value.isEmpty) {
-  //     return 'Please confirm your password ';
-  //   }
-  //   if (value != getIt<ChangePasswordViewModel>().newPasswordController.text) {
-  //     return 'Password do not match ';
-  //   }
-  //   return null;
-  // }
-
-  static String? validateUserName(String? value) {
-    RegExp userNameRegex = RegExp(r'^[a-zA-Z0-9,.-]+$');
+  static String? validateUserName(String? value, BuildContext context) {
+    final tr = S.of(context);
+    final regex = RegExp(r'^[a-zA-Z0-9,.-]+$');
     if (value == null || value.isEmpty) {
-      return 'This Field is required';
-    } else if (!userNameRegex.hasMatch(value)) {
-      return 'Please enter a valid username';
+      return tr.requiredField;
+    } else if (!regex.hasMatch(value)) {
+      return tr.invalidUserName;
     } else {
       return null;
     }
   }
 
-  // static String? validateMobile(String? value) {
-  //   RegExp regExp = RegExp(r'(^(?:[+0]9)?[0-9]{10,12}$)');
-  //   if (value == null || value.isEmpty) {
-  //     return 'Please enter mobile number';
-  //   } else if (!regExp.hasMatch(value)) {
-  //     return 'Please enter valid mobile number';
-  //   }
-  //   return null;
-  // }
-  static String? validateMobile(String? value) {
-    RegExp regExp = RegExp(r'^\+(\d{1,4})\d{7,10}$');
-
+  static String? validateMobile(String? value, BuildContext context) {
+    final tr = S.of(context);
+    final regExp = RegExp(r'^\+(\d{1,4})\d{7,10}$');
     if (value == null || value.isEmpty) {
-      return 'Please enter mobile number';
+      return tr.enterMobileNumber;
     } else if (!regExp.hasMatch(value)) {
-      return 'Please enter a valid mobile number (e.g., +201010700999)';
+      return tr.invalidMobileNumber;
     }
     return null;
   }
 
-  static String? validatePhoneNumber(String? value) {
+  static String? validatePhoneNumber(String? value, BuildContext context) {
+    final tr = S.of(context);
+    final phoneExp = RegExp(r'^\+?[0-9]{7,15}$');
+
     if (value == null || value.isEmpty) {
-      return 'Phone number is required';
-    }
-
-    final RegExp phoneExp = RegExp(r'^\+?[0-9]{7,15}$');
-
-    if (!phoneExp.hasMatch(value)) {
-      return 'Enter a valid phone number';
+      return tr.phoneRequired;
+    } else if (!phoneExp.hasMatch(value)) {
+      return tr.invalidPhoneNumber;
     }
     return null;
   }

@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../generated/l10n.dart';
 import '../manager/workout_view_model.dart';
 
 class WorkoutTab extends StatelessWidget {
@@ -19,6 +20,7 @@ class WorkoutTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var viewModel = getIt.get<WorkoutViewModel>();
+    var tr = S.of(context);
     return BlocProvider(
       create: (context) => viewModel,
       child: BlocConsumer<WorkoutViewModel, WorkoutState>(
@@ -28,16 +30,16 @@ class WorkoutTab extends StatelessWidget {
             DialogUtils.showMessage(
               context: context,
               message: state.message,
-              title: "Error",
-              postActionName: "Ok",
+              title: tr.error,
+              postActionName: tr.ok,
             );
           }
           if (state is GetAllMusclesDataErrorState) {
             DialogUtils.showMessage(
               context: context,
               message: state.message,
-              title: "Error",
-              postActionName: "Ok",
+              title: tr.error,
+              postActionName: tr.ok,
             );
           }
           if (state is GetMusclesTabSuccessState &&
@@ -55,7 +57,7 @@ class WorkoutTab extends StatelessWidget {
               children: [
                 SizedBox(height: 30.HeightResponsive),
                 Text(
-                  "Workouts",
+                  tr.workouts,
                   textAlign: TextAlign.center,
                   style: AppTextStyles.BalooThambi2_800_24.copyWith(
                     color: Colors.white,
@@ -81,7 +83,7 @@ class WorkoutTab extends StatelessWidget {
                     : viewModel.musclesTab.isNotEmpty
                     ? CustomMusclesTab(musclesTab: viewModel.musclesTab)
                     : Text(
-                        "Muscle not found",
+                        tr.muscleNotFound,
                         textAlign: TextAlign.center,
                         style: AppTextStyles.BalooThambi2_600_12,
                       ),
@@ -133,7 +135,7 @@ class WorkoutTab extends StatelessWidget {
                     ? Expanded(
                         child: Center(
                           child: Text(
-                            "Muscle not found",
+                            tr.muscleNotFound,
                             style: AppTextStyles.BalooThambi2_600_18.copyWith(
                               color: AppColors.whiteColor,
                             ),

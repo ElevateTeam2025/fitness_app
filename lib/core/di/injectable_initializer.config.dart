@@ -13,6 +13,7 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
+import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../features/auth/forget_password/data/data_source/create_new_password_data_source.dart'
     as _i674;
@@ -119,6 +120,18 @@ import '../../features/meals_categories/presentation/cubits/get_meals_categories
     as _i1032;
 import '../../features/onboarding/presentation/cubits/change_onboarding_view_model.dart'
     as _i656;
+import '../../features/profile/data/data_source/profile_local_data_source.dart'
+    as _i693;
+import '../../features/profile/data/data_source/profile_remote_data_source.dart'
+    as _i998;
+import '../../features/profile/data/repository_imp/profile_screen_repository_imp.dart'
+    as _i149;
+import '../../features/profile/domain/repository/profile_screen_repository.dart'
+    as _i763;
+import '../../features/profile/domain/use_case/profile_screen_use_case.dart'
+    as _i1065;
+import '../../features/profile/presentation/cubit/profile_view_model.dart'
+    as _i516;
 import '../../features/worksout/data/data_source/workout_remote_data_source.dart'
     as _i801;
 import '../../features/worksout/data/repository_impl/workout_repository_impl.dart'
@@ -155,6 +168,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i512.MealsApiClient>(
       () => _i512.MealsApiClient(gh<_i361.Dio>()),
     );
+    gh.factory<_i998.ProfileRemoteDataSource>(
+      () => _i998.ProfileRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
     gh.factory<_i1015.GetMealsByCategoryDataSource>(
       () => _i575.GetMealsByCategoryDataSourceImp(
         mealsApiClient: gh<_i512.MealsApiClient>(),
@@ -175,6 +191,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i801.WorkoutRemoteDataSource>(
       () => _i801.WorkoutRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
+    gh.factory<_i693.ProfileLocalDataSource>(
+      () => _i693.ProfileLocalDataSourceImpl(gh<_i460.SharedPreferences>()),
     );
     gh.factory<_i809.SignupDataSource>(
       () => _i809.SignupRemoteDataSourceImpl(gh<_i277.ApiClient>()),
@@ -221,6 +240,12 @@ extension GetItInjectableX on _i174.GetIt {
       () =>
           _i193.GetMealDetailsRepoImpl(gh<_i557.MealDetailsRemoteDataSource>()),
     );
+    gh.factory<_i763.ProfileRepository>(
+      () => _i149.ProfileRepositoryImpl(
+        gh<_i998.ProfileRemoteDataSource>(),
+        gh<_i693.ProfileLocalDataSource>(),
+      ),
+    );
     gh.factory<_i461.ExerciseRemoteDataSource>(
       () => _i461.ExerciseRemoteDataSourceImpl(gh<_i277.ApiClient>()),
     );
@@ -260,6 +285,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i449.SignupUseCase>(
       () => _i449.SignupUseCase(gh<_i751.SignupRepo>()),
+    );
+    gh.factory<_i1065.ProfileUseCase>(
+      () => _i1065.ProfileUseCase(gh<_i763.ProfileRepository>()),
     );
     gh.factory<_i982.GetMealsCategoriesRepo>(
       () => _i396.GetMealsCategoriesRepoImp(
@@ -306,6 +334,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i960.ExerciseViewModel>(
       () => _i960.ExerciseViewModel(gh<_i278.ExercisesUseCase>()),
+    );
+    gh.factory<_i516.ProfileViewModel>(
+      () => _i516.ProfileViewModel(gh<_i1065.ProfileUseCase>()),
     );
     gh.factory<_i540.RecommendationCubit>(
       () => _i540.RecommendationCubit(gh<_i353.HomeUseCase>()),

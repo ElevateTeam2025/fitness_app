@@ -1,13 +1,11 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
-import 'package:fitness_app/features/home/domain/entity/exercise_entity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/common/get_responsive_height_and_width.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/text_styles.dart';
-import '../../../../core/utils/youtube_utils.dart';
 import '../../domain/entity/meals_categories_entity.dart';
 
 
