@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/di/injectable_initializer.config.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';

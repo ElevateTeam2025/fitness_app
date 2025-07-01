@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:fitness_app/core/utils/end_points.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:injectable/injectable.dart';
 
