@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../core/utils/text_styles.dart';
+import '../../../../../../../generated/l10n.dart';
 import '../../../cubit/signup_view_model_cubit.dart';
 import '../build_page_title.dart';
 
@@ -15,6 +16,7 @@ class SignupBasicInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var tr =S.of(context);
     return SingleChildScrollView(
       padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom
@@ -24,7 +26,7 @@ class SignupBasicInfo extends StatelessWidget {
           final cubit = context.read<SignupCubit>();
           return Column(
             children: [
-              BuildPageTitle(title: "Hey There", subTitle: "CREATE AN ACCOUNT"),
+              BuildPageTitle(title: tr.heyThere, subTitle: tr.createAccount),
               CustomContainerWidget(
                 body: [
                   Padding(
@@ -138,7 +140,7 @@ class SignupBasicInfo extends StatelessWidget {
                           onChanged: (value) => cubit.updateEmail(value),
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
-                            hintText: "Email",
+                            hintText: tr.email,
                             prefixIcon: Icon(
                               Icons.email_outlined,
                               color: AppColors.whiteColor,
@@ -189,7 +191,7 @@ class SignupBasicInfo extends StatelessWidget {
                           obscureText: true,
                           onChanged: (value) => cubit.updatePassword(value),
                           decoration: InputDecoration(
-                            hintText: "Password",
+                            hintText: tr.password,
                             prefixIcon: Icon(
                               Icons.lock_outline,
                               color: AppColors.whiteColor,
@@ -252,7 +254,7 @@ class SignupBasicInfo extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            'Register',
+                            tr.register,
                             style: AppTextStyles.BalooThambi2_800_14.copyWith(
                               color: AppColors.whiteColor,
                             ),
@@ -272,11 +274,12 @@ class SignupBasicInfo extends StatelessWidget {
   }
 
   Widget _aleadyHaveAccount(BuildContext context) {
+    var tr = S.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Already Have an account ?",
+          tr.alreadyHaveAccount,
           style: AppTextStyles.BalooThambi2_400_14.copyWith(color: AppColors.whiteColor),
         ),
         TextButton(
@@ -284,7 +287,7 @@ class SignupBasicInfo extends StatelessWidget {
             Navigator.pushNamed(context, PagesRoutes.signIn);
           },
           child: Text(
-            "Login",
+            tr.login,
             style: AppTextStyles.BalooThambi2_400_14.copyWith(
               color: AppColors.primaryColor,
               decoration: TextDecoration.underline,

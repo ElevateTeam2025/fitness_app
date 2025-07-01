@@ -3,8 +3,6 @@ import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../../core/utils/app_assets.dart';
-
 class GenderWidget extends StatefulWidget {
   const GenderWidget({super.key,required this.isSelected, required this.onPress, required this.icon, required this.name});
 

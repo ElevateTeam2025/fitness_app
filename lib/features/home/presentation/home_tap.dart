@@ -14,6 +14,9 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import '../../../core/router/pages_routes.dart';
 import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/text_styles.dart';
+import '../../../generated/l10n.dart';
+import '../../profile/presentation/cubit/profile_state.dart';
+import '../../profile/presentation/cubit/profile_view_model.dart';
 import 'cubit/get_meals_categories_cubit/get_meals_categories_cubit.dart';
 import 'cubit/recommendation_cubit/recommendation_cubit.dart';
 import 'cubit/workout_cubit/workout_cubit.dart';
@@ -30,8 +33,8 @@ class _HomeTapState extends State<HomeTap> {
 
   @override
   Widget build(BuildContext context) {
+    var tr = S.of(context);
     return  Container(
-
       decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(ImageAssets.exerciseBackground),
@@ -50,27 +53,46 @@ class _HomeTapState extends State<HomeTap> {
             child: Column(
               children: [
                 SizedBox(height: 30,),
-                HomeAppBAr(firstName: 'hamo', imageUrl: "0"),
+                BlocBuilder<ProfileViewModel, ProfileState>(
+                  builder: (context, state) {
+                    if (state is SuccessProfileState) {
+                      final user = state.user;
+                      return HomeAppBAr(
+                        firstName: user?.firstName ?? '',
+                        imageUrl: user?.photo ?? '',
+                      );
+                    } else if (state is LoadingProfileState) {
+                      return HomeAppBAr(
+                        firstName: '...',
+                        imageUrl: '',
+                      );
+                    } else {
+                      return HomeAppBAr(
+                        firstName: '',
+                        imageUrl: '',
+                      );
+                    }
+                  },
+                ),
+
+
                 HomeSizedBox(),
-                RowWidget(txt: 'Category', leading_text: '',onPressed: () {  },haveLeadingText: false,),
+                RowWidget(txt: tr.category, leading_text: '',onPressed: () {  },haveLeadingText: false,),
                 HomeCategoryList(),
                 HomeSizedBox(),
 
-                RowWidget(txt: 'Recommendation to day', leading_text: '',onPressed: () {  },haveLeadingText: false,),
+                RowWidget(txt: tr.recommendationToDay, leading_text: '',onPressed: () {  },haveLeadingText: false,),
                 BlocBuilder<RecommendationCubit, RecommendationState>(
                   builder: (context, state) {
                     if (state is RecommendationLoading) {
-                      log("Recommendation RecommendationLoading ");
                       return Center(
                         child: CircularProgressIndicator(
                           color: AppColors.primaryColor,
                         ),
                       );
                     } else if (state is RecommendationSuccess) {
-                      log("Recommendation${state.data.exercises}");
-                      log(state.data.exercises?[1].exercise??"Recommendation");
                       return state.data.exercises == null
-                          ? Center(child: Text("noExercisesAvailable",
+                          ? Center(child: Text(tr.noExercisesAvailable,
                         style: AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.errorColor) ,))
                           :
 
@@ -91,7 +113,7 @@ class _HomeTapState extends State<HomeTap> {
                   },
                 ),
                 HomeSizedBox(),
-                RowWidget(txt: 'Upcoming Workouts', leading_text: 'view all',
+                RowWidget(txt: tr.upcomingWorkouts, leading_text: tr.viewAll,
                   onPressed: () { Navigator.pushNamed(context, PagesRoutes.exerciseScreen,
 
                 ); },),
@@ -108,7 +130,7 @@ class _HomeTapState extends State<HomeTap> {
                       log(state.data.exercises?[1].exercise??"nooooooooo");
 
                       return state.data.exercises == null
-                          ? Center(child: Text("noExercisesAvailable",
+                          ? Center(child: Text(tr.noExercisesAvailable,
                         style: AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.errorColor) ,))
                           :
 
@@ -129,7 +151,7 @@ class _HomeTapState extends State<HomeTap> {
                   },
                 ),
                 HomeSizedBox(),
-                RowWidget(txt: 'Recommendation For You', leading_text: 'view all',onPressed:
+                RowWidget(txt: tr.recommendationForYou, leading_text: tr.viewAll,onPressed:
                     () { Navigator.pushNamed(context, PagesRoutes.mealsCategories,
 
                 ); },),
@@ -161,14 +183,10 @@ class _HomeTapState extends State<HomeTap> {
                     return const SizedBox.shrink();
                   },
                 ),
-
-
               ],
             ),
           ),
         ),
-
-
       ),
     );
   }

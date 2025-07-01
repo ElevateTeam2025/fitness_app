@@ -2,6 +2,8 @@ import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 class CreateNewPasswordTopLeftTitle extends StatelessWidget {
   const CreateNewPasswordTopLeftTitle({super.key});
 
@@ -13,7 +15,7 @@ class CreateNewPasswordTopLeftTitle extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 16.WidthResponsive),
           child: Text(
-            'Make Sure Its 8 Characters Or More',
+            S.of(context).sureCharacters,
             style: AppTextStyles.BalooThambi2_400_18.copyWith(
               color: Colors.white,
             ),
@@ -22,7 +24,7 @@ class CreateNewPasswordTopLeftTitle extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 16.WidthResponsive),
           child: Text(
-            'Create New Password',
+            S.of(context).createNewPassword,
             style: AppTextStyles.BalooThambi2_800_20.copyWith(
               color: Colors.white,
             ),

@@ -4,6 +4,8 @@ import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/features/meal_details/presentation/views/widgets/recommendation_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class RecommendationSection extends StatelessWidget {
   const RecommendationSection({super.key, required this.args});
 
@@ -17,7 +19,7 @@ class RecommendationSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Recommendation',
+            S.of(context).recommendation,
             style: AppTextStyles.BalooThambi2_700_20.copyWith(
               color: AppColors.whiteColor,
             ),

@@ -47,18 +47,14 @@ class AuthInterceptor extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     final token = SharedPreferenceServices.getData(AppConstants.token);
-    final lang = SharedPreferenceServices.getData(AppConstants.language) ?? 'en';
-
+    // final lang = SharedPreferenceServices.getData(AppConstants.language) ?? 'en';
+    final lang = SharedPreferenceServices.getData('languageCode') ?? 'en';
     if (token != null) {
       options.headers["Authorization"] = "Bearer $token";
     }
 
-    if (!options.headers.containsKey("Accept-Language")) {
-      options.headers["Accept-Language"] = lang;
-    }
+    options.headers["Accept-Language"] = lang;
 
     return handler.next(options);
   }
 }
-
-

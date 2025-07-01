@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 class CreateNewPasswordBlocListenerElevatedButton extends StatelessWidget {
   const CreateNewPasswordBlocListenerElevatedButton({
     super.key,
@@ -37,7 +39,7 @@ class CreateNewPasswordBlocListenerElevatedButton extends StatelessWidget {
           viewModel.doIntent(ExecuteCreateNewPasswordIntent());
         },
         child: Text(
-          'Done',
+          S.of(context).done,
           style: AppTextStyles.BalooThambi2_800_14.copyWith(
             color: Colors.white,
           ),

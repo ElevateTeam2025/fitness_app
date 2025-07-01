@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 class ForgetPasswordContentWidget extends StatefulWidget {
   const ForgetPasswordContentWidget({
     super.key,
@@ -50,15 +52,15 @@ class _ForgetPasswordContentWidgetState
           },
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter email';
+              return  S.of(context).pleaseEnterEmail;
             } else if (value.isValidEmail == false) {
-              return 'Please enter valid email';
+              return S.of(context).pleaseEnterValidEmail;
             }
             return null;
           },
           controller: widget.controller,
           decoration: InputDecoration(
-            hintText: 'Email',
+            hintText:  S.of(context).email,
             prefixIcon: Icon(Icons.mail_outline, color: Color(0xffD3D3D3)),
           ),
         ),
@@ -82,7 +84,7 @@ class _ForgetPasswordContentWidgetState
           child: ElevatedButton(
             onPressed: widget.onTap,
             child: Text(
-              'Send OTP',
+              S.of(context).sendOTP,
               style: AppTextStyles.BalooThambi2_800_20.copyWith(
                 color: Colors.white,
               ),

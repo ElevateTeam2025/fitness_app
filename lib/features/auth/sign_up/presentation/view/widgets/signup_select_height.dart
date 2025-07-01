@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/text_styles.dart';
 import '../../../../../../core/widgets/custom_container_widget.dart';
+import '../../../../../../generated/l10n.dart';
 import '../../cubit/signup_view_model_state.dart';
 import 'build_page_title.dart';
 
@@ -15,10 +16,11 @@ class SignupSelectHeight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<SignupCubit>();
+    var tr = S.of(context);
     return Column(
       children: [
-        BuildPageTitle(title: "WHAT IS YOU HEIGHT ?",
-          subTitle: "This Helps Us Create Your Personalized plan",),
+        BuildPageTitle(title: tr.whatYourHeight,
+          subTitle: tr.helpsCreatePersonalizedPlan,),
 
         CustomContainerWidget(
 
@@ -29,21 +31,21 @@ class SignupSelectHeight extends StatelessWidget {
                   return WheelWidget(minVal: 100, maxVal: 250, initVal: 151, onValueChange: (value) {
                     print(value);
                     viewModel.state.height=value;
-                  }, label: "CM");
+                  }, label: tr.cm);
                 },
 
               ),
               ElevatedButton(
                 onPressed:()=>viewModel.nextStep(),
+                style: ElevatedButton.styleFrom(
+                  disabledBackgroundColor: AppColors.greyColor,
+                ),
 
                 child: Text(
-                  'Next',
+                  tr.next,
                   style: AppTextStyles.BalooThambi2_800_14.copyWith(
                     color: AppColors.whiteColor,
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  disabledBackgroundColor: AppColors.greyColor,
                 ),
               ),
             ]

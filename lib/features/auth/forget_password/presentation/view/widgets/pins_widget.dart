@@ -3,6 +3,8 @@ import 'package:fitness_app/features/auth/forget_password/presentation/view/widg
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 class PinsWidget extends StatelessWidget {
   const PinsWidget({
     super.key,
@@ -18,7 +20,7 @@ class PinsWidget extends StatelessWidget {
       autovalidateMode: autovalidateMode,
       validator: (value) {
         if (value == null || value.isEmpty || value.length < 6) {
-          return 'Please enter 6 digit code';
+          return S.of(context).pleaseEnter6DigitCode;
         }
         return null;
       },
