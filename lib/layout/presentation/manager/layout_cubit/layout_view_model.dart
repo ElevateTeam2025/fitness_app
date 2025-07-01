@@ -12,7 +12,7 @@ import '../../../../features/worksout/presentation/view/workout_screen.dart';
 import 'layout_state.dart';
 
 class LayoutViewModel extends Cubit<LayoutState> {
-  LayoutViewModel() : super(LayoutInitialState());
+  LayoutViewModel(this.currentIndex) : super(LayoutInitialState());
   int currentIndex = 0;
 
   void doIntent(LayoutIntent layoutIntent) {

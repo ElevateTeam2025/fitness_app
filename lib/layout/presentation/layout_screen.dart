@@ -12,13 +12,14 @@ import 'manager/layout_cubit/layout_state.dart';
 import 'manager/layout_cubit/layout_view_model.dart';
 
 class LayoutScreen extends StatelessWidget {
-  const LayoutScreen({super.key});
+  const LayoutScreen({super.key, this.initialIndex = 0});
+  final int initialIndex;
 
   @override
   Widget build(BuildContext context) {
     final tr = S.of(context);
     return BlocProvider(
-      create: (context) => LayoutViewModel(),
+      create: (context) => LayoutViewModel(initialIndex),
       child: BlocBuilder<LayoutViewModel, LayoutState>(
         builder: (context, state) {
           final viewModel = context.read<LayoutViewModel>();

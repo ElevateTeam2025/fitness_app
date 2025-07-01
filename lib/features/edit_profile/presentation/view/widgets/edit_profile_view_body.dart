@@ -15,6 +15,7 @@ import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit
 import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_profile_fields.dart';
 import 'package:fitness_app/features/edit_profile/presentation/view/widgets/profile_photo_widget.dart';
 import 'package:fitness_app/features/profile/domain/entity/profile_entity.dart';
+import 'package:fitness_app/layout/presentation/layout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -44,7 +45,8 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
   @override
   void initState() {
     context.read<EditProfileViewModel>().weight = widget.userData.weight!;
-    context.read<EditProfileViewModel>().selectedActivity = widget.userData.activityLevel!;
+    context.read<EditProfileViewModel>().selectedActivity =
+        widget.userData.activityLevel!;
     context.read<EditProfileViewModel>().selectedGoal = widget.userData.goal!;
     // // context.read<EditProfileViewModel>().selectedGoal =
     // final viewModel = context.read<EditProfileViewModel>();
@@ -63,6 +65,12 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
         if (state is EditProfileSuccess) {
           EasyLoading.dismiss();
           EasyLoading.showSuccess('Profile updated successfully');
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LayoutScreen(initialIndex: 3),
+            ),
+          );
         } else if (state is EditProfileLoading) {
           EasyLoading.show();
         } else if (state is EditProfileError) {
@@ -90,7 +98,10 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                         width: 102.WidthResponsive,
                         child: Stack(
                           children: [
-                            ProfilePhotoWidget(image: _image, userData: widget.userData,),
+                            ProfilePhotoWidget(
+                              image: _image,
+                              userData: widget.userData,
+                            ),
                             BlocListener<UploadPhotoCubit, UploadPhotoStates>(
                               listener: (context, state) {
                                 if (state is UploadPhotoSuccess) {
@@ -132,7 +143,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                     SizedBox(height: 8.HeightResponsive),
                     Center(
                       child: Text(
-                       '${widget.userData.firstName} ${widget.userData.lastName}',
+                        '${widget.userData.firstName} ${widget.userData.lastName}',
                         style: AppTextStyles.BalooThambi2_600_20.copyWith(
                           color: Colors.white,
                         ),
