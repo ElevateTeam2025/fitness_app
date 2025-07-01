@@ -4,6 +4,7 @@ import 'package:fitness_app/features/auth/forget_password/data/models/forget_pas
 import 'package:fitness_app/features/auth/forget_password/data/models/verify_reset_code_request.dart';
 import 'package:fitness_app/features/auth/sign_in/data/model/sign_in_dto.dart';
 import 'package:fitness_app/features/auth/sign_in/domain/entity/sign_in_request.dart';
+import 'package:fitness_app/features/edit_profile/data/model/edit_profile_response_dto.dart';
 import 'package:fitness_app/features/meals_categories/data/models/meal_categories_model.dart';
 import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart';
 import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart';
@@ -12,6 +13,8 @@ import 'package:injectable/injectable.dart';
 // import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 
+import 'package:retrofit/error_logger.dart';
+import 'package:retrofit/http.dart';
 import '../../features/Exercise/data/model/exercise_dto.dart';
 import '../../features/Exercise/data/model/levels_response_dto.dart';
 
@@ -58,9 +61,7 @@ abstract class ApiClient {
 
   @GET("${ApiEndPoints.muscles}/{id}")
   Future<MusclesDataResponseModel> getMusclesData(@Path('id') String id);
-  // ///////////////////++++++++++++++++/////////////////
-  // ///////////////////        /////////////////
-  // ///////////////////++++++++++++++++/////////////////
+
   @GET(ApiEndPoints.getAllExercise)
   Future<ExercisesResponseDTO> getAllExercises(
     // @Header('Accept-Language') String? language,
@@ -85,10 +86,15 @@ abstract class ApiClient {
   ///////////////////++++++++++++++++/////////////////
   ///////////////////    Profile api    /////////////////
   ///////////////////++++++++++++++++/////////////////
+  @PUT(ApiEndPoints.uploadProfilePhoto)
+  @MultiPart()
+  Future<void> uploadPhoto(@Body() FormData formData);
 
   @GET(ApiEndPoints.getProfileData)
   Future<ProfileDTO> getProfileData();
 
   @GET(ApiEndPoints.logout)
   Future<HttpResponse<void>> logout();
+  @PUT(ApiEndPoints.editProfile)
+  Future<EditProfileResponseDto> editProfile(@Body() Map<String, dynamic> data);
 }

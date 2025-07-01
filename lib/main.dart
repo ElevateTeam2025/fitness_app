@@ -6,6 +6,7 @@ import 'package:fitness_app/core/services/easy_loading_service.dart';
 import 'package:fitness_app/core/services/screen_size_service.dart';
 import 'package:fitness_app/core/services/shared_preference_services.dart';
 import 'package:fitness_app/core/utils/theming.dart';
+import 'package:fitness_app/features/edit_profile/presentation/cubits/edit_profile_cubit/edit_profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -40,10 +41,11 @@ class InitApp extends StatelessWidget {
           ScreenSizeService.init(context);
 
           return MultiProvider(
-              providers: [
-                ChangeNotifierProvider(create: (_) => LocaleProvider()),
-              ],
-              child: MainAppContent());
+            providers: [
+              ChangeNotifierProvider(create: (_) => LocaleProvider()),
+            ],
+            child: MainAppContent(),
+          );
         },
       ),
       builder: EasyLoading.init(),
@@ -58,60 +60,25 @@ class MainAppContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final localeProvider = context.watch<LocaleProvider>();
 
-    return MaterialApp(
-      locale: localeProvider.locale,
-      supportedLocales: S.delegate.supportedLocales,
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
+    return BlocProvider(
+      create: (context) => getIt<EditProfileViewModel>(),
+      child: MaterialApp(
+        locale: localeProvider.locale,
+        supportedLocales: S.delegate.supportedLocales,
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
 
       debugShowCheckedModeBanner: false,
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      initialRoute: PagesRoutes.signIn,
+      initialRoute: PagesRoutes.splashScreen,
      // initialRoute: PagesRoutes.mealsCategories,
+        // initialRoute: PagesRoutes.mealsCategories,
+      ),
     );
   }
 }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-//
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       theme: theme(),
-//       home: MaterialApp(
-//         home: Scaffold(
-//           body: Column(
-//             children: [
-//               ElevatedButton(onPressed: null, child: const Text('Button 1')),
-//               ElevatedButton(onPressed: null, child: const Text('Button 2')),
-//               TextFormField(
-//                 decoration: InputDecoration(
-//                   labelText: 'Enter text',
-//                   hintText: 'Hint text',
-//                   border: OutlineInputBorder(),
-//                 ),
-//               ),
-//             ],
-//           ),
-//           bottomNavigationBar: BottomNavigationBar(
-//             items: const [
-//               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-//               BottomNavigationBarItem(
-//                 icon: Icon(Icons.search),
-//                 label: 'Search',
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

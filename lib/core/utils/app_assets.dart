@@ -11,7 +11,8 @@ abstract class ImageAssets {
   static const String logo = "$imagePath/logo.png";
   static const String exerciseBackground = "$imagePath/exercise_background.png";
   static const String loading = "$imagePath/loading.gif";
-  static const String exampleBackground = "$imagePath/example_app_background.png";
+  static const String exampleBackground =
+      "$imagePath/example_app_background.png";
   static const String aerobicsCat = "$imagePath/Aerobics_category_home.png";
   static const String fitnessCat = "$imagePath/fitness_catecory_home.png";
   static const String gymCat = "$imagePath/gym_Category_home.png";
@@ -33,13 +34,12 @@ abstract class IconAssets {
   static const String lockIcon = "$iconPath/lock.png";
   static const String maleIcon = "$iconPath/male.png";
   static const String femaleIcon = "$iconPath/female.png";
-
   static const String homeIcon = "$iconPath/homeIcon.png";
   static const String profileIcon = "$iconPath/profileIcon.png";
   static const String chatIcon = "$iconPath/chatIcon.png";
   static const String workoutIcon = "$iconPath/workout.png";
-
   static const String backIcon = "$iconPath/back_icon.png";
+  static const String editIcon = "$iconPath/edit_icon.png";
   static const String back = "$iconPath/back.png";
 
   static const String changePasswordIcon = "$iconPath/change_password.png";

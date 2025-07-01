@@ -10,7 +10,8 @@ abstract class PagesRoutes {
  static const String createNewPasswordView = 'createNewPasswordView';
   static const String exerciseScreen = 'exerciseScreen';
   static const String exercisesWrapperScreen = 'ExercisesWrapperScreen';
-
   static const String mealsCategories = 'mealsCategories';
   static const String mealDetails = 'mealDetails';
+  static const String editProfile = 'editProfile';
+  static const String editProfileFields = 'editProfileFields';
 }
