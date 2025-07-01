@@ -4,12 +4,15 @@ import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 
 class SignInHeader extends StatelessWidget {
   const SignInHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var tr = S.of(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: responsiveWidth(16)),
       child: Column(
@@ -27,14 +30,14 @@ class SignInHeader extends StatelessWidget {
           ),
           SizedBox(height: responsiveHeight(20)),
           Text(
-            'Hey There',
+            tr.heyThere,
             style: AppTextStyles.BalooThambi2_400_16.copyWith(
               fontSize: 18,
               color: AppColors.whiteColor,
             ),
           ),
           Text(
-            'WELCOME BACK',
+            tr.welcomeBack,
             style: AppTextStyles.BalooThambi2_700_20.copyWith(
               fontWeight: FontWeight.w800,
               color: AppColors.whiteColor,

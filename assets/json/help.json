@@ -1,0 +1,133 @@
+{
+  "help": [
+    {
+      "section": "title",
+      "title": {
+        "en": "Help Center",
+        "ar": "مركز المساعدة"
+      },
+      "content": {
+        "en": "",
+        "ar": ""
+      },
+      "style": {
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "color": "#FF4100",
+        "textAlign": {
+          "en": "center",
+          "ar": "center"
+        },
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "section": "description",
+      "title": {
+        "en": "Description",
+        "ar": "الوصف"
+      },
+      "content": {
+        "en": "If you have any questions or need support, we're here to help. Browse our FAQs or contact us through one of the available channels.",
+        "ar": "إذا كانت لديك أي أسئلة أو تحتاج إلى دعم، فنحن هنا لمساعدتك. تصفح الأسئلة الشائعة أو تواصل معنا من خلال إحدى القنوات المتاحة."
+      },
+      "style": {
+        "title": {
+          "fontSize": 16,
+          "fontWeight": "normal",
+          "color": "#FF4100",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        },
+        "content": {
+          "fontSize": 16,
+          "fontWeight": "normal",
+          "color": "#FFFFFF",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      }
+    },
+    {
+      "section": "contact_us",
+      "title": {
+        "en": "Contact Us",
+        "ar": "تواصل معنا"
+      },
+      "content": {
+        "en": [
+          {
+            "label": "Facebook",
+            "icon": "facebook",
+            "link": "https://facebook.com/yourpage"
+          },
+          {
+            "label": "Twitter",
+            "icon": "twitter",
+            "link": "https://twitter.com/yourhandle"
+          },
+          {
+            "label": "Instagram",
+            "icon": "instagram",
+            "link": "https://instagram.com/yourprofile"
+          },
+          {
+            "label": "Email",
+            "icon": "email",
+            "link": "support@example.com"
+          }
+        ],
+        "ar": [
+          {
+            "label": "فيسبوك",
+            "icon": "facebook",
+            "link": "https://facebook.com/yourpage"
+          },
+          {
+            "label": "تويتر",
+            "icon": "twitter",
+            "link": "https://twitter.com/yourhandle"
+          },
+          {
+            "label": "انستغرام",
+            "icon": "instagram",
+            "link": "https://instagram.com/yourprofile"
+          },
+          {
+            "label": "البريد الإلكتروني",
+            "icon": "email",
+            "link": "support@example.com"
+          }
+        ]
+      },
+      "style": {
+        "title": {
+          "fontSize": 16,
+          "fontWeight": "normal",
+          "color": "#FF4100",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        },
+        "content": {
+          "fontSize": 16,
+          "fontWeight": "normal",
+          "color": "#FFFFFF",
+          "textAlign": {
+            "en": "center",
+            "ar": "center"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      }
+    }
+  ]
+}

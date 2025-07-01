@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:flutter/material.dart';
 
 class ProfileTab extends StatelessWidget {
@@ -5,8 +6,16 @@ class ProfileTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black26,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, PagesRoutes.editProfile);
+          },
+          child: Text('Go to Profile edit page'),
+        ),
+      ],
     );
   }
 }

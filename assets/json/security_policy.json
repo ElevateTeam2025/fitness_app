@@ -1,0 +1,58 @@
+{
+  "security_policy": [
+    {
+      "section": "title",
+      "title": {
+        "en": "Security Policy",
+        "ar": "سياسة الأمان"
+      },
+      "content": {
+        "en": "",
+        "ar": ""
+      },
+      "style": {
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "color": "#FF4100",
+        "textAlign": {
+          "en": "center",
+          "ar": "center"
+        },
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "section": "description",
+      "title": {
+        "en": "Description",
+        "ar": "الوصف"
+      },
+      "content": {
+        "en": "We take your security seriously. Our app uses industry-standard encryption and secure authentication to protect your personal data, workout history, and progress tracking. We do not share your sensitive data with any third-party service without your explicit consent.",
+        "ar": "نحن نأخذ أمانك على محمل الجد. يستخدم تطبيقنا التشفير المعياري والمصادقة الآمنة لحماية بياناتك الشخصية وسجل التمارين وتتبع التقدم. نحن لا نشارك بياناتك الحساسة مع أي جهة خارجية دون موافقتك الصريحة."
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#FF4100",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        },
+        "content": {
+          "fontSize": 16,
+          "fontWeight": "normal",
+          "color": "#FFFFFF",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      }
+    }
+  ]
+}

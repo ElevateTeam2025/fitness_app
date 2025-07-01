@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/utils/app_assets.dart';
+import '../../generated/l10n.dart';
 import 'manager/layout_cubit/layout_state.dart';
 import 'manager/layout_cubit/layout_view_model.dart';
 
@@ -15,6 +16,7 @@ class LayoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tr = S.of(context);
     return BlocProvider(
       create: (context) => LayoutViewModel(),
       child: BlocBuilder<LayoutViewModel, LayoutState>(
@@ -26,66 +28,38 @@ class LayoutScreen extends StatelessWidget {
             backgroundColor: AppColors.greyDark2,
             body: viewModel.tabs[viewModel.currentIndex],
 
-            bottomNavigationBar: viewModel.currentIndex != 1
-                ? Container(
-                    margin: const EdgeInsets.all(16),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(color: Colors.black12, blurRadius: 10),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TabBarItemWidget(
-                          currentIndex: viewModel.currentIndex,
-                          index: 0,
-                          icon: IconAssets.homeIcon,
-                          label: 'home',
-                          onTap: () => viewModel.doIntent(
-                            LayoutChangeBottomNavIntent(0),
-                          ),
-                        ),
-                        TabBarItemWidget(
-                          currentIndex: viewModel.currentIndex,
-                          index: 1,
-                          icon: IconAssets.chatIcon,
-                          label: 'chat',
-                          // onTap: () => viewModel.doIntent(
-                          //   LayoutChangeBottomNavIntent(1),
-                          // ),
-                          onTap: () {
-                           Navigator.pushNamed(context, PagesRoutes.chatPage);
-                          },
-                        ),
-                        TabBarItemWidget(
-                          currentIndex: viewModel.currentIndex,
-                          index: 2,
-                          icon: IconAssets.workoutIcon,
-                          label: 'workout',
-                          onTap: () => viewModel.doIntent(
-                            LayoutChangeBottomNavIntent(2),
-                          ),
-                        ),
-                        TabBarItemWidget(
-                          currentIndex: viewModel.currentIndex,
-                          index: 3,
-                          icon: IconAssets.profileIcon,
-                          label: 'profile',
-                          onTap: () => viewModel.doIntent(
-                            LayoutChangeBottomNavIntent(3),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                : const SizedBox(),
+
+            bottomNavigationBar: Container(
+              margin: const EdgeInsets.all(16),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(color: Colors.black12, blurRadius: 10),
+                ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+              TabBarItemWidget(currentIndex: viewModel.currentIndex, index: 0,
+                icon:IconAssets.homeIcon, label: tr.home,
+              onTap:() =>viewModel.doIntent(LayoutChangeBottomNavIntent(0),),),
+                  TabBarItemWidget(currentIndex: viewModel.currentIndex, index: 1,
+                    icon:IconAssets.chatIcon, label: tr.chat,
+                    onTap:() =>viewModel.doIntent(LayoutChangeBottomNavIntent(1),),),
+                  TabBarItemWidget(currentIndex: viewModel.currentIndex,
+                    index: 2, icon:IconAssets.workoutIcon, label: tr.workout,
+                    onTap:() =>viewModel.doIntent(LayoutChangeBottomNavIntent(2),),),
+                  TabBarItemWidget(currentIndex: viewModel.currentIndex,
+                    index: 3, icon:IconAssets.profileIcon, label:  tr.profile,
+                    onTap:() =>viewModel.doIntent(LayoutChangeBottomNavIntent(3),),),
+
+                ],
+              ),
+            ),
+
+
           );
         },
       ),

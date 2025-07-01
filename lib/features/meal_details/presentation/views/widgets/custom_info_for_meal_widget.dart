@@ -3,6 +3,8 @@ import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class CustomInfoForMealWidget extends StatelessWidget {
   const CustomInfoForMealWidget({super.key});
 
@@ -21,13 +23,13 @@ class CustomInfoForMealWidget extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            '100 k',
+            S.of(context).hondredK,
             style: AppTextStyles.BalooThambi2_400_12.copyWith(
               color: AppColors.whiteColor,
             ),
           ),
           Text(
-            'Energy',
+            S.of(context).energy,
             style: AppTextStyles.BalooThambi2_700_12.copyWith(
               color: AppColors.primaryColor,
             ),

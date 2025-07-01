@@ -2,6 +2,8 @@ import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../generated/l10n.dart';
+
 class ForgetPasswordTopLeftTitle extends StatelessWidget {
   const ForgetPasswordTopLeftTitle({super.key});
 
@@ -12,7 +14,7 @@ class ForgetPasswordTopLeftTitle extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 16.WidthResponsive),
           child: Text(
-            'Enter Your Email',
+            S.of(context).enterYourEmail,
             style: AppTextStyles.BalooThambi2_400_18.copyWith(
               color: Colors.white,
             ),

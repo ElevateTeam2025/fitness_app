@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../../core/utils/app_colors.dart';
 import '../../../../../../../core/utils/text_styles.dart';
 import '../../../../../../../core/widgets/custom_container_widget.dart';
+import '../../../../../../../generated/l10n.dart';
 import '../build_page_title.dart';
 
 class SignupSelectGoal extends StatelessWidget {
@@ -22,12 +23,13 @@ class SignupSelectGoal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var tr = S.of(context);
     final viewModel = context.read<SignupCubit>();
     return SingleChildScrollView(
       child: Column(
         children: [
-          BuildPageTitle(title: "WHAT IS YOUR GOAL?",
-            subTitle: "This Helps Us Create Your Personalized plan",),
+          BuildPageTitle(title: tr.whatYourGoal,
+            subTitle: tr.helpsCreatePersonalizedPlan,),
 
           CustomContainerWidget(
             body: [
@@ -50,15 +52,15 @@ class SignupSelectGoal extends StatelessWidget {
                       },),
                       ElevatedButton(
                         onPressed: hasSelect ? () => viewModel.nextStep() : null,
+                        style: ElevatedButton.styleFrom(
+                          disabledBackgroundColor: AppColors.greyColor,
+                        ),
 
                         child: Text(
-                          'Next',
+                          tr.next,
                           style: AppTextStyles.BalooThambi2_800_14.copyWith(
                             color: AppColors.whiteColor,
                           ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          disabledBackgroundColor: AppColors.greyColor,
                         ),
                       ),
                     ],

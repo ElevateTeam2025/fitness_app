@@ -1,0 +1,140 @@
+{
+  "privacy_policy": [
+    {
+      "section": "title",
+      "title": {
+        "en": "Privacy Policy",
+        "ar": "سياسة الخصوصية"
+      },
+      "content": {
+        "en": "",
+        "ar": ""
+      },
+      "style": {
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "color": "#FF4100",
+        "textAlign": {
+          "en": "center",
+          "ar": "center"
+        },
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "section": "introduction",
+      "title": {
+        "en": "Introduction",
+        "ar": "مقدمة"
+      },
+      "content": {
+        "en": "Your privacy is important to us. This policy explains how we collect, use, and protect your information when using our fitness app.",
+        "ar": "خصوصيتك مهمة بالنسبة لنا. توضح هذه السياسة كيف نقوم بجمع واستخدام وحماية معلوماتك عند استخدام تطبيق اللياقة الخاص بنا."
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#FF4100",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        },
+        "content": {
+          "fontSize": 16,
+          "fontWeight": "normal",
+          "color": "#FFFFFF",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      }
+    },
+    {
+      "section": "data_collection",
+      "title": {
+        "en": "What We Collect",
+        "ar": "ما نقوم بجمعه"
+      },
+      "content": {
+        "en": [
+          "Name and email when registering.",
+          "Workout activity and progress data.",
+          "Device information for performance tracking."
+        ],
+        "ar": [
+          "الاسم والبريد الإلكتروني عند التسجيل.",
+          "بيانات النشاط الرياضي والتقدم.",
+          "معلومات الجهاز لتتبع الأداء."
+        ]
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#FF4100",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        },
+        "content": {
+          "fontSize": 16,
+          "fontWeight": "normal",
+          "color": "#FFFFFF",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      }
+    },
+    {
+      "section": "user_rights",
+      "title": {
+        "en": "Your Rights",
+        "ar": "حقوقك"
+      },
+      "content": {
+        "en": [
+          "You have the right to access, update, or delete your data.",
+          "You can opt-out of marketing messages at any time.",
+          "We do not sell your personal data to third parties."
+        ],
+        "ar": [
+          "لديك الحق في الوصول إلى بياناتك أو تحديثها أو حذفها.",
+          "يمكنك إلغاء الاشتراك في الرسائل التسويقية في أي وقت.",
+          "نحن لا نبيع بياناتك الشخصية لأي طرف ثالث."
+        ]
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#FF4100",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        },
+        "content": {
+          "fontSize": 16,
+          "fontWeight": "normal",
+          "color": "#FFFFFF",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      }
+    }
+  ]
+}
