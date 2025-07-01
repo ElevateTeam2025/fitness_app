@@ -65,14 +65,26 @@ import '../../features/auth/sign_up/domain/use_case/signup_use_case.dart'
     as _i449;
 import '../../features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart'
     as _i1067;
+import '../../features/edit_profile/data/data_source/edit_profile_remote_data_source/edit_profile_remote_data_source.dart'
+    as _i815;
+import '../../features/edit_profile/data/data_source/edit_profile_remote_data_source/edit_profile_remote_data_source_impl.dart'
+    as _i905;
 import '../../features/edit_profile/data/data_source/upload_photo_remote_data_source.dart'
     as _i415;
 import '../../features/edit_profile/data/data_source/upload_photo_remote_data_source_imp.dart'
     as _i870;
+import '../../features/edit_profile/data/repo_imp/edit_profile_repo_impl.dart'
+    as _i49;
 import '../../features/edit_profile/data/repo_imp/upload_photo_repo_imp.dart'
     as _i836;
+import '../../features/edit_profile/domain/repo/edit_profile_repo.dart'
+    as _i642;
 import '../../features/edit_profile/domain/repo/upload_photo_repo.dart'
     as _i646;
+import '../../features/edit_profile/domain/use_case/edit_profile_use_case.dart'
+    as _i226;
+import '../../features/edit_profile/presentation/cubits/edit_profile_cubit/edit_profile_view_model.dart'
+    as _i98;
 import '../../features/edit_profile/presentation/cubits/upload_photo_cubit/upload_photo_cubit.dart'
     as _i1058;
 import '../../features/Exercise/data/data_source/exercise_remote_data_source.dart'
@@ -236,6 +248,9 @@ extension GetItInjectableX on _i174.GetIt {
       () =>
           _i193.GetMealDetailsRepoImpl(gh<_i557.MealDetailsRemoteDataSource>()),
     );
+    gh.factory<_i815.EditProfileRemoteDataSource>(
+      () => _i905.EditProfileRemoteDataSourceImpl(gh<_i277.ApiClient>()),
+    );
     gh.factory<_i461.ExerciseRemoteDataSource>(
       () => _i461.ExerciseRemoteDataSourceImpl(gh<_i277.ApiClient>()),
     );
@@ -284,6 +299,9 @@ extension GetItInjectableX on _i174.GetIt {
         getMealsCategoriesDataSource: gh<_i472.GetMealsCategoriesDataSource>(),
       ),
     );
+    gh.factory<_i642.EditProfileRepo>(
+      () => _i49.EditProfileRepoImpl(gh<_i815.EditProfileRemoteDataSource>()),
+    );
     gh.factory<_i267.WorkoutUseCase>(
       () => _i267.WorkoutUseCase(gh<_i923.WorkoutRepository>()),
     );
@@ -319,6 +337,9 @@ extension GetItInjectableX on _i174.GetIt {
         getMealsCategoriesRepo: gh<_i982.GetMealsCategoriesRepo>(),
       ),
     );
+    gh.factory<_i226.EditProfileUseCase>(
+      () => _i226.EditProfileUseCase(gh<_i642.EditProfileRepo>()),
+    );
     gh.factory<_i514.WorkoutViewModel>(
       () => _i514.WorkoutViewModel(gh<_i267.WorkoutUseCase>()),
     );
@@ -327,6 +348,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i960.ExerciseViewModel>(
       () => _i960.ExerciseViewModel(gh<_i278.ExercisesUseCase>()),
+    );
+    gh.factory<_i98.EditProfileViewModel>(
+      () => _i98.EditProfileViewModel(gh<_i226.EditProfileUseCase>()),
     );
     gh.factory<_i540.RecommendationCubit>(
       () => _i540.RecommendationCubit(gh<_i353.HomeUseCase>()),

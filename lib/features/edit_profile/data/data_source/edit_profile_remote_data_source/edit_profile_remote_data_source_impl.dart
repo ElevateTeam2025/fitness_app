@@ -1,7 +1,9 @@
 import 'package:fitness_app/core/api/api_client.dart';
 import 'package:fitness_app/features/edit_profile/data/data_source/edit_profile_remote_data_source/edit_profile_remote_data_source.dart';
 import 'package:fitness_app/features/edit_profile/data/model/edit_profile_response_dto.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable(as: EditProfileRemoteDataSource)
 class EditProfileRemoteDataSourceImpl implements EditProfileRemoteDataSource {
   final ApiClient _apiClient;
   EditProfileRemoteDataSourceImpl(this._apiClient);

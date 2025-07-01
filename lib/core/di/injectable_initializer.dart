@@ -13,5 +13,6 @@ final getIt = GetIt.instance;
 void configureDependencies() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   getIt.registerSingleton<SharedPreferences>(sharedPreferences);
+
   getIt.init();
 }

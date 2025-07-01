@@ -10,3 +10,6 @@ class EditProfileError extends EditProfileStates {
   final String message;
   EditProfileError({required this.message});
 }
+class EditProfileWeightChanged extends EditProfileStates {}
+class EditProfileGoalChanged extends EditProfileStates {}
+class EditProfileActivityChanged extends EditProfileStates {}
