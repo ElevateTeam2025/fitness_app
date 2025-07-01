@@ -17,4 +17,5 @@ abstract class PagesRoutes {
   static const String editProfileFields = 'editProfileFields';
 
 
+  static const String chatPage = 'chatPage';
 }

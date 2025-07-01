@@ -3,6 +3,7 @@ const String mealsBaseUrl = 'https://www.themealdb.com/api/json/v1';
 
 class ApiEndPoints {
   ApiEndPoints._();
+
   static const String signIn = "/auth/signin";
   static const String forgotPassword = "/auth/forgotPassword";
   static const String verifyResetCode = "/auth/verifyResetCode";
@@ -18,6 +19,7 @@ class ApiEndPoints {
   static const String muscles = "/musclesGroup";
   static const String getAllExercise = "/exercises";
   static const String getRecommendExercise = "/exercises/random";
+  static const String apiKey = "AIzaSyCB3EvbM_c4zrsc8fGv1e4bvGn2NGPrIwE";
   static const String uploadProfilePhoto = "/auth/upload-photo";
   static const String editProfile = "/auth/editProfile";
 

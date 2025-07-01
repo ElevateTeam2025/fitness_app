@@ -5,23 +5,28 @@ import 'package:fitness_app/core/services/bloc_observer.dart';
 import 'package:fitness_app/core/services/easy_loading_service.dart';
 import 'package:fitness_app/core/services/screen_size_service.dart';
 import 'package:fitness_app/core/services/shared_preference_services.dart';
+import 'package:fitness_app/core/utils/end_points.dart';
 import 'package:fitness_app/core/utils/theming.dart';
 import 'package:fitness_app/features/edit_profile/presentation/cubits/edit_profile_cubit/edit_profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'core/services/hive_service.dart';
 import 'core/services/localization_service.dart';
 import 'generated/l10n.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await dotenv.load();
+  Gemini.init(apiKey: ApiEndPoints.apiKey,);
 
+  await HiveService().initializeHive();
   configureDependencies();
+
   Bloc.observer = MyBlocObserver();
   ConfigLoading().showLoading();
   await SharedPreferenceServices.init();
@@ -76,9 +81,8 @@ class MainAppContent extends StatelessWidget {
       theme: theme(),
       onGenerateRoute: RoutesGenerator.onGenerateRoute,
       initialRoute: PagesRoutes.splashScreen,
-     // initialRoute: PagesRoutes.mealsCategories,
-        // initialRoute: PagesRoutes.mealsCategories,
       ),
+      // initialRoute: PagesRoutes.mealsCategories,
     );
   }
 }

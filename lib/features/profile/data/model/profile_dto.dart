@@ -52,7 +52,7 @@ class UserDTO {
   final num? age;
 
   @JsonKey(name: 'weight')
-  final num? weight;
+  final int? weight;
 
   @JsonKey(name: 'height')
   final num? height;

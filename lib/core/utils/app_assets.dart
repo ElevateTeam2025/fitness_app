@@ -18,8 +18,9 @@ abstract class ImageAssets {
   static const String gymCat = "$imagePath/gym_Category_home.png";
   static const String trainerCat = "$imagePath/Trainer_category_home.png";
   static const String yogaCat = "$imagePath/yoga_catecory_home.png";
-
+  static const String chatbotImage="$imagePath/chatbot_image.png";
   static const String mealDetailsBg = "$imagePath/meal_details_bg.png";
+  static const String chatPageBg = "$imagePath/chat_page_bg.png";
 }
 
 const String imagePath = "assets/images";
@@ -34,10 +35,12 @@ abstract class IconAssets {
   static const String lockIcon = "$iconPath/lock.png";
   static const String maleIcon = "$iconPath/male.png";
   static const String femaleIcon = "$iconPath/female.png";
+
   static const String homeIcon = "$iconPath/homeIcon.png";
   static const String profileIcon = "$iconPath/profileIcon.png";
   static const String chatIcon = "$iconPath/chatIcon.png";
   static const String workoutIcon = "$iconPath/workout.png";
+
   static const String backIcon = "$iconPath/back_icon.png";
   static const String editIcon = "$iconPath/edit_icon.png";
   static const String back = "$iconPath/back.png";
@@ -50,6 +53,7 @@ abstract class IconAssets {
   static const String securityIcon = "$iconPath/security.png";
   static const String privacyIcon = "$iconPath/privacy.png";
 
+  static const String menuIcon = "$iconPath/menu.png";
 
 
 

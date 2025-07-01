@@ -15,4 +15,7 @@ LevelsResponseDTO _$LevelsResponseDTOFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$LevelsResponseDTOToJson(LevelsResponseDTO instance) =>
-    <String, dynamic>{'message': instance.message, 'levels': instance.levels};
+    <String, dynamic>{
+      'message': instance.message,
+      'levels': instance.levels,
+    };

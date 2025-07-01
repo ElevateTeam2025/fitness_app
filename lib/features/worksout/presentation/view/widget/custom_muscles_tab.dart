@@ -44,6 +44,7 @@ class CustomMusclesTab extends StatelessWidget {
                 style: AppTextStyles.BalooThambi2_600_12.copyWith(
                   fontWeight: FontWeight.bold,
                   color: AppColors.whiteColor,
+                  decoration: TextDecoration.none,
                 ),
               ),
             ),

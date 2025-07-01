@@ -60,7 +60,7 @@ abstract class ApiClient {
 
   @PUT(ApiEndPoints.resetPassword)
   Future<void> createNewPassword(@Body() CreateNewPasswordrequset request);
-  @PUT(ApiEndPoints.changePassword)
+  @PATCH(ApiEndPoints.changePassword)
   Future<ChangePasswordModel> changePassword(
       @Body() ChangePasswordRequestModel data,
       @Header("Authorization") String token,

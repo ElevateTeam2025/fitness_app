@@ -6,9 +6,7 @@ import 'package:fitness_app/features/auth/forget_password/presentation/view/forg
 import 'package:fitness_app/features/auth/forget_password/presentation/view/verify_reset_code_view.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/signup_flow.dart';
 import 'package:fitness_app/app_view.dart';
-import 'package:fitness_app/features/edit_profile/presentation/cubits/edit_profile_cubit/edit_profile_view_model.dart';
 import 'package:fitness_app/features/edit_profile/presentation/view/edit_profile_view.dart';
-import 'package:fitness_app/features/edit_profile/presentation/view/widgets/edit_profile_fields.dart';
 import 'package:fitness_app/features/meal_details/presentation/views/meal_details_view.dart';
 import 'package:fitness_app/features/meals_categories/presentation/views/meals_categories_view.dart';
 import 'package:fitness_app/features/onboarding/presentation/views/on_boarding_screen.dart';
@@ -20,6 +18,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/Exercise/presentation/views/main_exercise_screen.dart';
 import '../../features/auth/change_password/presentation/cubit/change_password_cubit/change_password_view-model.dart';
 import '../../features/auth/sign_in/presentation/views/sign_in/sign_in_screen.dart';
+import '../../features/chatbot/presentation/view/chatbot_tab.dart';
 import '../../layout/presentation/layout_screen.dart';
 import '../di/injectable_initializer.dart';
 
@@ -115,7 +114,9 @@ class RoutesGenerator {
           settings: settings,
         );
 
-      default:
+      case PagesRoutes.chatPage:
+        return MaterialPageRoute(builder: (_)=>ChatbotTab(),settings: settings);
+        default:
         return unDefinedRoute();
     }
   }

@@ -1,4 +1,7 @@
+import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
+import 'package:fitness_app/features/chatbot/presentation/view/chatbot_tab.dart';
+import 'package:fitness_app/features/worksout/presentation/view/workout_screen.dart';
 import 'package:fitness_app/layout/presentation/widgets/tab_bar_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,13 +12,14 @@ import 'manager/layout_cubit/layout_state.dart';
 import 'manager/layout_cubit/layout_view_model.dart';
 
 class LayoutScreen extends StatelessWidget {
-  const LayoutScreen({super.key});
+  const LayoutScreen({super.key, this.initialIndex = 0});
+  final int initialIndex;
 
   @override
   Widget build(BuildContext context) {
     final tr = S.of(context);
     return BlocProvider(
-      create: (context) => LayoutViewModel(),
+      create: (context) => LayoutViewModel(initialIndex),
       child: BlocBuilder<LayoutViewModel, LayoutState>(
         builder: (context, state) {
           final viewModel = context.read<LayoutViewModel>();
@@ -23,7 +27,7 @@ class LayoutScreen extends StatelessWidget {
             extendBody: true,
             resizeToAvoidBottomInset: true,
             backgroundColor: AppColors.greyDark2,
-            body:viewModel.tabs[viewModel.currentIndex],
+            body: viewModel.tabs[viewModel.currentIndex],
 
 
             bottomNavigationBar: Container(
