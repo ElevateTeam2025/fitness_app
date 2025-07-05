@@ -98,5 +98,7 @@
   "invalidMobileNumber": "أدخل رقم جوال صالح (مثال: ‎+201010700999)",
   "phoneRequired": "رقم الهاتف مطلوب",
   "invalidPhoneNumber": "أدخل رقم هاتف صالح",
+  "previous": "السابق",
+  "close": "إغلاق",
   "cancel": "إلغاء"
 }

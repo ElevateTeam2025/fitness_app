@@ -834,6 +834,16 @@ class S {
     );
   }
 
+  /// `previous`
+  String get previous {
+    return Intl.message('previous', name: 'previous', desc: '', args: []);
+  }
+
+  /// `close`
+  String get close {
+    return Intl.message('close', name: 'close', desc: '', args: []);
+  }
+
   /// `Cancel`
   String get cancel {
     return Intl.message('Cancel', name: 'cancel', desc: '', args: []);

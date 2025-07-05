@@ -98,5 +98,7 @@
   "invalidMobileNumber": "Enter a valid mobile number (e.g., +201010700999)",
   "phoneRequired": "Phone number is required",
   "invalidPhoneNumber": "Enter a valid phone number",
+  "previous": "previous",
+  "close": "close",
   "cancel": "Cancel"
 }

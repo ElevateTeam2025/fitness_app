@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "category": MessageLookupByLibrary.simpleMessage("الفئة"),
     "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
     "chat": MessageLookupByLibrary.simpleMessage("الدردشة"),
+    "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
     "cm": MessageLookupByLibrary.simpleMessage("سم"),
     "codeSentSuccessfullyToYourEmail": MessageLookupByLibrary.simpleMessage(
       "تم إرسال الرمز بنجاح إلى بريدك الإلكتروني",
@@ -152,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseEnterValidEmail": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال بريد إلكتروني صالح",
     ),
+    "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "recommendation": MessageLookupByLibrary.simpleMessage("توصية"),

@@ -34,44 +34,48 @@ class ProfileTab extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          if (state is LoadingProfileState) {
-            return const Center(
-              child: CircularProgressIndicator(color: AppColors.primaryColor),
-            );
-          } else if (state is SuccessProfileState) {
-            final user = state.user;
-
-            if (user == null) {
-              return Center(child: Text(S.of(context).noUserData));
-            }
-
-            return Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(ImageAssets.exerciseBackground),
-                  fit: BoxFit.cover,
-                ),
+          return Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(ImageAssets.exerciseBackground),
+                fit: BoxFit.cover,
               ),
-              child: SingleChildScrollView(
-                padding: EdgeInsets.only(bottom: 100.HeightResponsive),
-                child: Column(
-                  children: [
-                    const ProfileAppBarWidget(),
-                    SizedBox(height: 24.HeightResponsive),
-                    UserInformationWidget(userData: user),
-                    SizedBox(height: 24.HeightResponsive),
-                    //
-                     ProfileOptionsSection(user: user,),
-                  ],
-                ),
-              ),
-            );
-          } else if (state is ErrorProfileState) {
-            return Center(child: Text(state.message));
-          }
-          return const SizedBox.shrink();
+            ),
+            child: Builder(
+              builder: (_) {
+                if (state is LoadingProfileState) {
+                  return const Center(
+                    child: CircularProgressIndicator(
+                        color: AppColors.primaryColor),
+                  );
+                } else if (state is SuccessProfileState) {
+                  final user = state.user;
+
+                  if (user == null) {
+                    return Center(child: Text(S.of(context).noUserData));
+                  }
+
+                  return SingleChildScrollView(
+                    padding: EdgeInsets.only(bottom: 100.HeightResponsive),
+                    child: Column(
+                      children: [
+                        const ProfileAppBarWidget(),
+                        SizedBox(height: 24.HeightResponsive),
+                        UserInformationWidget(userData: user),
+                        SizedBox(height: 24.HeightResponsive),
+                        ProfileOptionsSection(user: user),
+                      ],
+                    ),
+                  );
+                } else if (state is ErrorProfileState) {
+                  return Center(child: Text(state.message));
+                }
+                return const SizedBox.shrink();
+              },
+            ),
+          );
         },
       ),
     );

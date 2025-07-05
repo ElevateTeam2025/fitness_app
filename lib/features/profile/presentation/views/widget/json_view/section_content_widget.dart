@@ -7,6 +7,7 @@ import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/app_icons.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
 
+import '../../../../../../generated/l10n.dart';
 import '../../../../domain/entity/section_json_model.dart';
 
 
@@ -154,7 +155,7 @@ class SectionContentWidget extends StatelessWidget {
                       );
                     },
                     icon: const Icon(AppIcons.back,color: AppColors.whiteColor,),
-                    label: Text('previous', style: AppTextStyles.BalooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
+                    label: Text(S.of(context).previous, style: AppTextStyles.BalooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
                   ),
                 )
               else
@@ -169,7 +170,7 @@ class SectionContentWidget extends StatelessWidget {
                         curve: Curves.easeInOut,
                       );
                     },
-                    icon: Text('next', style: AppTextStyles.BalooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
+                    icon: Text(S.of(context).next, style: AppTextStyles.BalooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
                     label: Icon(AppIcons.arrowRight,color: AppColors.whiteColor,),
                   ),
                 )
@@ -177,7 +178,7 @@ class SectionContentWidget extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: Text('close', style: AppTextStyles.BalooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
+                    child: Text(S.of(context).close, style: AppTextStyles.BalooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
                   ),
                 ),
             ],
