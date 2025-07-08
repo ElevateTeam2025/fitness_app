@@ -9,19 +9,21 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      children: [
-        Image.asset(
-          imagePath,
-          width: 60,
-          height: 60,
-          fit: BoxFit.cover,
-        ),
-        SizedBox(height: 6,),
-        Text(catName,
-         style:    AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.lightWhiteColor)
-        )
-      ],
+    return  Expanded(
+      child: Column(
+        children: [
+          Image.asset(
+            imagePath,
+            width: 60,
+            height: 60,
+            fit: BoxFit.cover,
+          ),
+          SizedBox(height: 6,),
+          Text(catName,
+           style:    AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.lightWhiteColor)
+          )
+        ],
+      ),
     );
   }
 }
