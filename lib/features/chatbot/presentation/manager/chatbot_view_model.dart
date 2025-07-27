@@ -56,7 +56,7 @@ class ChatbotViewModel extends Cubit<ChatbotState> {
       inputText.value.trim(),
       chatId ?? "",
     );
-
+    inputText.value = '';
     if (result is Success<String>) {
       final index = messages.indexWhere((m) => m.isSkeleton);
       if (index != -1) {
@@ -65,6 +65,7 @@ class ChatbotViewModel extends Cubit<ChatbotState> {
           isUser: false,
         );
       }
+
       emit(SendMessageSuccessState([result.data!]));
     } else if (result is Error) {
       messages.removeWhere((m) => m.isSkeleton);

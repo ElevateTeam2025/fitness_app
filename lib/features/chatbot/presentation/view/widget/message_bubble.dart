@@ -45,20 +45,13 @@ class MessageBubble extends StatelessWidget {
           ),
           child: isSkeleton
               ? Skeletonizer(
-                  child: Container(
-                    width: 120,
-                    height: 20,
-                    color: Colors.grey[300],
-                  ),
+                  enabled: true,
+                  containersColor: AppColors.greyColor,
+                  child: SizedBox(width: 120, height: 20),
                 )
               : Text(
                   text ?? "",
-                  style: TextStyle(
-                    color: isSkeleton
-                        ? AppColors.greyDarkColor
-                        : AppColors.whiteColor,
-                    fontSize: 16,
-                  ),
+                  style: TextStyle(color: AppColors.whiteColor, fontSize: 16),
                 ),
         ),
       ),

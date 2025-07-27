@@ -72,8 +72,7 @@ class ChatbotTab extends StatelessWidget {
                                   },
                                 ),
                               ),
-                              if (state is SendMessageLoadingState)
-                                Center(child: CircularProgressIndicator()),
+
                               Row(
                                 children: [
                                   Expanded(
