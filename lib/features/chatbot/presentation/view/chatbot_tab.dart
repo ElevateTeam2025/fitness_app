@@ -9,6 +9,7 @@ import 'package:fitness_app/features/chatbot/presentation/manager/chatbot_view_m
 import 'package:fitness_app/features/chatbot/presentation/view/widget/custom_chatbot_row.dart';
 import 'package:fitness_app/features/chatbot/presentation/view/widget/custom_get_started_body.dart';
 import 'package:fitness_app/features/chatbot/presentation/view/widget/message_bubble.dart';
+import 'package:fitness_app/features/chatbot/presentation/view/widget/previous_conversations_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,7 +23,11 @@ class ChatbotTab extends StatelessWidget {
       create: (context) => viewModel,
       child: Scaffold(
         key: viewModel.scaffoldKey,
-        endDrawer: Drawer(),
+        endDrawer: PreviousConversationsDrawer(
+          onChatSelected: (chat) {
+            viewModel.loadChat(chat);
+          },
+        ),
         body: BlocConsumer<ChatbotViewModel, ChatbotState>(
           listener: (context, state) {
             if (state is SendMessageErrorState) {
@@ -59,8 +64,10 @@ class ChatbotTab extends StatelessWidget {
                                   itemCount: viewModel.messages.length,
                                   itemBuilder: (context, index) {
                                     return MessageBubble(
-                                      text: viewModel.messages[index].message!,
+                                      text: viewModel.messages[index].message,
                                       isUser: viewModel.messages[index].isUser,
+                                      isSkeleton:
+                                          viewModel.messages[index].isSkeleton,
                                     );
                                   },
                                 ),
@@ -94,7 +101,6 @@ class ChatbotTab extends StatelessWidget {
                                                 );
                                                 viewModel.textEditingController
                                                     .clear();
-
                                               }
                                             : null,
                                         icon: Icon(

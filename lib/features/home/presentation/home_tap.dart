@@ -11,6 +11,7 @@ import 'package:fitness_app/features/home/presentation/widget/row_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import '../../../core/common/get_responsive_height_and_width.dart';
 import '../../../core/router/pages_routes.dart';
 import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/text_styles.dart';
@@ -53,6 +54,7 @@ class _HomeTapState extends State<HomeTap> {
                 HomeAppBAr(firstName: 'hamo', imageUrl: "0"),
                 HomeSizedBox(),
                 RowWidget(txt: 'Category', leading_text: '',onPressed: () {  },haveLeadingText: false,),
+                SizedBox(height: responsiveHeight(8),),
                 HomeCategoryList(),
                 HomeSizedBox(),
 

@@ -18,6 +18,6 @@ class ApiEndPoints {
   static const String muscles = "/musclesGroup";
   static const String getAllExercise = "/exercises";
   static const String getRecommendExercise = "/exercises/random";
-  static const String apiKey = "AIzaSyCTUhP55Yw4EY5OSgWSA1-sieIUK4wCaOU";
+  static const String apiKey = "AIzaSyBWDudqbLziw2fvUxEFhSknOfEUXz5IRNs";
 
 }

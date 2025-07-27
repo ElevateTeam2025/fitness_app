@@ -5,6 +5,7 @@ import 'package:fitness_app/core/services/bloc_observer.dart';
 import 'package:fitness_app/core/services/easy_loading_service.dart';
 import 'package:fitness_app/core/services/screen_size_service.dart';
 import 'package:fitness_app/core/services/shared_preference_services.dart';
+import 'package:fitness_app/core/utils/constant_manager.dart';
 import 'package:fitness_app/core/utils/end_points.dart';
 import 'package:fitness_app/core/utils/theming.dart';
 import 'package:flutter/material.dart';
@@ -12,19 +13,25 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'core/services/localization_service.dart';
+import 'features/chatbot/data/model/chat_history_model.dart';
+import 'features/chatbot/data/model/message_model.dart';
 import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(MessageModelAdapter());
+  Hive.registerAdapter(ChatHistoryModelAdapter());
+  await Hive.openBox<ChatHistoryModel>(AppConstants.boxName);
   Gemini.init(apiKey: ApiEndPoints.apiKey);
- await configureDependencies();
+  await configureDependencies();
   Bloc.observer = MyBlocObserver();
   ConfigLoading().showLoading();
   await SharedPreferenceServices.init();
-
   runApp(InitApp());
 }
 

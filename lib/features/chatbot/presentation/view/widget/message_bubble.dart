@@ -1,11 +1,18 @@
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class MessageBubble extends StatelessWidget {
-  final String text;
+  final String? text;
   final bool isUser;
+  final bool isSkeleton;
 
-  const MessageBubble({super.key, required this.text, required this.isUser});
+  const MessageBubble({
+    super.key,
+    this.text,
+    required this.isUser,
+    this.isSkeleton = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +29,6 @@ class MessageBubble extends StatelessWidget {
             color: isUser
                 ? AppColors.primaryColor.withOpacity(0.5)
                 : AppColors.containerBg,
-
             borderRadius: BorderRadius.only(
               topLeft: isUser ? const Radius.circular(16.0) : Radius.zero,
               topRight: isUser ? Radius.zero : const Radius.circular(16.0),
@@ -37,10 +43,23 @@ class MessageBubble extends StatelessWidget {
               ),
             ],
           ),
-          child: Text(
-            text,
-            style: TextStyle(color: Colors.white, fontSize: 16),
-          ),
+          child: isSkeleton
+              ? Skeletonizer(
+                  child: Container(
+                    width: 120,
+                    height: 20,
+                    color: Colors.grey[300],
+                  ),
+                )
+              : Text(
+                  text ?? "",
+                  style: TextStyle(
+                    color: isSkeleton
+                        ? AppColors.greyDarkColor
+                        : AppColors.whiteColor,
+                    fontSize: 16,
+                  ),
+                ),
         ),
       ),
     );

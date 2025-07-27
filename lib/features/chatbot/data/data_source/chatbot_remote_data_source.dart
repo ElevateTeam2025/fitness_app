@@ -15,7 +15,7 @@ class ChatbotRemoteDataSourceImpl implements ChatbotRemoteDataSource {
 
   @override
   Future<Result<String>> sendMessage(String message) async {
-   return executeApi(() async {
+    return executeApi(() async {
       final String promet =
           """ Please answer the following question in the same language it's written. Only respond if the question is related to fitness or gym topics. 
 
@@ -25,4 +25,5 @@ class ChatbotRemoteDataSourceImpl implements ChatbotRemoteDataSource {
       return response!.output!;
     });
   }
+
 }
