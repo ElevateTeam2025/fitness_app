@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:uuid/uuid.dart';
-
 import 'message_model.dart';
 
 part 'chat_history_model.g.dart';

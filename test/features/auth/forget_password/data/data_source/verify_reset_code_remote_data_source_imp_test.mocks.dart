@@ -121,24 +121,8 @@ class _FakeMusclesDataResponseModel_5 extends _i1.SmartFake
           parent,
           parentInvocation,
         );
-  _FakeSignupResponseModel_1(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
 }
 
-class _FakeMealCategoriesModel_2 extends _i1.SmartFake
-    implements _i4.MealCategoriesModel {
-  _FakeMealCategoriesModel_2(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
 class _FakeExercisesResponseDTO_6 extends _i1.SmartFake
     implements _i8.ExercisesResponseDTO {
   _FakeExercisesResponseDTO_6(
@@ -150,15 +134,6 @@ class _FakeExercisesResponseDTO_6 extends _i1.SmartFake
         );
 }
 
-class _FakeMusclesTabResponseModel_3 extends _i1.SmartFake
-    implements _i5.MusclesTabResponseModel {
-  _FakeMusclesTabResponseModel_3(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
 class _FakeExerciseResponseDTO_7 extends _i1.SmartFake
     implements _i9.ExerciseResponseDTO {
   _FakeExerciseResponseDTO_7(
@@ -179,26 +154,8 @@ class _FakeLevelsResponseDTO_8 extends _i1.SmartFake
           parent,
           parentInvocation,
         );
-class _FakeMusclesDataResponseModel_4 extends _i1.SmartFake
-    implements _i6.MusclesDataResponseModel {
-  _FakeMusclesDataResponseModel_4(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
 }
 
-class _FakeExercisesResponseDTO_5 extends _i1.SmartFake
-    implements _i7.ExercisesResponseDTO {
-  _FakeExercisesResponseDTO_5(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
 class _FakeProfileDTO_9 extends _i1.SmartFake implements _i11.ProfileDTO {
   _FakeProfileDTO_9(
     Object parent,
@@ -218,29 +175,11 @@ class _FakeHttpResponse_10<T> extends _i1.SmartFake
           parent,
           parentInvocation,
         );
-class _FakeExerciseResponseDTO_6 extends _i1.SmartFake
-    implements _i8.ExerciseResponseDTO {
-  _FakeExerciseResponseDTO_6(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
 }
 
 class _FakeEditProfileResponseDto_11 extends _i1.SmartFake
     implements _i13.EditProfileResponseDto {
   _FakeEditProfileResponseDto_11(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-class _FakeLevelsResponseDTO_7 extends _i1.SmartFake
-    implements _i9.LevelsResponseDTO {
-  _FakeLevelsResponseDTO_7(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -272,18 +211,6 @@ class MockApiClient extends _i1.Mock implements _i14.ApiClient {
           ),
         )),
       ) as _i15.Future<_i2.SignInDTO>);
-        Invocation.method(
-          #signIn,
-          [data],
-        ),
-        returnValue: _i11.Future<_i2.SignInDTO>.value(_FakeSignInDTO_0(
-          this,
-          Invocation.method(
-            #signIn,
-            [data],
-          ),
-        )),
-      ) as _i11.Future<_i2.SignInDTO>);
 
   @override
   _i15.Future<void> forgotPassword(_i17.ForgotPasswordRequest? request) =>
@@ -295,24 +222,10 @@ class MockApiClient extends _i1.Mock implements _i14.ApiClient {
         returnValue: _i15.Future<void>.value(),
         returnValueForMissingStub: _i15.Future<void>.value(),
       ) as _i15.Future<void>);
-        Invocation.method(
-          #forgotPassword,
-          [request],
-        ),
-        returnValue: _i11.Future<void>.value(),
-        returnValueForMissingStub: _i11.Future<void>.value(),
-      ) as _i11.Future<void>);
 
   @override
   _i15.Future<void> verifyResetCode(_i18.VerifyResetCodeRequest? request) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #verifyResetCode,
-          [request],
-        ),
-        returnValue: _i11.Future<void>.value(),
-        returnValueForMissingStub: _i11.Future<void>.value(),
-      ) as _i11.Future<void>);
         Invocation.method(
           #verifyResetCode,
           [request],
@@ -337,19 +250,6 @@ class MockApiClient extends _i1.Mock implements _i14.ApiClient {
           ),
         )),
       ) as _i15.Future<_i3.SignupResponseModel>);
-        Invocation.method(
-          #signup,
-          [body],
-        ),
-        returnValue: _i11.Future<_i3.SignupResponseModel>.value(
-            _FakeSignupResponseModel_1(
-          this,
-          Invocation.method(
-            #signup,
-            [body],
-          ),
-        )),
-      ) as _i11.Future<_i3.SignupResponseModel>);
 
   @override
   _i15.Future<void> createNewPassword(_i20.CreateNewPasswordrequset? request) =>
@@ -361,13 +261,6 @@ class MockApiClient extends _i1.Mock implements _i14.ApiClient {
         returnValue: _i15.Future<void>.value(),
         returnValueForMissingStub: _i15.Future<void>.value(),
       ) as _i15.Future<void>);
-        Invocation.method(
-          #createNewPassword,
-          [request],
-        ),
-        returnValue: _i11.Future<void>.value(),
-        returnValueForMissingStub: _i11.Future<void>.value(),
-      ) as _i11.Future<void>);
 
   @override
   _i15.Future<_i4.ChangePasswordModel> changePassword(
@@ -375,19 +268,6 @@ class MockApiClient extends _i1.Mock implements _i14.ApiClient {
     String? token,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getMealsCategories,
-          [],
-        ),
-        returnValue: _i11.Future<_i4.MealCategoriesModel>.value(
-            _FakeMealCategoriesModel_2(
-          this,
-          Invocation.method(
-            #getMealsCategories,
-            [],
-          ),
-        )),
-      ) as _i11.Future<_i4.MealCategoriesModel>);
         Invocation.method(
           #changePassword,
           [
@@ -424,19 +304,6 @@ class MockApiClient extends _i1.Mock implements _i14.ApiClient {
           ),
         )),
       ) as _i15.Future<_i5.MealCategoriesModel>);
-        Invocation.method(
-          #getMusclesTabs,
-          [],
-        ),
-        returnValue: _i11.Future<_i5.MusclesTabResponseModel>.value(
-            _FakeMusclesTabResponseModel_3(
-          this,
-          Invocation.method(
-            #getMusclesTabs,
-            [],
-          ),
-        )),
-      ) as _i11.Future<_i5.MusclesTabResponseModel>);
 
   @override
   _i15.Future<_i6.MusclesTabResponseModel> getMusclesTabs() =>
@@ -454,19 +321,6 @@ class MockApiClient extends _i1.Mock implements _i14.ApiClient {
           ),
         )),
       ) as _i15.Future<_i6.MusclesTabResponseModel>);
-        Invocation.method(
-          #getMusclesData,
-          [id],
-        ),
-        returnValue: _i11.Future<_i6.MusclesDataResponseModel>.value(
-            _FakeMusclesDataResponseModel_4(
-          this,
-          Invocation.method(
-            #getMusclesData,
-            [id],
-          ),
-        )),
-      ) as _i11.Future<_i6.MusclesDataResponseModel>);
 
   @override
   _i15.Future<_i7.MusclesDataResponseModel> getMusclesData(String? id) =>
@@ -484,19 +338,6 @@ class MockApiClient extends _i1.Mock implements _i14.ApiClient {
           ),
         )),
       ) as _i15.Future<_i7.MusclesDataResponseModel>);
-        Invocation.method(
-          #getAllExercises,
-          [],
-        ),
-        returnValue: _i11.Future<_i7.ExercisesResponseDTO>.value(
-            _FakeExercisesResponseDTO_5(
-          this,
-          Invocation.method(
-            #getAllExercises,
-            [],
-          ),
-        )),
-      ) as _i11.Future<_i7.ExercisesResponseDTO>);
 
   @override
   _i15.Future<_i8.ExercisesResponseDTO> getAllExercises() =>
@@ -521,25 +362,6 @@ class MockApiClient extends _i1.Mock implements _i14.ApiClient {
     String? difficultyId,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getExercisesByMuscleAndDifficulty,
-          [
-            muscleId,
-            difficultyId,
-          ],
-        ),
-        returnValue: _i11.Future<_i8.ExerciseResponseDTO>.value(
-            _FakeExerciseResponseDTO_6(
-          this,
-          Invocation.method(
-            #getExercisesByMuscleAndDifficulty,
-            [
-              muscleId,
-              difficultyId,
-            ],
-          ),
-        )),
-      ) as _i11.Future<_i8.ExerciseResponseDTO>);
         Invocation.method(
           #getExercisesByMuscleAndDifficulty,
           [
@@ -629,43 +451,8 @@ class MockApiClient extends _i1.Mock implements _i14.ApiClient {
           ),
         )),
       ) as _i15.Future<_i11.ProfileDTO>);
-        Invocation.method(
-          #getRecommendExercises,
-          [
-            targetMuscleGroupId,
-            difficultyLevelId,
-            limit,
-          ],
-        ),
-        returnValue: _i11.Future<_i7.ExercisesResponseDTO>.value(
-            _FakeExercisesResponseDTO_5(
-          this,
-          Invocation.method(
-            #getRecommendExercises,
-            [
-              targetMuscleGroupId,
-              difficultyLevelId,
-              limit,
-            ],
-          ),
-        )),
-      ) as _i11.Future<_i7.ExercisesResponseDTO>);
 
   @override
-  _i11.Future<_i9.LevelsResponseDTO> getLevels() => (super.noSuchMethod(
-        Invocation.method(
-          #getLevels,
-          [],
-        ),
-        returnValue:
-            _i11.Future<_i9.LevelsResponseDTO>.value(_FakeLevelsResponseDTO_7(
-          this,
-          Invocation.method(
-            #getLevels,
-            [],
-          ),
-        )),
-      ) as _i11.Future<_i9.LevelsResponseDTO>);
   _i15.Future<_i12.HttpResponse<void>> logout() => (super.noSuchMethod(
         Invocation.method(
           #logout,

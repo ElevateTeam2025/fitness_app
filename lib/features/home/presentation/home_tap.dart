@@ -187,23 +187,6 @@ class _HomeTapState extends State<HomeTap> {
                     return const SizedBox.shrink();
                   },
                 ),
-                TextButton(
-                  onPressed: () {
-                    //navigate to change password screen
-                  },
-                  child: InkWell(
-                    onTap: () {
-
-                      Navigator.pushNamed(context, PagesRoutes.changePassword);
-                    },
-                    child: Text(
-                      'change',
-                      style: AppTextStyles.BalooThambi2_600_16.copyWith(
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
-                  ),
-                ),
 
               ],
             ),

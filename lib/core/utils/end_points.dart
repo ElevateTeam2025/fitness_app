@@ -19,12 +19,10 @@ class ApiEndPoints {
   static const String muscles = "/musclesGroup";
   static const String getAllExercise = "/exercises";
   static const String getRecommendExercise = "/exercises/random";
-  static const String apiKey = "AIzaSyCB3EvbM_c4zrsc8fGv1e4bvGn2NGPrIwE";
+  static const String apiKey = "AIzaSyBWDudqbLziw2fvUxEFhSknOfEUXz5IRNs";
   static const String uploadProfilePhoto = "/auth/upload-photo";
   static const String editProfile = "/auth/editProfile";
 
   static const String getProfileData = "/auth/profile-data";
   static const String logout = "/auth/logout";
-  static const String apiKey = "AIzaSyBWDudqbLziw2fvUxEFhSknOfEUXz5IRNs";
-
 }

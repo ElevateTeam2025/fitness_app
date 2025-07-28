@@ -1,5 +1,7 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/features/chatbot/presentation/manager/chatbot_view_model.dart';
+import 'package:fitness_app/generated/l10n.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,6 +13,7 @@ class CustomChatbotCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tr = S.of(context);
     return Container(
       height: 190.HeightResponsive,
       width: double.infinity,
@@ -26,7 +29,7 @@ class CustomChatbotCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "How Can I Assist You\nToday ?",
+            tr.helpMessage,
             textAlign: TextAlign.center,
             style: AppTextStyles.BalooThambi2_600_24.copyWith(
               color: AppColors.whiteColor,
@@ -41,7 +44,7 @@ class CustomChatbotCard extends StatelessWidget {
               ).doIntent(GetStartedClickedIntent());
             },
             child: Text(
-              "Get Started",
+              tr.getStarted,
               style: AppTextStyles.BalooThambi2_800_14.copyWith(
                 color: AppColors.whiteColor,
               ),

@@ -31,6 +31,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Already Have an account ?",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "areYouSureYouWantToDeleteThisConversation":
+        MessageLookupByLibrary.simpleMessage(
+          "Are you sure you want to delete this conversation ?",
+        ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "category": MessageLookupByLibrary.simpleMessage("Category"),
@@ -46,6 +50,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "createAccount": MessageLookupByLibrary.simpleMessage("CREATE AN ACCOUNT"),
     "createNewPassword": MessageLookupByLibrary.simpleMessage(
       "Create New Password",
+    ),
+    "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+    "deleteConversation": MessageLookupByLibrary.simpleMessage(
+      "DeleteConversation",
     ),
     "didNotReceiveVerificationCode": MessageLookupByLibrary.simpleMessage(
       "didnt receive verification code?",
@@ -79,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Food Recommendation",
     ),
     "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget password"),
+    "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
     "goalGainFlexible": MessageLookupByLibrary.simpleMessage(
       "Gain more flexible",
     ),
@@ -87,6 +96,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "goalLearnBasic": MessageLookupByLibrary.simpleMessage("Learn the basics"),
     "goalLoseWeight": MessageLookupByLibrary.simpleMessage("Lose weight"),
     "help": MessageLookupByLibrary.simpleMessage("Help"),
+    "helpMessage": MessageLookupByLibrary.simpleMessage(
+      "How Can I Assist You\nToday ?",
+    ),
     "helpsCreatePersonalizedPlan": MessageLookupByLibrary.simpleMessage(
       "This Helps Us Create Your Personalized Plan",
     ),
@@ -95,6 +107,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "hondredK": MessageLookupByLibrary.simpleMessage("100 k"),
     "howOldAreYou": MessageLookupByLibrary.simpleMessage("HOW OLD ARE YOU ?"),
+    "iAmYourSmartCoach": MessageLookupByLibrary.simpleMessage(
+      "I am your smart coach",
+    ),
     "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
     "invalidEmail": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid email",
@@ -131,6 +146,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "We need to know your gender",
     ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "noConversations": MessageLookupByLibrary.simpleMessage(
+      "No Conversations yet.",
+    ),
     "noExercisesAvailable": MessageLookupByLibrary.simpleMessage(
       "No exercises available",
     ),
@@ -149,6 +167,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseEnterValidEmail": MessageLookupByLibrary.simpleMessage(
       "Please enter valid email",
+    ),
+    "previousConversations": MessageLookupByLibrary.simpleMessage(
+      "Previous Conversations",
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),

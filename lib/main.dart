@@ -9,6 +9,8 @@ import 'package:fitness_app/core/utils/constant_manager.dart';
 import 'package:fitness_app/core/utils/end_points.dart';
 import 'package:fitness_app/core/utils/theming.dart';
 import 'package:fitness_app/features/edit_profile/presentation/cubits/edit_profile_cubit/edit_profile_view_model.dart';
+import 'package:fitness_app/features/chatbot/data/model/message_model.dart';
+import 'package:fitness_app/features/chatbot/data/model/chat_history_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -24,21 +26,15 @@ import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Gemini.init(apiKey: ApiEndPoints.apiKey,);
-
-  await HiveService().initializeHive();
-  configureDependencies();
-
   await Hive.initFlutter();
   Hive.registerAdapter(MessageModelAdapter());
   Hive.registerAdapter(ChatHistoryModelAdapter());
   await Hive.openBox<ChatHistoryModel>(AppConstants.boxName);
   Gemini.init(apiKey: ApiEndPoints.apiKey);
-  await configureDependencies();
+  configureDependencies();
   Bloc.observer = MyBlocObserver();
   ConfigLoading().showLoading();
   await SharedPreferenceServices.init();
-
   runApp(InitApp());
 }
 
@@ -85,10 +81,10 @@ class MainAppContent extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
 
-      debugShowCheckedModeBanner: false,
-      theme: theme(),
-      onGenerateRoute: RoutesGenerator.onGenerateRoute,
-      initialRoute: PagesRoutes.splashScreen,
+        debugShowCheckedModeBanner: false,
+        theme: theme(),
+        onGenerateRoute: RoutesGenerator.onGenerateRoute,
+        initialRoute: PagesRoutes.splashScreen,
       ),
       // initialRoute: PagesRoutes.mealsCategories,
     );

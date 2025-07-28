@@ -98,5 +98,15 @@
   "invalidMobileNumber": "أدخل رقم جوال صالح (مثال: ‎+201010700999)",
   "phoneRequired": "رقم الهاتف مطلوب",
   "invalidPhoneNumber": "أدخل رقم هاتف صالح",
-  "cancel": "إلغاء"
+  "cancel": "إلغاء",
+  "error": "خطأ",
+  "helpMessage":"كيف يمكنني مساعدتك \nاليوم؟",
+  "getStarted": "ابدء الاستخدام",
+  "hi": "مرحبا",
+  "iAmYourSmartCoach" : "أنا مدربك الذكي",
+  "previousConversations": "المحادثات السابقة",
+  "noConversations": "لا يوجد محادثات حتى الان",
+  "deleteConversation": "حذف المحادثة",
+  "delete" : "حذف",
+  "areYouSureYouWantToDeleteThisConversation": "هل انت متاكد انك تريد حذف هذه المحادثة؟"
 }

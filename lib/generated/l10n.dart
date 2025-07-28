@@ -838,6 +838,76 @@ class S {
   String get cancel {
     return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
   }
+
+  /// `How Can I Assist You\nToday ?`
+  String get helpMessage {
+    return Intl.message(
+      'How Can I Assist You\nToday ?',
+      name: 'helpMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Started`
+  String get getStarted {
+    return Intl.message('Get Started', name: 'getStarted', desc: '', args: []);
+  }
+
+  /// `I am your smart coach`
+  String get iAmYourSmartCoach {
+    return Intl.message(
+      'I am your smart coach',
+      name: 'iAmYourSmartCoach',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Previous Conversations`
+  String get previousConversations {
+    return Intl.message(
+      'Previous Conversations',
+      name: 'previousConversations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Conversations yet.`
+  String get noConversations {
+    return Intl.message(
+      'No Conversations yet.',
+      name: 'noConversations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `DeleteConversation`
+  String get deleteConversation {
+    return Intl.message(
+      'DeleteConversation',
+      name: 'deleteConversation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message('Delete', name: 'delete', desc: '', args: []);
+  }
+
+  /// `Are you sure you want to delete this conversation ?`
+  String get areYouSureYouWantToDeleteThisConversation {
+    return Intl.message(
+      'Are you sure you want to delete this conversation ?',
+      name: 'areYouSureYouWantToDeleteThisConversation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

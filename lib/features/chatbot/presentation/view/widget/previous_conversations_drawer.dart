@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/utils/app_colors.dart';
+import 'package:fitness_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:fitness_app/features/chatbot/data/model/chat_history_model.dart';
@@ -15,6 +16,7 @@ class PreviousConversationsDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final box = Hive.box<ChatHistoryModel>(AppConstants.boxName);
+    final tr = S.of(context);
     return Drawer(
       backgroundColor: Colors.black.withOpacity(0.85),
       child: SafeArea(
@@ -24,7 +26,7 @@ class PreviousConversationsDrawer extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
-                "Previous Conversations",
+                tr.previousConversations,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -40,7 +42,7 @@ class PreviousConversationsDrawer extends StatelessWidget {
                   if (chats.isEmpty) {
                     return Center(
                       child: Text(
-                        "No conversations yet.",
+                        tr.noConversations,
                         style: TextStyle(color: Colors.white70),
                       ),
                     );
@@ -58,11 +60,11 @@ class PreviousConversationsDrawer extends StatelessWidget {
                         onDismissed: (direction) async {
                           DialogUtils.showMessage(
                             context: context,
-                            title: "Delete Conversation",
-                            message: "Are you sure you want to delete this conversation?",
-                            negativeActionName: "Cancel",
+                            title: tr.deleteConversation,
+                            message: tr.areYouSureYouWantToDeleteThisConversation,
+                            negativeActionName: tr.cancel,
                             negativeAction: () => Navigator.of(context).pop(),
-                            postActionName: "Delete",
+                            postActionName: tr.delete,
                             postAction: () async {
                               await chat.delete();
                             },

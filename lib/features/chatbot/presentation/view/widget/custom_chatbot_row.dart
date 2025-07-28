@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/generated/l10n.dart' show S;
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_assets.dart';
@@ -10,6 +11,8 @@ class CustomChatbotRow extends StatelessWidget {
    void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
+    final tr = S.of(context);
+
     return  Padding(
       padding:  EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
       child: Row(
@@ -33,13 +36,13 @@ class CustomChatbotRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Hi Ahmed,",
+                "${tr.hi} Ahmed,",
                 style: AppTextStyles.BalooThambi2_600_16.copyWith(
                   color: AppColors.whiteColor,
                 ),
               ),
               Text(
-                "I am your smart coach",
+                tr.iAmYourSmartCoach,
                 style: AppTextStyles.BalooThambi2_600_18.copyWith(
                   color: AppColors.whiteColor,
                 ),

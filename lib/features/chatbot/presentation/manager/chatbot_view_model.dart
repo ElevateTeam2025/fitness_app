@@ -103,8 +103,8 @@ class ChatbotViewModel extends Cubit<ChatbotState> {
     messages = sortedMessages
         .map(
           (msg) =>
-              ChatbotResponseModel(message: msg.content, isUser: msg.isUser),
-        )
+          ChatbotResponseModel(message: msg.content, isUser: msg.isUser),
+    )
         .toList();
     isShowChat = true;
     emit(ChangeScreenState());

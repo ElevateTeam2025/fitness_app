@@ -10,6 +10,7 @@ import 'package:fitness_app/features/chatbot/presentation/view/widget/custom_cha
 import 'package:fitness_app/features/chatbot/presentation/view/widget/custom_get_started_body.dart';
 import 'package:fitness_app/features/chatbot/presentation/view/widget/message_bubble.dart';
 import 'package:fitness_app/features/chatbot/presentation/view/widget/previous_conversations_drawer.dart';
+import 'package:fitness_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,6 +20,7 @@ class ChatbotTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var viewModel = getIt.get<ChatbotViewModel>();
+    final tr = S.of(context);
     return BlocProvider(
       create: (context) => viewModel,
       child: Scaffold(
@@ -34,8 +36,8 @@ class ChatbotTab extends StatelessWidget {
               DialogUtils.showMessage(
                 context: context,
                 message: state.message,
-                title: "Error",
-                postActionName: "Ok",
+                title: tr.error,
+                postActionName: tr.ok,
               );
             }
           },
@@ -57,68 +59,68 @@ class ChatbotTab extends StatelessWidget {
                   SizedBox(height: 25.HeightResponsive),
                   viewModel.isShowChat == true
                       ? Expanded(
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: ListView.builder(
-                                  itemCount: viewModel.messages.length,
-                                  itemBuilder: (context, index) {
-                                    return MessageBubble(
-                                      text: viewModel.messages[index].message,
-                                      isUser: viewModel.messages[index].isUser,
-                                      isSkeleton:
-                                          viewModel.messages[index].isSkeleton,
-                                    );
-                                  },
-                                ),
-                              ),
-
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: TextFormField(
-                                      controller:
-                                          viewModel.textEditingController,
-                                      style:
-                                          AppTextStyles
-                                              .BalooThambi2_800_14.copyWith(
-                                            color: AppColors.whiteColor,
-                                          ),
-                                      onChanged: (value) {
-                                        viewModel.inputText.value = value;
-                                      },
-                                    ),
-                                  ),
-                                  ValueListenableBuilder<String>(
-                                    valueListenable: viewModel.inputText,
-                                    builder: (context, value, child) {
-                                      return IconButton(
-                                        onPressed: value.trim().isNotEmpty
-                                            ? () {
-                                                viewModel.doIntent(
-                                                  SendMessageIntent(),
-                                                );
-                                                viewModel.textEditingController
-                                                    .clear();
-                                              }
-                                            : null,
-                                        icon: Icon(
-                                          Icons.send,
-                                          color: value.trim().isNotEmpty
-                                              ? AppColors.primaryColor
-                                              : AppColors.greyColor,
-                                          size: 30,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ],
-                              ),
-
-                              SizedBox(height: 25.HeightResponsive),
-                            ],
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount: viewModel.messages.length,
+                            itemBuilder: (context, index) {
+                              return MessageBubble(
+                                text: viewModel.messages[index].message,
+                                isUser: viewModel.messages[index].isUser,
+                                isSkeleton:
+                                viewModel.messages[index].isSkeleton,
+                              );
+                            },
                           ),
-                        )
+                        ),
+
+                        Row(
+                          children: [
+                            Expanded(
+                              child: TextFormField(
+                                controller:
+                                viewModel.textEditingController,
+                                style:
+                                AppTextStyles
+                                    .BalooThambi2_800_14.copyWith(
+                                  color: AppColors.whiteColor,
+                                ),
+                                onChanged: (value) {
+                                  viewModel.inputText.value = value;
+                                },
+                              ),
+                            ),
+                            ValueListenableBuilder<String>(
+                              valueListenable: viewModel.inputText,
+                              builder: (context, value, child) {
+                                return IconButton(
+                                  onPressed: value.trim().isNotEmpty
+                                      ? () {
+                                    viewModel.doIntent(
+                                      SendMessageIntent(),
+                                    );
+                                    viewModel.textEditingController
+                                        .clear();
+                                  }
+                                      : null,
+                                  icon: Icon(
+                                    Icons.send,
+                                    color: value.trim().isNotEmpty
+                                        ? AppColors.primaryColor
+                                        : AppColors.greyColor,
+                                    size: 30,
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+
+                        SizedBox(height: 25.HeightResponsive),
+                      ],
+                    ),
+                  )
                       : Expanded(child: CustomGetStartedBody()),
                 ],
               ),

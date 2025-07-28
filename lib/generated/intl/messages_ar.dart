@@ -31,6 +31,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل لديك حساب بالفعل؟",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "areYouSureYouWantToDeleteThisConversation":
+        MessageLookupByLibrary.simpleMessage(
+          "هل انت متاكد انك تريد حذف هذه المحادثة؟",
+        ),
     "back": MessageLookupByLibrary.simpleMessage("رجوع"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "category": MessageLookupByLibrary.simpleMessage("الفئة"),
@@ -49,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "createNewPassword": MessageLookupByLibrary.simpleMessage(
       "إنشاء كلمة مرور جديدة",
     ),
+    "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+    "deleteConversation": MessageLookupByLibrary.simpleMessage("حذف المحادثة"),
     "didNotReceiveVerificationCode": MessageLookupByLibrary.simpleMessage(
       "لم يصلك رمز التحقق؟",
     ),
@@ -83,20 +89,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
     "foodRecommendation": MessageLookupByLibrary.simpleMessage("توصيات الطعام"),
     "forgetPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+    "getStarted": MessageLookupByLibrary.simpleMessage("ابدء الاستخدام"),
     "goalGainFlexible": MessageLookupByLibrary.simpleMessage("زيادة المرونة"),
     "goalGainWeight": MessageLookupByLibrary.simpleMessage("زيادة الوزن"),
     "goalGetFitter": MessageLookupByLibrary.simpleMessage("أن تصبح أكثر لياقة"),
     "goalLearnBasic": MessageLookupByLibrary.simpleMessage("تعلم الأساسيات"),
     "goalLoseWeight": MessageLookupByLibrary.simpleMessage("فقدان الوزن"),
     "help": MessageLookupByLibrary.simpleMessage("مساعدة"),
+    "helpMessage": MessageLookupByLibrary.simpleMessage(
+      "كيف يمكنني مساعدتك \nاليوم؟",
+    ),
     "helpsCreatePersonalizedPlan": MessageLookupByLibrary.simpleMessage(
       "هذا يساعدنا على إنشاء خطة مخصصة لك",
     ),
     "heyThere": MessageLookupByLibrary.simpleMessage("مرحباً بك"),
-    "hi": MessageLookupByLibrary.simpleMessage("مرحباً"),
+    "hi": MessageLookupByLibrary.simpleMessage("مرحبا"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "hondredK": MessageLookupByLibrary.simpleMessage("100 ك"),
     "howOldAreYou": MessageLookupByLibrary.simpleMessage("كم عمرك؟"),
+    "iAmYourSmartCoach": MessageLookupByLibrary.simpleMessage(
+      "أنا مدربك الذكي",
+    ),
     "ingredients": MessageLookupByLibrary.simpleMessage("المكونات"),
     "invalidEmail": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال بريد إلكتروني صالح",
@@ -135,6 +148,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "نحتاج إلى معرفة جنسك",
     ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "noConversations": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد محادثات حتى الان",
+    ),
     "noExercisesAvailable": MessageLookupByLibrary.simpleMessage(
       "لا توجد تمارين متاحة",
     ),
@@ -151,6 +167,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseEnterValidEmail": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال بريد إلكتروني صالح",
+    ),
+    "previousConversations": MessageLookupByLibrary.simpleMessage(
+      "المحادثات السابقة",
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),

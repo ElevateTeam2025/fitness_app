@@ -98,5 +98,14 @@
   "invalidMobileNumber": "Enter a valid mobile number (e.g., +201010700999)",
   "phoneRequired": "Phone number is required",
   "invalidPhoneNumber": "Enter a valid phone number",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "error": "Error",
+  "helpMessage":"How Can I Assist You\nToday ?",
+  "getStarted": "Get Started",
+  "iAmYourSmartCoach" : "I am your smart coach",
+  "previousConversations": "Previous Conversations",
+  "noConversations": "No Conversations yet.",
+  "deleteConversation": "DeleteConversation",
+  "delete" : "Delete",
+  "areYouSureYouWantToDeleteThisConversation" : "Are you sure you want to delete this conversation ?"
 }

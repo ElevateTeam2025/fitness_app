@@ -6,7 +6,7 @@ import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
- const SplashScreen({super.key});
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 5), () {
       if (mounted) {
         final String? onBoarding =
-            SharedPreferenceServices.getData('onBoarding') as String?;
+        SharedPreferenceServices.getData('onBoarding') as String?;
         if (onBoarding != null) {
           Navigator.pushReplacementNamed(context, PagesRoutes.signIn);
         } else {
