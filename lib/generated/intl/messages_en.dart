@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "category": MessageLookupByLibrary.simpleMessage("Category"),
     "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
     "chat": MessageLookupByLibrary.simpleMessage("Chat"),
+    "close": MessageLookupByLibrary.simpleMessage("close"),
     "cm": MessageLookupByLibrary.simpleMessage("CM"),
     "codeSentSuccessfullyToYourEmail": MessageLookupByLibrary.simpleMessage(
       "code sent successfully to your email",
@@ -150,6 +151,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseEnterValidEmail": MessageLookupByLibrary.simpleMessage(
       "Please enter valid email",
     ),
+    "previous": MessageLookupByLibrary.simpleMessage("previous"),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "recommendation": MessageLookupByLibrary.simpleMessage("Recommendation"),

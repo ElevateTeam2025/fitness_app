@@ -44,170 +44,167 @@ class _HomeTapState extends State<HomeTap> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-
         body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 16.WidthResponsive,
             // vertical: 8.HeightResponsive,
           ),
-          child: SingleChildScrollView(
+          child: SafeArea(
             child: Column(
               children: [
-                SizedBox(height: 30,),
-                BlocBuilder<ProfileViewModel, ProfileState>(
-                  builder: (context, state) {
-                    if (state is SuccessProfileState) {
-                      final user = state.user;
-                      return HomeAppBAr(
-                        firstName: user?.firstName ?? '',
-                        imageUrl: user?.photo ?? '',
-                      );
-                    } else if (state is LoadingProfileState) {
-                      return HomeAppBAr(
-                        firstName: '...',
-                        imageUrl: '',
-                      );
-                    } else {
-                      return HomeAppBAr(
-                        firstName: '',
-                        imageUrl: '',
-                      );
-                    }
-                  },
-                ),
-
-
-                HomeSizedBox(),
-                RowWidget(txt: tr.category, leading_text: '',onPressed: () {  },haveLeadingText: false,),
-                HomeCategoryList(),
-                HomeSizedBox(),
-
-                RowWidget(txt: tr.recommendationToDay, leading_text: '',onPressed: () {  },haveLeadingText: false,),
-                BlocBuilder<RecommendationCubit, RecommendationState>(
-                  builder: (context, state) {
-                    if (state is RecommendationLoading) {
-                      return Center(
-                        child: CircularProgressIndicator(
-                          color: AppColors.primaryColor,
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        BlocBuilder<ProfileViewModel, ProfileState>(
+                          builder: (context, state) {
+                            if (state is SuccessProfileState) {
+                              final user = state.user;
+                              return HomeAppBAr(
+                                firstName: user?.firstName ?? '',
+                                imageUrl: user?.photo ?? '',
+                              );
+                            } else if (state is LoadingProfileState) {
+                              return HomeAppBAr(
+                                firstName: '...',
+                                imageUrl: '',
+                              );
+                            } else {
+                              return HomeAppBAr(
+                                firstName: '',
+                                imageUrl: '',
+                              );
+                            }
+                          },
                         ),
-                      );
-                    } else if (state is RecommendationSuccess) {
-                      return state.data.exercises == null
-                          ? Center(child: Text(tr.noExercisesAvailable,
-                        style: AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.errorColor) ,))
-                          :
 
-                      HomeExerciseList(exercises: state.data.exercises ??[], isLarge: true,);
 
-                    } else if (state is RecommendationError &&
-                        !state.message.contains("internet")) {
-                      log('${state.message}Recommendation');
-                      return Center(child: Text(state.message,
-                        style:  AppTextStyles.BalooThambi2_400_12.
-                        copyWith(color: AppColors.errorColor),));
-                    } else if (state is RecommendationError &&
-                        state.message.contains("internet")) {
-                      EasyLoading.showError(state.message);
-                    }
+                        HomeSizedBox(),
+                        RowWidget(txt: tr.category, leading_text: '',onPressed: () {  },haveLeadingText: false,),
+                        HomeCategoryList(),
+                        HomeSizedBox(),
 
-                    return const SizedBox.shrink();
-                  },
-                ),
-                HomeSizedBox(),
-                RowWidget(txt: tr.upcomingWorkouts, leading_text: tr.viewAll,
-                  onPressed: () { Navigator.pushNamed(context, PagesRoutes.exerciseScreen,
+                        RowWidget(txt: tr.recommendationToDay, leading_text: '',onPressed: () {  },haveLeadingText: false,),
+                        BlocBuilder<RecommendationCubit, RecommendationState>(
+                          builder: (context, state) {
+                            if (state is RecommendationLoading) {
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  color: AppColors.primaryColor,
+                                ),
+                              );
+                            } else if (state is RecommendationSuccess) {
+                              return state.data.exercises == null
+                                  ? Center(child: Text(tr.noExercisesAvailable,
+                                style: AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.errorColor) ,))
+                                  :
 
-                ); },),
-                BlocBuilder<WorkoutCubit, WorkoutState>(
-                  builder: (context, state) {
-                    if (state is WorkoutLoading) {
-                      return Center(
-                        child: CircularProgressIndicator(
-                          color: AppColors.primaryColor,
+                              HomeExerciseList(exercises: state.data.exercises ??[], isLarge: true,);
+
+                            } else if (state is RecommendationError &&
+                                !state.message.contains("internet")) {
+                              return Center(child: Text(state.message,
+                                style:  AppTextStyles.BalooThambi2_400_12.
+                                copyWith(color: AppColors.errorColor),));
+                            } else if (state is RecommendationError &&
+                                state.message.contains("internet")) {
+                              EasyLoading.showError(state.message);
+                            }
+
+                            return const SizedBox.shrink();
+                          },
                         ),
-                      );
-                    } else if (state is WorkoutSuccess) {
-                      log("8888888888${state.data.exercises}");
-                      log(state.data.exercises?[1].exercise??"nooooooooo");
+                        HomeSizedBox(),
+                        RowWidget(txt: tr.upcomingWorkouts, leading_text: tr.viewAll,
+                          onPressed: () { Navigator.pushNamed(context, PagesRoutes.exerciseScreen,
 
-                      return state.data.exercises == null
-                          ? Center(child: Text(tr.noExercisesAvailable,
-                        style: AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.errorColor) ,))
-                          :
+                        ); },),
+                        BlocBuilder<WorkoutCubit, WorkoutState>(
+                          builder: (context, state) {
+                            if (state is WorkoutLoading) {
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  color: AppColors.primaryColor,
+                                ),
+                              );
+                            } else if (state is WorkoutSuccess) {
+                              return state.data.exercises == null
+                                  ? Center(child: Text(tr.noExercisesAvailable,
+                                style: AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.errorColor) ,))
+                                  :
 
-                      HomeExerciseList(exercises: state.data.exercises ??[], isLarge: false,);
+                              HomeExerciseList(exercises: state.data.exercises ??[], isLarge: false,);
 
-                    } else if (state is WorkoutError &&
-                        !state.message.contains("internet")) {
-                      log(state.message);
-                      return Center(child: Text(state.message,
-                        style:  AppTextStyles.BalooThambi2_400_12.
-                        copyWith(color: AppColors.errorColor),));
-                    } else if (state is WorkoutError &&
-                        state.message.contains("internet")) {
-                      EasyLoading.showError(state.message);
-                    }
+                            } else if (state is WorkoutError &&
+                                !state.message.contains("internet")) {
+                              log(state.message);
+                              return Center(child: Text(state.message,
+                                style:  AppTextStyles.BalooThambi2_400_12.
+                                copyWith(color: AppColors.errorColor),));
+                            } else if (state is WorkoutError &&
+                                state.message.contains("internet")) {
+                              EasyLoading.showError(state.message);
+                            }
 
-                    return const SizedBox.shrink();
-                  },
-                ),
-                HomeSizedBox(),
-                RowWidget(txt: tr.recommendationForYou, leading_text: tr.viewAll,onPressed:
-                    () { Navigator.pushNamed(context, PagesRoutes.mealsCategories,
-
-                ); },),
-                BlocBuilder<GetHomeMealsCategoriesCubit, GetHomeMealsCategoriesStates>(
-                  builder: (context, state) {
-                    if (state is GetHomeMealsCategoriesLoadingState) {
-                      return Center(
-                        child: CircularProgressIndicator(
-                          color: AppColors.primaryColor,
+                            return const SizedBox.shrink();
+                          },
                         ),
-                      );
-                    } else if (state is GetHomeMealsCategoriesSuccessState) {
-                      log("8888888888${state.mealsCategoriesEntity}");
-                      log(state.mealsCategoriesEntity[1].strCategory??"nooooooooo");
+                        HomeSizedBox(),
+                        RowWidget(txt: tr.recommendationForYou, leading_text: tr.viewAll,onPressed:
+                            () { Navigator.pushNamed(context, PagesRoutes.mealsCategories,
 
-                      return HomeMealsList(meals: state.mealsCategoriesEntity , isLarge: true,);
+                        ); },),
+                        BlocBuilder<GetHomeMealsCategoriesCubit, GetHomeMealsCategoriesStates>(
+                          builder: (context, state) {
+                            if (state is GetHomeMealsCategoriesLoadingState) {
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  color: AppColors.primaryColor,
+                                ),
+                              );
+                            } else if (state is GetHomeMealsCategoriesSuccessState) {
+                              return HomeMealsList(meals: state.mealsCategoriesEntity , isLarge: true,);
 
-                    } else if (state is GetHomeMealsCategoriesErrorState &&
-                        state.message.contains("internet")) {
-                      log(state.message);
-                      return Center(child: Text(state.message,
-                        style:  AppTextStyles.BalooThambi2_400_12.
-                        copyWith(color: AppColors.errorColor),));
-                    } else if (state is GetHomeMealsCategoriesErrorState &&
-                        state.message.contains("internet")) {
-                      EasyLoading.showError(state.message);
-                    }
+                            } else if (state is GetHomeMealsCategoriesErrorState &&
+                                state.message.contains("internet")) {
+                              log(state.message);
+                              return Center(child: Text(state.message,
+                                style:  AppTextStyles.BalooThambi2_400_12.
+                                copyWith(color: AppColors.errorColor),));
+                            } else if (state is GetHomeMealsCategoriesErrorState &&
+                                state.message.contains("internet")) {
+                              EasyLoading.showError(state.message);
+                            }
 
-                    return const SizedBox.shrink();
-                  },
-                ),
-                TextButton(
-                  onPressed: () {
-                    //navigate to change password screen
-                  },
-                  child: InkWell(
-                    onTap: () {
+                            return const SizedBox.shrink();
+                          },
+                        ),
+                        // TextButton(
+                        //   onPressed: () {
+                        //     //navigate to change password screen
+                        //   },
+                        //   child: InkWell(
+                        //     onTap: () {
+                        //
+                        //       Navigator.pushNamed(context, PagesRoutes.changePassword);
+                        //     },
+                        //     child: Text(
+                        //       'change',
+                        //       style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                        //         color: AppColors.primaryColor,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
 
-                      Navigator.pushNamed(context, PagesRoutes.changePassword);
-                    },
-                    child: Text(
-                      'change',
-                      style: AppTextStyles.BalooThambi2_600_16.copyWith(
-                        color: AppColors.primaryColor,
-                      ),
+                      ],
                     ),
                   ),
                 ),
-
               ],
             ),
           ),
         ),
-
-
       ),
     );
   }

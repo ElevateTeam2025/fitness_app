@@ -114,7 +114,14 @@ class SignInForm extends StatelessWidget {
                   ? AppColors.primaryColor
                   : AppColors.greyColor,
             ),
-            onPressed: onSubmit,
+            // onPressed: onSubmit,
+            // onPressed: isFormValid ? onSubmit : null,
+            onPressed: () {
+              if (isFormValid) {
+                onSubmit();
+              }
+            },
+
             child: Text(
               tr.login,
               style: AppTextStyles.BalooThambi2_600_14.copyWith(

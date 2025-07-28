@@ -25,17 +25,17 @@ class ProfileAppBarWidget extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Image.asset(
-                  IconAssets.back,
-                  width: 24,
-                  height: 24,
-                ),
-              ),
-            ),
+            // Align(
+            //   alignment: Alignment.centerLeft,
+            //   child: GestureDetector(
+            //     onTap: () => Navigator.pop(context),
+            //     child: Image.asset(
+            //       IconAssets.back,
+            //       width: 24,
+            //       height: 24,
+            //     ),
+            //   ),
+            // ),
             Center(
               child: Text(
                 S.of(context).profile,
