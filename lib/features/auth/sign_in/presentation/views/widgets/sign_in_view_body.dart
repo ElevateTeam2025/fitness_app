@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../../../../../../core/widgets/custom_validate.dart';
+import '../../../../../../generated/l10n.dart';
 import '../../../domain/entity/sign_in_request.dart';
 import '../../cubit/sign_in_cubit/sign_in_state.dart';
 import '../../cubit/sign_in_cubit/sign_in_view_model.dart';
@@ -51,8 +52,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
   }
 
   void validateForm() {
-    final emailValid = AppValidate.validateEmail(_emailController.text) == null;
-    final passwordValid = AppValidate.validatePassword(_passwordController.text) == null;
+
+    final emailValid = AppValidate.validateEmail(_emailController.text,context) == null;
+    final passwordValid = AppValidate.validatePassword(_passwordController.text,context) == null;
 
     setState(() {
       isFormValid = emailValid && passwordValid;
@@ -68,7 +70,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
           EasyLoading.show();
         } else if (state is SuccessSignInState) {
           EasyLoading.dismiss();
-          EasyLoading.showSuccess('Success Login _>');
+          EasyLoading.showSuccess(S.of(context).successLogin);
           Navigator.pushReplacementNamed(context, PagesRoutes.layoutView);
         } else if (state is ErrorSignInState) {
           EasyLoading.dismiss();

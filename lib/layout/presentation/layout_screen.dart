@@ -1,4 +1,4 @@
-import 'package:fitness_app/core/router/pages_routes.dart';
+
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/features/chatbot/presentation/view/chatbot_tab.dart';
 import 'package:fitness_app/features/worksout/presentation/view/workout_screen.dart';
@@ -16,8 +16,9 @@ class LayoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tr = S.of(context);
     return BlocProvider(
-      create: (context) => LayoutViewModel(),
+      create: (context) => LayoutViewModel(initialIndex),
       child: BlocBuilder<LayoutViewModel, LayoutState>(
         builder: (context, state) {
           final viewModel = context.read<LayoutViewModel>();
@@ -28,6 +29,7 @@ class LayoutScreen extends StatelessWidget {
             body: viewModel.tabs[viewModel.currentIndex],
 
 
+            bottomNavigationBar: Container(
             bottomNavigationBar:  Container(
               margin: const EdgeInsets.all(16),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -41,6 +43,18 @@ class LayoutScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+              TabBarItemWidget(currentIndex: viewModel.currentIndex, index: 0,
+                icon:IconAssets.homeIcon, label: tr.home,
+              onTap:() =>viewModel.doIntent(LayoutChangeBottomNavIntent(0),),),
+                  TabBarItemWidget(currentIndex: viewModel.currentIndex, index: 1,
+                    icon:IconAssets.chatIcon, label: tr.chat,
+                    onTap:() =>viewModel.doIntent(LayoutChangeBottomNavIntent(1),),),
+                  TabBarItemWidget(currentIndex: viewModel.currentIndex,
+                    index: 2, icon:IconAssets.workoutIcon, label: tr.workout,
+                    onTap:() =>viewModel.doIntent(LayoutChangeBottomNavIntent(2),),),
+                  TabBarItemWidget(currentIndex: viewModel.currentIndex,
+                    index: 3, icon:IconAssets.profileIcon, label:  tr.profile,
+                    onTap:() =>viewModel.doIntent(LayoutChangeBottomNavIntent(3),),),
                   TabBarItemWidget(
                     currentIndex: viewModel.currentIndex,
                     index: 0,
@@ -74,6 +88,7 @@ class LayoutScreen extends StatelessWidget {
                 ],
               ),
             ) ,
+            ),
 
 
           );

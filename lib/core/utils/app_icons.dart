@@ -7,6 +7,9 @@ class AppIcons {
   static const IconData imageError = Icons.broken_image;
   static const IconData openYoutube = Icons.open_in_new;
   static const IconData closeIcon = Icons.close;
+  static const IconData language = Icons.language;
+  static const IconData arrowRight = Icons.arrow_forward_ios;
+  static const IconData checkIcon = Icons.check_circle;
 
   static const IconData back = Icons.arrow_back_ios;
   static const IconData edit = Icons.edit;

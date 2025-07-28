@@ -4,10 +4,8 @@ import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/features/home/presentation/widget/home_catagory/category_item.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/services/screen_size_service.dart';
 import '../../../../../core/utils/app_assets.dart';
 import '../../../../../core/utils/app_colors.dart';
-import 'category_item.dart';
 import 'divider_widget.dart';
 
 class HomeCategoryList extends StatelessWidget {

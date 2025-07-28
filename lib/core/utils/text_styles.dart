@@ -80,6 +80,11 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w600,
     fontSize: 16.FontSizeResponsive,
   );
+    static TextStyle get BalooThambi2_600_20 => TextStyle(
+    fontFamily: 'BalooThambi2',
+    fontWeight: FontWeight.w600,
+    fontSize: 20.FontSizeResponsive,
+  );
   static TextStyle get BalooThambi2_700_16 => TextStyle(
     fontFamily: 'BalooThambi2',
     fontWeight: FontWeight.w700,
