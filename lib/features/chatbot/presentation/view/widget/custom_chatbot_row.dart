@@ -1,4 +1,6 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
+import 'package:fitness_app/core/services/shared_preference_services.dart';
+import 'package:fitness_app/core/utils/constant_manager.dart';
 import 'package:fitness_app/generated/l10n.dart' show S;
 import 'package:flutter/material.dart';
 
@@ -36,7 +38,7 @@ class CustomChatbotRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "${tr.hi} Ahmed,",
+                "${tr.hi} ${SharedPreferenceServices.getData(AppConstants.firstName)},",
                 style: AppTextStyles.BalooThambi2_600_16.copyWith(
                   color: AppColors.whiteColor,
                 ),

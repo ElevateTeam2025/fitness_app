@@ -9,4 +9,5 @@ class AppConstants {
 
   static const String locale = "locale";
   static const String boxName = "chats";
+  static const String firstName = "firstName";
 }

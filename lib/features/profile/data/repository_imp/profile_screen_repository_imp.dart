@@ -1,3 +1,5 @@
+import 'package:fitness_app/core/services/shared_preference_services.dart';
+import 'package:fitness_app/core/utils/constant_manager.dart';
 import 'package:injectable/injectable.dart';
 import '../../../../../core/common/result.dart';
 import '../../../../core/api/api_execute.dart';
@@ -20,6 +22,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
   Future<Result<ProfileEntity>> getProfileData() async {
     return executeApi(() async {
       var data = await _profileRemoteDataSource.getProfileData();
+      SharedPreferenceServices.saveData(AppConstants.firstName, data.user?.firstName??"");
       return data.toEntity();
     });
   }
