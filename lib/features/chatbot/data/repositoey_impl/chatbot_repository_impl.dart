@@ -1,11 +1,11 @@
 import 'dart:developer';
 
 import 'package:fitness_app/core/common/result.dart';
-import 'package:fitness_app/features/chatbot/data/data_source/chatbot_remote_data_source.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/repository/chatbot_repository.dart';
-import '../data_source/chatbot_local_data_source.dart';
+import '../data_source/local_data_source/chatbot_local_data_source.dart';
+import '../data_source/remote_data_source/chatbot_remote_data_source.dart';
 import '../model/chat_history_model.dart';
 import '../model/message_model.dart';
 

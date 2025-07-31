@@ -1,6 +1,6 @@
 import 'package:uuid/uuid.dart';
 
-import '../../data/model/local_db/chat_history_model.dart';
+import '../../data/model/chat_history_model.dart';
 import 'message_entity.dart';
 
 class ChatHistoryEntity {
@@ -25,21 +25,7 @@ class ChatHistoryEntity {
     );
   }
 
-  factory ChatHistoryEntity.fromModel(ChatHistoryModel model) {
-    return ChatHistoryEntity(
-      id: model.id,
-      title: model.title,
-      messages: model.messages
-          .map((messageModel) => MessageEntity(
-        id: messageModel.id,
-        content: messageModel.content,
-        role: messageModel.role,
-        timestamp: messageModel.timestamp,
-      ))
-          .toList(),
-      createdAt: model.createdAt,
-    );
-  }
+
 
   ChatHistoryEntity copyWith({
     String? id,

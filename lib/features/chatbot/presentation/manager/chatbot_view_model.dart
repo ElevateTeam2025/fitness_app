@@ -41,7 +41,7 @@ class ChatbotViewModel extends Cubit<ChatbotState> {
     final result = await _useCase.getAllChats();
     chatHistory.clear();
     chatHistory.addAll(
-        result..sort((a, b) => b.createdAt.compareTo(a.createdAt))
+      result..sort((a, b) => b.createdAt.compareTo(a.createdAt)),
     );
   }
 
@@ -57,20 +57,24 @@ class ChatbotViewModel extends Cubit<ChatbotState> {
       chatId ?? "",
     );
     inputText.value = '';
-    if (result is Success<String>) {
-      final index = messages.indexWhere((m) => m.isSkeleton);
-      if (index != -1) {
-        messages[index] = ChatbotResponseModel(
-          message: result.data,
-          isUser: false,
-        );
-      }
-
-      emit(SendMessageSuccessState([result.data!]));
-    } else if (result is Error) {
-      messages.removeWhere((m) => m.isSkeleton);
-      emit(SendMessageErrorState(result.toString()));
+    switch (result) {
+      case Success():
+        final index = messages.indexWhere((m) => m.isSkeleton);
+        if (index != -1) {
+          messages[index] = ChatbotResponseModel(
+            message: result.data,
+            isUser: false,
+          );
+        }
+        log(result.data.toString());
+        emit(SendMessageSuccessState([result.data!]));
+        break;
+      case Error():
+        messages.removeWhere((m) => m.isSkeleton);
+        emit(SendMessageErrorState(result.exception.toString()));
+        break;
     }
+
   }
 
   void _changeScreen() {
@@ -103,8 +107,8 @@ class ChatbotViewModel extends Cubit<ChatbotState> {
     messages = sortedMessages
         .map(
           (msg) =>
-          ChatbotResponseModel(message: msg.content, isUser: msg.isUser),
-    )
+              ChatbotResponseModel(message: msg.content, isUser: msg.isUser),
+        )
         .toList();
     isShowChat = true;
     emit(ChangeScreenState());

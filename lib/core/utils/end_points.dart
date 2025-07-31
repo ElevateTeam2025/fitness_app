@@ -19,7 +19,6 @@ class ApiEndPoints {
   static const String muscles = "/musclesGroup";
   static const String getAllExercise = "/exercises";
   static const String getRecommendExercise = "/exercises/random";
-  static const String apiKey = "AIzaSyBWDudqbLziw2fvUxEFhSknOfEUXz5IRNs";
   static const String uploadProfilePhoto = "/auth/upload-photo";
   static const String editProfile = "/auth/editProfile";
 

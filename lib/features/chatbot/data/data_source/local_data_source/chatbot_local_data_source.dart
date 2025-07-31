@@ -3,7 +3,7 @@ import 'package:fitness_app/core/common/result.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 
-import '../model/chat_history_model.dart';
+import '../../model/chat_history_model.dart';
 
 abstract class ChatbotLocalDataSource {
   Future<List<ChatHistoryModel>> getAllChats();

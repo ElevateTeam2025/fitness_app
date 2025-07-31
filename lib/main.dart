@@ -20,7 +20,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
-import 'core/services/hive_service.dart';
+import 'core/services/env_config.dart';
 import 'core/services/localization_service.dart';
 import 'generated/l10n.dart';
 
@@ -30,7 +30,8 @@ void main() async {
   Hive.registerAdapter(MessageModelAdapter());
   Hive.registerAdapter(ChatHistoryModelAdapter());
   await Hive.openBox<ChatHistoryModel>(AppConstants.boxName);
-  Gemini.init(apiKey: ApiEndPoints.apiKey);
+  await dotenv.load(fileName: ".env");
+  Gemini.init(apiKey: EnvConfig.apiKey);
   configureDependencies();
   Bloc.observer = MyBlocObserver();
   ConfigLoading().showLoading();
