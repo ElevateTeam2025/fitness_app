@@ -42,8 +42,8 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Image.asset(
           ImageAssets.bgImage,
-          width: 243.WidthResponsive,
-          height: 151.HeightResponsive,
+          width: 243.widthResponsive,
+          height: 151.heightResponsive,
         ),
       ),
     );

@@ -15,23 +15,23 @@ class VerifyResetCodeTopLeftTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 16.WidthResponsive),
+          padding: EdgeInsets.only(left: 16.widthResponsive),
           child: Text(
             S.of(context).otpCode,
             style: AppTextStyles.BalooThambi2_800_20.copyWith(
               color: Colors.white,
-              height: (140 ~/ 100).HeightResponsive,
+              height: (140 ~/ 100).heightResponsive,
             ),
           ),
         ),
-        SizedBox(height: 5.HeightResponsive),
+        SizedBox(height: 5.heightResponsive),
         Padding(
-          padding: EdgeInsets.only(left: 16.WidthResponsive),
+          padding: EdgeInsets.only(left: 16.widthResponsive),
           child: Text(
             S.of(context).enterYourOTPCheckYourEmail,
-            style: AppTextStyles.BalooThambi2_400_18.copyWith(
+            style: AppTextStyles.balooThambi2_400_18.copyWith(
               color: Colors.white,
-              height: (140 ~/ 100).HeightResponsive,
+              height: (140 ~/ 100).heightResponsive,
             ),
           ),
         ),

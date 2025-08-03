@@ -25,16 +25,16 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
           BackGroudImage(),
           SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.only(top: 46.HeightResponsive),
+              padding: EdgeInsets.only(top: 46.heightResponsive),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(child: Image.asset('assets/images/app_logo.png')),
-                  SizedBox(height: 96.HeightResponsive),
+                  SizedBox(height: 96.heightResponsive),
 
                   ForgetPasswordTopLeftTitle(),
 
-                  SizedBox(height: 16.HeightResponsive),
+                  SizedBox(height: 16.heightResponsive),
 
                   ForgetPasswordContentWidget(
                     formKey: viewModel.formKey,

@@ -9,8 +9,6 @@ import 'package:fitness_app/features/meals_categories/data/models/meal_categorie
 import 'package:fitness_app/features/worksout/data/model/muscles_data_response_model.dart';
 import 'package:fitness_app/features/worksout/data/model/muscles_tab_response_model.dart';
 import 'package:injectable/injectable.dart';
-// import 'package:retrofit/error_logger.dart';
-// import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 
 import 'package:retrofit/error_logger.dart';

@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/core/di/injectable_initializer.dart';
-import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
@@ -85,17 +84,17 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
             EditProfileBackGroundImage(),
             SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
+                padding: EdgeInsets.symmetric(horizontal: 16.widthResponsive),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 30.HeightResponsive),
+                    SizedBox(height: 30.heightResponsive),
                     EditProfileCustomAppBar(),
-                    SizedBox(height: 30.HeightResponsive),
+                    SizedBox(height: 30.heightResponsive),
                     Center(
                       child: SizedBox(
-                        height: 102.HeightResponsive,
-                        width: 102.WidthResponsive,
+                        height: 102.heightResponsive,
+                        width: 102.widthResponsive,
                         child: Stack(
                           children: [
                             ProfilePhotoWidget(
@@ -140,7 +139,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 8.HeightResponsive),
+                    SizedBox(height: 8.heightResponsive),
                     Center(
                       child: Text(
                         '${widget.userData.firstName} ${widget.userData.lastName}',
@@ -149,7 +148,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 30.HeightResponsive),
+                    SizedBox(height: 30.heightResponsive),
                     TextFormField(
                       controller: _firstNameController,
                       style: TextStyle(color: Colors.white),
@@ -161,7 +160,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                         labelText: 'first name',
                       ),
                     ),
-                    SizedBox(height: 16.HeightResponsive),
+                    SizedBox(height: 16.heightResponsive),
                     TextFormField(
                       controller: _lastNameController,
                       style: TextStyle(color: Colors.white),
@@ -172,7 +171,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16.HeightResponsive),
+                    SizedBox(height: 16.heightResponsive),
                     TextFormField(
                       controller: _emailController,
                       style: TextStyle(color: Colors.white),
@@ -185,7 +184,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                         hintText: 'Mail',
                       ),
                     ),
-                    SizedBox(height: 30.HeightResponsive),
+                    SizedBox(height: 30.heightResponsive),
                     EditLabelTextWidget(
                       label: 'Your Weight',
                       onTap: () {
@@ -200,7 +199,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                         );
                       },
                     ),
-                    SizedBox(height: 8.HeightResponsive),
+                    SizedBox(height: 8.heightResponsive),
                     TextFormField(
                       readOnly: true,
                       decoration: InputDecoration(
@@ -208,7 +207,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                             '${context.watch<EditProfileViewModel>().weight} kg',
                       ),
                     ),
-                    SizedBox(height: 16.HeightResponsive),
+                    SizedBox(height: 16.heightResponsive),
                     EditLabelTextWidget(
                       label: 'Your Goal',
                       onTap: () {
@@ -223,14 +222,14 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                         );
                       },
                     ),
-                    SizedBox(height: 8.HeightResponsive),
+                    SizedBox(height: 8.heightResponsive),
                     TextFormField(
                       readOnly: true,
                       decoration: InputDecoration(
-                        hintText: viewModel.selectedGoal ?? 'goal',
+                        hintText: viewModel.selectedGoal,
                       ),
                     ),
-                    SizedBox(height: 16.HeightResponsive),
+                    SizedBox(height: 16.heightResponsive),
                     EditLabelTextWidget(
                       label: 'Your activity level',
                       onTap: () {
@@ -245,14 +244,14 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                         );
                       },
                     ),
-                    SizedBox(height: 8.HeightResponsive),
+                    SizedBox(height: 8.heightResponsive),
                     TextFormField(
                       readOnly: true,
                       decoration: InputDecoration(
-                        hintText: viewModel.selectedActivity ?? 'activity',
+                        hintText: viewModel.selectedActivity ,
                       ),
                     ),
-                    SizedBox(height: 5.HeightResponsive),
+                    SizedBox(height: 5.heightResponsive),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
@@ -263,8 +262,8 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                               'lastName': _lastNameController.text,
                               'email': _emailController.text,
                               'weight': viewModel.weight.toString(),
-                              'goal': viewModel.selectedGoal ?? '',
-                              'activityLevel': viewModel.selectedActivity ?? '',
+                              'goal': viewModel.selectedGoal,
+                              'activityLevel': viewModel.selectedActivity ,
                             }),
                           );
                         },

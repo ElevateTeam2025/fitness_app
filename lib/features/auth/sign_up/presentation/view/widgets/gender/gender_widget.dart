@@ -22,8 +22,8 @@ class _GenderWidgetState extends State<GenderWidget> {
       onTap: widget.onPress,
       child: Container(
 
-        width: 100.WidthResponsive,
-        height: 100.HeightResponsive,
+        width: 100.widthResponsive,
+        height: 100.heightResponsive,
         decoration: BoxDecoration(
           color: widget.isSelected?AppColors.primaryColor:Colors.transparent,
           borderRadius: BorderRadius.circular(95),
@@ -36,7 +36,7 @@ class _GenderWidgetState extends State<GenderWidget> {
             children: [
 
               Image.asset(widget.icon),
-              Text(widget.name,style: AppTextStyles.BalooThambi2_600_12.copyWith(color: AppColors.whiteColor),),
+              Text(widget.name,style: AppTextStyles.balooThambi2_600_12.copyWith(color: AppColors.whiteColor),),
             ],
           ),
         ),

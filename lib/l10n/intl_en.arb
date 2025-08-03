@@ -107,5 +107,6 @@
   "noConversations": "No Conversations yet.",
   "deleteConversation": "DeleteConversation",
   "delete" : "Delete",
-  "areYouSureYouWantToDeleteThisConversation" : "Are you sure you want to delete this conversation ?"
+  "areYouSureYouWantToDeleteThisConversation" : "Are you sure you want to delete this conversation ?",
+  "write":"Typing..."
 }

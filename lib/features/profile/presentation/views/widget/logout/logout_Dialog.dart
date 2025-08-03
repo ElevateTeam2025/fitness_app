@@ -45,7 +45,7 @@ void showLogoutDialog(BuildContext parentContext) {
             title: Center(
               child: Text(
                 logoutText,
-                style: AppTextStyles.BalooThambi2_600_24.copyWith(color: AppColors.whiteColor),
+                style: AppTextStyles.balooThambi2_600_24.copyWith(color: AppColors.whiteColor),
               ),
             ),
             content: Column(
@@ -54,8 +54,7 @@ void showLogoutDialog(BuildContext parentContext) {
                 Text(
                   confirmLogoutText,
                   textAlign: TextAlign.center,
-                  style: AppTextStyles.BalooThambi2_600_16.copyWith(color: AppColors.greyColor),
-                ),
+                  style: AppTextStyles.balooThambi2_600_16.copyWith(color: AppColors.greyColor)),
                 SizedBox(height: responsiveHeight(24)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +91,7 @@ void showLogoutDialog(BuildContext parentContext) {
                         },
                         child: Text(
                           logoutText,
-                          style: AppTextStyles.BalooThambi2_500_14.copyWith(
+                          style: AppTextStyles.balooThambi2_500_14.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),

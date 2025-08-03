@@ -64,7 +64,7 @@ class _ForgetPasswordContentWidgetState
             prefixIcon: Icon(Icons.mail_outline, color: Color(0xffD3D3D3)),
           ),
         ),
-        SizedBox(height: 24.HeightResponsive),
+        SizedBox(height: 24.heightResponsive),
         BlocListener<ForgetPasswordCubit, ForgetPasswordStates>(
           listener: (context, state) {
             if (state is ForgetPasswordError) {

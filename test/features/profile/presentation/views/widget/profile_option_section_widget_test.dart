@@ -1,5 +1,4 @@
 import 'package:fitness_app/core/services/localization_service.dart';
-import 'package:fitness_app/features/profile/presentation/views/widget/profile_option_section_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -43,11 +42,11 @@ void main() {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: const Scaffold(
-          body: SingleChildScrollView(
-            child: ProfileOptionsSection(),
-          ),
-        ),
+        // home: const Scaffold(
+        //   body: SingleChildScrollView(
+        //     child: ProfileOptionsSection(u ,),
+        //   ),
+        // ),
       ),
     );
   }

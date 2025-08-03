@@ -19,8 +19,8 @@ class MealsByCategoryGridView extends StatelessWidget {
             itemCount: 20,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              crossAxisSpacing: 17.WidthResponsive,
-              mainAxisSpacing: 17.HeightResponsive,
+              crossAxisSpacing: 17.widthResponsive,
+              mainAxisSpacing: 17.heightResponsive,
             ),
             itemBuilder: (context, index) {
               return MealGridViewShimmerLoading();
@@ -33,8 +33,8 @@ class MealsByCategoryGridView extends StatelessWidget {
             itemCount: state.mealsByCategoryEntity.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              crossAxisSpacing: 17.WidthResponsive,
-              mainAxisSpacing: 17.HeightResponsive,
+              crossAxisSpacing: 17.widthResponsive,
+              mainAxisSpacing: 17.heightResponsive,
             ),
             itemBuilder: (context, index) {
               final meal = state.mealsByCategoryEntity[index];

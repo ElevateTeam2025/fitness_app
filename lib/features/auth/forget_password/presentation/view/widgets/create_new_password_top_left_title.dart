@@ -13,16 +13,16 @@ class CreateNewPasswordTopLeftTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 16.WidthResponsive),
+          padding: EdgeInsets.only(left: 16.widthResponsive),
           child: Text(
             S.of(context).sureCharacters,
-            style: AppTextStyles.BalooThambi2_400_18.copyWith(
+            style: AppTextStyles.balooThambi2_400_18.copyWith(
               color: Colors.white,
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 16.WidthResponsive),
+          padding: EdgeInsets.only(left: 16.widthResponsive),
           child: Text(
             S.of(context).createNewPassword,
             style: AppTextStyles.BalooThambi2_800_20.copyWith(

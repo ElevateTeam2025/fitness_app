@@ -84,7 +84,7 @@ class ExerciseSliverHeader extends StatelessWidget {
                 Expanded(
                   child: Text(
                     title,
-                    style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                    style: AppTextStyles.balooThambi2_600_16.copyWith(
                       color: AppColors.whiteColor,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -121,7 +121,7 @@ class ExerciseSliverHeader extends StatelessWidget {
                       children: [
                         Text(
                           title,
-                          style: AppTextStyles.BalooThambi2_600_18.copyWith(
+                          style: AppTextStyles.balooThambi2_600_18.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),

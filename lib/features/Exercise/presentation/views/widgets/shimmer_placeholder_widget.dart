@@ -13,37 +13,37 @@ class ShimmerExerciseCardPlaceholder extends StatelessWidget {
       highlightColor: AppColors.whiteColor,
       period: const Duration(milliseconds: 1500),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.WidthResponsive, vertical: 6.HeightResponsive),
+        padding: EdgeInsets.symmetric(horizontal: 8.widthResponsive, vertical: 6.heightResponsive),
         child: Row(
           children: [
             Container(
-              width: 60.WidthResponsive,
-              height: 70.HeightResponsive,
+              width: 60.widthResponsive,
+              height: 70.heightResponsive,
               decoration: BoxDecoration(
                 color: Colors.grey.shade700,
-                borderRadius: BorderRadius.circular(12.RadiusResponsive),
+                borderRadius: BorderRadius.circular(12.radiusResponsive),
               ),
             ),
-            SizedBox(width:12.WidthResponsive),
+            SizedBox(width:12.widthResponsive),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    height: 16.HeightResponsive,
+                    height: 16.heightResponsive,
                     width: double.infinity,
                     color: Colors.grey.shade700,
                   ),
-                  SizedBox(height: 8.HeightResponsive),
+                  SizedBox(height: 8.heightResponsive),
                   Container(
-                    height: 12.HeightResponsive,
-                    width: 100.WidthResponsive,
+                    height: 12.heightResponsive,
+                    width: 100.widthResponsive,
                     color: Colors.grey.shade700,
                   ),
-                  SizedBox(height:8.HeightResponsive),
+                  SizedBox(height:8.heightResponsive),
                   Container(
-                    height: 12.HeightResponsive,
-                    width: 80.WidthResponsive,
+                    height: 12.heightResponsive,
+                    width: 80.widthResponsive,
                     color: Colors.grey.shade700,
                   ),
                 ],

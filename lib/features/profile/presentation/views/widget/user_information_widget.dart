@@ -17,7 +17,7 @@ class UserInformationWidget extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: AppColors.whiteColor,
-          radius: 50.RadiusResponsive,
+          radius: 50.radiusResponsive,
           backgroundImage:
               userData.photo == null || userData.photo!.isEmpty
                   ? AssetImage(ImageAssets.logo)
@@ -34,12 +34,12 @@ class UserInformationWidget extends StatelessWidget {
                 children: [
                   Text(
                     userData.firstName ?? '',
-                    style: AppTextStyles.BalooThambi2_600_18.copyWith(color: AppColors.whiteColor),
+                    style: AppTextStyles.balooThambi2_600_18.copyWith(color: AppColors.whiteColor),
                   ),
                   SizedBox(width: responsiveWidth(8)),
                   Text(
                     userData.lastName ?? '',
-                    style: AppTextStyles.BalooThambi2_600_18.copyWith(color: AppColors.whiteColor),
+                    style: AppTextStyles.balooThambi2_600_18.copyWith(color: AppColors.whiteColor),
                   ),
                 ],
               ),

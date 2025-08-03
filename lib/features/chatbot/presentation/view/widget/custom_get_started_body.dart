@@ -13,9 +13,9 @@ class CustomGetStartedBody extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(ImageAssets.chatbotImage),
-          SizedBox(height: 40.HeightResponsive),
+          SizedBox(height: 40.heightResponsive),
           CustomChatbotCard(),
-          SizedBox(height: 40.HeightResponsive),
+          SizedBox(height: 40.heightResponsive),
         ],
       ),
     );

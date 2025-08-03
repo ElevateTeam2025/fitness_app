@@ -17,8 +17,8 @@ ThemeData theme() {
       elevation: 0,
       type: BottomNavigationBarType.fixed,
       selectedItemColor: AppColors.primaryColor,
-      unselectedLabelStyle: AppTextStyles.BalooThambi2_400_12,
-      selectedLabelStyle: AppTextStyles.BalooThambi2_400_12,
+      unselectedLabelStyle: AppTextStyles.balooThambi2_400_12,
+      selectedLabelStyle: AppTextStyles.balooThambi2_400_12,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -39,10 +39,10 @@ ThemeData theme() {
     ),
     inputDecorationTheme: InputDecorationTheme(
       floatingLabelBehavior: FloatingLabelBehavior.always,
-      hintStyle: AppTextStyles.BalooThambi2_400_12.copyWith(
+      hintStyle: AppTextStyles.balooThambi2_400_12.copyWith(
         color: const Color(0xffD3D3D3),
       ),
-      labelStyle: AppTextStyles.BalooThambi2_400_12.copyWith(
+      labelStyle: AppTextStyles.balooThambi2_400_12.copyWith(
         color: const Color(0xffD3D3D3),
       ),
       contentPadding: EdgeInsetsDirectional.fromSTEB(
@@ -72,12 +72,12 @@ ThemeData theme() {
       filled: true,
       fillColor: Colors.transparent,
       errorMaxLines: 2,
-      errorStyle: AppTextStyles.BalooThambi2_400_12.copyWith(color: Colors.red),
+      errorStyle: AppTextStyles.balooThambi2_400_12.copyWith(color: Colors.red),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: AppColors.primaryColor,
-        textStyle: AppTextStyles.BalooThambi2_600_16.copyWith(
+        textStyle: AppTextStyles.balooThambi2_600_16.copyWith(
           decoration: TextDecoration.underline,
           decorationColor: AppColors.primaryColor,
           decorationStyle: TextDecorationStyle.solid,
@@ -95,9 +95,8 @@ ThemeData theme() {
 }
 
 OutlineInputBorder textFieldInputBorder() {
-  final screenWidth = ScreenSizeService.width;
-  double responsiveRadius = 20.RadiusResponsive;
-  double responsiveBorderWidth = 1.BorderResponsive;
+  double responsiveRadius = 20.radiusResponsive;
+  double responsiveBorderWidth = 1.borderResponsive;
 
   return OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(responsiveRadius)),
@@ -109,8 +108,8 @@ OutlineInputBorder textFieldInputBorder() {
 }
 
 OutlineInputBorder textFieldInputBorderFocus() {
-  double responsiveRadius = 20.RadiusResponsive;
-  double responsiveBorderWidth = 1.BorderResponsive;
+  double responsiveRadius = 20.radiusResponsive;
+  double responsiveBorderWidth = 1.borderResponsive;
 
   return OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(responsiveRadius)),

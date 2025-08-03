@@ -16,12 +16,12 @@ class CustomChatbotRow extends StatelessWidget {
     final tr = S.of(context);
 
     return  Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
+      padding:  EdgeInsets.symmetric(horizontal: 16.widthResponsive),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CircleAvatar(
-            radius: 14.RadiusResponsive,
+            radius: 14.radiusResponsive,
             backgroundColor: AppColors.primaryColor,
             child: IconButton(
               onPressed: () {
@@ -39,13 +39,13 @@ class CustomChatbotRow extends StatelessWidget {
             children: [
               Text(
                 "${tr.hi} ${SharedPreferenceServices.getData(AppConstants.firstName)},",
-                style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                style: AppTextStyles.balooThambi2_600_16.copyWith(
                   color: AppColors.whiteColor,
                 ),
               ),
               Text(
                 tr.iAmYourSmartCoach,
-                style: AppTextStyles.BalooThambi2_600_18.copyWith(
+                style: AppTextStyles.balooThambi2_600_18.copyWith(
                   color: AppColors.whiteColor,
                 ),
               ),

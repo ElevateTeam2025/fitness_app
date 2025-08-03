@@ -37,7 +37,7 @@ class SignupSelectGoal extends StatelessWidget {
 
               BlocBuilder<SignupCubit, SignupState>(
                 builder: (context, state) {
-                  bool hasSelect = state.selectedGoal != null &&
+                  bool hasSelect = state.selectedGoal != false &&
                       state.selectedGoal.isNotEmpty;
 
                   return Column(

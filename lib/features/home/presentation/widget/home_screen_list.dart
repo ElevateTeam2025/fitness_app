@@ -18,7 +18,7 @@ class HomeExerciseList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: isLarge ? 104.HeightResponsive : 80.HeightResponsive,
+      height: isLarge ? 104.heightResponsive : 80.heightResponsive,
       child: ListView.builder(
         itemCount:  exercises.length,
         scrollDirection: Axis.horizontal,

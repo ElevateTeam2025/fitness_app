@@ -5,14 +5,12 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../../../../../core/router/pages_routes.dart';
 import '../../../../../core/services/shared_preference_services.dart';
-import '../../../../../core/utils/app_assets.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_icons.dart';
 import '../../../../../core/utils/constant_manager.dart';
 import '../../../../../core/utils/text_styles.dart';
 import '../../../../../core/widgets/custom_container_widget.dart';
 import '../../../../../core/widgets/custom_validate.dart';
-import '../../../../meals_categories/presentation/views/widgets/meals_categories_back_ground_image.dart';
 import '../cubit/change_password_cubit/change_password_state.dart';
 import '../cubit/change_password_cubit/change_password_view-model.dart';
 import 'app_bar.dart';
@@ -38,7 +36,7 @@ class ChangePasswordScreen extends StatelessWidget {
             child: Column(
               children: [
                 ChangePasswordCustomAppBar(),
-                SizedBox(height :16.HeightResponsive),
+                SizedBox(height :16.heightResponsive),
                 Column(
                   children: [
                     CustomContainerWidget(body: [
@@ -61,12 +59,12 @@ class ChangePasswordScreen extends StatelessWidget {
                         },
                         builder: (context, state) {
                           return Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
+                            padding: EdgeInsets.symmetric(horizontal: 16.widthResponsive),
                             child: Form(
                               key: viewModel.formKey,
                               child: Column(
                                 children: [
-                                  SizedBox(height:30.HeightResponsive),
+                                  SizedBox(height:30.heightResponsive),
                                   TextFormField(
                                     key: const Key('passwordField'),
                                     validator: (value) => AppValidate.validatePassword(value, context),
@@ -74,7 +72,7 @@ class ChangePasswordScreen extends StatelessWidget {
                                     enableSuggestions: false,
                                     autocorrect: false,
                                     controller: viewModel.currentPasswordController,
-                                    style: AppTextStyles.BalooThambi2_500_16.copyWith(
+                                    style: AppTextStyles.balooThambi2_500_16.copyWith(
                                       color: AppColors.whiteColor,
                                     ),
                                     decoration:   InputDecoration(
@@ -86,7 +84,7 @@ class ChangePasswordScreen extends StatelessWidget {
 
 
                                   ),
-                                  SizedBox(height: 24.HeightResponsive),
+                                  SizedBox(height: 24.heightResponsive),
                                   TextFormField(
                                     obscuringCharacter: "*",
                                     obscureText: true,
@@ -95,15 +93,15 @@ class ChangePasswordScreen extends StatelessWidget {
                                     decoration: InputDecoration(
                                       hintText: "New password",
                                     ),
-                                    style: AppTextStyles.BalooThambi2_500_16.copyWith(
+                                    style: AppTextStyles.balooThambi2_500_16.copyWith(
                                       color: AppColors.whiteColor,
                                     ),
                                   ),
-                                  SizedBox(height:24.HeightResponsive),
+                                  SizedBox(height:24.heightResponsive),
                                   TextFormField(
                                     obscuringCharacter: "*",
                                     obscureText: true,
-                                    style: AppTextStyles.BalooThambi2_500_16.copyWith(
+                                    style: AppTextStyles.balooThambi2_500_16.copyWith(
                                       color: AppColors.whiteColor,
                                     ),
                                     validator: viewModel.confirmPasswordValidator,
@@ -113,7 +111,7 @@ class ChangePasswordScreen extends StatelessWidget {
 
                                     ),
                                   ),
-                                  SizedBox(height: 24.HeightResponsive),
+                                  SizedBox(height: 24.heightResponsive),
                                   ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: AppColors.primaryColor,
@@ -128,7 +126,7 @@ class ChangePasswordScreen extends StatelessWidget {
                                     },
                                     child: Text(
                                       "update",
-                                      style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                                      style: AppTextStyles.balooThambi2_600_16.copyWith(
                                         color: AppColors.whiteColor,
                                       ),
                                     ),

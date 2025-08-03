@@ -1,8 +1,6 @@
 import 'dart:developer';
 
 import 'package:fitness_app/core/common/height_width_extention.dart';
-import 'package:fitness_app/core/di/injectable_initializer.dart';
-import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/text_styles.dart';
@@ -56,8 +54,8 @@ class _EditProfileFieldsState extends State<EditProfileFields> {
             elevation: 0,
             title: Image.asset(
               ImageAssets.bgImage,
-              height: 48.HeightResponsive,
-              width: 70.WidthResponsive,
+              height: 48.heightResponsive,
+              width: 70.widthResponsive,
             ),
             centerTitle: true,
           ),
@@ -114,7 +112,7 @@ class EditGoalWidget extends StatelessWidget {
                 ...goals.map((goal) {
                   return Column(
                     children: [
-                      SizedBox(height: 10.HeightResponsive),
+                      SizedBox(height: 10.heightResponsive),
                       CustomListTile(
                         title: goal,
                         isSelected: viewmodel.selectedGoal == goal,
@@ -129,7 +127,7 @@ class EditGoalWidget extends StatelessWidget {
                     ],
                   );
                 }),
-                SizedBox(height: 10.HeightResponsive),
+                SizedBox(height: 10.heightResponsive),
 
                 ElevatedButton(
                   onPressed: () {
@@ -183,7 +181,7 @@ class EditActivityWidget extends StatelessWidget {
                   final level = activity.value;
                   return Column(
                     children: [
-                      SizedBox(height: 10.HeightResponsive),
+                      SizedBox(height: 10.heightResponsive),
                       CustomListTile(
                         title: name,
                         isSelected: viewmodel.selectedActivity == level,
@@ -198,7 +196,7 @@ class EditActivityWidget extends StatelessWidget {
                     ],
                   );
                 }),
-                SizedBox(height: 10.HeightResponsive),
+                SizedBox(height: 10.heightResponsive),
 
                 ElevatedButton(
                   onPressed: () {
@@ -237,7 +235,7 @@ class EditWeightWidget extends StatelessWidget {
             title: "WHAT IS YOU WEIGHT ?",
             subTitle: "This Helps Us Create Your Personalized plan",
           ),
-          SizedBox(height: 20.HeightResponsive),
+          SizedBox(height: 20.heightResponsive),
           CustomContainerWidget(
             body: [
               WheelWidget(
@@ -249,7 +247,6 @@ class EditWeightWidget extends StatelessWidget {
                   newWeight = value;
                   log(viewmodel.weight.toString());
 
-                  print(value);
                 },
                 label: "Kg",
               ),

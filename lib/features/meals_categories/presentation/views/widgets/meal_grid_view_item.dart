@@ -21,9 +21,9 @@ class MealGridViewItem extends StatelessWidget {
         );
       },
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(20.RadiusResponsive),
+        borderRadius: BorderRadius.circular(20.radiusResponsive),
         child: Container(
-          padding: EdgeInsets.all(8.WidthResponsive),
+          padding: EdgeInsets.all(8.widthResponsive),
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(meal.strMealThumb!),

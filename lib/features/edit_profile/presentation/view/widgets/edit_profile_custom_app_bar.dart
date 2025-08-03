@@ -19,17 +19,17 @@ class EditProfileCustomAppBar extends StatelessWidget {
               Navigator.pop(context);
             },
             icon: Container(
-              height: 25.HeightResponsive,
+              height: 25.heightResponsive,
               decoration: BoxDecoration(
                 color: AppColors.primaryColor,
                 borderRadius: BorderRadius.circular(
-                  50.RadiusResponsive,
+                  50.radiusResponsive,
                 ),
               ),
               child: Image(image: AssetImage(IconAssets.backIcon)),
             ),
           ),
-          SizedBox(width: 88.WidthResponsive),
+          SizedBox(width: 88.widthResponsive),
           Text(
             'Edit Profile',
             style: AppTextStyles.BalooThambi2_600_20.copyWith(

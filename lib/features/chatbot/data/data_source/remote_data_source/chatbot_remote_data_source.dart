@@ -1,6 +1,5 @@
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:injectable/injectable.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:fitness_app/core/common/result.dart';
 import 'package:fitness_app/core/api/api_execute.dart';
 

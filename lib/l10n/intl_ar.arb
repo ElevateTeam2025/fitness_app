@@ -108,5 +108,6 @@
   "noConversations": "لا يوجد محادثات حتى الان",
   "deleteConversation": "حذف المحادثة",
   "delete" : "حذف",
-  "areYouSureYouWantToDeleteThisConversation": "هل انت متاكد انك تريد حذف هذه المحادثة؟"
+  "areYouSureYouWantToDeleteThisConversation": "هل انت متاكد انك تريد حذف هذه المحادثة؟",
+  "write":"يكتب..."
 }

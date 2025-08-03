@@ -1,10 +1,7 @@
-import 'dart:developer';
 
-import 'package:dio/dio.dart';
 import 'package:fitness_app/features/home/data/model/exercise_dto_mapper.dart';
 
 import 'package:injectable/injectable.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 
 import '../../../../../core/common/result.dart';
@@ -13,7 +10,6 @@ import '../../domain/entity/exercise_entity.dart';
 import '../../domain/entity/meals_categories_entity.dart';
 import '../../domain/repo/home_repo.dart';
 import '../data_source/home_data_source.dart';
-import '../model/exercise_response_dto.dart';
 import '../model/meal_categories_reponse.dart';
 
 @Injectable(as: HomeRepo)

@@ -50,77 +50,85 @@ class ChatbotTab extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 34.HeightResponsive),
-                  CustomChatbotRow(
-                    onPressed: () {
-                      viewModel.scaffoldKey.currentState?.openEndDrawer();
-                    },
+                  SizedBox(height: 34.heightResponsive),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomChatbotRow(
+                          onPressed: () {
+                            viewModel.scaffoldKey.currentState?.openEndDrawer();
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 25.HeightResponsive),
+                  SizedBox(height: 25.heightResponsive),
                   viewModel.isShowChat == true
                       ? Expanded(
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: ListView.builder(
-                            itemCount: viewModel.messages.length,
-                            itemBuilder: (context, index) {
-                              return MessageBubble(
-                                text: viewModel.messages[index].message,
-                                isUser: viewModel.messages[index].isUser,
-                                isSkeleton:
-                                viewModel.messages[index].isSkeleton,
-                              );
-                            },
-                          ),
-                        ),
-
-                        Row(
-                          children: [
-                            Expanded(
-                              child: TextFormField(
-                                controller:
-                                viewModel.textEditingController,
-                                style:
-                                AppTextStyles
-                                    .BalooThambi2_800_14.copyWith(
-                                  color: AppColors.whiteColor,
-                                ),
-                                onChanged: (value) {
-                                  viewModel.inputText.value = value;
-                                },
-                              ),
-                            ),
-                            ValueListenableBuilder<String>(
-                              valueListenable: viewModel.inputText,
-                              builder: (context, value, child) {
-                                return IconButton(
-                                  onPressed: value.trim().isNotEmpty
-                                      ? () {
-                                    viewModel.doIntent(
-                                      SendMessageIntent(),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: ListView.builder(
+                                  itemCount: viewModel.messages.length,
+                                  itemBuilder: (context, index) {
+                                    return MessageBubble(
+                                      text: viewModel.messages[index].message,
+                                      isUser: viewModel.messages[index].isUser,
+                                      isSkeleton:
+                                          viewModel.messages[index].isSkeleton,
+                                      useTypewriter:
+                                          !viewModel.messages[index].isUser,
                                     );
-                                    viewModel.textEditingController
-                                        .clear();
-                                  }
-                                      : null,
-                                  icon: Icon(
-                                    Icons.send,
-                                    color: value.trim().isNotEmpty
-                                        ? AppColors.primaryColor
-                                        : AppColors.greyColor,
-                                    size: 30,
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
+                                  },
+                                ),
+                              ),
 
-                        SizedBox(height: 25.HeightResponsive),
-                      ],
-                    ),
-                  )
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      controller:
+                                          viewModel.textEditingController,
+                                      style:
+                                          AppTextStyles
+                                              .BalooThambi2_800_14.copyWith(
+                                            color: AppColors.whiteColor,
+                                          ),
+                                      onChanged: (value) {
+                                        viewModel.inputText.value = value;
+                                      },
+                                    ),
+                                  ),
+                                  ValueListenableBuilder<String>(
+                                    valueListenable: viewModel.inputText,
+                                    builder: (context, value, child) {
+                                      return IconButton(
+                                        onPressed: value.trim().isNotEmpty
+                                            ? () {
+                                                viewModel.doIntent(
+                                                  SendMessageIntent(),
+                                                );
+                                                viewModel.textEditingController
+                                                    .clear();
+                                              }
+                                            : null,
+                                        icon: Icon(
+                                          Icons.send,
+                                          color: value.trim().isNotEmpty
+                                              ? AppColors.primaryColor
+                                              : AppColors.greyColor,
+                                          size: 30,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+
+                              SizedBox(height: 25.heightResponsive),
+                            ],
+                          ),
+                        )
                       : Expanded(child: CustomGetStartedBody()),
                 ],
               ),
@@ -129,5 +137,13 @@ class ChatbotTab extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _getSpeedLabel(Duration duration) {
+    if (duration.inMilliseconds <= 15) return 'سريع جداً';
+    if (duration.inMilliseconds <= 30) return 'سريع';
+    if (duration.inMilliseconds <= 50) return 'متوسط';
+    if (duration.inMilliseconds <= 80) return 'بطيء';
+    return 'بطيء جداً';
   }
 }

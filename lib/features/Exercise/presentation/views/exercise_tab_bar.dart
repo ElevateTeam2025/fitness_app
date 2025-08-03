@@ -41,7 +41,7 @@ class ExerciseTabBar extends StatelessWidget {
                 (e) => Tab(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: responsiveWidth(16)),
-                child: Text(e.name, style: AppTextStyles.BalooThambi2_600_12),
+                child: Text(e.name, style: AppTextStyles.balooThambi2_600_12),
               ),
             ),
           )

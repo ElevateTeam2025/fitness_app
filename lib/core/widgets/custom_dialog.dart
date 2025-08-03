@@ -81,7 +81,7 @@ class DialogUtils {
         }
 
         return AlertDialog(
-          content: Text(message, style: AppTextStyles.BalooThambi2_400_14),
+          content: Text(message, style: AppTextStyles.balooThambi2_400_14),
           title: Text(title),
           actions: actions,
         );

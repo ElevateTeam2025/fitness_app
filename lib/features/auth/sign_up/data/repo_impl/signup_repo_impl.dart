@@ -3,7 +3,6 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_app/core/common/result.dart';
 import 'package:fitness_app/features/auth/sign_up/data/data_source/signup_data_source.dart';
-import 'package:fitness_app/features/auth/sign_up/data/models/signup_request_model.dart';
 import 'package:fitness_app/features/auth/sign_up/domain/entity/signup_entity.dart';
 import 'package:fitness_app/features/auth/sign_up/domain/entity/signup_request_entity.dart';
 import 'package:fitness_app/features/auth/sign_up/domain/repo/signup_repo.dart';

@@ -15,15 +15,15 @@ class CustomChatbotCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final tr = S.of(context);
     return Container(
-      height: 190.HeightResponsive,
+      height: 190.heightResponsive,
       width: double.infinity,
       padding: EdgeInsets.symmetric(
-        horizontal: 16.WidthResponsive,
-        vertical: 30.HeightResponsive,
+        horizontal: 16.widthResponsive,
+        vertical: 30.heightResponsive,
       ),
       decoration: BoxDecoration(
         color: AppColors.containerBg.withOpacity(.4),
-        borderRadius: BorderRadius.circular(50.RadiusResponsive),
+        borderRadius: BorderRadius.circular(50.radiusResponsive),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,12 +31,12 @@ class CustomChatbotCard extends StatelessWidget {
           Text(
             tr.helpMessage,
             textAlign: TextAlign.center,
-            style: AppTextStyles.BalooThambi2_600_24.copyWith(
+            style: AppTextStyles.balooThambi2_600_24.copyWith(
               color: AppColors.whiteColor,
               fontWeight: FontWeight.w900,
             ),
           ),
-          SizedBox(height: 8.HeightResponsive),
+          SizedBox(height: 8.heightResponsive),
           ElevatedButton(
             onPressed: () {
               BlocProvider.of<ChatbotViewModel>(

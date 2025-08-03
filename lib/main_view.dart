@@ -26,10 +26,10 @@ class MainView extends StatelessWidget {
               ),
             ),
      CustomContainerWidget(body: [
-              Text('This is a custom container', style: AppTextStyles.BalooThambi2_500_20.copyWith(color: AppColors.whiteColor)),
+              Text('This is a custom container', style: AppTextStyles.balooThambi2_500_20.copyWith(color: AppColors.whiteColor)),
               ElevatedButton(
                 onPressed: () {},
-                child: Text('Click Me', style: AppTextStyles.BalooThambi2_500_14),
+                child: Text('Click Me', style: AppTextStyles.balooThambi2_500_14),
               ),
             ]),
           ],

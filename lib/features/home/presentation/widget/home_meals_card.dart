@@ -20,11 +20,11 @@ class HomeMealsCard extends StatelessWidget {
     return
       Container(
         margin: EdgeInsets.symmetric(
-          horizontal: isLarge ? 6.HeightResponsive :6.HeightResponsive,
+          horizontal: isLarge ? 6.heightResponsive :6.heightResponsive,
           // vertical: 6.HeightResponsive,
         ),
-        width: isLarge ? 104.HeightResponsive : 80.HeightResponsive,
-        height: isLarge ? 104.HeightResponsive : 80.HeightResponsive,
+        width: isLarge ? 104.heightResponsive : 80.heightResponsive,
+        height: isLarge ? 104.heightResponsive : 80.heightResponsive,
         child: Stack(
           children: [
             ClipRRect(
@@ -32,8 +32,8 @@ class HomeMealsCard extends StatelessWidget {
               child: FadeInImage.assetNetwork(
                 placeholder: ImageAssets.loading,
                 image:meal.strCategoryThumb ?? "" ,
-                width: isLarge ? 104.HeightResponsive : 80.HeightResponsive,
-                height: isLarge ? 104.HeightResponsive : 80.HeightResponsive,
+                width: isLarge ? 104.heightResponsive : 80.heightResponsive,
+                height: isLarge ? 104.heightResponsive : 80.heightResponsive,
                 fit: BoxFit.fill,
                 imageErrorBuilder: (_, __, ___) => Icon(Icons.broken_image, size: 60),
               ),
@@ -45,17 +45,17 @@ class HomeMealsCard extends StatelessWidget {
               child: Container(
                   decoration: BoxDecoration(
                     color: AppColors.greyDarkColor.withOpacity(0.8),
-                    borderRadius: BorderRadius.circular(12.RadiusResponsive),
+                    borderRadius: BorderRadius.circular(12.radiusResponsive),
                     // border: Border.all(color: Colors.white.withOpacity(0.2)),
                   ),
-                  width: isLarge ? 104.HeightResponsive : 80.HeightResponsive,
+                  width: isLarge ? 104.heightResponsive : 80.heightResponsive,
                   height: responsiveHeight(20),
                   alignment: Alignment.center,
                   child:   Padding(
                     padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                     child: Text(meal.strCategory ?? "no loaded",
                       textAlign: TextAlign.center,
-                      style:AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.whiteColor) ,),
+                      style:AppTextStyles.balooThambi2_400_12.copyWith(color: AppColors.whiteColor) ,),
                   )
               ),
             ),

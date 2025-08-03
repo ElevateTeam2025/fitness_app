@@ -21,14 +21,14 @@ class CreateNewPasswordViewBody extends StatelessWidget {
           BackGroudImage(),
           SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.only(top: 46.HeightResponsive),
+              padding: EdgeInsets.only(top: 46.heightResponsive),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(child: Image.asset('assets/images/app_logo.png')),
-                  SizedBox(height: 58.HeightResponsive),
+                  SizedBox(height: 58.heightResponsive),
                   CreateNewPasswordTopLeftTitle(),
-                  SizedBox(height: 16.HeightResponsive),
+                  SizedBox(height: 16.heightResponsive),
                   CreateNewPasswordContent(
                    
                     email: email,

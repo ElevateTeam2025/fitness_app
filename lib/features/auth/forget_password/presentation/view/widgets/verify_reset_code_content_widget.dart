@@ -32,7 +32,7 @@ class _VerifyResetCodeContentWidgetState
           autovalidateMode: viewModel.autovalidateMode,
           controller: viewModel.verifyResetCodeController,
         ),
-        SizedBox(height: 24.HeightResponsive),
+        SizedBox(height: 24.heightResponsive),
         BlocListener<VerifyResetCodeCubit, VerifyResetCodeStates>(
           listener: (context, state) {
             if (state is VerifyResetCodeError) {

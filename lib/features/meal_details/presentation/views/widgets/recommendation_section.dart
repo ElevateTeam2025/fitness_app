@@ -14,7 +14,7 @@ class RecommendationSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
+      margin: EdgeInsets.symmetric(horizontal: 16.widthResponsive),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -24,9 +24,9 @@ class RecommendationSection extends StatelessWidget {
               color: AppColors.whiteColor,
             ),
           ),
-          SizedBox(height: 10.HeightResponsive),
+          SizedBox(height: 10.heightResponsive),
           RecommendationWidget(args: args),
-          SizedBox(height: 10.HeightResponsive),
+          SizedBox(height: 10.heightResponsive),
         ],
       ),
     );

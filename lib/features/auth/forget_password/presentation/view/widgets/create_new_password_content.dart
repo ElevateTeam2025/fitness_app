@@ -52,7 +52,7 @@ class _CreateNewPasswordContentState extends State<CreateNewPasswordContent> {
           },
           autovalidateMode: viewModel.autovalidateMode,
         ),
-        SizedBox(height: 24.HeightResponsive),
+        SizedBox(height: 24.heightResponsive),
 
         CreateNewPasswordCustomPasswordTextField(
           onChange: (value) {
@@ -70,7 +70,7 @@ class _CreateNewPasswordContentState extends State<CreateNewPasswordContent> {
           },
           autovalidateMode: viewModel.autovalidateMode,
         ),
-        SizedBox(height: 24.HeightResponsive),
+        SizedBox(height: 24.heightResponsive),
 
         CreateNewPasswordBlocListenerElevatedButton(
           viewModel: viewModel,

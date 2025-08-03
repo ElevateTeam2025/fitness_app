@@ -4,11 +4,11 @@ import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/text_styles.dart';
 
 class RowWidget extends StatelessWidget {
-  const RowWidget({super.key, required this.txt, required this.leading_text,
+  const RowWidget({super.key, required this.txt, required this.leadingText,
     required this.onPressed, this.haveLeadingText=true});
 
   final String txt;
-  final String leading_text;
+  final String leadingText;
   final VoidCallback onPressed;
   final bool haveLeadingText;
 
@@ -20,7 +20,7 @@ class RowWidget extends StatelessWidget {
       children: [
         Text(
           txt,
-          style: AppTextStyles.BalooThambi2_600_16.copyWith(
+          style: AppTextStyles.balooThambi2_600_16.copyWith(
             fontWeight: FontWeight.bold,
             color: AppColors.whiteColor
           ),
@@ -30,8 +30,8 @@ class RowWidget extends StatelessWidget {
           onPressed: onPressed,
 
           child: Text(
-            leading_text,
-            style: AppTextStyles.BalooThambi2_400_14.copyWith(
+            leadingText,
+            style: AppTextStyles.balooThambi2_400_14.copyWith(
               decoration: TextDecoration.underline,
               color: AppColors.primaryColor,
             ),

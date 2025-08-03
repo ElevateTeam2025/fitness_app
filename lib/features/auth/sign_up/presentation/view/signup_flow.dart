@@ -55,7 +55,7 @@ class _SignupFlowState extends State<SignupFlow> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 46.HeightResponsive),
+                      padding: EdgeInsets.only(top: 46.heightResponsive),
 
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,9 +72,9 @@ class _SignupFlowState extends State<SignupFlow> {
                                           viewModel.previousStep();
                                         },
                                         child: Container(
-                                          margin: EdgeInsets.only(left: 16.WidthResponsive),
-                                          width: 30.WidthResponsive,
-                                          height: 30.WidthResponsive,
+                                          margin: EdgeInsets.only(left: 16.widthResponsive),
+                                          width: 30.widthResponsive,
+                                          height: 30.widthResponsive,
                                           decoration: BoxDecoration(
                                             color: AppColors.primaryColor,
 
@@ -101,7 +101,7 @@ class _SignupFlowState extends State<SignupFlow> {
 
 
 
-                          SizedBox(height: 70.HeightResponsive),
+                          SizedBox(height: 70.heightResponsive),
                           BlocBuilder<SignupCubit, SignupState>(
                             builder: (context, state) {
                               if(state.currentStep == 0)
@@ -110,7 +110,7 @@ class _SignupFlowState extends State<SignupFlow> {
                                 }
                               return Center(
                                 child: Padding(
-                                  padding:  EdgeInsets.only(bottom:16.HeightResponsive),
+                                  padding:  EdgeInsets.only(bottom:16.heightResponsive),
                                   child: CustomCircularProgressIndicator(
                                     currentStep: state.currentStep,
                                     totalSteps: 6,

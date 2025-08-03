@@ -16,7 +16,6 @@ class ExerciseHeader extends StatelessWidget {
     required this.isCollapsed,
   });
 
-  bool _isNetworkImage(String url) => url.startsWith('http');
 
   @override
   Widget build(BuildContext context) {
@@ -38,29 +37,29 @@ class ExerciseHeader extends StatelessWidget {
     final collapsedImage = safeUrl.startsWith('http')
         ? Image.network(
       safeUrl,
-      width: 36.WidthResponsive,
-      height: 36.HeightResponsive,
+      width: 36.widthResponsive,
+      height: 36.heightResponsive,
       fit: BoxFit.cover,
       errorBuilder: (context, error, stackTrace) {
         return Image.asset(
           ImageAssets.logo,
-          width: 36.WidthResponsive,
-          height: 36.HeightResponsive,
+          width: 36.widthResponsive,
+          height: 36.heightResponsive,
           fit: BoxFit.cover,
         );
       },
     )
         : Image.asset(
       safeUrl,
-      width: 36.WidthResponsive,
-      height: 36.HeightResponsive,
+      width: 36.widthResponsive,
+      height: 36.heightResponsive,
       fit: BoxFit.cover,
     );
 
     return SliverAppBar(
       pinned: true,
       floating: true,
-      expandedHeight: 244.HeightResponsive,
+      expandedHeight: 244.heightResponsive,
       backgroundColor: isCollapsed ? AppColors.blackColor : Colors.transparent,
       automaticallyImplyLeading: false,
       flexibleSpace: LayoutBuilder(
@@ -68,20 +67,20 @@ class ExerciseHeader extends StatelessWidget {
           final isReallyCollapsed = constraints.maxHeight <= collapsedHeight + 20;
           return FlexibleSpaceBar(
             centerTitle: false,
-            titlePadding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive, vertical: 12.HeightResponsive),
+            titlePadding: EdgeInsets.symmetric(horizontal: 16.widthResponsive, vertical: 12.heightResponsive),
             title: isReallyCollapsed
                 ? Row(
               children: [
-                SizedBox(width: 40.WidthResponsive),
+                SizedBox(width: 40.widthResponsive),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: collapsedImage,
                 ),
-                SizedBox(width: 8.WidthResponsive),
+                SizedBox(width: 8.widthResponsive),
                 Expanded(
                   child: Text(
                     title,
-                    style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                    style: AppTextStyles.balooThambi2_600_16.copyWith(
                       color: AppColors.whiteColor,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -107,12 +106,12 @@ class ExerciseHeader extends StatelessWidget {
                 ),
                 if (!isReallyCollapsed)
                   Positioned(
-                    bottom: 30.HeightResponsive,
-                    left: 16.WidthResponsive,
-                    right: 16.WidthResponsive,
+                    bottom: 30.heightResponsive,
+                    left: 16.widthResponsive,
+                    right: 16.widthResponsive,
                     child: Text(
                       title,
-                      style: AppTextStyles.BalooThambi2_600_18.copyWith(color: AppColors.whiteColor),
+                      style: AppTextStyles.balooThambi2_600_18.copyWith(color: AppColors.whiteColor),
                     ),
                   ),
               ],

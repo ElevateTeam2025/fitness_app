@@ -27,6 +27,6 @@ AppBar buildCustomAppBar({
               icon: Icon(Icons.arrow_back_ios),
             )
             : null, // Set leading to null if isVisible is false
-    title: Text(title, style: AppTextStyles.BalooThambi2_500_20),
+    title: Text(title, style: AppTextStyles.balooThambi2_500_20),
   );
 }

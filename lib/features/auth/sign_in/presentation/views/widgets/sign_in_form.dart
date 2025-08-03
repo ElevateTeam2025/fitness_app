@@ -50,7 +50,7 @@ class SignInForm extends StatelessWidget {
           validator: (value) => AppValidate.validateEmail(value, context),
           focusNode: emailFocusNode,
           controller: emailController,
-          style: AppTextStyles.BalooThambi2_500_16.copyWith(
+          style: AppTextStyles.balooThambi2_500_16.copyWith(
             color: AppColors.whiteColor,
           ),
           decoration: InputDecoration(
@@ -69,7 +69,7 @@ class SignInForm extends StatelessWidget {
           validator: (value) => AppValidate.validatePassword(value, context),
           focusNode: passwordFocusNode,
           controller: passwordController,
-          style: AppTextStyles.BalooThambi2_500_16.copyWith(
+          style: AppTextStyles.balooThambi2_500_16.copyWith(
             color: AppColors.whiteColor,
           ),
           decoration: InputDecoration(
@@ -96,7 +96,7 @@ class SignInForm extends StatelessWidget {
               },
               child: Text(
                 tr.forgetPassword,
-                style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                style: AppTextStyles.balooThambi2_400_12.copyWith(
                   color: AppColors.primaryColor,
                   decoration: TextDecoration.underline,
                 ),
@@ -117,7 +117,7 @@ class SignInForm extends StatelessWidget {
             onPressed: onSubmit,
             child: Text(
               tr.login,
-              style: AppTextStyles.BalooThambi2_600_14.copyWith(
+              style: AppTextStyles.balooThambi2_600_14.copyWith(
                 color: isFormValid
                     ? AppColors.whiteColor
                     : AppColors.greyDarkColor,
@@ -132,7 +132,7 @@ class SignInForm extends StatelessWidget {
           children: [
             Text(
               tr.DoNotHaveAccountYet,
-              style: AppTextStyles.BalooThambi2_400_14.copyWith(
+              style: AppTextStyles.balooThambi2_400_14.copyWith(
                 color: AppColors.whiteColor,
               ),
             ),
@@ -142,7 +142,7 @@ class SignInForm extends StatelessWidget {
               },
               child: Text(
                 tr.register,
-                style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                style: AppTextStyles.balooThambi2_400_14.copyWith(
                   fontWeight: FontWeight.w800,
                   color: AppColors.primaryColor,
                   decoration: TextDecoration.underline,

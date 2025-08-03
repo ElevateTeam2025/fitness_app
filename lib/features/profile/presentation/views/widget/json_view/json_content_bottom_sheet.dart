@@ -71,17 +71,17 @@ class _JsonContentBottomSheetState extends State<JsonContentBottomSheet> with Ti
     }
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(30.RadiusResponsive),
+      borderRadius: BorderRadius.circular(30.radiusResponsive),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
         child: Container(
           height: MediaQuery.of(context).size.height * 0.65,
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.05),
-            borderRadius: BorderRadius.circular(30.RadiusResponsive),
+            borderRadius: BorderRadius.circular(30.radiusResponsive),
             border: Border.all(color: Colors.white.withOpacity(0.2)),
           ),
-          padding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive, vertical: 24.HeightResponsive),
+          padding: EdgeInsets.symmetric(horizontal: 16.widthResponsive, vertical: 24.heightResponsive),
           child: PageView.builder(
             controller: _pageController,
             itemCount: _sections.length,

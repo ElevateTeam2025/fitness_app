@@ -40,7 +40,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> with SingleTickerProv
 
   bool isCollapsed = false;
   final ScrollController _scrollController = ScrollController();
-  final double expandedHeight = 300.HeightResponsive;
+  final double expandedHeight = 300.heightResponsive;
 
   @override
   void initState() {

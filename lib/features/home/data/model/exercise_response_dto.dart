@@ -1,4 +1,3 @@
-import 'package:fitness_app/features/home/domain/entity/exercise_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'exercise_response_dto.g.dart';

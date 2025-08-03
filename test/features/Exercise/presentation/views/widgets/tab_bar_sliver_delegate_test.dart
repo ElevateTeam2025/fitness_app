@@ -57,8 +57,8 @@ void main() {
     expect(decoration.borderRadius, isA<BorderRadius>());
 
     final borderRadius = decoration.borderRadius as BorderRadius;
-    expect(borderRadius.bottomLeft.x, 32.RadiusResponsive);
-    expect(borderRadius.bottomRight.x, 32.RadiusResponsive);
+    expect(borderRadius.bottomLeft.x, 32.radiusResponsive);
+    expect(borderRadius.bottomRight.x, 32.radiusResponsive);
 
     // ------------------------------------------------
     //  collapsed
@@ -92,7 +92,7 @@ void main() {
     expect(gradientCollapsed.colors[1], AppColors.blackColor);
 
     final borderRadiusCollapsed = decorationCollapsed.borderRadius as BorderRadius;
-    expect(borderRadiusCollapsed.bottomLeft.x, 32.RadiusResponsive);
-    expect(borderRadiusCollapsed.bottomRight.x, 32.RadiusResponsive);
+    expect(borderRadiusCollapsed.bottomLeft.x, 32.radiusResponsive);
+    expect(borderRadiusCollapsed.bottomRight.x, 32.radiusResponsive);
   });
 }

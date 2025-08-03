@@ -908,6 +908,11 @@ class S {
       args: [],
     );
   }
+
+  /// `Typing...`
+  String get write {
+    return Intl.message('Typing...', name: 'write', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

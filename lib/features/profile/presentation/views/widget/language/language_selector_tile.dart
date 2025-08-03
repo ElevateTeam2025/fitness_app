@@ -17,11 +17,11 @@ class LanguageSelectorTile extends StatelessWidget {
     final isEnglish = localeProvider.locale.languageCode == 'en';
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 4.HeightResponsive, horizontal: 4.WidthResponsive),
+      padding: EdgeInsets.symmetric(vertical: 4.heightResponsive, horizontal: 4.widthResponsive),
       child: Row(
         children: [
           Icon(AppIcons.language, color: AppColors.primaryColor, size: 18),
-          SizedBox(width: 16.WidthResponsive),
+          SizedBox(width: 16.widthResponsive),
         Expanded(
           child: GestureDetector(
             onTap: () {
@@ -31,9 +31,9 @@ class LanguageSelectorTile extends StatelessWidget {
               children: [
                 Text(
                   S.of(context).selectLanguage,
-                  style: AppTextStyles.BalooThambi2_400_13.copyWith(color: AppColors.whiteColor),
+                  style: AppTextStyles.balooThambi2_400_13.copyWith(color: AppColors.whiteColor),
                 ),
-                SizedBox(width: 4.WidthResponsive),
+                SizedBox(width: 4.widthResponsive),
                 Text(
                   '(${isEnglish ? S.of(context).english : S.of(context).arabic})',
                   style: TextStyle(
@@ -48,8 +48,8 @@ class LanguageSelectorTile extends StatelessWidget {
         ),
 
       SizedBox(
-        height: 24.HeightResponsive,
-        width: 40.WidthResponsive,
+        height: 24.heightResponsive,
+        width: 40.widthResponsive,
         child: Transform.scale(
           scale: 0.75,
             child: Switch(

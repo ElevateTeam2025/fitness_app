@@ -24,7 +24,7 @@ class PinsWidget extends StatelessWidget {
         }
         return null;
       },
-      cursorHeight: 10.HeightResponsive,
+      cursorHeight: 10.heightResponsive,
       length: 6,
       appContext: context,
       animationType: AnimationType.fade,

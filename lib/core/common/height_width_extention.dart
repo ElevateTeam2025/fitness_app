@@ -1,27 +1,27 @@
 import 'package:fitness_app/core/services/screen_size_service.dart';
 
 extension HeightWidthResponsive on int {
-  double get HeightResponsive {
+  double get heightResponsive {
     final screenHeight = ScreenSizeService.height;
     return (this / ScreenSizeService.baseHeight) * screenHeight;
   }
 
-  double get WidthResponsive {
+  double get widthResponsive {
     final screenWidth = ScreenSizeService.width;
     return (this / ScreenSizeService.baseWidth) * screenWidth;
   }
 
-  double get RadiusResponsive {
+  double get radiusResponsive {
     final screenWidth = ScreenSizeService.width;
     return (this / 375.0) * screenWidth;
   }
 
-  double get BorderResponsive {
+  double get borderResponsive {
     final screenWidth = ScreenSizeService.width;
     return (this / 375.0) * screenWidth;
   }
 
-  double get FontSizeResponsive {
+  double get fontSizeResponsive {
     final screenWidth = ScreenSizeService.width;
     return (this / ScreenSizeService.baseWidth) * screenWidth;
   }

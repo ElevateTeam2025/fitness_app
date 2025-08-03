@@ -8,7 +8,7 @@ import '../../../../generated/l10n.dart';
 
 class HomeAppBAr extends StatelessWidget {
 
-   HomeAppBAr({super.key, required this.firstName, required this.imageUrl});
+  const HomeAppBAr({super.key, required this.firstName, required this.imageUrl});
  final  String firstName;
  final  String imageUrl;
   @override
@@ -16,7 +16,7 @@ class HomeAppBAr extends StatelessWidget {
     var tr = S.of(context);
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: 16.WidthResponsive,
+        horizontal: 16.widthResponsive,
         // vertical: 8.HeightResponsive,
       ),
       child: Row(
@@ -27,19 +27,19 @@ class HomeAppBAr extends StatelessWidget {
           Column(
             crossAxisAlignment:CrossAxisAlignment.start ,
             children: [
-              SizedBox(height:  16.HeightResponsive,),
+              SizedBox(height:  16.heightResponsive,),
               Text("${tr.hi} $firstName ,",
-              style: AppTextStyles.BalooThambi2_500_16.copyWith(color: AppColors.whiteColor),
+              style: AppTextStyles.balooThambi2_500_16.copyWith(color: AppColors.whiteColor),
               ),
-              SizedBox(height:  3.HeightResponsive,),
+              SizedBox(height:  3.heightResponsive,),
               Text(tr.LetStartDay,
                 style: AppTextStyles.BalooThambi2_500_18.copyWith(color: AppColors.whiteColor),
               ),
             ],
           ),
           Container(
-            width: 36.WidthResponsive,
-            height: 36.HeightResponsive,
+            width: 36.widthResponsive,
+            height: 36.heightResponsive,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(

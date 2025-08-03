@@ -37,6 +37,7 @@ class ChatbotViewModel extends Cubit<ChatbotState> {
   }
 
   final List<ChatHistoryModel> chatHistory = [];
+
   Future<void> getAllChats() async {
     final result = await _useCase.getAllChats();
     chatHistory.clear();
@@ -74,7 +75,6 @@ class ChatbotViewModel extends Cubit<ChatbotState> {
         emit(SendMessageErrorState(result.exception.toString()));
         break;
     }
-
   }
 
   void _changeScreen() {

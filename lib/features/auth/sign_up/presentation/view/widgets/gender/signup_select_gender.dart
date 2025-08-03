@@ -30,7 +30,7 @@ class SignupSelectGender extends StatelessWidget {
 
               BlocBuilder<SignupCubit, SignupState>(
                 builder: (context, state) {
-                  final hasSelected = state.gender != null && state.gender!.isNotEmpty;
+                  final hasSelected = state.gender != false && state.gender.isNotEmpty;
 
                   return Column(
 
@@ -41,14 +41,14 @@ class SignupSelectGender extends StatelessWidget {
                         icon: IconAssets.maleIcon,
                         isSelected: viewModel.state.gender == "male",name: tr.male,),
 
-                      SizedBox(height: 24.HeightResponsive,),
+                      SizedBox(height: 24.heightResponsive,),
                       GenderWidget(onPress: () {
                         viewModel.selectGender("female");
 
                       },
                         icon: IconAssets.femaleIcon,
                         isSelected: viewModel.state.gender == "female",name: tr.female,),
-                      SizedBox(height:32.HeightResponsive),
+                      SizedBox(height:32.heightResponsive),
                       ElevatedButton(
                         onPressed:hasSelected? () => viewModel.nextStep():null,
                         style: ElevatedButton.styleFrom(

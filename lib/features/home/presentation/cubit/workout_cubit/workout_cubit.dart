@@ -17,9 +17,10 @@ class WorkoutCubit extends Cubit<WorkoutState> {
 
 
   Future<void> fetchWorkout()async{
-    if(isClosed)
-      return;
-    emit(WorkoutLoading());
+    if(isClosed) {
+      return;}
+      emit(WorkoutLoading());
+
 
     final result = await workoutUseCase.call();
     switch(result)
@@ -27,14 +28,16 @@ class WorkoutCubit extends Cubit<WorkoutState> {
       case Success():
         if(result.data != null)
           {
-            if(isClosed)
-              return;
-            emit(WorkoutSuccess(result.data! ));
+            if(isClosed) {
+            return;
+          }
+          emit(WorkoutSuccess(result.data! ));
           }
 
       case Error():
-        if(isClosed)
+        if(isClosed) {
           return;
+        }
         emit(WorkoutError(result.exception.toString()));
     }
   }

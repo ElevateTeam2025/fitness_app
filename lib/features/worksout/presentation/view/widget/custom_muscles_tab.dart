@@ -16,10 +16,10 @@ class CustomMusclesTab extends StatelessWidget {
   Widget build(BuildContext context) {
     var viewModel = BlocProvider.of<WorkoutViewModel>(context);
     return SizedBox(
-      height: 30.HeightResponsive,
+      height: 30.heightResponsive,
       child: ListView.separated(
         separatorBuilder: (context, index) {
-          return SizedBox(width: 10.WidthResponsive);
+          return SizedBox(width: 10.widthResponsive);
         },
         itemCount: musclesTab.length,
         scrollDirection: Axis.horizontal,
@@ -30,18 +30,18 @@ class CustomMusclesTab extends StatelessWidget {
               viewModel.doIntent(GetAllMusclesDataIntent(musclesTab[index].id.toString()));
             },
             child: Container(
-              width: 68.WidthResponsive,
-              height: 30.HeightResponsive,
+              width: 68.widthResponsive,
+              height: 30.heightResponsive,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: viewModel.selectedTab == index
                     ? AppColors.primaryColor
                     : Colors.transparent,
-                borderRadius: BorderRadius.circular(20.BorderResponsive),
+                borderRadius: BorderRadius.circular(20.borderResponsive),
               ),
               child: Text(
                 musclesTab[index].name ?? "",
-                style: AppTextStyles.BalooThambi2_600_12.copyWith(
+                style: AppTextStyles.balooThambi2_600_12.copyWith(
                   fontWeight: FontWeight.bold,
                   color: AppColors.whiteColor,
                   decoration: TextDecoration.none,

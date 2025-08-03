@@ -47,14 +47,14 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
         Container(
           child: Text(
             widget.label,
-            style: AppTextStyles.BalooThambi2_400_14.copyWith(
+            style: AppTextStyles.balooThambi2_400_14.copyWith(
               color: AppColors.primaryColor,
             ),
           ),
         ),
         SizedBox(
           // height: 250.HeightResponsive,
-          height: 150.HeightResponsive,
+          height: 150.heightResponsive,
           width: double.infinity,
           child: Stack(
             children: [
@@ -78,8 +78,8 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
                   bool isSelected = index == currentIndex;
                   int displayValue = widget.minVal + index;
                   return Container(
-                    height: 80.HeightResponsive,
-                    width: 100.WidthResponsive,
+                    height: 80.heightResponsive,
+                    width: 100.widthResponsive,
                     alignment: Alignment.center,
                     child: Text(
                       displayValue.toString(),
@@ -88,7 +88,7 @@ class _WheelWidgetState extends State<WheelWidget> with AutomaticKeepAliveClient
                         color: AppColors.primaryColor,
                         fontSize: 44,
                       )
-                          : AppTextStyles.BalooThambi2_400_16.copyWith(
+                          : AppTextStyles.balooThambi2_400_16.copyWith(
                         color: AppColors.whiteColor,
                         fontSize: 33,
                       ),

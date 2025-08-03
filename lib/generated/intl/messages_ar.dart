@@ -202,6 +202,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "whatYourWeight": MessageLookupByLibrary.simpleMessage("ما هو وزنك؟"),
     "workout": MessageLookupByLibrary.simpleMessage("التمارين"),
     "workouts": MessageLookupByLibrary.simpleMessage("التمارين"),
+    "write": MessageLookupByLibrary.simpleMessage("يكتب..."),
     "yourRegularPhysicalActivityLevel": MessageLookupByLibrary.simpleMessage(
       "مستوى نشاطك البدني المعتاد",
     ),

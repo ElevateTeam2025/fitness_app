@@ -14,7 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class MealDetailsViewBody extends StatefulWidget {
-  MealDetailsViewBody({super.key, required this.args, required this.viewmodel});
+ const MealDetailsViewBody({super.key, required this.args, required this.viewmodel});
   final List args;
   final GetMealDetailsCubit viewmodel;
 
@@ -61,17 +61,17 @@ class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
               return CustomScrollView(
                 slivers: [
                   SliverAppBar(
-                    toolbarHeight: 70.HeightResponsive,
+                    toolbarHeight: 70.heightResponsive,
                     title: CustomArrowBackWidget(),
                     bottom: PreferredSize(
-                      preferredSize: Size.fromHeight(0.HeightResponsive),
+                      preferredSize: Size.fromHeight(0.heightResponsive),
                       child: CustomTitleMealForExpanded(
                         strMeal: data.strMeal ?? '',
                       ),
                     ),
                     pinned: true,
                     backgroundColor: AppColors.primaryColor,
-                    expandedHeight: 350.HeightResponsive,
+                    expandedHeight: 350.heightResponsive,
                     flexibleSpace: FlexibleSpaceBar(
                       background: CustomFlexibleWidget(data: data),
                     ),
@@ -81,7 +81,7 @@ class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         IngredientsSection(data: data),
-                        SizedBox(height: 20.HeightResponsive),
+                        SizedBox(height: 20.heightResponsive),
                         RecommendationSection(args: widget.args),
                       ],
                     ),

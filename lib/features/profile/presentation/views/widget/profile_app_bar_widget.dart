@@ -39,7 +39,7 @@ class ProfileAppBarWidget extends StatelessWidget {
             Center(
               child: Text(
                 S.of(context).profile,
-                style: AppTextStyles.BalooThambi2_600_24.copyWith(color: AppColors.whiteColor),
+                style: AppTextStyles.balooThambi2_600_24.copyWith(color: AppColors.whiteColor),
               ),
             ),
           ],

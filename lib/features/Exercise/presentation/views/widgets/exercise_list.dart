@@ -28,7 +28,7 @@ class ExerciseList extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.03),
-        borderRadius: BorderRadius.circular(16.RadiusResponsive),
+        borderRadius: BorderRadius.circular(16.radiusResponsive),
       ),
       child: ListView.separated(
         padding: EdgeInsets.fromLTRB(responsiveWidth(4), 0, responsiveWidth(4), 0),

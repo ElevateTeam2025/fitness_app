@@ -10,23 +10,23 @@ class CustomTabBarShimmerAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 53.HeightResponsive,
+      height: 53.heightResponsive,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 8, // Reasonable number
-        padding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
+        padding: EdgeInsets.symmetric(horizontal: 16.widthResponsive),
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsets.only(right: 12.WidthResponsive),
+            padding: EdgeInsets.only(right: 12.widthResponsive),
             child: Shimmer(
               duration: const Duration(seconds: 2),
               child: Container(
-                width: 90.WidthResponsive,
-                height: 53.HeightResponsive,
+                width: 90.widthResponsive,
+                height: 53.heightResponsive,
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(
-                    50.RadiusResponsive,
+                    50.radiusResponsive,
                   ),
                 ),
               ),

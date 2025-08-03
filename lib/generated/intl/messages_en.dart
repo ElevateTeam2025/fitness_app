@@ -212,6 +212,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "workout": MessageLookupByLibrary.simpleMessage("Workout"),
     "workouts": MessageLookupByLibrary.simpleMessage("Workouts"),
+    "write": MessageLookupByLibrary.simpleMessage("Typing..."),
     "yourRegularPhysicalActivityLevel": MessageLookupByLibrary.simpleMessage(
       "YOUR REGULAR PHYSICAL ACTIVITY LEVEL",
     ),

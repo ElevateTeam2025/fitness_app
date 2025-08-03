@@ -15,27 +15,27 @@ class GetHomeMealsCategoriesCubit extends Cubit<GetHomeMealsCategoriesStates> {
   final HomeUseCase useCase;
 
   Future<void> getHomeMealsCategories() async {
-    if(isClosed)
+    if(isClosed) {
       return;
-    emit(GetHomeMealsCategoriesLoadingState());
+    }    emit(GetHomeMealsCategoriesLoadingState());
 
     final  result = await useCase.getHomeMealsCategories();
     switch (result) {
       case Success():
         if(result.data != null)
         {
-          if(isClosed)
+          if(isClosed) {
             return;
-
+          }
           emit(GetHomeMealsCategoriesSuccessState(result.data!));
 
         }
 
         break;
       case Error():
-        if(isClosed)
+        if(isClosed) {
           return;
-        emit(
+        }        emit(
           GetHomeMealsCategoriesErrorState(message: result.exception.toString()),
         );
         break;

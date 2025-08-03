@@ -1,6 +1,4 @@
 import 'package:uuid/uuid.dart';
-
-import '../../data/model/chat_history_model.dart';
 import 'message_entity.dart';
 
 class ChatHistoryEntity {

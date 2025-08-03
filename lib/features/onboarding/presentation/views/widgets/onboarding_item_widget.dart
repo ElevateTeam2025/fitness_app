@@ -31,9 +31,9 @@ class OnBoardingItemWidget extends StatelessWidget {
     var tr = S.of(context);
     return Padding(
       padding: EdgeInsets.only(
-        top: 30.HeightResponsive,
-        right: 5.WidthResponsive,
-        left: 5.WidthResponsive,
+        top: 30.heightResponsive,
+        right: 5.widthResponsive,
+        left: 5.widthResponsive,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -51,29 +51,29 @@ class OnBoardingItemWidget extends StatelessWidget {
               },
               child: Text(
                 tr.skip,
-                style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                style: AppTextStyles.balooThambi2_400_14.copyWith(
                   color: AppColors.whiteColor,
                 ),
               ),
             ),
           ),
-          SizedBox(height: 10.HeightResponsive),
+          SizedBox(height: 10.heightResponsive),
           Expanded(
             child: Stack(
               children: [
                 Positioned.fill(
-                  bottom: 230.HeightResponsive,
+                  bottom: 230.heightResponsive,
                   child: Center(
                     child: Image.asset(
                       onboardingEntity.image,
-                      width: 375.WidthResponsive,
-                      height: 516.HeightResponsive,
+                      width: 375.widthResponsive,
+                      height: 516.heightResponsive,
                       fit: BoxFit.contain,
                     ),
                   ),
                 ),
                 Positioned.fill(
-                  top: 460.HeightResponsive,
+                  top: 460.heightResponsive,
                   child: CustomContainerWidget(
                     body: [
                       Text(
@@ -85,17 +85,17 @@ class OnBoardingItemWidget extends StatelessWidget {
                           color: AppColors.whiteColor,
                         ),
                       ),
-                      SizedBox(height: 12.HeightResponsive),
+                      SizedBox(height: 12.heightResponsive),
                       Text(
                         onboardingEntity.body,
                         textAlign: TextAlign.center,
-                        style: AppTextStyles.BalooThambi2_400_16.copyWith(
+                        style: AppTextStyles.balooThambi2_400_16.copyWith(
                           color: AppColors.whiteColor,
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(height: 12.HeightResponsive),
+                      SizedBox(height: 12.heightResponsive),
                       SmoothPageIndicator(
                         controller: pageController,
                         count: boardingItems.length,
@@ -108,10 +108,10 @@ class OnBoardingItemWidget extends StatelessWidget {
                           expansionFactor: 4,
                         ),
                       ),
-                      SizedBox(height: 12.HeightResponsive),
+                      SizedBox(height: 12.heightResponsive),
 
                       SizedBox(
-                        height: 40.HeightResponsive,
+                        height: 40.heightResponsive,
                         child: index == 0
                             ? ElevatedButton(
                                 onPressed: () {
@@ -135,7 +135,7 @@ class OnBoardingItemWidget extends StatelessWidget {
                                       AppTextStyles
                                           .BalooThambi2_800_24.copyWith(
                                         color: AppColors.whiteColor,
-                                        fontSize: 14.FontSizeResponsive,
+                                        fontSize: 14.fontSizeResponsive,
                                       ),
                                 ),
                               )
@@ -149,11 +149,11 @@ class OnBoardingItemWidget extends StatelessWidget {
                                       elevation: 0,
                                       side: BorderSide(
                                         color: AppColors.primaryColor,
-                                        width: 1.WidthResponsive,
+                                        width: 1.widthResponsive,
                                       ),
                                       minimumSize: Size(
-                                        63.WidthResponsive,
-                                        40.HeightResponsive,
+                                        63.widthResponsive,
+                                        40.heightResponsive,
                                       ),
                                     ),
                                     onPressed: () {
@@ -179,7 +179,7 @@ class OnBoardingItemWidget extends StatelessWidget {
                                           AppTextStyles
                                               .BalooThambi2_800_24.copyWith(
                                             color: AppColors.whiteColor,
-                                            fontSize: 14.FontSizeResponsive,
+                                            fontSize: 14.fontSizeResponsive,
                                           ),
                                     ),
                                   ),
@@ -187,8 +187,8 @@ class OnBoardingItemWidget extends StatelessWidget {
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: AppColors.primaryColor,
                                       minimumSize: Size(
-                                        63.WidthResponsive,
-                                        40.HeightResponsive,
+                                        63.widthResponsive,
+                                        40.heightResponsive,
                                       ),
                                     ),
                                     onPressed: () {
@@ -228,7 +228,7 @@ class OnBoardingItemWidget extends StatelessWidget {
                                           AppTextStyles
                                               .BalooThambi2_800_24.copyWith(
                                             color: AppColors.whiteColor,
-                                            fontSize: 14.FontSizeResponsive,
+                                            fontSize: 14.fontSizeResponsive,
                                           ),
                                     ),
                                   ),

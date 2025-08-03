@@ -15,7 +15,7 @@ class MealGridViewShimmerLoading extends StatelessWidget {
       enabled: true,
       direction: ShimmerDirection.fromLTRB(),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(20.RadiusResponsive),
+        borderRadius: BorderRadius.circular(20.radiusResponsive),
         child: Container(
           color: Colors.grey[400],
         ),

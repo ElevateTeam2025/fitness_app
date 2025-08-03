@@ -34,7 +34,7 @@ class ExerciseCard extends StatelessWidget {
       ),
       title: Text(
         exercise.exercise ?? '',
-        style: AppTextStyles.BalooThambi2_600_16.copyWith(color:AppColors.whiteColor),
+        style: AppTextStyles.balooThambi2_600_16.copyWith(color:AppColors.whiteColor),
       ),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,12 +42,12 @@ class ExerciseCard extends StatelessWidget {
           SizedBox(height: responsiveHeight(4)),
           Text(
             exercise.posture ?? '',
-              style: AppTextStyles.BalooThambi2_400_14.copyWith(color: AppColors.whiteColor),
+              style: AppTextStyles.balooThambi2_400_14.copyWith(color: AppColors.whiteColor),
           ),
           SizedBox(height: responsiveHeight(2)),
           Text(
             exercise.primeMoverMuscle ?? '',
-            style: AppTextStyles.BalooThambi2_400_14.copyWith(color:  AppColors.whiteColor),
+            style: AppTextStyles.balooThambi2_400_14.copyWith(color:  AppColors.whiteColor),
           ),
         ],
       ),

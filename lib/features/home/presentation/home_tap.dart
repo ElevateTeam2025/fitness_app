@@ -48,7 +48,7 @@ class _HomeTapState extends State<HomeTap> {
 
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: 16.WidthResponsive,
+            horizontal: 16.widthResponsive,
             // vertical: 8.HeightResponsive,
           ),
           child: SingleChildScrollView(
@@ -79,12 +79,12 @@ class _HomeTapState extends State<HomeTap> {
 
 
                 HomeSizedBox(),
-                RowWidget(txt: tr.category, leading_text: '',onPressed: () {  },haveLeadingText: false,),
+                RowWidget(txt: tr.category, leadingText: '',onPressed: () {  },haveLeadingText: false,),
                 SizedBox(height: responsiveHeight(8),),
                 HomeCategoryList(),
                 HomeSizedBox(),
 
-                RowWidget(txt: tr.recommendationToDay, leading_text: '',onPressed: () {  },haveLeadingText: false,),
+                RowWidget(txt: tr.recommendationToDay, leadingText: '',onPressed: () {  },haveLeadingText: false,),
                 BlocBuilder<RecommendationCubit, RecommendationState>(
                   builder: (context, state) {
                     if (state is RecommendationLoading) {
@@ -97,7 +97,7 @@ class _HomeTapState extends State<HomeTap> {
                     } else if (state is RecommendationSuccess) {
                       return state.data.exercises == null
                           ? Center(child: Text(tr.noExercisesAvailable,
-                        style: AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.errorColor) ,))
+                        style: AppTextStyles.balooThambi2_400_12.copyWith(color: AppColors.errorColor) ,))
                           :
 
                       HomeExerciseList(exercises: state.data.exercises ??[], isLarge: true,);
@@ -106,7 +106,7 @@ class _HomeTapState extends State<HomeTap> {
                         !state.message.contains("internet")) {
                       log('${state.message}Recommendation');
                       return Center(child: Text(state.message,
-                        style:  AppTextStyles.BalooThambi2_400_12.
+                        style:  AppTextStyles.balooThambi2_400_12.
                         copyWith(color: AppColors.errorColor),));
                     } else if (state is RecommendationError &&
                         state.message.contains("internet")) {
@@ -117,7 +117,7 @@ class _HomeTapState extends State<HomeTap> {
                   },
                 ),
                 HomeSizedBox(),
-                RowWidget(txt: tr.upcomingWorkouts, leading_text: tr.viewAll,
+                RowWidget(txt: tr.upcomingWorkouts, leadingText: tr.viewAll,
                   onPressed: () { Navigator.pushNamed(context, PagesRoutes.exerciseScreen,
 
                 ); },),
@@ -135,7 +135,7 @@ class _HomeTapState extends State<HomeTap> {
 
                       return state.data.exercises == null
                           ? Center(child: Text(tr.noExercisesAvailable,
-                        style: AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.errorColor) ,))
+                        style: AppTextStyles.balooThambi2_400_12.copyWith(color: AppColors.errorColor) ,))
                           :
 
                       HomeExerciseList(exercises: state.data.exercises ??[], isLarge: false,);
@@ -144,7 +144,7 @@ class _HomeTapState extends State<HomeTap> {
                         !state.message.contains("internet")) {
                       log(state.message);
                       return Center(child: Text(state.message,
-                        style:  AppTextStyles.BalooThambi2_400_12.
+                        style:  AppTextStyles.balooThambi2_400_12.
                         copyWith(color: AppColors.errorColor),));
                     } else if (state is WorkoutError &&
                         state.message.contains("internet")) {
@@ -155,7 +155,7 @@ class _HomeTapState extends State<HomeTap> {
                   },
                 ),
                 HomeSizedBox(),
-                RowWidget(txt: tr.recommendationForYou, leading_text: tr.viewAll,onPressed:
+                RowWidget(txt: tr.recommendationForYou, leadingText: tr.viewAll,onPressed:
                     () { Navigator.pushNamed(context, PagesRoutes.mealsCategories,
 
                 ); },),
@@ -177,7 +177,7 @@ class _HomeTapState extends State<HomeTap> {
                         state.message.contains("internet")) {
                       log(state.message);
                       return Center(child: Text(state.message,
-                        style:  AppTextStyles.BalooThambi2_400_12.
+                        style:  AppTextStyles.balooThambi2_400_12.
                         copyWith(color: AppColors.errorColor),));
                     } else if (state is GetHomeMealsCategoriesErrorState &&
                         state.message.contains("internet")) {

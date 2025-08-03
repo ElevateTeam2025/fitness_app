@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/cubits/forget_password_cubit/forget_password_cubit.dart';
@@ -19,7 +18,7 @@ class ResendWidget extends StatelessWidget {
       children: [
         Text(
           S.of(context).didNotReceiveVerificationCode,
-          style: AppTextStyles.BalooThambi2_400_16.copyWith(
+          style: AppTextStyles.balooThambi2_400_16.copyWith(
             color: Colors.white,
           ),
         ),
@@ -48,7 +47,7 @@ class ResendWidget extends StatelessWidget {
             },
             child: Text(
               S.of(context).resendCode,
-              style: AppTextStyles.BalooThambi2_400_16,
+              style: AppTextStyles.balooThambi2_400_16,
             ),
           ),
         ),

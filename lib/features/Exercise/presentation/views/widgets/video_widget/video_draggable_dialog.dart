@@ -117,7 +117,7 @@ class _VideoDraggableDialogState extends State<VideoDraggableDialog> with Single
                             ],
                           ),
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(16.RadiusResponsive),
+                            borderRadius: BorderRadius.circular(16.radiusResponsive),
                             child: SizedBox(
                               height: responsiveHeight(235),
                               child:

@@ -26,20 +26,20 @@ class CustomMusclesCard extends StatelessWidget {
         );
       },
       child: Container(
-        width: 163.WidthResponsive,
-        height: 160.HeightResponsive,
+        width: 163.widthResponsive,
+        height: 160.heightResponsive,
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(
           image: DecorationImage(
             image:muscle.image == null ?AssetImage(ImageAssets.onboardingBg): NetworkImage(muscle.image ?? ""),
             fit: BoxFit.cover,
           ),
-          borderRadius: BorderRadius.circular(20.RadiusResponsive),
+          borderRadius: BorderRadius.circular(20.radiusResponsive),
         ),
         child: Text(
           "${muscle.name}",
           textAlign: TextAlign.center,
-          style: AppTextStyles.BalooThambi2_600_16.copyWith(
+          style: AppTextStyles.balooThambi2_600_16.copyWith(
             color: AppColors.whiteColor,
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.none,

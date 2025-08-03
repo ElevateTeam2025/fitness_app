@@ -12,7 +12,7 @@ class MealsCustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 40.HeightResponsive),
+      padding: EdgeInsets.only(top: 40.heightResponsive),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -22,19 +22,19 @@ class MealsCustomAppBar extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: AppColors.primaryColor,
-                borderRadius: BorderRadius.circular(50.RadiusResponsive),
+                borderRadius: BorderRadius.circular(50.radiusResponsive),
               ),
               child: Image.asset(
                 IconAssets.backIcon,
-                height: 30.HeightResponsive,
-                width: 30.WidthResponsive,
+                height: 30.heightResponsive,
+                width: 30.widthResponsive,
               ),
             ),
           ),
-          SizedBox(width: 24.WidthResponsive),
+          SizedBox(width: 24.widthResponsive),
           Text(
             S.of(context).foodRecommendation,
-            style: AppTextStyles.BalooThambi2_600_24.copyWith(
+            style: AppTextStyles.balooThambi2_600_24.copyWith(
               color: Colors.white,
             ),
           ),

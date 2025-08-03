@@ -30,7 +30,7 @@ class SignupBasicInfo extends StatelessWidget {
               CustomContainerWidget(
                 body: [
                   Padding(
-                    padding: EdgeInsets.all(16.HeightResponsive),
+                    padding: EdgeInsets.all(16.heightResponsive),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -78,11 +78,11 @@ class SignupBasicInfo extends StatelessWidget {
                               ),
                             ),
                           ),
-                          style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                          style: AppTextStyles.balooThambi2_400_14.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
-                        SizedBox(height: 16.HeightResponsive),
+                        SizedBox(height: 16.heightResponsive),
 
                         // Last Name TextField
                         TextField(
@@ -128,11 +128,11 @@ class SignupBasicInfo extends StatelessWidget {
                               ),
                             ),
                           ),
-                          style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                          style: AppTextStyles.balooThambi2_400_14.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
-                        SizedBox(height: 16.HeightResponsive),
+                        SizedBox(height: 16.heightResponsive),
 
                         // Email TextField
                         TextField(
@@ -179,11 +179,11 @@ class SignupBasicInfo extends StatelessWidget {
                               ),
                             ),
                           ),
-                          style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                          style: AppTextStyles.balooThambi2_400_14.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
-                        SizedBox(height: 16.HeightResponsive),
+                        SizedBox(height: 16.heightResponsive),
 
                         // Password TextField
                         TextField(
@@ -230,11 +230,11 @@ class SignupBasicInfo extends StatelessWidget {
                               ),
                             ),
                           ),
-                          style: AppTextStyles.BalooThambi2_400_14.copyWith(
+                          style: AppTextStyles.balooThambi2_400_14.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
-                        SizedBox(height: 32.HeightResponsive),
+                        SizedBox(height: 32.heightResponsive),
 
                         // Register Button
                         ElevatedButton(
@@ -280,7 +280,7 @@ class SignupBasicInfo extends StatelessWidget {
       children: [
         Text(
           tr.alreadyHaveAccount,
-          style: AppTextStyles.BalooThambi2_400_14.copyWith(color: AppColors.whiteColor),
+          style: AppTextStyles.balooThambi2_400_14.copyWith(color: AppColors.whiteColor),
         ),
         TextButton(
           onPressed: () {
@@ -288,7 +288,7 @@ class SignupBasicInfo extends StatelessWidget {
           },
           child: Text(
             tr.login,
-            style: AppTextStyles.BalooThambi2_400_14.copyWith(
+            style: AppTextStyles.balooThambi2_400_14.copyWith(
               color: AppColors.primaryColor,
               decoration: TextDecoration.underline,
               decorationColor: AppColors.primaryColor,

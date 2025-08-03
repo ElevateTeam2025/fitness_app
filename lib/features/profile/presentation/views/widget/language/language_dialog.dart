@@ -96,10 +96,10 @@ Widget _buildLanguageTile({
       child: Row(
         children: [
           Text(flag, style: AppTextStyles.BalooThambi2_800_24),
-          SizedBox(width: 12.WidthResponsive),
+          SizedBox(width: 12.widthResponsive),
           Text(
             title,
-            style: AppTextStyles.BalooThambi2_500_16.copyWith(
+            style: AppTextStyles.balooThambi2_500_16.copyWith(
               color: selected ? AppColors.primaryColor : AppColors.greyColor,
             ),
           ),

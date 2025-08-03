@@ -31,7 +31,7 @@ class SignInHeader extends StatelessWidget {
           SizedBox(height: responsiveHeight(20)),
           Text(
             tr.heyThere,
-            style: AppTextStyles.BalooThambi2_400_16.copyWith(
+            style: AppTextStyles.balooThambi2_400_16.copyWith(
               fontSize: 18,
               color: AppColors.whiteColor,
             ),

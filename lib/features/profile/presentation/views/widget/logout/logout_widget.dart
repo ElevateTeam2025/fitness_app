@@ -23,22 +23,22 @@ class CustomLogoutWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 4.HeightResponsive, horizontal: 4.WidthResponsive),
+        padding: EdgeInsets.symmetric(vertical: 4.heightResponsive, horizontal: 4.widthResponsive),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             icon,
-            SizedBox(width: 16.WidthResponsive),
+            SizedBox(width: 16.widthResponsive),
             Expanded(
               child: Text(
                 title,
-                style: AppTextStyles.BalooThambi2_400_13.copyWith(color: AppColors.primaryColor),
+                style: AppTextStyles.balooThambi2_400_13.copyWith(color: AppColors.primaryColor),
                 overflow: TextOverflow.ellipsis,
               ),
             ),
             // SizedBox(width: 8),
             SizedBox(
-              width: 20.WidthResponsive,
+              width: 20.widthResponsive,
               child: trailing ??
                   Icon(AppIcons.arrowRight, color: AppColors.primaryColor, size: 14),
             ),

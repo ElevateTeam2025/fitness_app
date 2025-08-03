@@ -30,8 +30,8 @@ class TabBarSliverDelegate extends SliverPersistentHeaderDelegate {
               : [Colors.black.withOpacity(0.7), Colors.black.withOpacity(0.5)],
         ),
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(32.RadiusResponsive),
-          bottomRight: Radius.circular(32.RadiusResponsive),
+          bottomLeft: Radius.circular(32.radiusResponsive),
+          bottomRight: Radius.circular(32.radiusResponsive),
         ),
       ),
       child: tabBar,

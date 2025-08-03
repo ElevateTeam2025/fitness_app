@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,9 +17,9 @@ class RecommendationCubit extends Cubit<RecommendationState> {
 
 
   Future<void> fetchWorkout()async{
-    if(isClosed)
+    if(isClosed) {
       return;
-
+    }
     emit(RecommendationLoading());
 
     final result =
@@ -32,17 +31,17 @@ class RecommendationCubit extends Cubit<RecommendationState> {
       case Success():
         if(result.data != null)
           {
-            if(isClosed)
+            if(isClosed) {
               return;
-
+            }
             emit(RecommendationSuccess(result.data!));
 
           }
 
       case Error():
-        if(isClosed)
+        if(isClosed) {
           return;
-        emit(RecommendationError(result.exception.toString()));
+        }        emit(RecommendationError(result.exception.toString()));
     }
 
   }

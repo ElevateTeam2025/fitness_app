@@ -1,5 +1,4 @@
 import 'package:fitness_app/core/common/height_width_extention.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/router/pages_routes.dart';
@@ -18,7 +17,7 @@ class HomeMealsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: isLarge ? 104.HeightResponsive : 80.HeightResponsive,
+      height: isLarge ? 104.heightResponsive : 80.heightResponsive,
       child: ListView.builder(
         itemCount:  meals.length,
         scrollDirection: Axis.horizontal,

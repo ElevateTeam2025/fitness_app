@@ -15,10 +15,10 @@ class TestView extends StatelessWidget {
           child: Image.asset(ImageAssets.mealDetailsBg, fit: BoxFit.cover),
         ),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 20.WidthResponsive),
-          height: 344.HeightResponsive,
+          padding: EdgeInsets.symmetric(horizontal: 20.widthResponsive),
+          height: 344.heightResponsive,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.RadiusResponsive),
+            borderRadius: BorderRadius.circular(20.radiusResponsive),
             image: DecorationImage(
               image: NetworkImage(
                 'https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg',
@@ -29,41 +29,41 @@ class TestView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 180.HeightResponsive),
+              SizedBox(height: 180.heightResponsive),
               Text(
                 'Pasta with meat',
-                style: AppTextStyles.BalooThambi2_500_20.copyWith(
-                  fontSize: 24.FontSizeResponsive,
+                style: AppTextStyles.balooThambi2_500_20.copyWith(
+                  fontSize: 24.fontSizeResponsive,
                   color: AppColors.whiteColor,
                 ),
               ),
-              SizedBox(height: 10.HeightResponsive),
+              SizedBox(height: 10.heightResponsive),
 
               Text(
                 'Lorem ipsum dolor sit amet consectetur. Tempus volutpat ut nisi morbi. ',
-                style: AppTextStyles.BalooThambi2_400_16.copyWith(
+                style: AppTextStyles.balooThambi2_400_16.copyWith(
                   color: AppColors.whiteColor,
                 ),
               ),
-              SizedBox(height: 10.HeightResponsive),
+              SizedBox(height: 10.heightResponsive),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 8.WidthResponsive,
-                      vertical: 4.HeightResponsive,
+                      horizontal: 8.widthResponsive,
+                      vertical: 4.heightResponsive,
                     ),
                     decoration: BoxDecoration(
                       border: Border.all(color: AppColors.greyColor),
-                      borderRadius: BorderRadius.circular(20.RadiusResponsive),
+                      borderRadius: BorderRadius.circular(20.radiusResponsive),
                     ),
                     child: Column(
                       children: [
                         Text(
                           '100 k',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
@@ -78,18 +78,18 @@ class TestView extends StatelessWidget {
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 8.WidthResponsive,
-                      vertical: 4.HeightResponsive,
+                      horizontal: 8.widthResponsive,
+                      vertical: 4.heightResponsive,
                     ),
                     decoration: BoxDecoration(
                       border: Border.all(color: AppColors.greyColor),
-                      borderRadius: BorderRadius.circular(20.RadiusResponsive),
+                      borderRadius: BorderRadius.circular(20.radiusResponsive),
                     ),
                     child: Column(
                       children: [
                         Text(
                           '100 k',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
@@ -104,18 +104,18 @@ class TestView extends StatelessWidget {
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 8.WidthResponsive,
-                      vertical: 4.HeightResponsive,
+                      horizontal: 8.widthResponsive,
+                      vertical: 4.heightResponsive,
                     ),
                     decoration: BoxDecoration(
                       border: Border.all(color: AppColors.greyColor),
-                      borderRadius: BorderRadius.circular(20.RadiusResponsive),
+                      borderRadius: BorderRadius.circular(20.radiusResponsive),
                     ),
                     child: Column(
                       children: [
                         Text(
                           '100 k',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
@@ -130,18 +130,18 @@ class TestView extends StatelessWidget {
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 8.WidthResponsive,
-                      vertical: 4.HeightResponsive,
+                      horizontal: 8.widthResponsive,
+                      vertical: 4.heightResponsive,
                     ),
                     decoration: BoxDecoration(
                       border: Border.all(color: AppColors.greyColor),
-                      borderRadius: BorderRadius.circular(20.RadiusResponsive),
+                      borderRadius: BorderRadius.circular(20.radiusResponsive),
                     ),
                     child: Column(
                       children: [
                         Text(
                           '100 k',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
@@ -161,37 +161,37 @@ class TestView extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 330.HeightResponsive),
+          padding: EdgeInsets.only(top: 330.heightResponsive),
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
+            padding: EdgeInsets.symmetric(horizontal: 16.widthResponsive),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 30.HeightResponsive),
+                SizedBox(height: 30.heightResponsive),
                 Text(
                   'Ingredients',
                   style: AppTextStyles.BalooThambi2_700_20.copyWith(
                     color: AppColors.whiteColor,
                   ),
                 ),
-                SizedBox(height: 10.HeightResponsive),
+                SizedBox(height: 10.heightResponsive),
                 Container(
                   decoration: BoxDecoration(
                     color: AppColors.containerBg,
-                    borderRadius: BorderRadius.circular(20.RadiusResponsive),
+                    borderRadius: BorderRadius.circular(20.radiusResponsive),
                   ),
                   child: Column(
                     children: [
                       ListTile(
                         leading: Text(
                           'Meal Breasts',
-                          style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                          style: AppTextStyles.balooThambi2_600_16.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
                         trailing: Text(
                           '250g',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.primaryColor,
                           ),
                         ),
@@ -199,13 +199,13 @@ class TestView extends StatelessWidget {
                       ListTile(
                         leading: Text(
                           'Meal Breasts',
-                          style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                          style: AppTextStyles.balooThambi2_600_16.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
                         trailing: Text(
                           '250g',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.primaryColor,
                           ),
                         ),
@@ -213,13 +213,13 @@ class TestView extends StatelessWidget {
                       ListTile(
                         leading: Text(
                           'Meal Breasts',
-                          style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                          style: AppTextStyles.balooThambi2_600_16.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
                         trailing: Text(
                           '250g',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.primaryColor,
                           ),
                         ),
@@ -227,13 +227,13 @@ class TestView extends StatelessWidget {
                       ListTile(
                         leading: Text(
                           'Meal Breasts',
-                          style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                          style: AppTextStyles.balooThambi2_600_16.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
                         trailing: Text(
                           '250g',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.primaryColor,
                           ),
                         ),
@@ -241,13 +241,13 @@ class TestView extends StatelessWidget {
                       ListTile(
                         leading: Text(
                           'Meal Breasts',
-                          style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                          style: AppTextStyles.balooThambi2_600_16.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
                         trailing: Text(
                           '250g',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.primaryColor,
                           ),
                         ),
@@ -255,13 +255,13 @@ class TestView extends StatelessWidget {
                       ListTile(
                         leading: Text(
                           'Meal Breasts',
-                          style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                          style: AppTextStyles.balooThambi2_600_16.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
                         trailing: Text(
                           '250g',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.primaryColor,
                           ),
                         ),
@@ -269,13 +269,13 @@ class TestView extends StatelessWidget {
                       ListTile(
                         leading: Text(
                           'Meal Breasts',
-                          style: AppTextStyles.BalooThambi2_600_16.copyWith(
+                          style: AppTextStyles.balooThambi2_600_16.copyWith(
                             color: AppColors.whiteColor,
                           ),
                         ),
                         trailing: Text(
                           '250g',
-                          style: AppTextStyles.BalooThambi2_400_12.copyWith(
+                          style: AppTextStyles.balooThambi2_400_12.copyWith(
                             color: AppColors.primaryColor,
                           ),
                         ),

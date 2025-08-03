@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../../cubit/sign_in_cubit/sign_in_view_model.dart';
 import '../widgets/sign_in_view_body.dart';
-
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
 

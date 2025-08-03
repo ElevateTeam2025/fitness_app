@@ -51,7 +51,7 @@ class CustomCircularProgressIndicator extends StatelessWidget {
           Center(
             child: Text(
               '$currentStep/$totalSteps',
-              style:AppTextStyles.BalooThambi2_400_14.copyWith(color: AppColors.whiteColor)
+              style:AppTextStyles.balooThambi2_400_14.copyWith(color: AppColors.whiteColor)
             ),
           ),
         ],

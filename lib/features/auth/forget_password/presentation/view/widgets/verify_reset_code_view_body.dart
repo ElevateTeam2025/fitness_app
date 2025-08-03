@@ -23,17 +23,17 @@ class VerifyResetCodeViewBody extends StatelessWidget {
           BackGroudImage(),
           SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.only(top: 46.HeightResponsive),
+              padding: EdgeInsets.only(top: 46.heightResponsive),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(child: Image.asset('assets/images/app_logo.png')),
 
-                  SizedBox(height: 70.HeightResponsive),
+                  SizedBox(height: 70.heightResponsive),
 
                   VerifyResetCodeTopLeftTitle(),
 
-                  SizedBox(height: 80.HeightResponsive),
+                  SizedBox(height: 80.heightResponsive),
 
                   VerifyResetCodeContentWidget(
                     email: email,

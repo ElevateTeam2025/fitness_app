@@ -14,8 +14,8 @@ class CustomTitleMealForExpanded extends StatelessWidget {
       color: Colors.transparent,
       width: double.infinity,
       padding: EdgeInsets.only(
-        top: 5.WidthResponsive,
-        bottom: 10.HeightResponsive,
+        top: 5.widthResponsive,
+        bottom: 10.heightResponsive,
       ),
       child: Center(
         child: Text(

@@ -27,22 +27,22 @@ class ProfileOptionsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.WidthResponsive),
+      padding: EdgeInsets.symmetric(horizontal: 24.widthResponsive),
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.greyTransparency,
-          borderRadius: BorderRadius.circular(20.RadiusResponsive),
+          borderRadius: BorderRadius.circular(20.radiusResponsive),
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: 8.WidthResponsive,
-            vertical: 8.HeightResponsive,
+            horizontal: 8.widthResponsive,
+            vertical: 8.heightResponsive,
           ),
           child: Column(
             children: [
               _buildTileWithDivider(
                 CustomTileWidget(
-                  icon: Image.asset(IconAssets.profile,width: 20.WidthResponsive,),
+                  icon: Image.asset(IconAssets.profile,width: 20.widthResponsive,),
                   title: S.of(context).editProfile,
                   onTap: () {
                     Navigator.pushNamed(context, PagesRoutes.editProfile,arguments: user);

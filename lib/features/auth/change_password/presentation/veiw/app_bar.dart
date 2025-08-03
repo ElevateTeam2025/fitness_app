@@ -10,29 +10,29 @@ class ChangePasswordCustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 40.HeightResponsive),
+      padding: EdgeInsets.only(top: 40.heightResponsive),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(width: 16.WidthResponsive),
+          SizedBox(width: 16.widthResponsive),
           GestureDetector(
             onTap: () => Navigator.pop(context),
             child: Container(
               decoration: BoxDecoration(
                 color: AppColors.primaryColor,
-                borderRadius: BorderRadius.circular(50.RadiusResponsive),
+                borderRadius: BorderRadius.circular(50.radiusResponsive),
               ),
               child: Image.asset(
                 IconAssets.backIcon,
-                height: 30.HeightResponsive,
-                width: 30.WidthResponsive,
+                height: 30.heightResponsive,
+                width: 30.widthResponsive,
               ),
             ),
           ),
-          SizedBox(width: 24.WidthResponsive),
+          SizedBox(width: 24.widthResponsive),
           Text(
             'Change password',
-            style: AppTextStyles.BalooThambi2_400_18.copyWith(
+            style: AppTextStyles.balooThambi2_400_18.copyWith(
               color: Colors.white,
             ),
           ),

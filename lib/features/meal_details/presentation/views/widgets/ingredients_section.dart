@@ -15,18 +15,18 @@ class IngredientsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
+      margin: EdgeInsets.symmetric(horizontal: 16.widthResponsive),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 20.HeightResponsive),
+          SizedBox(height: 20.heightResponsive),
           Text(
             S.of(context).ingredients,
             style: AppTextStyles.BalooThambi2_700_20.copyWith(
               color: AppColors.whiteColor,
             ),
           ),
-          SizedBox(height: 10.HeightResponsive),
+          SizedBox(height: 10.heightResponsive),
           IngredientsWidget(data: data),
         ],
       ),

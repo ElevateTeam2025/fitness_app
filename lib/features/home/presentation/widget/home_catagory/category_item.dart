@@ -19,7 +19,7 @@ class CategoryItem extends StatelessWidget {
         ),
         SizedBox(height: 6,),
         Text(catName,
-         style:    AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.lightWhiteColor)
+         style:    AppTextStyles.balooThambi2_400_12.copyWith(color: AppColors.lightWhiteColor)
         )
       ],
     );

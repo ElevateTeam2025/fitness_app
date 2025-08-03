@@ -11,20 +11,20 @@ class CustomInfoForMealWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40.HeightResponsive,
+      height: 40.heightResponsive,
       padding: EdgeInsets.symmetric(
-        horizontal: 8.WidthResponsive,
-        vertical: 4.HeightResponsive,
+        horizontal: 8.widthResponsive,
+        vertical: 4.heightResponsive,
       ),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.greyColor),
-        borderRadius: BorderRadius.circular(20.RadiusResponsive),
+        borderRadius: BorderRadius.circular(20.radiusResponsive),
       ),
       child: Column(
         children: [
           Text(
             S.of(context).hondredK,
-            style: AppTextStyles.BalooThambi2_400_12.copyWith(
+            style: AppTextStyles.balooThambi2_400_12.copyWith(
               color: AppColors.whiteColor,
             ),
           ),

@@ -47,7 +47,7 @@ class TabBarItemWidget extends StatelessWidget {
                 ? Text(
               label,
               key: ValueKey(label),
-                style: AppTextStyles.BalooThambi2_400_12.copyWith(color: AppColors.primaryColor),
+                style: AppTextStyles.balooThambi2_400_12.copyWith(color: AppColors.primaryColor),
             )
                 : const SizedBox(height: 0,),
           ),

@@ -24,7 +24,6 @@ class EditProfileViewModel extends Cubit<EditProfileStates> {
         _changeActivity(intent.newActivity);
         break;
       default:
-        print('Unknown intent: $intent');
         break;
     }
   }
@@ -34,23 +33,17 @@ class EditProfileViewModel extends Cubit<EditProfileStates> {
   String selectedActivity = '';
 
   _changeWeight(int newWeight) {
-    print('Weight before changed: $weight');
     weight = newWeight;
-    print('Weight changed: $weight');
     emit(EditProfileWeightChanged());
   }
 
   _changeGoal(String newGoal) {
-    print('Goal before changed: $selectedGoal');
     selectedGoal = newGoal;
-    print('Goal changed: $selectedGoal');
     emit(EditProfileGoalChanged());
   }
 
   _changeActivity(String newActivity) {
-    print('Activity before changed: $selectedActivity');
     selectedActivity = newActivity;
-    print('Activity changed: $selectedActivity');
     emit(EditProfileActivityChanged());
   }
 

@@ -15,13 +15,13 @@ class CustomArrowBackWidget extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             color: AppColors.primaryColor,
-            borderRadius: BorderRadius.circular(50.RadiusResponsive),
+            borderRadius: BorderRadius.circular(50.radiusResponsive),
           ),
           child: IconButton(
             icon: Image.asset(
               IconAssets.backIcon,
-              height: 30.HeightResponsive,
-              width: 30.WidthResponsive,
+              height: 30.heightResponsive,
+              width: 30.widthResponsive,
             ),
             onPressed: () => Navigator.pushReplacementNamed(
               context,

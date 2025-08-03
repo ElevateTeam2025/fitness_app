@@ -6,7 +6,6 @@ import 'package:fitness_app/core/services/easy_loading_service.dart';
 import 'package:fitness_app/core/services/screen_size_service.dart';
 import 'package:fitness_app/core/services/shared_preference_services.dart';
 import 'package:fitness_app/core/utils/constant_manager.dart';
-import 'package:fitness_app/core/utils/end_points.dart';
 import 'package:fitness_app/core/utils/theming.dart';
 import 'package:fitness_app/features/edit_profile/presentation/cubits/edit_profile_cubit/edit_profile_view_model.dart';
 import 'package:fitness_app/features/chatbot/data/model/message_model.dart';

@@ -55,13 +55,13 @@ class ProfileTab extends StatelessWidget {
                 ),
               ),
               child: SingleChildScrollView(
-                padding: EdgeInsets.only(bottom: 100.HeightResponsive),
+                padding: EdgeInsets.only(bottom: 100.heightResponsive),
                 child: Column(
                   children: [
                     const ProfileAppBarWidget(),
-                    SizedBox(height: 24.HeightResponsive),
+                    SizedBox(height: 24.heightResponsive),
                     UserInformationWidget(userData: user),
-                    SizedBox(height: 24.HeightResponsive),
+                    SizedBox(height: 24.heightResponsive),
                     //
                      ProfileOptionsSection(user: user,),
                   ],

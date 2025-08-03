@@ -1,7 +1,4 @@
-import 'dart:developer';
 
-import 'package:fitness_app/core/utils/end_points.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:injectable/injectable.dart';
 
@@ -38,7 +35,6 @@ If the question is not related to fitness or gym, politely respond that you can 
       final response = await chat.sendMessage(Content.text(fullPrompt));
       return response.text ?? 'No response generated';
     } catch (e) {
-      print(e.toString());
       throw Exception('Gemini API call failed: ');
     }
   }

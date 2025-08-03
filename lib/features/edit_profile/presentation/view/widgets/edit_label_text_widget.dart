@@ -17,14 +17,14 @@ class EditLabelTextWidget extends StatelessWidget {
         children: [
           TextSpan(
             text: label,
-            style: AppTextStyles.BalooThambi2_600_14.copyWith(
+            style: AppTextStyles.balooThambi2_600_14.copyWith(
               color: Colors.white,
             ),
           ),
           const TextSpan(text: ' '),
           TextSpan(
             text: '(',
-            style: AppTextStyles.BalooThambi2_600_14.copyWith(
+            style: AppTextStyles.balooThambi2_600_14.copyWith(
               color: Colors.white,
             ),
           ),
@@ -33,7 +33,7 @@ class EditLabelTextWidget extends StatelessWidget {
               onTap: onTap,
               child: Text(
                 'tap To Edit',
-                style: AppTextStyles.BalooThambi2_600_14.copyWith(
+                style: AppTextStyles.balooThambi2_600_14.copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),
@@ -41,7 +41,7 @@ class EditLabelTextWidget extends StatelessWidget {
           ),
           TextSpan(
             text: ')',
-            style: AppTextStyles.BalooThambi2_600_14.copyWith(
+            style: AppTextStyles.balooThambi2_600_14.copyWith(
               color: Colors.white,
             ),
           ),

@@ -9,9 +9,7 @@ import 'package:mockito/annotations.dart';
 
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_cubit.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/cubit/signup_view_model_state.dart';
-import 'package:fitness_app/core/utils/app_colors.dart';
 
-// توليد mock للـ SignupCubit
 import 'signup_select_gender_test.mocks.dart';
 
 @GenerateMocks([SignupCubit])

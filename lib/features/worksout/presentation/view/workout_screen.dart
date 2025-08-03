@@ -52,11 +52,11 @@ class WorkoutTab extends StatelessWidget {
         builder: (context, state) {
           return Container(
             color: AppColors.greyDark2,
-            padding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
+            padding: EdgeInsets.symmetric(horizontal: 16.widthResponsive),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: 30.HeightResponsive),
+                SizedBox(height: 30.heightResponsive),
                 Text(
                   tr.workouts,
                   textAlign: TextAlign.center,
@@ -65,12 +65,12 @@ class WorkoutTab extends StatelessWidget {
                     decoration: TextDecoration.none,
                   ),
                 ),
-                SizedBox(height: 24.HeightResponsive),
+                SizedBox(height: 24.heightResponsive),
                 state is GetMusclesTabLoadingState
                     ? Expanded(
                         child: ListView.separated(
                           separatorBuilder: (context, index) {
-                            return SizedBox(width: 10.WidthResponsive);
+                            return SizedBox(width: 10.widthResponsive);
                           },
                           itemCount: 10,
                           scrollDirection: Axis.horizontal,
@@ -87,7 +87,7 @@ class WorkoutTab extends StatelessWidget {
                     : Text(
                         tr.muscleNotFound,
                         textAlign: TextAlign.center,
-                        style: AppTextStyles.BalooThambi2_600_12.copyWith(
+                        style: AppTextStyles.balooThambi2_600_12.copyWith(
                           decoration: TextDecoration.none,
                         ),
 
@@ -98,9 +98,9 @@ class WorkoutTab extends StatelessWidget {
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
-                                crossAxisSpacing: 18.WidthResponsive,
+                                crossAxisSpacing: 18.widthResponsive,
                                 childAspectRatio: 1.018,
-                                mainAxisSpacing: 17.HeightResponsive,
+                                mainAxisSpacing: 17.heightResponsive,
                               ),
                           itemCount: 6,
                           itemBuilder: (context, index) {
@@ -123,9 +123,9 @@ class WorkoutTab extends StatelessWidget {
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
-                                crossAxisSpacing: 18.WidthResponsive,
+                                crossAxisSpacing: 18.widthResponsive,
                                 childAspectRatio: 1.018,
-                                mainAxisSpacing: 17.HeightResponsive,
+                                mainAxisSpacing: 17.heightResponsive,
                               ),
                           itemCount: viewModel.musclesData.length,
                           itemBuilder: (context, index) {
@@ -141,7 +141,7 @@ class WorkoutTab extends StatelessWidget {
                         child: Center(
                           child: Text(
                             tr.muscleNotFound,
-                            style: AppTextStyles.BalooThambi2_600_18.copyWith(
+                            style: AppTextStyles.balooThambi2_600_18.copyWith(
                               color: AppColors.whiteColor,
                               decoration: TextDecoration.none,
                             ),

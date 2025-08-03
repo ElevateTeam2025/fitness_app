@@ -94,7 +94,7 @@ class SectionContentWidget extends StatelessWidget {
       contentWidgets.addAll(contentRaw.map<Widget>((item) {
         if (item is String) {
           return Padding(
-            padding: EdgeInsets.symmetric(vertical: 6.HeightResponsive),
+            padding: EdgeInsets.symmetric(vertical: 6.heightResponsive),
             child: buildText(item, styleFor(false)),
           );
         } else if (item is Map<String, dynamic>) {
@@ -103,7 +103,7 @@ class SectionContentWidget extends StatelessWidget {
           final link = item['link'] ?? '';
 
           return Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.HeightResponsive),
+            padding: EdgeInsets.symmetric(vertical: 8.heightResponsive),
             child: InkWell(
               onTap: () {
                 debugPrint('Tapped on: $link');
@@ -111,8 +111,8 @@ class SectionContentWidget extends StatelessWidget {
               },
               child: Row(
                 children: [
-                  Icon(_getSocialIcon(icon), color: AppColors.whiteColor, size: 20.WidthResponsive),
-                  SizedBox(width: 12.WidthResponsive),
+                  Icon(_getSocialIcon(icon), color: AppColors.whiteColor, size: 20.widthResponsive),
+                  SizedBox(width: 12.widthResponsive),
                   Expanded(child: buildText(label, styleFor(false))),
                 ],
               ),
@@ -125,7 +125,7 @@ class SectionContentWidget extends StatelessWidget {
     }
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 24.HeightResponsive, horizontal: 24.WidthResponsive),
+      padding: EdgeInsets.symmetric(vertical: 24.heightResponsive, horizontal: 24.widthResponsive),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -138,9 +138,9 @@ class SectionContentWidget extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ).animate().fadeIn(duration: 600.ms).slideY(begin: 0.3),
-          SizedBox(height: 16.HeightResponsive),
+          SizedBox(height: 16.heightResponsive),
           ...contentWidgets.map((w) => w.animate().fadeIn(duration: 600.ms).slideX(begin: 0.2)).toList(),
-          SizedBox(height: 40.HeightResponsive),
+          SizedBox(height: 40.heightResponsive),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -154,12 +154,12 @@ class SectionContentWidget extends StatelessWidget {
                       );
                     },
                     icon: const Icon(AppIcons.back,color: AppColors.whiteColor,),
-                    label: Text('previous', style: AppTextStyles.BalooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
+                    label: Text('previous', style: AppTextStyles.balooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
                   ),
                 )
               else
                 const Spacer(),
-              SizedBox(width: 16.WidthResponsive),
+              SizedBox(width: 16.widthResponsive),
               if (index < totalSections - 1)
                 Expanded(
                   child: ElevatedButton.icon(
@@ -169,7 +169,7 @@ class SectionContentWidget extends StatelessWidget {
                         curve: Curves.easeInOut,
                       );
                     },
-                    icon: Text('next', style: AppTextStyles.BalooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
+                    icon: Text('next', style: AppTextStyles.balooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
                     label: Icon(AppIcons.arrowRight,color: AppColors.whiteColor,),
                   ),
                 )
@@ -177,7 +177,7 @@ class SectionContentWidget extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: Text('close', style: AppTextStyles.BalooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
+                    child: Text('close', style: AppTextStyles.balooThambi2_500_14.copyWith(color: AppColors.whiteColor)),
                   ),
                 ),
             ],

@@ -16,12 +16,12 @@ class IngredientsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 10.WidthResponsive,
+        horizontal: 10.widthResponsive,
       ),
       decoration: BoxDecoration(
         color: AppColors.containerBg,
         borderRadius: BorderRadius.circular(
-          20.RadiusResponsive,
+          20.radiusResponsive,
         ),
       ),
       child: ListView.separated(
@@ -32,7 +32,7 @@ class IngredientsWidget extends StatelessWidget {
             data.strIngredients?[index].name ?? '',
             style:
             AppTextStyles
-                .BalooThambi2_600_16.copyWith(
+                .balooThambi2_600_16.copyWith(
               color: AppColors.whiteColor,
             ),
           ),
@@ -40,15 +40,15 @@ class IngredientsWidget extends StatelessWidget {
             data.strIngredients?[index].measure ?? '',
             style:
             AppTextStyles
-                .BalooThambi2_400_12.copyWith(
+                .balooThambi2_400_12.copyWith(
               color: AppColors.primaryColor,
             ),
           ),
         ),
         separatorBuilder: (context, index) => Divider(
           color: AppColors.greyDarkColor,
-          height: 1.HeightResponsive,
-          thickness: 1.HeightResponsive,
+          height: 1.heightResponsive,
+          thickness: 1.heightResponsive,
         ),
         itemCount: data.strIngredients!
             .where((ingredient) {

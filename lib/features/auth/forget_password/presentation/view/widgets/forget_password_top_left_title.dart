@@ -12,17 +12,17 @@ class ForgetPasswordTopLeftTitle extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 16.WidthResponsive),
+          padding: EdgeInsets.only(left: 16.widthResponsive),
           child: Text(
             S.of(context).enterYourEmail,
-            style: AppTextStyles.BalooThambi2_400_18.copyWith(
+            style: AppTextStyles.balooThambi2_400_18.copyWith(
               color: Colors.white,
             ),
           ),
         ),
 
         Padding(
-          padding: EdgeInsets.only(left: 16.WidthResponsive),
+          padding: EdgeInsets.only(left: 16.widthResponsive),
           child: Text(
             'Forget Password',
             style: AppTextStyles.BalooThambi2_800_20.copyWith(

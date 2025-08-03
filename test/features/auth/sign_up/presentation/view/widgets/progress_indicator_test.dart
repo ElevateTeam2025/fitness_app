@@ -1,6 +1,5 @@
 import 'package:fitness_app/core/services/screen_size_service.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
-import 'package:fitness_app/core/utils/text_styles.dart';
 import 'package:fitness_app/features/auth/sign_up/presentation/view/widgets/progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

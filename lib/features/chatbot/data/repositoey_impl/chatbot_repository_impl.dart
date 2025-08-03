@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:fitness_app/core/common/result.dart';
 import 'package:injectable/injectable.dart';

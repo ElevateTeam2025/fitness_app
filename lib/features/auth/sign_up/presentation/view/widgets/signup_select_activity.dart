@@ -2,7 +2,6 @@ import 'package:fitness_app/core/router/pages_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/text_styles.dart';
 import '../../../../../../core/widgets/custom_container_widget.dart';
@@ -38,7 +37,7 @@ class SignupSelectActivity extends StatelessWidget {
 
               BlocBuilder<SignupCubit, SignupState>(
                 builder: (context, state) {
-                  bool hasSelect = state.selectedActivity != null &&
+                  bool hasSelect = state.selectedActivity != false &&
                       state.selectedActivity.isNotEmpty;
 
                   return Column(

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:fitness_app/core/common/height_width_extention.dart';
 import 'package:fitness_app/features/home/presentation/widget/home_catagory/category_item.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +13,12 @@ class HomeCategoryList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 16.WidthResponsive,
-        vertical: 8.HeightResponsive,
+        horizontal: 16.widthResponsive,
+        vertical: 8.heightResponsive,
       ),
       decoration: BoxDecoration(
         color: AppColors.greyDarkColor,
-        borderRadius: BorderRadius.circular(30.RadiusResponsive),
+        borderRadius: BorderRadius.circular(30.radiusResponsive),
         border: Border.all(color: Colors.white.withOpacity(0.2)),
       ),
       child:SingleChildScrollView(

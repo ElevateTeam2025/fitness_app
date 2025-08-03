@@ -43,7 +43,7 @@ class _MealsCategoriesViewsBodyState extends State<MealsCategoriesViewsBody> {
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.WidthResponsive),
+                padding: EdgeInsets.symmetric(horizontal: 16.widthResponsive),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -57,7 +57,7 @@ class _MealsCategoriesViewsBodyState extends State<MealsCategoriesViewsBody> {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                        vertical: 12.HeightResponsive,
+                        vertical: 12.heightResponsive,
                       ),
                       child: CustomTabBarBlocBuilder(
                         viewModel: viewModel,

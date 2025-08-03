@@ -10,14 +10,14 @@ class RecommendationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 160.HeightResponsive,
+      height: 160.heightResponsive,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: args[1].length,
         itemBuilder: (context, index) =>
             MealGridViewItem(meal: args[1][index], meals: args[1]),
         separatorBuilder: (context, index) =>
-            SizedBox(width: 10.WidthResponsive),
+            SizedBox(width: 10.widthResponsive),
       ),
     );
   }

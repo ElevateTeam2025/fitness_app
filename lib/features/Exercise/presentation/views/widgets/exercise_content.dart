@@ -23,7 +23,7 @@ class ExerciseContent extends StatelessWidget {
         child: Center(
           child: Text(
             noExercisesText,
-            style: AppTextStyles.BalooThambi2_400_14.copyWith(color: AppColors.whiteColor),
+            style: AppTextStyles.balooThambi2_400_14.copyWith(color: AppColors.whiteColor),
           ),
         ),
       );

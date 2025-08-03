@@ -31,7 +31,7 @@ class _CustomTabBarBlocBuilderState extends State<CustomTabBarBlocBuilder> {
         } else if (state is GetMealsCategoriesSuccessState &&
             widget.viewModel.categories.isNotEmpty) {
           return SizedBox(
-            height: 53.HeightResponsive,
+            height: 53.heightResponsive,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: widget.viewModel.categories.length,
@@ -50,14 +50,14 @@ class _CustomTabBarBlocBuilderState extends State<CustomTabBarBlocBuilder> {
                     curve: Curves.easeIn,
                     duration: const Duration(milliseconds: 250),
                     padding: EdgeInsets.symmetric(
-                      horizontal: 17.WidthResponsive,
-                      vertical: 5.HeightResponsive,
+                      horizontal: 17.widthResponsive,
+                      vertical: 5.heightResponsive,
                     ),
                     decoration: BoxDecoration(
                       color: isSelected
                           ? AppColors.primaryColor
                           : Colors.transparent,
-                      borderRadius: BorderRadius.circular(20.RadiusResponsive),
+                      borderRadius: BorderRadius.circular(20.radiusResponsive),
                     ),
                     child: Center(
                       child: Text(
